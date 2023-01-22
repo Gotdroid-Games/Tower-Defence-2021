@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class TowerDamage : MonoBehaviour
+public class TowerTarget : MonoBehaviour
 {
     private Transform Target;
 
-    public int Damage;
+    [Header("Attributes")]
     public float Range = 15f;
+    public float fireRate = 1f;
+    float fireCountdown = 0f;
+
+    [Header("Unity Setup Fields")]
+    
 
     public string enemyTag = "Enemy";
 
     public Transform partToRotate;
     public float turnspeed;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
+    
 
     private void Start()
     {
@@ -59,6 +70,26 @@ public class TowerDamage : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        if(fireCountdown<=0f)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+
+        fireCountdown -= Time.deltaTime;
+
+    }
+
+    void Shoot()
+    {
+        GameObject bulletGo=(GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.Seek(Target);
+        }
 
     }
 
