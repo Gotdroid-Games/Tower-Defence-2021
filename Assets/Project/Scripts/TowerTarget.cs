@@ -63,10 +63,9 @@ public class TowerTarget : MonoBehaviour
         if(Target==null)
         return;
 
-        //Target lock on
-        //Hedef kilitleme aktif
+        //Target lock on (Hedef kilitleme aktif)
 
-        Vector3 dir=Target.position-transform.position;
+        Vector3 dir =Target.position-transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
