@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
+ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     private Transform target;
 
     public float speed = 70f;
+    public GameObject impactEffect;
 
     public void Seek (Transform _target)
     {
@@ -16,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if(target != null)
+        if(target == null)
         {
             Destroy(gameObject);
             return;
@@ -36,6 +34,9 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Debug.Log("anan");
+       GameObject effectIns= Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
+        Destroy(target.gameObject);
+        Destroy(gameObject);
     }
 }
