@@ -97,7 +97,7 @@ public class TowerTarget : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position, Range);
     }
 }

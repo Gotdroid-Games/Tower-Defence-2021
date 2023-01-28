@@ -23,7 +23,6 @@ public class Node : MonoBehaviour
     {
         if(turret != null)
         {
-            Debug.Log("Babana selam");
             return; ;
         }
 
