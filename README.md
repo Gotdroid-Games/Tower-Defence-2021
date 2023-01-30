@@ -21,3 +21,6 @@
 
 # İleri Yapılıcak listesi
  
+ - Oyun içi can sistemi yapılacak (Örnek 20 kalp)
+ 
+ - Eğer düşmanlar END point (Son geçiş noktası) konumuna geçiş yaparsa canımızdan azalacak
