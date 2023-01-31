@@ -39,13 +39,19 @@ public class Bullet : MonoBehaviour
        GameObject effectIns= Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
         Destroy(target.gameObject);
-        Destroy(gameObject);
+        
 
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider)
+        {
+            Enemy.Instance.TakeDamage(20);
+        }
+    }
 
-    
+
 
 
 }

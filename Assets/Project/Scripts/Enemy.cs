@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public float worth = 50;
 
     [Header("Unity Stuff")]
-    public Image healthBar;
+    public Slider healthBar;
     private void Start()
     {
         speed = startSpeed;
@@ -28,24 +28,16 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int amont)
     {
         health -= amont;
-        healthBar.fillAmount = health / 100f;
+        healthBar.value = health / 100f;
 
 
         if (health<=0)
         {
-             Die();
             Debug.Log(health);
-
-        }
-
-           
+        }    
     }
 
-    public void Die()
-    {
-
-        Destroy(gameObject);
-    }
+   
 
     private void Update()
     {
