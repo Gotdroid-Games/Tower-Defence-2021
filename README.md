@@ -11,6 +11,8 @@
    
  - Temel UI hazırlanması (Menü için) (Metehan)
  
+ - Temel UI hazırlanması (Oyun için) (Metehan)
+ 
  - Robot Düşman için particle effeck yapılması (altından ateş çıkması). Gittiği yöne bakması. (emre özcan)
  
  - Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan)
@@ -25,4 +27,4 @@
  
  - Eğer düşmanlar END point (Son geçiş noktası) konumuna geçiş yaparsa canımızdan azalacak
 
- - Temel UI hazırlanması (Oyun için)
+ 
