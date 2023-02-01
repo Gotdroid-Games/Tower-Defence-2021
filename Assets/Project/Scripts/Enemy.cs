@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] Healthbar _healthbar;
+
     public static Enemy Instance;
 
     public float startSpeed = 10f;
@@ -13,7 +15,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public float health = 50;
+
 
     public float worth = 50;
 
@@ -25,17 +27,26 @@ public class Enemy : MonoBehaviour
         target = WayPoints.points[0];
         //healthBar.value = health;
     }
+    void SetHealth(float amont)
+    {
+        int health = 100;
+        healthBar.value = health/100;
+        
+    }
+
+
 
     public void TakeDamage(int amont)
     {
-        health -= amont;
-        healthBar.value = health / 100f;
+        // health -= amont;
+        // healthBar.value = health / 100f;
 
-        Debug.Log("sa");
-        if (health<=0)
-        {
-            Debug.Log(health);
-        }    
+
+        // if (health<=0)
+              Debug.Log("sasa");
+        //  }
+        _healthbar.SetHealth(20);
+
     }
 
    
