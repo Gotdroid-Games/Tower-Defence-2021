@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             doMovement = !doMovement;
-            AudioManager.Instance.PlaySFX("Die");
+            //AudioManager.Instance.PlaySFX("Die");
         }
 
         if(!doMovement)

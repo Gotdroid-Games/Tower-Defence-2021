@@ -59,7 +59,7 @@ public class MenuUI : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Metehan");
     }
 
     public void OptionsButton()
