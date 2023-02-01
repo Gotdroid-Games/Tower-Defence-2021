@@ -457,11 +457,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthbar: {fileID: 0}
+  _healthbar: {fileID: 582224702254847647}
   startSpeed: 10
   speed: 0
   worth: 50
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1442966232885891526}
 --- !u!65 &3537691069090278819
 BoxCollider:
   m_ObjectHideFlags: 0

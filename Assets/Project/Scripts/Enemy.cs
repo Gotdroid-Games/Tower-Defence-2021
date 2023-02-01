@@ -6,8 +6,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Healthbar _healthbar;
 
-    public static Enemy Instance;
-
     public float startSpeed = 10f;
     private Transform target;
     private int wavepointIndex = 0;
@@ -25,13 +23,15 @@ public class Enemy : MonoBehaviour
     {
         speed = startSpeed;
         target = WayPoints.points[0];
+        _healthbar.SetSlider(healthBar);
+        SetHealth(100f);
         //healthBar.value = health;
     }
+
     void SetHealth(float amont)
     {
-        int health = 100;
-        healthBar.value = health/100;
-        
+        //healthBar.value = health/100;
+        _healthbar.SetHealth(amont / 100f);
     }
 
 

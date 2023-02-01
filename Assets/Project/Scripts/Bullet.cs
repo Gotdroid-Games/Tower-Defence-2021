@@ -40,16 +40,16 @@ public class Bullet : MonoBehaviour
         Destroy(effectIns, 2f);
         Destroy(target.gameObject);
 
-        Enemy.Instance.TakeDamage(20);
+        //Enemy.Instance.TakeDamage(20);
        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject)
+        if(collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("as");
-            Enemy.Instance.TakeDamage(20);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(20);
         }
     }
 
