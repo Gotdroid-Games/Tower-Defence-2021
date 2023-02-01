@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public float health = 100;
+    public float health = 50;
 
     public float worth = 50;
 
@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     {
         speed = startSpeed;
         target = WayPoints.points[0];
+        //healthBar.value = health;
     }
 
     public void TakeDamage(int amont)
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour
         health -= amont;
         healthBar.value = health / 100f;
 
-
+        Debug.Log("sa");
         if (health<=0)
         {
             Debug.Log(health);

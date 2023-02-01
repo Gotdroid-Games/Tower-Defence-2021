@@ -45,8 +45,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider)
+        if(collision.gameObject)
         {
+            Debug.Log("as");
             Enemy.Instance.TakeDamage(20);
         }
     }

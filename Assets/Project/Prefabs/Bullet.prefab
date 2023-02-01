@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7963828538582096485}
   - component: {fileID: 5804824978472944351}
   - component: {fileID: 3376073803475828461}
+  - component: {fileID: 5814485206145509848}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -100,3 +101,17 @@ MonoBehaviour:
   damage: 20
   explosionRadius: 0
   impactEffect: {fileID: 5305970559723833175, guid: 8d3b3b67371f4d940a3d1dc4d5a90327, type: 3}
+--- !u!136 &5814485206145509848
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261778768008395965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2.0000005
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
