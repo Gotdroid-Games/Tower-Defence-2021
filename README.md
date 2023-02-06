@@ -20,6 +20,12 @@
  - Düşmanların canları bar olarak üzerine eklenicek (Eyüp Ensar)
  
  - Object pooling (kule ateş etmeleri ve düşman spawn için) (Mehmet Ongan)
+ 
+ - Kule atış sistemi güncellenecek (Eyüp Ensar Erdoğan)
+ 
+ - Way point sistemi güncellenecek (Mehmet Ongan)
+ 
+ - Düşman sistemi güncellenecek (Muhammed Alsaleh)
 
 # İleri Yapılıcak listesi
  
