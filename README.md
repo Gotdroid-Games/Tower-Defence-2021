@@ -17,7 +17,7 @@
  
  - Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan)
  
- - Düşmanların canları bar olarak üzerine eklenicek (Eyüp Ensar)
+ - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan Öztürk)
  
  - Object pooling (kule ateş etmeleri ve düşman spawn için) (Mehmet Ongan)
 
