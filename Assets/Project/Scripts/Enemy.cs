@@ -1,11 +1,15 @@
-
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
+    
+
     public float speed = 10f;
     private Transform target;
     private int wavepointIndex = 0;
+
+    
 
     private void Start()
     {
@@ -32,4 +36,5 @@ public class Enemy : MonoBehaviour
             target = WayPoints.points[wavepointIndex];
         }
     }
+    
 }

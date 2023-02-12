@@ -4,9 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
+using UnityEditor;
+using Unity.VisualScripting;
 
 public class GameUI : MonoBehaviour
 {
+    public static GameUI Instance;
+
     [SerializeField] GameObject _pauseButton;
     [SerializeField] GameObject _resumeButton;
     [SerializeField] GameObject _restartButton;
@@ -17,7 +23,12 @@ public class GameUI : MonoBehaviour
     [SerializeField] GameObject _musicButton;
     [SerializeField] GameObject _sfxButton;
 
+
+
     public Slider _musicSlider, _sfxSlider;
+
+
+
 
     private void Awake()
     {
@@ -30,8 +41,8 @@ public class GameUI : MonoBehaviour
         _exitButton.SetActive(false);
         _musicButton.SetActive(false);
         _sfxButton.SetActive(false);
-
     }
+
     public void PauseButton()
     {
         Time.timeScale = 0;
