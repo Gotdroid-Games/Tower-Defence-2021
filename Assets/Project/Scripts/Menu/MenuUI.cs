@@ -4,27 +4,72 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Experimental.RestService;
-using Newtonsoft.Json.Linq;
-using Unity.VisualScripting;
 
 public class MenuUI : MonoBehaviour
 {
-    [Header("Button System") ]
-    [SerializeField] GameObject playButton;
-    [SerializeField] GameObject optionsButton;
-    [SerializeField] GameObject QuitButton;
-    [SerializeField] GameObject _backButton;
-    [SerializeField] GameObject _musicButton,_sfxButton;
+    
     [SerializeField] Slider _musicSlider, _sfxSlider;
+    [SerializeField] Buttonassignments _Buttons;
 
+
+    #region Buttons
+        [System.Serializable]
+    public class Buttonassignments
+    {
+        public GameObject[] Buttons = new GameObject[5];
+
+        void Button(GameObject playButton, GameObject optionsButton, GameObject QuitButton, GameObject _yesButton, GameObject _noButton, GameObject _backButton, GameObject _musicButton, GameObject _sfxButton)
+        {
+            Buttons[0] = playButton;
+            Buttons[1] = optionsButton;
+            Buttons[2] = QuitButton;
+            Buttons[3] = _yesButton;
+            Buttons[4] = _noButton;
+            Buttons[5] = _backButton;
+            Buttons[6] = _musicButton;
+            Buttons[7] = _sfxButton;
+        }
+        
+    }
+    #endregion
 
 
     private void Awake()
     {
-        _backButton.SetActive(false);
-        _musicButton.SetActive(false);
-        _sfxButton.SetActive(false);
+        
+        _Buttons.Buttons[3].SetActive(false);
+        _Buttons.Buttons[4].SetActive(false);
+    }
+
+    //[0] (playButton)
+    //[1] (optionsButton)
+    //[2] (QuitButton)
+    //[3] (_yesButton)
+    //[4] (_noButton)
+    //[5] (_backButton)
+    //[6] (_musicButton)
+    //[7] (_sfxButton)
+
+    public void BackButton()
+    {
+        _Buttons.Buttons[0].SetActive(true);
+        _Buttons.Buttons[1].SetActive(true);
+        _Buttons.Buttons[2].SetActive(true);
+        _Buttons.Buttons[5].SetActive(false);
+        _Buttons.Buttons[6].SetActive(false);
+        _Buttons.Buttons[7].SetActive(false);
+
+    }
+
+    
+    public void OptionsButton()
+    {
+        _Buttons.Buttons[0].SetActive(false);
+        _Buttons.Buttons[1].SetActive(false);
+        _Buttons.Buttons[2].SetActive(false);
+        _Buttons.Buttons[5].SetActive(true);
+        _Buttons.Buttons[6].SetActive(true);
+        _Buttons.Buttons[7].SetActive(true);
     }
 
     public void ToggleMusic()
@@ -47,29 +92,24 @@ public class MenuUI : MonoBehaviour
         AudioManager.Instance.SFXVolume(_sfxSlider.value);
     }
 
-    public void BackButton()
-    {
-        playButton.SetActive(true);
-        optionsButton.SetActive(true);
-        QuitButton.SetActive(true);
-        _backButton.SetActive(false);
-        _sfxButton.SetActive(false);
-        _musicButton.SetActive(false);
-    }
+    
 
     public void PlayButton()
     {
         SceneManager.LoadScene("Metehan");
     }
 
-    public void OptionsButton()
+    public void QuitButton()
     {
-        playButton.SetActive(false);
-        optionsButton.SetActive(false);
-        QuitButton.SetActive(false);
-        _backButton.SetActive(true);
-        _sfxButton.SetActive(true);
-        _musicButton.SetActive(true);
+        _Buttons.Buttons[3].SetActive(true);
+        _Buttons.Buttons[4].SetActive(true);
+    }
+
+
+    public void NoButton()
+    {
+        _Buttons.Buttons[3].SetActive(false);
+        _Buttons.Buttons[4].SetActive(false);
     }
 
     public void ExitGame()
