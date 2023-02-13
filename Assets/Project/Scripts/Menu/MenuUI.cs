@@ -16,7 +16,7 @@ public class MenuUI : MonoBehaviour
         [System.Serializable]
     public class Buttonassignments
     {
-        public GameObject[] Buttons = new GameObject[5];
+        public GameObject[] Buttons = new GameObject[7];
 
         void Button(GameObject playButton, GameObject optionsButton, GameObject QuitButton, GameObject _yesButton, GameObject _noButton, GameObject _backButton, GameObject _musicButton, GameObject _sfxButton)
         {

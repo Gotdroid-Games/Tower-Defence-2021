@@ -43,6 +43,7 @@ public class GameUI : MonoBehaviour
     // [6] (_exitButton)
     // [7] (_musicButton)
     // [8] (_sfxButton) 
+    // [9] (_defeatMenu)
     private void Awake()
     {
         _Button.GameUIButtons[0].SetActive(true);
@@ -100,6 +101,7 @@ public class GameUI : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
         Time.timeScale = 1;
+
     }
 
     public void QuitButton()
