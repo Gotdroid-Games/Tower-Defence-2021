@@ -13,18 +13,18 @@
  
  - Temel UI hazırlanması (Oyun için) (Metehan) ✅
  
- - Robot Düşman için particle effeck yapılması (altından ateş çıkması). Gittiği yöne bakması. (emre özcan) ✅
+ - Oyun içi can sistemi yapılacak ve düşman son noktaya geldiğinde can azalacak (Örnek 20 kalp) (Metehan) ✅
+ 
+ - Oyun içi dalga sayacı yapılacak (Metehan) 🟥
  
  - Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan) 🟥
+ 
+ - Robot Düşman için particle effeck yapılması (altından ateş çıkması). Gittiği yöne bakması. (emre özcan) ✅
  
  - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan Öztürk) 🟥
  
  - Object pooling (kule ateş etmeleri ve düşman spawn için) (Mehmet Ongan) 🟥
 
 # İleri Yapılıcak listesi
- 
- - Oyun içi can sistemi yapılacak (Örnek 20 kalp) 🟥
- 
- - Eğer düşmanlar END point (Son geçiş noktası) konumuna geçiş yaparsa canımızdan azalacak 🟥
 
- 
+ - Eğer düşmanlar END point (Son geçiş noktası) konumuna geçiş yaparsa canımızdan azalacak 🟥
