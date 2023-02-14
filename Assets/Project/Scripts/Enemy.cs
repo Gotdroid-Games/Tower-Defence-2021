@@ -1,9 +1,8 @@
 using UnityEngine;
-using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-    
+    public static Enemy Instance;
 
     public float speed = 10f;
     private Transform target;
@@ -14,6 +13,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         target = WayPoints.points[0];
+        Instance = this;
     }
     private void Update()
     {

@@ -2,6 +2,7 @@
 
 public class Bullet : MonoBehaviour
 {
+    public static Bullet instance;
     private Transform target;
 
     public float speed = 70f;
@@ -10,6 +11,11 @@ public class Bullet : MonoBehaviour
     public void Seek (Transform _target)
     {
         target = _target;
+    }
+
+    private void Start()
+    {
+        instance = this;
     }
 
     private void Update()
@@ -32,7 +38,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    void HitTarget()
+    public void HitTarget()
     {
        GameObject effectIns= Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);

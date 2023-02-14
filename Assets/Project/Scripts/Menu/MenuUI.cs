@@ -11,8 +11,6 @@ public class MenuUI : MonoBehaviour
     [SerializeField] Slider _musicSlider, _sfxSlider;
     [SerializeField] Buttonassignments _Buttons;
 
-
-    #region Buttons
         [System.Serializable]
     public class Buttonassignments
     {
@@ -31,8 +29,6 @@ public class MenuUI : MonoBehaviour
         }
         
     }
-    #endregion
-
 
     private void Awake()
     {
@@ -97,6 +93,7 @@ public class MenuUI : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene("Metehan");
+        Time.timeScale = 1;
     }
 
     public void QuitButton()

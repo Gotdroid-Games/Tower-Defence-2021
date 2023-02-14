@@ -4,6 +4,8 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner Instance;
+
     public Transform enemyPrefab;
     public Transform spawnPoint;
 
@@ -13,6 +15,11 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waweCountdownText;
 
     int waweIndex = 0;
+
+    private void Start()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {

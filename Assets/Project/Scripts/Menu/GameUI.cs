@@ -7,13 +7,15 @@ using TMPro;
 
 public class GameUI : MonoBehaviour
 {
-    [SerializeField] ButtonAssignments _Button;
+    [SerializeField] public ButtonAssignments _Button;
     public static GameUI Instance;
     public Slider _musicSlider, _sfxSlider;
 
     #region Button
     [System.Serializable]
     
+
+    //Oyun içerisinde bulunan tüm butonlar diziye atandý
     public class ButtonAssignments
     {
         public GameObject[] GameUIButtons = new GameObject[8];
@@ -32,6 +34,10 @@ public class GameUI : MonoBehaviour
             GameUIButtons[8] = _sfxButton;
         }
     }
+    private void Start()
+    {
+        Instance = this;
+    }
     #endregion
 
     // [0] (_pauseButton)
@@ -46,6 +52,7 @@ public class GameUI : MonoBehaviour
     // [9] (_defeatMenu)
     private void Awake()
     {
+        //Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
         _Button.GameUIButtons[0].SetActive(true);
         _Button.GameUIButtons[1].SetActive(false);
         _Button.GameUIButtons[2].SetActive(false);
@@ -59,6 +66,7 @@ public class GameUI : MonoBehaviour
 
     public void PauseButton()
     {
+        //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
         Time.timeScale = 0;
         _Button.GameUIButtons[0].SetActive(false);
         _Button.GameUIButtons[1].SetActive(true);
@@ -83,6 +91,7 @@ public class GameUI : MonoBehaviour
 
     public void ResumeButton()
     {
+        //Oyunu devam ettirme ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
         Time.timeScale = 1;
         _Button.GameUIButtons[0].SetActive(true);
         _Button.GameUIButtons[1].SetActive(false);
@@ -97,40 +106,54 @@ public class GameUI : MonoBehaviour
 
     public void RestartButton()
     {
+        //Oyunu yeniden baþlatma
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
         Time.timeScale = 1;
+    }
 
+    public void DefeatMenu()
+    {
+        //Can deðeri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baþlat), Quit (Çýkýþ Yapmak) butonlarýný aktif hale getirme
+        Time.timeScale = 0;
+        _Button.GameUIButtons[2].SetActive(true);
+        _Button.GameUIButtons[3].SetActive(true);
     }
 
     public void QuitButton()
     {
+        //Ana menüye döndürme
         SceneManager.LoadScene("Menu");
     }
 
     public void ExitButton()
     {
+        //Çarpý ikonu oyuna devam etme
         ResumeButton();
     }
 
     public void ToggleMusic()
     {
+        //Müzik sesini susturma ve aktif etme
         AudioManager.Instance.ToggleMusic();
     }
 
     public void ToggleSFX()
     {
+        //Ses efektlerini susturma ve aktif etme
         AudioManager.Instance.ToggleSFX();
     }
 
     public void MusicVolume()
     {
+        //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.Instance.MusicVolume(_musicSlider.value);
     }
 
     public void SFXVolume()
     {
+        //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.Instance.SFXVolume(_sfxSlider.value);
     }
 }

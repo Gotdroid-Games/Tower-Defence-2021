@@ -6,6 +6,7 @@ using UnityEngine;
 public class TowerTarget : MonoBehaviour
 {
     private Transform Target;
+    public static TowerTarget Instance;
 
     [Header("Attributes")]
     public float Range = 15f;
@@ -28,6 +29,7 @@ public class TowerTarget : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        Instance = this;
     }
 
     void UpdateTarget()
