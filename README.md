@@ -15,7 +15,9 @@
  
  - Oyun içi can sistemi yapılacak ve düşman son noktaya geldiğinde can azalacak (Örnek 20 kalp) (Metehan) ✅
  
- - Oyun içi dalga sayacı yapılacak (Metehan) 🟥
+ - Eğer düşmanlar END point (Son geçiş noktası) konumuna geçiş yaparsa canımızdan azalacak ✅
+ 
+ - Oyun içi dalga sayacı yapılacak (Metehan) ✅
  
  - Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan) 🟥
  
@@ -27,4 +29,4 @@
 
 # İleri Yapılıcak listesi
 
- - Eğer düşmanlar END point (Son geçiş noktası) konumuna geçiş yaparsa canımızdan azalacak 🟥
+ 
