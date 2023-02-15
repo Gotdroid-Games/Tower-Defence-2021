@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
-using OpenCover.Framework.Model;
 
 public class Quaity : MonoBehaviour
 {
@@ -11,9 +10,11 @@ public class Quaity : MonoBehaviour
     public TextMeshProUGUI heartText;
     public TextMeshProUGUI WaveText;
     public TextMeshProUGUI CoinText;
+    public int _coinText = 0;
     public int _heartText = 20;
     public int _waveText = 0;
-    public int _coinText = 0;
+    //public bool CoinControl;
+
 
     private void Start()
     {
@@ -21,8 +22,6 @@ public class Quaity : MonoBehaviour
         _heartText = 20;
         _waveText = 0;
         _coinText = 0;
-        
-        
     }
 
     private void Update()
@@ -33,8 +32,6 @@ public class Quaity : MonoBehaviour
         }
 
         WaveCounter();
-        Coin();
-
     }
 
     private void OnDisable()
@@ -74,7 +71,7 @@ public class Quaity : MonoBehaviour
 
     void WaveValue(int wave)
     {
-        _waveText+=wave;
+        _waveText += wave;
         WaveText.text = _waveText.ToString();
     }
 
@@ -88,12 +85,16 @@ public class Quaity : MonoBehaviour
 
     public void CoinValue(int coin)
     {
-        _coinText+=coin;
+        _coinText += coin;
         CoinText.text = _coinText.ToString();
     }
 
     public void Coin()
     {
-        //Önce can slider sistemi ayarlanacak daha sonra para sistemi ayarlanacak
+        if (Enemy.Instance.IsDestroyed())
+        {
+            CoinValue(5);
+            Debug.Log("Coin");
+        }
     }
 }

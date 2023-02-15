@@ -38,6 +38,11 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     public void HitTarget()
     {
        GameObject effectIns= Instantiate(impactEffect, transform.position, transform.rotation);
