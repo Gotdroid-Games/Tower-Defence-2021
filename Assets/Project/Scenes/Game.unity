@@ -738,9 +738,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f806ffef9610942bfa0f8e74e14b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7301492851690126409, guid: 1f1d71c58be0d3743b0b24ef2375a0a7, type: 3}
+  _startWave: {fileID: 1147385387}
+  enemyPrefab: {fileID: 1998997731388279037, guid: 566c190f199a77c4392c1e535ad5e240, type: 3}
   spawnPoint: {fileID: 874705094}
   timeBetweenWaves: 5
+  countdown: 2
   waweCountdownText: {fileID: 1079759053}
 --- !u!4 &589565926
 Transform:
@@ -769,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c4e849ffb7981408c2a215c4a8972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 5290022080663637203, guid: bec329441a16d4c4ab0d99620881d535, type: 3}
+  standardTurretPrefab: {fileID: 2910688726953676822, guid: 9f2e9c5581669324785c1fce66ce8b5b, type: 3}
 --- !u!1 &618640951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1641,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079759051}
   m_CullTransparentMesh: 1
+--- !u!1 &1147385387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5746039872563645069, guid: 877ad89950da72240b7e8f09ff3cadab, type: 3}
+  m_PrefabInstance: {fileID: 1057852467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1179135865
 GameObject:
   m_ObjectHideFlags: 0

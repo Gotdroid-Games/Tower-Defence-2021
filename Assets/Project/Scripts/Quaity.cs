@@ -91,10 +91,10 @@ public class Quaity : MonoBehaviour
 
     public void Coin()
     {
-        if (Enemy.Instance.IsDestroyed())
-        {
-            CoinValue(5);
-            Debug.Log("Coin");
-        }
+        //if (Enemy.Instance.IsDestroyed())
+        //{
+        //    CoinValue(5);
+        //    Debug.Log("Coin");
+        //}
     }
 }
