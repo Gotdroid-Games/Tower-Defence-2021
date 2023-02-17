@@ -1,96 +1,40 @@
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Healthbar _healthbar;
-    
-    public int maxHealth = 100;
-    public int currentHealth;
+    public static Enemy Instance;
 
-    public float startSpeed = 10f;
+    public float speed = 10f;
     private Transform target;
     private int wavepointIndex = 0;
 
-    [HideInInspector]
-    public float speed;
+    
 
-
-
-    public float worth = 50;
-
-    [Header("Unity Stuff")]
-    public Slider healthBar;
     private void Start()
     {
-        
-        speed = startSpeed;
         target = WayPoints.points[0];
-        //_healthbar.SetSlider(healthBar);
-        currentHealth = maxHealth;
-        _healthbar.SetMaxHealth(maxHealth);
-        //healthBar.value = health;
+        Instance = this;
     }
-
-    //void SetHealth(int amont)
-    //{
-    //    //healthBar.value = health/100;
-    //    _healthbar.SetHealth(amont / 100);
-    //}
-
-
-
-    public void TakeDamage(int damage)
-    {
-        // health -= amont;
-        // healthBar.value = health / 100;
-
-
-        // if (health<=0)
-        //      Debug.Log("sasa");
-        //  }
-        //_healthbar.SetHealth(20);
-
-        currentHealth -= damage;
-
-        _healthbar.SetHealth(currentHealth);
-    }
-
-   
-
     private void Update()
     {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-         
-        if (target == null)
-        {
-            return;
-        }
-
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
         if(Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWayPoint();
         }
 
-            target = WayPoints.points[wavepointIndex];
-        
-    }
-
-    void GetNextWayPoint()
-    {
-        if (wavepointIndex >= WayPoints.points.Length - 1)
+        void GetNextWayPoint()
         {
-            Destroy(target.gameObject);
-
-            return;
+            if(wavepointIndex >= WayPoints.points.Length - 1)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            wavepointIndex++;
+            target = WayPoints.points[wavepointIndex];
         }
-        wavepointIndex++;
     }
+    
 }
