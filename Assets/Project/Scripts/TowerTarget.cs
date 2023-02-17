@@ -6,6 +6,7 @@ using UnityEngine;
 public class TowerTarget : MonoBehaviour
 {
     private Transform Target;
+    public static TowerTarget Instance;
 
     [Header("Attributes")]
     public float Range = 15f;
@@ -28,6 +29,7 @@ public class TowerTarget : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        Instance = this;
     }
 
     void UpdateTarget()
@@ -85,8 +87,6 @@ public class TowerTarget : MonoBehaviour
         GameObject bulletGo= (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGo.GetComponent<Bullet>();
 
-        
-
         if (bullet != null)
         {
             bullet.Seek(Target);
@@ -98,6 +98,6 @@ public class TowerTarget : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position, Range);
+        Gizmos.DrawWireSphere(transform.position, Range);
     }
 }
