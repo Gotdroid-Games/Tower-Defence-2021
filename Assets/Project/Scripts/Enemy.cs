@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Healthbar _healthbar;
-    public static Enemy instantiate;
+    
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public Slider healthBar;
     private void Start()
     {
-        instantiate = this;
+        
         speed = startSpeed;
         target = WayPoints.points[0];
         //_healthbar.SetSlider(healthBar);
@@ -61,6 +61,16 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+         
+        if (target == null)
+        {
+            return;
+        }
+
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
 
@@ -69,24 +79,18 @@ public class Enemy : MonoBehaviour
             GetNextWayPoint();
         }
 
-        void GetNextWayPoint()
-        {
-            if(wavepointIndex >= WayPoints.points.Length - 1)
-            {
-                Destroy(target.gameObject);
-                
-                return;
-            }
-            wavepointIndex++;
             target = WayPoints.points[wavepointIndex];
-
-          
-        }
-
-        if(Enemy.instantiate.currentHealth <= 0)
-        {
-            //Destroy(target.gameObject);
-        }
+        
     }
 
+    void GetNextWayPoint()
+    {
+        if (wavepointIndex >= WayPoints.points.Length - 1)
+        {
+            Destroy(target.gameObject);
+
+            return;
+        }
+        wavepointIndex++;
+    }
 }
