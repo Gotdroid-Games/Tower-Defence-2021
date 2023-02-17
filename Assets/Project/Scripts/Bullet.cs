@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] public Enemy _enemy;
     private Transform target;
 
     public float speed = 70f;
@@ -27,7 +28,8 @@ public class Bullet : MonoBehaviour
 
         if(dir.magnitude <= distanceThisFrame)
         {
-            HitTarget();
+            //HitTarget();
+ 
             return;
         }
 
@@ -36,11 +38,15 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
-        Destroy(target.gameObject);
+        if(Enemy.instantiate.currentHealth <= 0)
+        {
+            GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(effectIns, 2f);
+            Destroy(target.gameObject);
+        }
 
-        //Enemy.Instance.TakeDamage(20);
+        Debug.Log("sasa");
+        //Enemy.TakeDamage(20);
        
     }
 
@@ -50,6 +56,12 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("as");
             collision.gameObject.GetComponent<Enemy>().TakeDamage(20);
+            if (Enemy.instantiate.currentHealth <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+                
+            //HitTarget();
         }
     }
 

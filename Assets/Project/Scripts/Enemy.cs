@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Healthbar _healthbar;
+    public static Enemy instantiate;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     public float startSpeed = 10f;
     private Transform target;
@@ -21,32 +24,37 @@ public class Enemy : MonoBehaviour
     public Slider healthBar;
     private void Start()
     {
+        instantiate = this;
         speed = startSpeed;
         target = WayPoints.points[0];
-        _healthbar.SetSlider(healthBar);
-        SetHealth(100f);
+        //_healthbar.SetSlider(healthBar);
+        currentHealth = maxHealth;
+        _healthbar.SetMaxHealth(maxHealth);
         //healthBar.value = health;
     }
 
-    void SetHealth(float amont)
-    {
-        //healthBar.value = health/100;
-        _healthbar.SetHealth(amont / 100f);
-    }
+    //void SetHealth(int amont)
+    //{
+    //    //healthBar.value = health/100;
+    //    _healthbar.SetHealth(amont / 100);
+    //}
 
 
 
-    public void TakeDamage(int amont)
+    public void TakeDamage(int damage)
     {
         // health -= amont;
-        // healthBar.value = health / 100f;
+        // healthBar.value = health / 100;
 
 
         // if (health<=0)
-              Debug.Log("sasa");
+        //      Debug.Log("sasa");
         //  }
-        _healthbar.SetHealth(20);
+        //_healthbar.SetHealth(20);
 
+        currentHealth -= damage;
+
+        _healthbar.SetHealth(currentHealth);
     }
 
    
@@ -65,11 +73,20 @@ public class Enemy : MonoBehaviour
         {
             if(wavepointIndex >= WayPoints.points.Length - 1)
             {
-                Destroy(gameObject);
+                Destroy(target.gameObject);
+                
                 return;
             }
             wavepointIndex++;
             target = WayPoints.points[wavepointIndex];
+
+          
+        }
+
+        if(Enemy.instantiate.currentHealth <= 0)
+        {
+            //Destroy(target.gameObject);
         }
     }
+
 }
