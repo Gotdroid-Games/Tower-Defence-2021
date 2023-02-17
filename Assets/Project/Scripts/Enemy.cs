@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         target = WayPoints.points[0];
         //_healthbar.SetSlider(healthBar);
         currentHealth = maxHealth;
-        _healthbar.SetMaxHealth(maxHealth);
+        //_healthbar.SetMaxHealth(maxHealth);
         //healthBar.value = health;
     }
 
