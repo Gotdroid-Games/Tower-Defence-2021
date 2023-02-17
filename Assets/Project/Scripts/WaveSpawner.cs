@@ -4,16 +4,26 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public static WaveSpawner Instance;
 
+    public GameObject _startWave;
+    bool StartWaveControl;
+
+    public Transform enemyPrefab;
     public Transform spawnPoint;
 
     public float timeBetweenWaves = 5f;
-    float countdown = 2f;
+    public float countdown = 2f;
 
     public TextMeshProUGUI waweCountdownText;
 
     int waweIndex = 0;
+
+    private void Start()
+    {
+        Instance = this;
+        StartWaveControl = false;
+    }
 
     private void Update()
     {
@@ -21,11 +31,25 @@ public class WaveSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            StartWaveControl = false;
+        }
+        if(StartWaveControl==true)
+        {
+            countdown -= Time.deltaTime;
+            waweCountdownText.text = Mathf.Round(countdown).ToString();
+            
+        }
+        if(StartWaveControl ==false)
+        {
+            _startWave.SetActive(true);
         }
 
-        countdown-=Time.deltaTime;
+    }
 
-        waweCountdownText.text= Mathf.Round(countdown).ToString();
+    public void StartWave()
+    {
+        StartWaveControl = true;
+        _startWave.SetActive(false);
     }
 
     IEnumerator SpawnWave()
