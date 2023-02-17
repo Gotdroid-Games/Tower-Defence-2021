@@ -5069,7 +5069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startWave: {fileID: 313361781}
-  enemyPrefab: {fileID: 1998997731388279037, guid: cb30e7e48b21a0d4d8de30b7da72da8b, type: 3}
+  enemyPrefab: {fileID: 1998997731388279037, guid: 1f1d71c58be0d3743b0b24ef2375a0a7, type: 3}
   spawnPoint: {fileID: 874705094}
   timeBetweenWaves: 5
   countdown: 2
