@@ -26,40 +26,23 @@ public class Bullet : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
-        {
-            //HitTarget();
- 
-            return;
-        }
-
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    void HitTarget()
-    {
-        //if(Enemy.instantiate.currentHealth <= 0)
-        //{
-        //    GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
-        //    Destroy(effectIns, 2f);
-        //    Destroy(target.gameObject);
-        //}
-
-        Debug.Log("sasa");
-        //Enemy.TakeDamage(20);
-       
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("as");
+            
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-
+            
             enemy.TakeDamage(20);
                 
-            //HitTarget();
+            if(GetComponent<Enemy>().currentHealth<=0)
+            {
+                Quaity.Instance.CoinValue(5);
+            }
         }
     }
 

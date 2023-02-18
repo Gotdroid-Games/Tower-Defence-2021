@@ -88,13 +88,4 @@ public class Quaity : MonoBehaviour
         _coinText += coin;
         CoinText.text = _coinText.ToString();
     }
-
-    public void Coin()
-    {
-        //if (Enemy.Instance.IsDestroyed())
-        //{
-        //    CoinValue(5);
-        //    Debug.Log("Coin");
-        //}
-    }
 }

@@ -16,9 +16,9 @@ public class Shop : MonoBehaviour
         Debug.Log("Stand Turret Selected");
         buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
    }
-    // public void PurchaseAnotherTurret ()
-    //{
-    //   Debug.Log("Another Turret Selected");
-    //  buildManager.SetTurretToBuild(buildManager.anotherTurretPrefab);
-    //} 
+     public void PurchaseAnotherTurret ()
+    {
+       Debug.Log("Another Turret Selected");
+      //buildManager.SetTurretToBuild(buildManager.anotherTurretPrefab);
+    } 
 }
