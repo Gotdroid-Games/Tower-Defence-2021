@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
             
             enemy.TakeDamage(20);
                 
-            if(GetComponent<Enemy>().currentHealth<=0)
+            if(GetComponent<Enemy>().currentHealth <= 0)
             {
                 Quaity.Instance.CoinValue(5);
             }
