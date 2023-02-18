@@ -21,7 +21,7 @@
  
  - Robot Düşman için particle effeck yapılması (altından ateş çıkması). Gittiği yöne bakması. (Emre Özcan) ✅
  
- - Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan Tınaz)
+ - Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan Tınaz) 🟥
  
  - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan) ✅
  
