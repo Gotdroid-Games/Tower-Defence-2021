@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Healthbar _healthbar;
-    
+
+    public static Enemy Instance;
+
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -24,7 +26,7 @@ public class Enemy : MonoBehaviour
     public Slider healthBar;
     private void Start()
     {
-        
+        Instance = this;
         speed = startSpeed;
         target = WayPoints.points[0];
         //_healthbar.SetSlider(healthBar);
@@ -79,8 +81,8 @@ public class Enemy : MonoBehaviour
             GetNextWayPoint();
         }
 
-            target = WayPoints.points[wavepointIndex];
-        
+        target = WayPoints.points[wavepointIndex];
+        Coin();
     }
 
     void GetNextWayPoint()
@@ -92,5 +94,13 @@ public class Enemy : MonoBehaviour
             return;
         }
         wavepointIndex++;
+    }
+
+    void Coin()
+    {
+        if(currentHealth<=0)
+        {
+            Quaity.Instance.CoinValue(10);
+        }
     }
 }

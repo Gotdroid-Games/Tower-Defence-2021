@@ -491,6 +491,7 @@ MonoBehaviour:
   startSpeed: 10
   speed: 10
   worth: 50
+  healthBar: {fileID: 0}
 --- !u!4 &1998997731388279037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a61172dde5e4b540bf23ef0e827305b, type: 3}

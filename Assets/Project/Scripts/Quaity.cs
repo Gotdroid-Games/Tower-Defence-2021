@@ -88,4 +88,6 @@ public class Quaity : MonoBehaviour
         _coinText += coin;
         CoinText.text = _coinText.ToString();
     }
+
+    
 }
