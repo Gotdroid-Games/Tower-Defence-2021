@@ -51,6 +51,7 @@ public class Quaity : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Damage(1);
+            Destroy(other.gameObject);
         }
     }
 
