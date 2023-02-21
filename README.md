@@ -19,6 +19,8 @@
 
 - Kule kurulunca para eksilme sistemi (Metehan Tınaz) 🟥
 
+- Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan) 🟥
+
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
@@ -41,11 +43,9 @@
  
  
 # İleri Yapılıcak listesi
- 
+
  - Object pooling (kule ateş etmeleri ve düşman spawn için)
  
- - Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan)
+ - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) 
 
-- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) 
-
-- Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 
+ - Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 
