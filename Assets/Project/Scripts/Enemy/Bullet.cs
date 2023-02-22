@@ -3,14 +3,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
+    public static Bullet Instance;
     private Transform target;
 
     public float speed = 70f;
-    public int damage = 50;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void Seek (Transform _target)
     {
         target = _target;
@@ -37,7 +41,7 @@ public class Bullet : MonoBehaviour
             
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             
-            enemy.TakeDamage(20);
+            enemy.TakeDamage();
                 
             
         }

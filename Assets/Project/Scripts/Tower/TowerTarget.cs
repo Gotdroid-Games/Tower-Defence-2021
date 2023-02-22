@@ -94,6 +94,10 @@ public class TowerTarget : MonoBehaviour
 
     }
 
+    private void OnMouseEnter()
+    {
+        
+    }
 
     private void OnDrawGizmosSelected()
     {

@@ -10,18 +10,21 @@ public class Quaity : MonoBehaviour
     public TextMeshProUGUI heartText;
     public TextMeshProUGUI WaveText;
     public TextMeshProUGUI CoinText;
-    public int _coinText = 0;
+    public int _coinText = 1000;
     public int _heartText = 20;
     public int _waveText = 0;
     //public bool CoinControl;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        Instance = this;
         _heartText = 20;
         _waveText = 0;
-        _coinText = 0;
+        _coinText = 1000;
     }
 
     private void Update()
@@ -29,6 +32,11 @@ public class Quaity : MonoBehaviour
         if (_heartText <= 0)
         {
             gameObject.SetActive(false);
+        }
+
+        if(_coinText<=0)
+        {
+            _coinText = 0;
         }
 
         WaveCounter();
@@ -90,5 +98,15 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
-    
+    public void PaidTower(int Decrease)
+    {
+        _coinText-=Decrease;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void TowerUpgradeMoney(int Decrease)
+    {
+        _coinText -= Decrease;
+        CoinText.text = _coinText.ToString();
+    }
 }
