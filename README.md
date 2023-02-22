@@ -17,7 +17,7 @@
 
 - Satış sistemi ve geliştirme (Metehan Tınaz) 🟥
 
-- Kule kurulunca para eksilme sistemi (Metehan Tınaz) 🟥
+- Kule kurulunca para eksilme ve belirli paranın altına geçince kule koyamama sistemi (Metehan Tınaz) ✅
 
 - Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan) 🟥
 
