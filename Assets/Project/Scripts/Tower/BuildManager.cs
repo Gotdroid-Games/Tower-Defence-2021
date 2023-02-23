@@ -30,10 +30,4 @@ public class BuildManager : MonoBehaviour
     {
         turretToBuild = turret;
     }
-
-    public void Sell()
-    {
-        Destroy(gameObject);
-        Debug.Log("sa");
-    }
 }

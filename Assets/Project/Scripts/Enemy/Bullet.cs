@@ -4,7 +4,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
-
     public float speed = 70f;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
@@ -17,6 +16,11 @@ public class Bullet : MonoBehaviour
     public void Seek (Transform _target)
     {
         target = _target;
+    }
+
+    private void Start()
+    {
+        
     }
     private void Update()
     {
@@ -34,17 +38,12 @@ public class Bullet : MonoBehaviour
         
     }
 
-
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(15);
+            enemy.TakeDamage();
         }
     }
-
-
-
-
 }

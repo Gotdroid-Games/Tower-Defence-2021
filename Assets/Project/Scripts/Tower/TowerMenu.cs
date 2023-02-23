@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class TowerMenu : MonoBehaviour
 {
-    private TowerUpgrades TowerUpgrades;
-    private TowerTarget towerTarget;
+    
 
     public GameObject UpgradeButton1;
-    public GameObject UpgradeButton2;
-    public GameObject UpgradeButton3;
+    public GameObject Tower;
+    //public GameObject UpgradeButton2;
+    //public GameObject UpgradeButton3;
     public GameObject SellButton;
+
+    public int _damage = 15;
 
     private void Start()
     {
-        TowerUpgrades = GetComponent<TowerUpgrades>();
-        towerTarget = GetComponent<TowerTarget>();
-
-        //if (towerTarget == null)
-        //{
-        //    Debug.LogError("TowerTarget component is not attached to this GameObject.");
-        //}
+        
     }
 
     private void OnMouseDown()
@@ -36,11 +32,15 @@ public class TowerMenu : MonoBehaviour
             SellButton.SetActive(false);
         }
     }
+    
+    public void Upgrade()
+    {
+        
+    }
 
     public void Sell()
     {
-        Destroy(gameObject);
+        Quaity.Instance.SellTower(70);
+        Destroy(Tower);
     }
-
-
 }
