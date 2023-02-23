@@ -19,7 +19,7 @@ public class BuildManager : MonoBehaviour
     public GameObject standardTurretPrefab;
     //public GameObject anotherTurretPrefab;
 
-    private GameObject turretToBuild;
+     GameObject turretToBuild;
 
     public GameObject GetTurretToBuild()
     {
@@ -29,5 +29,11 @@ public class BuildManager : MonoBehaviour
     public void SetTurretToBuild (GameObject turret)
     {
         turretToBuild = turret;
+    }
+
+    public void Sell()
+    {
+        Destroy(gameObject);
+        Debug.Log("sa");
     }
 }

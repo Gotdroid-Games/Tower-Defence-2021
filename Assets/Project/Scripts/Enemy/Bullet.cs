@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public static Bullet Instance;
     private Transform target;
 
     public float speed = 70f;
@@ -13,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+
     }
     public void Seek (Transform _target)
     {
@@ -31,6 +30,8 @@ public class Bullet : MonoBehaviour
         float distanceThisFrame = speed * Time.deltaTime;
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+
+        
     }
 
 
@@ -38,12 +39,8 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            
-            enemy.TakeDamage();
-                
-            
+            enemy.TakeDamage(15);
         }
     }
 

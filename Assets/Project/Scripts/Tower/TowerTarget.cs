@@ -6,10 +6,10 @@ using UnityEngine;
 public class TowerTarget : MonoBehaviour
 {
     private Transform Target;
-    public static TowerTarget Instance;
-
+    
     [Header("Attributes")]
     public float Range = 15f;
+    public int damage = 15;
     public float fireRate = 1f;
     float fireCountdown = 0f;
 
@@ -28,8 +28,7 @@ public class TowerTarget : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
-        Instance = this;
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);  
     }
 
     void UpdateTarget()
@@ -94,10 +93,11 @@ public class TowerTarget : MonoBehaviour
 
     }
 
-    private void OnMouseEnter()
+    public void Sell()
     {
-        
+        Destroy(gameObject);
     }
+
 
     private void OnDrawGizmosSelected()
     {

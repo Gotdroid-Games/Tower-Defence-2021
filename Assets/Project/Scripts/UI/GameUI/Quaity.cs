@@ -29,22 +29,29 @@ public class Quaity : MonoBehaviour
 
     private void Update()
     {
-        if (_heartText <= 0)
+        if (_heartText <= 0 || _waveText >= 2)
         {
             gameObject.SetActive(false);
         }
 
-        if(_coinText<=0)
+        if (_coinText<=0)
         {
             _coinText = 0;
         }
 
         WaveCounter();
+        
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     private void OnDisable()
     {
         DefeatMenu();
+        Winning();
     }
 
     void Damage(int damage)
@@ -108,5 +115,15 @@ public class Quaity : MonoBehaviour
     {
         _coinText -= Decrease;
         CoinText.text = _coinText.ToString();
+    }
+
+    public void Winning()
+    {
+        if(_waveText>=2)
+        {
+            GameUI.Instance._Button.GameUIButtons[2].SetActive(true);
+            GameUI.Instance._Button.GameUIButtons[9].SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
