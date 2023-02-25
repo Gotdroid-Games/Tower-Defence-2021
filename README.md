@@ -19,6 +19,8 @@
 
 - Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan) 🟥
 
+ - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
+
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
@@ -35,15 +37,13 @@
  
  - Robot Düşman için particle effeck yapılması (altından ateş çıkması). Gittiği yöne bakması. (Emre Özcan) ✅
  
- - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan) ✅
+ - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan Öztürk)) ✅
  
- - Düşmanların canını azaltacak kodlar eklenecek (Yusuf Kağan) ✅
+ - Düşmanların canını azaltacak kodlar eklenecek (Yusuf Kağan Öztürk)) ✅
  
  
 # İleri Yapılıcak listesi
 
  - Object pooling (kule ateş etmeleri ve düşman spawn için)
- 
- - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) 
 
  - Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 
