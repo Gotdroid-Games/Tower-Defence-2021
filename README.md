@@ -11,8 +11,6 @@
 
 - Fading sistemi (Sahneden sahneye ekran geçişi) (Emre Özcan) 🟥
 
-- Kuledeki karakterler direk aynı düşmanı hedef alıcak. (Metehan Tınaz) 🟥
-
 - Winning sistemi (Tüm dalgalar başarılı bir şekilde tamamlanırsa gelecek olan kazanma ekranı) (Metehan Tınaz) ✅
 
 - Satış sistemi ve geliştirme (Metehan Tınaz) 🟥
