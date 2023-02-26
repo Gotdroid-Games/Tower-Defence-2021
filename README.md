@@ -17,7 +17,7 @@
 
 - Kule kurulunca para eksilme ve belirli paranın altına geçince kule koyamama sistemi (Metehan Tınaz) ✅
 
-- Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan) 🟥
+- Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan) ✅
 
  - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
 
