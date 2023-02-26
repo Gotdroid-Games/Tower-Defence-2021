@@ -18,9 +18,9 @@ public class GameUI : MonoBehaviour
     //Oyun içerisinde bulunan tüm butonlar diziye atandý
     public class ButtonAssignments
     {
-        public GameObject[] GameUIButtons = new GameObject[8];
+        public GameObject[] GameUIButtons = new GameObject[10];
 
-        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton)
+        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _garrison, GameObject _rain)
 
         {
             GameUIButtons[0] = _pauseButton;
@@ -32,6 +32,8 @@ public class GameUI : MonoBehaviour
             GameUIButtons[6] = _exitButton;
             GameUIButtons[7] = _musicButton;
             GameUIButtons[8] = _sfxButton;
+            GameUIButtons[9] = _garrison;
+            GameUIButtons[10] = _rain;
         }
     }
     private void Start()
@@ -155,5 +157,15 @@ public class GameUI : MonoBehaviour
     {
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.Instance.SFXVolume(_sfxSlider.value);
+    }
+
+    public void Garrison()
+    {
+
+    }
+
+    public void Rain()
+    {
+
     }
 }
