@@ -43,11 +43,6 @@ public class Quaity : MonoBehaviour
         
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     private void OnDisable()
     {
         DefeatMenu();

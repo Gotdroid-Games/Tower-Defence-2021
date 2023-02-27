@@ -9,14 +9,12 @@ public class TowerMenu : MonoBehaviour
     
 
     public GameObject UpgradeButton1;
-    public GameObject TowerLevel1;
-    public GameObject TowerLevel2;
-    public GameObject TowerLevel3;
+    public GameObject Tower;
+    //public GameObject TowerLevel2;
+    //public GameObject TowerLevel3;
     //public GameObject UpgradeButton2;
     //public GameObject UpgradeButton3;
     public GameObject SellButton;
-
-    public int _damage = 15;
 
     private void Start()
     {
@@ -40,14 +38,19 @@ public class TowerMenu : MonoBehaviour
     public void Upgrade()
     {
         towerTarget.damage += 15;
-        
+        towerTarget.Range += 15f;
+        if(Quaity.Instance._coinText>=120)
+        {
+            Quaity.Instance.PaidTower(120);
+        }
+        UpgradeButton1.SetActive(false);
+        SellButton.SetActive(false);   
     }
 
     public void Sell()
     {
         Quaity.Instance.SellTower(70);
-        Destroy(TowerLevel1);
-        Destroy(TowerLevel2);
-        Destroy(TowerLevel3);
+        Destroy(Tower);
     }
+
 }
