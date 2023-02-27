@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerTarget : MonoBehaviour
 {
+    public static TowerTarget instance;
+
     private Transform Target;
     
     [Header("Attributes")]
@@ -27,6 +29,7 @@ public class TowerTarget : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);  
     }
 

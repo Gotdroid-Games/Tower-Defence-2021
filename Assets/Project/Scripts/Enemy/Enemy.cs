@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
-    TowerTarget _target;
+    TowerTarget TowerTarget;
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        
+        TowerTarget = TowerTarget.instance;
         speed = startSpeed;
         target = WayPoints.points[0];
         currentHealth = maxHealth;
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth -= _target.damage;
+        currentHealth -= TowerTarget.damage;
         _healthbar.SetHealth(currentHealth);
     }
 
