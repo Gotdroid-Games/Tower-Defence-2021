@@ -5,9 +5,9 @@
 ✅🟥
 
 ## Yapılacak Listesi
-- Kule kurma sistemi eklenecek. Node üzerine basıldığında oyun içi menü açılması. (Emre Özcan) 🟥
+- Kule kurma sistemi eklenecek. Node üzerine basıldığında oyun içi menü açılması. (Emre Özcan) ✅
 
-- Enemy healt barının direk ekrana bakması (Slider düşman ile birlikte dönmeyecek kameraya bakacak) (Emre Özcan) 🟥
+- Enemy healt barının direk ekrana bakması (Slider düşman ile birlikte dönmeyecek kameraya bakacak) (Emre Özcan) ✅
 
 - Fading sistemi (Sahneden sahneye ekran geçişi) (Emre Özcan) 🟥
 
