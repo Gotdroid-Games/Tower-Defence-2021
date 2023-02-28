@@ -20,7 +20,7 @@
 
 - Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması
 
-- Hero sistemi
+- Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek)
 
 - Bomba kulesi atış sistemi
 
