@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameUI : MonoBehaviour
 {
@@ -18,9 +19,9 @@ public class GameUI : MonoBehaviour
     //Oyun içerisinde bulunan tüm butonlar diziye atandý
     public class ButtonAssignments
     {
-        public GameObject[] GameUIButtons = new GameObject[8];
+        public GameObject[] GameUIButtons = new GameObject[13];
 
-        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton)
+        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _continueButton,GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar)
 
         {
             GameUIButtons[0] = _pauseButton;
@@ -32,6 +33,10 @@ public class GameUI : MonoBehaviour
             GameUIButtons[6] = _exitButton;
             GameUIButtons[7] = _musicButton;
             GameUIButtons[8] = _sfxButton;
+            GameUIButtons[9] = _continueButton;
+            GameUIButtons[10] = _firstStar;
+            GameUIButtons[11] = _secondStar;
+            GameUIButtons[12] = _thirdStar;
         }
     }
     private void Start()
@@ -49,7 +54,10 @@ public class GameUI : MonoBehaviour
     // [6] (_exitButton)
     // [7] (_musicButton)
     // [8] (_sfxButton) 
-    // [9] (_defeatMenu)
+    // [9] (_continueButton)
+    // [10] (_firstStart)
+    // [11] (_secondStart)
+    // [12] (_thirdStar)
     private void Awake()
     {
         //Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
@@ -62,6 +70,11 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[6].SetActive(false);
         _Button.GameUIButtons[7].SetActive(false);
         _Button.GameUIButtons[8].SetActive(false);
+        _Button.GameUIButtons[9].SetActive(false);
+        _Button.GameUIButtons[10].SetActive(false);
+        _Button.GameUIButtons[11].SetActive(false);
+        _Button.GameUIButtons[12].SetActive(false);
+
     }
 
     public void PauseButton()
@@ -88,6 +101,9 @@ public class GameUI : MonoBehaviour
     // [6] (_exitButton)
     // [7] (_musicButton)
     // [8] (_sfxButton) 
+    // [10] (_firstStart)
+    // [11] (_secondStart)
+    // [12] (_thirdStar)
 
     public void ResumeButton()
     {
@@ -155,5 +171,10 @@ public class GameUI : MonoBehaviour
     {
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.Instance.SFXVolume(_sfxSlider.value);
+    }
+
+    public void ContinueButton()
+    {
+        QuitButton();
     }
 }

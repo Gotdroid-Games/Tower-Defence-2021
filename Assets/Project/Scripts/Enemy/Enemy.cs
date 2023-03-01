@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
-
-    public static Enemy Instance;
+    TowerTarget TowerTarget;
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -17,49 +17,25 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector]
     public float speed;
-
-
-
     public float worth = 50;
 
     [Header("Unity Stuff")]
     public Slider healthBar;
+
     private void Start()
     {
-        Instance = this;
+        TowerTarget = TowerTarget.instance;
         speed = startSpeed;
         target = WayPoints.points[0];
-        //_healthbar.SetSlider(healthBar);
         currentHealth = maxHealth;
-        //_healthbar.SetMaxHealth(maxHealth);
-        //healthBar.value = health;
     }
 
-    //void SetHealth(int amont)
-    //{
-    //    //healthBar.value = health/100;
-    //    _healthbar.SetHealth(amont / 100);
-    //}
 
-
-
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        // health -= amont;
-        // healthBar.value = health / 100;
-
-
-        // if (health<=0)
-        //      Debug.Log("sasa");
-        //  }
-        //_healthbar.SetHealth(20);
-
-        currentHealth -= damage;
-
+        currentHealth -= TowerTarget.damage;
         _healthbar.SetHealth(currentHealth);
     }
-
-   
 
     private void Update()
     {
