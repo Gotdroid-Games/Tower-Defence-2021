@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 public class Quaity : MonoBehaviour
 {
@@ -10,9 +8,11 @@ public class Quaity : MonoBehaviour
     public TextMeshProUGUI heartText;
     public TextMeshProUGUI WaveText;
     public TextMeshProUGUI CoinText;
+    
     public int _coinText = 1000;
     public int _heartText = 20;
     public int _waveText = 0;
+    
     //public bool CoinControl;
 
     private void Awake()
@@ -29,7 +29,7 @@ public class Quaity : MonoBehaviour
 
     private void Update()
     {
-        if (_heartText <= 0 || _waveText >= 12)
+        if (_heartText <= 0 || _waveText >= 1)
         {
             gameObject.SetActive(false);
         }
@@ -120,11 +120,16 @@ public class Quaity : MonoBehaviour
 
     public void Winning()
     {
-        if(_waveText>=12)
+        if(_waveText>=1)
         {
             GameUI.Instance._Button.GameUIButtons[2].SetActive(true);
             GameUI.Instance._Button.GameUIButtons[9].SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
+        
     }
+
+    
+    
+
 }
