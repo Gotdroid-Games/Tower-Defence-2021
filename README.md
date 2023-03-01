@@ -8,7 +8,7 @@
 
 - Fading sistemi (Sahneden sahneye ekran geçişi) (Emre Özcan) 🟥
 
-- Oyun kazandıktan sonra gelecek olan yıldız puanı sistemi
+- Oyun kazandıktan sonra gelecek olan yıldız puanı sistemi (Metehan tınaz) 🟥
 
 - Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi
 
