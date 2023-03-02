@@ -3,17 +3,24 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
     private Transform target;
-
     public float speed = 70f;
-    public int damage = 50;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
+
+    private void Awake()
+    {
+
+    }
     public void Seek (Transform _target)
     {
         target = _target;
+    }
+
+    private void Start()
+    {
+        
     }
     private void Update()
     {
@@ -27,23 +34,16 @@ public class Bullet : MonoBehaviour
         float distanceThisFrame = speed * Time.deltaTime;
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-    }
 
+        
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            
-            enemy.TakeDamage(20);
-                
-            
+            enemy.TakeDamage();
         }
     }
-
-
-
-
 }

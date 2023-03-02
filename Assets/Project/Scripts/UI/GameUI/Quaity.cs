@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 public class Quaity : MonoBehaviour
 {
@@ -10,33 +8,45 @@ public class Quaity : MonoBehaviour
     public TextMeshProUGUI heartText;
     public TextMeshProUGUI WaveText;
     public TextMeshProUGUI CoinText;
-    public int _coinText = 0;
+    
+    public int _coinText = 1000;
     public int _heartText = 20;
     public int _waveText = 0;
+    
     //public bool CoinControl;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        Instance = this;
         _heartText = 20;
         _waveText = 0;
-        _coinText = 0;
+        _coinText = 1000;
     }
 
     private void Update()
     {
-        if (_heartText <= 0)
+        if (_heartText <= 0 || _waveText >= 1)
         {
             gameObject.SetActive(false);
         }
 
+        if (_coinText<=0)
+        {
+            _coinText = 0;
+        }
+
         WaveCounter();
+        
     }
 
     private void OnDisable()
     {
         DefeatMenu();
+        Winning();
     }
 
     void Damage(int damage)
@@ -90,5 +100,36 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
+    public void PaidTower(int Decrease)
+    {
+        _coinText-=Decrease;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void SellTower(int value)
+    {
+        _coinText += value;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void TowerUpgradeMoney(int Decrease)
+    {
+        _coinText -= Decrease;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void Winning()
+    {
+        if(_waveText>=1)
+        {
+            GameUI.Instance._Button.GameUIButtons[2].SetActive(true);
+            GameUI.Instance._Button.GameUIButtons[9].SetActive(true);
+            //Time.timeScale = 0;
+        }
+        
+    }
+
     
+    
+
 }

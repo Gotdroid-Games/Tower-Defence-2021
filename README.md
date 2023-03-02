@@ -12,19 +12,21 @@
 
 - Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) 🟥
 
-- Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli)
+- Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) 🟥
 
-- Yıldız puanını menüde bulunan text bağlama 
+- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme 🟥
 
-- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme
+- Yıldız puanını menüde bulunan text bağlama 🟥
 
-- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması
+- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme 🟥
 
-- Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek)
+- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması 🟥
 
-- Bomba kulesi atış sistemi
+- Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek) 🟥
 
-- Bomba kulesini NodeUI paneline ekleme
+- Bomba kulesi atış sistemi 🟥
+
+- Bomba kulesini NodeUI paneline ekleme 🟥
 
 - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
 
@@ -62,6 +64,6 @@
  
 # İleri Yapılıcak listesi
 
- - Object pooling (kule ateş etmeleri ve düşman spawn için)
+ - Object pooling (kule ateş etmeleri ve düşman spawn için) 🟥
 
- - Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 
+ - Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 🟥

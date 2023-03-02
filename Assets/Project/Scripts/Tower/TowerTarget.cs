@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerTarget : MonoBehaviour
 {
-    private Transform Target;
-    public static TowerTarget Instance;
+    public static TowerTarget instance;
 
+    private Transform Target;
+    
     [Header("Attributes")]
     public float Range = 15f;
+    public int damage = 15;
     public float fireRate = 1f;
     float fireCountdown = 0f;
 
@@ -28,8 +29,8 @@ public class TowerTarget : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
-        Instance = this;
+        instance = this;
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);  
     }
 
     void UpdateTarget()
@@ -92,6 +93,11 @@ public class TowerTarget : MonoBehaviour
             bullet.Seek(Target);
         }
 
+    }
+
+    public void Sell()
+    {
+        Destroy(gameObject);
     }
 
 
