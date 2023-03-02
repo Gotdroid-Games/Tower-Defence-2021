@@ -92,7 +92,7 @@ public class MenuUI : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("Metehan");
+        SceneManager.LoadScene("Levels");
         Time.timeScale = 1;
     }
 
