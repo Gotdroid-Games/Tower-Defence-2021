@@ -14,6 +14,8 @@
 
 - Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) 🟥
 
+- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme 🟥
+
 - Yıldız puanını menüde bulunan text bağlama 🟥
 
 - Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme 🟥
