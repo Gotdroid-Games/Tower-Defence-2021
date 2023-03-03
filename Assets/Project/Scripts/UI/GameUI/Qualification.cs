@@ -17,7 +17,7 @@ public class Qualification : MonoBehaviour
         HeroesImage.SetActive(false);
         Encyclopedia.SetActive(false);
     }
-     
+    
     public void UpgradeMenu()
     {
         UpgradeImage.SetActive(true);

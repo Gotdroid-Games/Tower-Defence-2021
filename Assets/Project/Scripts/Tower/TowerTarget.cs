@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerTarget : MonoBehaviour
 {
@@ -9,10 +11,9 @@ public class TowerTarget : MonoBehaviour
     private Transform Target;
     
     [Header("Attributes")]
-    public float Range = 15f;
-    public int damage = 15;
-    public float fireRate = 1f;
-    float fireCountdown = 0f;
+    public float fireRate = 100f;
+    public float fireCountdown = 1f;
+    public float NewFireCountDown = 0f; 
 
     [Header("Unity Setup Fields")]
     
@@ -26,12 +27,17 @@ public class TowerTarget : MonoBehaviour
     public Transform firePoint;
 
     
-
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     private void Start()
     {
-        instance = this;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);  
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
+
+    
 
     void UpdateTarget()
     {
@@ -49,7 +55,7 @@ public class TowerTarget : MonoBehaviour
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= Range)
+        if (nearestEnemy != null && shortestDistance <= RangeUpgrade.instance.Range)
         {
             Target = nearestEnemy.transform;
         }
@@ -63,7 +69,7 @@ public class TowerTarget : MonoBehaviour
 
     private void Update()
     {
-        if(Target==null)
+        if (Target == null)
         return;
 
         //Target lock on (Hedef kilitleme aktif)
@@ -73,15 +79,15 @@ public class TowerTarget : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if(fireCountdown<=0f)
+        if (fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
-
     }
+    
 
     void Shoot()
     {
@@ -101,9 +107,13 @@ public class TowerTarget : MonoBehaviour
     }
 
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, Range);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(transform.position, Range);
+    //}
+
+    
+
+
 }

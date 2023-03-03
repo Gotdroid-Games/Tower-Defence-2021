@@ -27,7 +27,6 @@ public class StarPoint : MonoBehaviour
         {
             StartCoroutine(Waitfor());
         }
-        Debug.Log(_starPoint);
     }
     
 

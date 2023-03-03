@@ -7,16 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuUI : MonoBehaviour
 {
-    
+    public static MenuUI Instance;
+
     [SerializeField] Slider _musicSlider, _sfxSlider;
     [SerializeField] Buttonassignments _Buttons;
 
-        [System.Serializable]
+    private void Start()
+    {
+        Instance=this;
+    }
+
+    [System.Serializable]
     public class Buttonassignments
     {
-        public GameObject[] Buttons = new GameObject[7];
+        public GameObject[] Buttons = new GameObject[14];
 
-        void Button(GameObject playButton, GameObject optionsButton, GameObject QuitButton, GameObject _yesButton, GameObject _noButton, GameObject _backButton, GameObject _musicButton, GameObject _sfxButton)
+        public void Button(GameObject playButton, GameObject optionsButton, GameObject QuitButton, GameObject _yesButton, GameObject _noButton, GameObject _backButton, GameObject _musicButton, GameObject _sfxButton,GameObject _upgradeButton)
         {
             Buttons[0] = playButton;
             Buttons[1] = optionsButton;
@@ -26,6 +32,11 @@ public class MenuUI : MonoBehaviour
             Buttons[5] = _backButton;
             Buttons[6] = _musicButton;
             Buttons[7] = _sfxButton;
+            Buttons[8] = _upgradeButton;
+           // Buttons[9] = _rateOfFire;
+           // Buttons[11] = _extraCoin;
+           // Buttons[12] = _nameOne;
+           // Buttons[13] = _nameTwo;
         }
         
     }
@@ -37,14 +48,16 @@ public class MenuUI : MonoBehaviour
         _Buttons.Buttons[4].SetActive(false);
     }
 
-    //[0] (playButton)
-    //[1] (optionsButton)
-    //[2] (QuitButton)
-    //[3] (_yesButton)
-    //[4] (_noButton)
-    //[5] (_backButton)
-    //[6] (_musicButton)
-    //[7] (_sfxButton)
+    /*[0] (playButton)
+      [1] (optionsButton)
+      [2] (QuitButton)
+      [3] (_yesButton)
+      [4] (_noButton)
+      [5] (_backButton)
+      [6] (_musicButton)
+      [7] (_sfxButton)
+      [8] (_upgradeButton)
+    */
 
     public void BackButton()
     {

@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth -= TowerTarget.damage;
+        currentHealth -= RangeUpgrade.instance.Damage;
         _healthbar.SetHealth(currentHealth);
     }
 
