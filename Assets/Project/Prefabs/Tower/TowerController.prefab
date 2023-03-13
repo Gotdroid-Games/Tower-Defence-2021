@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64caa64944e3d784bad2decd6bcfa3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 15
+  Range: 15
 --- !u!1001 &2961568775980864385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 10
+      value: 1.62
       objectReference: {fileID: 0}
     - target: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_SizeDelta.y

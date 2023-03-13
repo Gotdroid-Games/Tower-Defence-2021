@@ -6,7 +6,7 @@ public class RangeUpgrade : MonoBehaviour
 {
     public static RangeUpgrade instance;
     public int Damage = 15;
-    public float Range=15f;
+    public float Range = 15f;
 
     private void Awake()
     {

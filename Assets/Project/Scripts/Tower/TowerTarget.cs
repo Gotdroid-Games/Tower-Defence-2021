@@ -13,7 +13,6 @@ public class TowerTarget : MonoBehaviour
     [Header("Attributes")]
     public float fireRate = 100f;
     public float fireCountdown = 1f;
-    public float NewFireCountDown = 0f; 
 
     [Header("Unity Setup Fields")]
     
@@ -79,10 +78,15 @@ public class TowerTarget : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (fireCountdown <= 0f)
+        if (fireCountdown <= 0f && GameValue.instance.NewFireCountDown == 1)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
+        }
+        else if (fireCountdown <= 0f && GameValue.instance.NewFireCountDown == 0.2f)
+        {
+            Shoot();
+            fireCountdown = 0.2f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;

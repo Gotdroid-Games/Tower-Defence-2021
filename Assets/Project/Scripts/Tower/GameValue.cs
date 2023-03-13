@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class GameValue : MonoBehaviour
 {
-    
-    //public static GameValue instance;
+    public static GameValue instance;
+    public float NewFireCountDown = 1f;
 
-    //public float NewFireCountDown = 1f;
-
-    //private void Awake()
-    //{
-    //    if(instance==null)
-    //    {
-    //        instance = this;
-    //    }
-    //}
-
-    
-
-
+    private void Awake()
+    {
+        if(instance==null)
+        {
+            instance = this;
+        }
+        NewFireCountDown = UpgradeMenu.newfirecontdown;
+    }
 }

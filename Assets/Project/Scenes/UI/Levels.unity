@@ -2926,6 +2926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af341723483ff204b90efdb58202ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NewFireCountDown: 1
 --- !u!4 &633949755
 Transform:
   m_ObjectHideFlags: 0
@@ -4583,8 +4584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6812bcdeeae3b674ba8d59c36165ee3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObject: {fileID: 0}
-  UpgradeMenuPrefab: {fileID: 0}
 --- !u!4 &1132522355
 Transform:
   m_ObjectHideFlags: 0
@@ -7612,7 +7611,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1132522354}
         m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
-        m_MethodName: deneme
+        m_MethodName: Deneme
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

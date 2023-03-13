@@ -8,7 +8,6 @@ public class TowerMenu : MonoBehaviour
 {
     public static TowerMenu instance;
     TowerTarget TowerTarget;
-    GameObject Towers;
     
 
 
@@ -65,17 +64,17 @@ public class TowerMenu : MonoBehaviour
         Tower = gameObject;
         gameObject.GetComponent<TowerRangeController>().counts++;
 
+        if (Quaity.Instance._coinText >= 120)
+        {
+            Quaity.Instance.PaidTower(120);
+        }
+
         for (int i = 0; i < TowerRangeController.instance.UIController.Count; i++)
         {
             TowerRangeController.instance.UIController[i].SetActive(false);
         }
 
         RangeUpgrade.instance.Attribute();
-
-        if(Quaity.Instance._coinText>=120)
-        {
-            Quaity.Instance.PaidTower(120);
-        }
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
     }
