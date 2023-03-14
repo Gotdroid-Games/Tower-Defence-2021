@@ -35,7 +35,6 @@ public class TowerTarget : MonoBehaviour
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
-
     
 
     void UpdateTarget()
@@ -62,7 +61,6 @@ public class TowerTarget : MonoBehaviour
         {
             Target = null;
         }
-
     }
 
 
@@ -102,22 +100,10 @@ public class TowerTarget : MonoBehaviour
         {
             bullet.Seek(Target);
         }
-
     }
 
     public void Sell()
     {
         Destroy(gameObject);
     }
-
-
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireSphere(transform.position, Range);
-    //}
-
-    
-
-
 }

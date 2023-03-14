@@ -13,16 +13,23 @@ public class RangeUpgrade : MonoBehaviour
         if (instance==null)
         {
             instance = this;
-        }
+        } 
+    }
+
+    private void Start()
+    {
+        Damage += GameValue.instance.RangedTowerDamage;
+        Range += GameValue.instance.TowerRangeUpgrade;
     }
     public void Attribute()
     {
-        TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Damage+=15;
-        TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Range+=15;
-        OnDrawGizmosSelected();
+        Damage += GameValue.instance.RangedTowerDamage;
+        Range += GameValue.instance.TowerRangeUpgrade;
+        TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Damage += 15 ;
+        TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Range += 15;
     }
 
-    private void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, Range);

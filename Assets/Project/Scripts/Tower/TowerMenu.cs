@@ -6,17 +6,11 @@ using UnityEngine;
 
 public class TowerMenu : MonoBehaviour
 {
-    public static TowerMenu instance;
     TowerTarget TowerTarget;
-    
-
-
-
+    public static TowerMenu instance;
     public GameObject UpgradeButton1;
     public GameObject Tower;
     public GameObject SellButton;
-        
-    int TowerCount;
 
     private void Awake()
     {
@@ -53,20 +47,16 @@ public class TowerMenu : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void Upgrade()
     {
         Debug.Log(gameObject.name);
         Tower = gameObject;
         gameObject.GetComponent<TowerRangeController>().counts++;
 
+
         if (Quaity.Instance._coinText >= 120)
         {
-            Quaity.Instance.PaidTower(120);
+          Quaity.Instance.TowerUpgradeMoney(120);
         }
 
         for (int i = 0; i < TowerRangeController.instance.UIController.Count; i++)

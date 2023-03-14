@@ -37,11 +37,11 @@ public class Node : MonoBehaviour
         {
             return; ;
         }
-        if(Quaity.Instance._coinText>=100)
+        if (Quaity.Instance._coinText >= 100)
         {
             GameObject turretToBuild = buildManager.GetTurretToBuild();
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            Quaity.Instance.PaidTower(100);
+            Quaity.Instance.PaidTower(GameValue.instance.TowerPrice);
         }
         
        

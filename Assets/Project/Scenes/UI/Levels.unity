@@ -1850,7 +1850,7 @@ GameObject:
   - component: {fileID: 318931010}
   - component: {fileID: 318931009}
   m_Layer: 5
-  m_Name: Nameone
+  m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1919,7 +1919,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 318931010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132522354}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: TowerRangeUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &318931010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,7 +2055,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1132522354}
         m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
-        m_MethodName: Sale
+        m_MethodName: TowerPrice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2926,6 +2938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af341723483ff204b90efdb58202ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerPrice: 120
+  RangedTowerDamage: 20
+  TowerRangeUpgrade: 20
   NewFireCountDown: 1
 --- !u!4 &633949755
 Transform:
@@ -4964,7 +4979,7 @@ GameObject:
   - component: {fileID: 1273511410}
   - component: {fileID: 1273511409}
   m_Layer: 5
-  m_Name: ExtraCoin
+  m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5036,7 +5051,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1132522354}
         m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
-        m_MethodName: ExtraCoin
+        m_MethodName: TowerDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7611,7 +7626,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1132522354}
         m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
-        m_MethodName: Deneme
+        m_MethodName: TowerSpeedUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

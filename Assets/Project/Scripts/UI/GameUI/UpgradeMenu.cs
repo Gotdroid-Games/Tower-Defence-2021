@@ -11,6 +11,9 @@ public class UpgradeMenu : MonoBehaviour
 {
     public static UpgradeMenu instance;
     public static float newfirecontdown;
+    public static int towerPrice;
+    public static int rangedTowerDamage;
+    public static int towerRangeUpgrade;
 
     private void Awake()
     {
@@ -22,16 +25,30 @@ public class UpgradeMenu : MonoBehaviour
     private void Start()
     {
         newfirecontdown = 1f;
+        towerPrice = 120;
     }
-    
-     //public GameObject GameObject;
-     //public GameObject UpgradeMenuPrefab;
-     public void Deneme()
-     {
+
+    public void TowerSpeedUp()
+    {
         newfirecontdown = 0.2f;
         GameValue.instance.NewFireCountDown = 0.2f;
-        //Debug.Log(TowerTarget.instance.fireCountdown);
-        //UpgradeMenuPrefab.SetActive(false);
-     }  
+    }  
    
+    public void TowerPrice()
+    {
+        towerPrice -= 30;
+        GameValue.instance.TowerPrice = 90;
+    }
+
+    public void TowerDamage()
+    {
+        rangedTowerDamage = 20;
+        GameValue.instance.RangedTowerDamage = 20;
+    }
+
+    public void TowerRangeUpgrade()
+    {
+        towerRangeUpgrade = 20;
+        GameValue.instance.TowerRangeUpgrade = 20;
+    }
 }
