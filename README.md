@@ -8,11 +8,15 @@
 
 - Fading sistemi (Sahneden sahneye ekran geçişi) (Emre Özcan) 🟥
 
+- Bomba kulesi atış sistemi (Emre Özcan) 🟥
+
 - Oyun kazandıktan sonra gelecek olan yıldız puanı sistemi (Metehan tınaz) ✅
+
+- Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) (Metehan Tınaz) 🟥
 
 - Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) 🟥
 
-- Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) (Metehan Tınaz) 🟥
+- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
 
 - Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme 🟥
 
@@ -24,11 +28,7 @@
 
 - Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek) 🟥
 
-- Bomba kulesi atış sistemi (Emre Özcan) 🟥
-
 - Bomba kulesini NodeUI paneline ekleme 🟥
-
-- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
 
 
 ## Yapılanlar Listesi
