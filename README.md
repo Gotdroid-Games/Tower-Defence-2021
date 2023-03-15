@@ -14,7 +14,7 @@
 
 - Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) (Metehan Tınaz) 🟥
 
-- Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) 🟥
+- Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) ✅
 
 - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
 
