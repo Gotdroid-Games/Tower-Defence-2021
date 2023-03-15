@@ -13,6 +13,7 @@ public class TowerTarget : MonoBehaviour
     [Header("Attributes")]
     public float fireRate = 100f;
     public float fireCountdown = 1f;
+    public int CritValue;
 
     [Header("Unity Setup Fields")]
     
@@ -78,11 +79,13 @@ public class TowerTarget : MonoBehaviour
 
         if (fireCountdown <= 0f && GameValue.instance.NewFireCountDown == 1)
         {
+            CritValue = Random.Range(1, 101);
             Shoot();
             fireCountdown = 1f / fireRate;
         }
         else if (fireCountdown <= 0f && GameValue.instance.NewFireCountDown == 0.2f)
         {
+            CritValue = Random.Range(1, 101);
             Shoot();
             fireCountdown = 0.2f / fireRate;
         }

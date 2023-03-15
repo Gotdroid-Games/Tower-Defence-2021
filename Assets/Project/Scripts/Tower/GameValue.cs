@@ -8,6 +8,7 @@ public class GameValue : MonoBehaviour
     public int TowerPrice = 120;
     public int RangedTowerDamage = 20;
     public int TowerRangeUpgrade = 20;
+    public int RangedTowerCritDamage;
     public float NewFireCountDown = 1f;
     
 
@@ -26,5 +27,6 @@ public class GameValue : MonoBehaviour
         TowerPrice = UpgradeMenu.towerPrice;
         RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
         TowerRangeUpgrade = UpgradeMenu.towerRangeUpgrade;
+        RangedTowerCritDamage = UpgradeMenu.rangeTowerCritDamage;
     }
 }

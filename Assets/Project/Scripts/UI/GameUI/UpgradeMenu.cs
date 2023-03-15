@@ -13,6 +13,7 @@ public class UpgradeMenu : MonoBehaviour
     public static float newfirecontdown;
     public static int towerPrice;
     public static int rangedTowerDamage;
+    public static int rangeTowerCritDamage; 
     public static int towerRangeUpgrade;
 
     private void Awake()
@@ -50,5 +51,11 @@ public class UpgradeMenu : MonoBehaviour
     {
         towerRangeUpgrade = 20;
         GameValue.instance.TowerRangeUpgrade = 20;
+    }
+
+    public void RangeTowerCrit()
+    {
+        rangeTowerCritDamage = GameValue.instance.RangedTowerDamage * 10 / 100;
+        GameValue.instance.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
     }
 }
