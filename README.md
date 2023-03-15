@@ -24,7 +24,7 @@
 
 - Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek) 🟥
 
-- Bomba kulesi atış sistemi 🟥
+- Bomba kulesi atış sistemi (Emre Özcan) 🟥
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
