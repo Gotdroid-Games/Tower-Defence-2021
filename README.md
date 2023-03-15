@@ -18,7 +18,7 @@
 
 - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
 
-- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme 🟥
+- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme (Metehan Tınaz) ✅
 
 - Yıldız puanını menüde bulunan text bağlama 🟥
 
