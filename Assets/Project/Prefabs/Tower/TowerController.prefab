@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeButton1: {fileID: 5570693761724152515}
-  Tower: {fileID: 0}
+  Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
 --- !u!114 &8988853236396017705
 MonoBehaviour:

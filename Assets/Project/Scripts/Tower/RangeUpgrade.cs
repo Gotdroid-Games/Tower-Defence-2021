@@ -25,7 +25,7 @@ public class RangeUpgrade : MonoBehaviour
     {
         Damage += GameValue.instance.RangedTowerDamage;
         Range += GameValue.instance.TowerRangeUpgrade;
-        TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Damage += 15 ;
+        TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Damage += 15;
         TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Range += 15;
     }
 

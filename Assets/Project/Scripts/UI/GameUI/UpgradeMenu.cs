@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ public class UpgradeMenu : MonoBehaviour
     public static int rangedTowerDamage;
     public static int rangeTowerCritDamage; 
     public static int towerRangeUpgrade;
+
 
     private void Awake()
     {

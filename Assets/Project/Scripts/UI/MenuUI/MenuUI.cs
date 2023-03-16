@@ -33,10 +33,6 @@ public class MenuUI : MonoBehaviour
             Buttons[6] = _musicButton;
             Buttons[7] = _sfxButton;
             Buttons[8] = _upgradeButton;
-           // Buttons[9] = _rateOfFire;
-           // Buttons[11] = _extraCoin;
-           // Buttons[12] = _nameOne;
-           // Buttons[13] = _nameTwo;
         }
         
     }
@@ -48,6 +44,7 @@ public class MenuUI : MonoBehaviour
         _Buttons.Buttons[4].SetActive(false);
     }
 
+    #region info Button
     /*[0] (playButton)
       [1] (optionsButton)
       [2] (QuitButton)
@@ -59,6 +56,8 @@ public class MenuUI : MonoBehaviour
       [8] (_upgradeButton)
     */
 
+    #endregion
+
     public void BackButton()
     {
         _Buttons.Buttons[0].SetActive(true);
@@ -67,7 +66,6 @@ public class MenuUI : MonoBehaviour
         _Buttons.Buttons[5].SetActive(false);
         _Buttons.Buttons[6].SetActive(false);
         _Buttons.Buttons[7].SetActive(false);
-
     }
 
     
