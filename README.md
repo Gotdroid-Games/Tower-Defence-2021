@@ -14,11 +14,11 @@
 
 - Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) ✅
 
-- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme 🟥
+- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme (Metehan Tınaz) ✅
 
 - Yıldız puanını menüde bulunan text bağlama (Melih Doğan) 🟥
 
-- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme 🟥
+- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme (Metehan Tınaz) 🟥
 
 - Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması 🟥
 
