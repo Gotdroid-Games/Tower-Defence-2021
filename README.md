@@ -18,9 +18,9 @@
 
 - Yıldız puanını menüde bulunan text bağlama (Melih Doğan) 🟥
 
-- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme (Metehan Tınaz) 🟥
+- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme (Metehan Tınaz) ✅
 
-- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması 🟥
+- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması (Metehan Tınaz) 🟥
 
 - Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek) 🟥
 
