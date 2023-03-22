@@ -10,17 +10,17 @@
 
 - Oyun kazandıktan sonra gelecek olan yıldız puanı sistemi (Metehan tınaz) ✅
 
-- Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) 🟥
+- Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) ✅
 
-- Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) 🟥
+- Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) (Metehan Tınaz) ✅
 
-- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme 🟥
+- Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme (Metehan Tınaz) ✅
 
-- Yıldız puanını menüde bulunan text bağlama 🟥
+- Yıldız puanını menüde bulunan text bağlama (Melih Doğan) ✅
 
-- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme 🟥
+- Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme (Metehan Tınaz) ✅
 
-- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması 🟥
+- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması (Metehan Tınaz) 🟥
 
 - Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek) 🟥
 
