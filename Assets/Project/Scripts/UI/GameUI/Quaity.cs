@@ -124,12 +124,6 @@ public class Quaity : MonoBehaviour
         {
             GameUI.Instance._Button.GameUIButtons[2].SetActive(true);
             GameUI.Instance._Button.GameUIButtons[9].SetActive(true);
-            //Time.timeScale = 0;
-        }
-        
+        } 
     }
-
-    
-    
-
 }

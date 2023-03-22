@@ -39,11 +39,12 @@ public class GameUI : MonoBehaviour
             GameUIButtons[12] = _thirdStar;
         }
     }
+    #endregion
     private void Start()
     {
         Instance = this;
     }
-    #endregion
+    
 
     // [0] (_pauseButton)
     // [1] (_resumeButton)
@@ -58,22 +59,16 @@ public class GameUI : MonoBehaviour
     // [10] (_firstStart)
     // [11] (_secondStart)
     // [12] (_thirdStar)
+
     private void Awake()
     {
         //Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
+        
+        for (int i = 0; i < _Button.GameUIButtons.Length; i++)
+        {
+            _Button.GameUIButtons[i].SetActive(false);
+        }
         _Button.GameUIButtons[0].SetActive(true);
-        _Button.GameUIButtons[1].SetActive(false);
-        _Button.GameUIButtons[2].SetActive(false);
-        _Button.GameUIButtons[3].SetActive(false);
-        _Button.GameUIButtons[4].SetActive(false);
-        _Button.GameUIButtons[5].SetActive(false);
-        _Button.GameUIButtons[6].SetActive(false);
-        _Button.GameUIButtons[7].SetActive(false);
-        _Button.GameUIButtons[8].SetActive(false);
-        _Button.GameUIButtons[9].SetActive(false);
-        _Button.GameUIButtons[10].SetActive(false);
-        _Button.GameUIButtons[11].SetActive(false);
-        _Button.GameUIButtons[12].SetActive(false);
 
     }
 
@@ -81,15 +76,11 @@ public class GameUI : MonoBehaviour
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
         Time.timeScale = 0;
+        for (int i = 0; i < _Button.GameUIButtons.Length; i++)
+        {
+            _Button.GameUIButtons[i].SetActive(true);
+        }
         _Button.GameUIButtons[0].SetActive(false);
-        _Button.GameUIButtons[1].SetActive(true);
-        _Button.GameUIButtons[2].SetActive(true);
-        _Button.GameUIButtons[3].SetActive(true);
-        _Button.GameUIButtons[4].SetActive(true);
-        _Button.GameUIButtons[5].SetActive(true);
-        _Button.GameUIButtons[6].SetActive(true);
-        _Button.GameUIButtons[7].SetActive(true);
-        _Button.GameUIButtons[8].SetActive(true);
     }
 
     // [0] (_pauseButton)
@@ -105,19 +96,17 @@ public class GameUI : MonoBehaviour
     // [11] (_secondStart)
     // [12] (_thirdStar)
 
+
+    #region Button function
     public void ResumeButton()
     {
         //Oyunu devam ettirme ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
         Time.timeScale = 1;
+        for (int i = 0; i < _Button.GameUIButtons.Length; i++)
+        {
+            _Button.GameUIButtons[i].SetActive(false);
+        }
         _Button.GameUIButtons[0].SetActive(true);
-        _Button.GameUIButtons[1].SetActive(false);
-        _Button.GameUIButtons[2].SetActive(false);
-        _Button.GameUIButtons[3].SetActive(false);
-        _Button.GameUIButtons[4].SetActive(false);
-        _Button.GameUIButtons[5].SetActive(false);
-        _Button.GameUIButtons[6].SetActive(false);
-        _Button.GameUIButtons[7].SetActive(false);
-        _Button.GameUIButtons[8].SetActive(false);
     }
 
     public void RestartButton()
@@ -149,6 +138,9 @@ public class GameUI : MonoBehaviour
         ResumeButton();
     }
 
+    #endregion
+
+    #region Volume function
     public void ToggleMusic()
     {
         //Müzik sesini susturma ve aktif etme
@@ -177,4 +169,5 @@ public class GameUI : MonoBehaviour
     {
         QuitButton();
     }
+    #endregion
 }

@@ -33,14 +33,20 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth -= TowerTarget.damage;
+        currentHealth -= RangeUpgrade.instance.Damage;
         _healthbar.SetHealth(currentHealth);
+        if (TowerTarget.instance.CritValue >= 1 && TowerTarget.instance.CritValue <= 10)
+        {
+            currentHealth -= RangeUpgrade.instance.Damage + GameValue.instance.RangedTowerCritDamage;
+            _healthbar.SetHealth(currentHealth);
+        }
     }
 
     private void Update()
     {
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Destroy(gameObject);
         }
          
