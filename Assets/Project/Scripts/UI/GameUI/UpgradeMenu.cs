@@ -10,21 +10,13 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    public static UpgradeMenu instance;
+    
     public static float newfirecontdown;
     public static int towerPrice;
     public static int rangedTowerDamage;
     public static int rangeTowerCritDamage; 
     public static int towerRangeUpgrade;
 
-
-    private void Awake()
-    {
-        if(instance==null)
-        {
-            instance = this;
-        }
-    }
     private void Start()
     {
         newfirecontdown = 1f;

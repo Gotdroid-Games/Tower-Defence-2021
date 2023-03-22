@@ -44,7 +44,6 @@ public class MenuUI : MonoBehaviour
         _Buttons.Buttons[4].SetActive(false);
     }
 
-    #region info Button
     /*[0] (playButton)
       [1] (optionsButton)
       [2] (QuitButton)
@@ -55,8 +54,6 @@ public class MenuUI : MonoBehaviour
       [7] (_sfxButton)
       [8] (_upgradeButton)
     */
-
-    #endregion
 
     public void BackButton()
     {

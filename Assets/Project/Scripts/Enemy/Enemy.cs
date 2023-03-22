@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
         {
             currentHealth -= RangeUpgrade.instance.Damage + GameValue.instance.RangedTowerCritDamage;
             _healthbar.SetHealth(currentHealth);
-            Debug.Log(currentHealth);
         }
     }
 

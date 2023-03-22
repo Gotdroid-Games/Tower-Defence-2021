@@ -19,7 +19,7 @@ public class GameUI : MonoBehaviour
     //Oyun içerisinde bulunan tüm butonlar diziye atandý
     public class ButtonAssignments
     {
-        public GameObject[] GameUIButtons = new GameObject[18];
+        public GameObject[] GameUIButtons = new GameObject[13];
 
         void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _continueButton,GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar)
 
@@ -39,13 +39,13 @@ public class GameUI : MonoBehaviour
             GameUIButtons[12] = _thirdStar;
         }
     }
+    #endregion
     private void Start()
     {
         Instance = this;
     }
-    #endregion
+    
 
-    #region info button
     // [0] (_pauseButton)
     // [1] (_resumeButton)
     // [2] (_restartButton)
@@ -60,7 +60,6 @@ public class GameUI : MonoBehaviour
     // [11] (_secondStart)
     // [12] (_thirdStar)
 
-    #endregion
     private void Awake()
     {
         //Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
@@ -84,7 +83,6 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[0].SetActive(false);
     }
 
-    #region info Button
     // [0] (_pauseButton)
     // [1] (_resumeButton)
     // [2] (_restartButton)
@@ -98,8 +96,8 @@ public class GameUI : MonoBehaviour
     // [11] (_secondStart)
     // [12] (_thirdStar)
 
-    #endregion
 
+    #region Button function
     public void ResumeButton()
     {
         //Oyunu devam ettirme ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
@@ -140,6 +138,9 @@ public class GameUI : MonoBehaviour
         ResumeButton();
     }
 
+    #endregion
+
+    #region Volume function
     public void ToggleMusic()
     {
         //Müzik sesini susturma ve aktif etme
@@ -168,4 +169,5 @@ public class GameUI : MonoBehaviour
     {
         QuitButton();
     }
+    #endregion
 }
