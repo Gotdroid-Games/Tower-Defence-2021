@@ -20,7 +20,7 @@
 
 - Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme (Metehan Tınaz) ✅
 
-- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması (Metehan Tınaz) 🟥
+- Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması (Metehan Tınaz) ✅
 
 - Hero sistemi (Kahramanın hasar can hedeflenme gibi değerleri girilecek) 🟥
 
