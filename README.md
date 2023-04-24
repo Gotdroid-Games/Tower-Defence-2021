@@ -10,7 +10,7 @@
 
 - Oyun kazandıktan sonra gelecek olan yıldız puanı sistemi (Metehan tınaz) ✅
 
-- Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan) ✅
+- Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan / Metehan Tınaz) ✅
 
 - Menüde Kule özelliklerini belirten butonlar ve metin alanları sistemi (Geliştirme kısmında bulunan butona basıldığında o özellik hangi kuleye ne kazandırıyor bunu anlatan metin paneli) (Metehan Tınaz) ✅
 
