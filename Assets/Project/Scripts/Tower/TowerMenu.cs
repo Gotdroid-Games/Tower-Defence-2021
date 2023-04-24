@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class TowerMenu : MonoBehaviour
@@ -56,7 +52,17 @@ public class TowerMenu : MonoBehaviour
 
         if (Quaity.Instance._coinText >= 120)
         {
-          Quaity.Instance.TowerUpgradeMoney(120);
+            Quaity.Instance.TowerUpgradeMoney(120);
+        }
+
+        if (TowerRangeController.instance.counts >= 3)
+        {
+            TowerRangeController.instance.counts = 3;
+        }
+
+        if(TowerRangeController.instance.counts <= 3)
+        {
+            RangeUpgrade.instance.Attribute();
         }
 
         for (int i = 0; i < TowerRangeController.instance.UIController.Count; i++)
@@ -64,7 +70,7 @@ public class TowerMenu : MonoBehaviour
             TowerRangeController.instance.UIController[i].SetActive(false);
         }
 
-        RangeUpgrade.instance.Attribute();
+        
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
     }

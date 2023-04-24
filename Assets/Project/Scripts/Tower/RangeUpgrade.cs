@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RangeUpgrade : MonoBehaviour
@@ -27,11 +25,12 @@ public class RangeUpgrade : MonoBehaviour
         Range += GameValue.instance.TowerRangeUpgrade;
         TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Damage += 15;
         TowerMenu.instance.Tower.GetComponent<RangeUpgrade>().Range += 15;
+        
     }
 
-    public void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, Range);
-    }
+    //public void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(transform.position, Range);
+    //}
 }

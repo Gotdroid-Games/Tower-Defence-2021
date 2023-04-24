@@ -1,12 +1,5 @@
-using JetBrains.Annotations;
-using Newtonsoft.Json.Linq;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class UpgradeMenu : MonoBehaviour
 {
@@ -25,31 +18,76 @@ public class UpgradeMenu : MonoBehaviour
 
     public void TowerSpeedUp()
     {
-        newfirecontdown = 0.2f;
-        GameValue.instance.NewFireCountDown = 0.2f;
+        if (StarPoint._starPoint > 0)
+        {
+            newfirecontdown = 0.2f;
+            GameValue.instance.NewFireCountDown = 0.2f;
+            StarPoint._starPoint -= 1;
+        }
+
+        if (StarPoint._starPoint < 0)
+        {
+            StarPoint._starPoint = 0;
+        }
     }  
    
     public void TowerPrice()
     {
-        towerPrice -= 30;
-        GameValue.instance.TowerPrice = 90;
+        if (StarPoint._starPoint > 0)
+        {
+            towerPrice -= 30;
+            GameValue.instance.TowerPrice = 90;
+            StarPoint._starPoint -= 1;
+        }
+        
+        if (StarPoint._starPoint < 0)
+        {
+            StarPoint._starPoint = 0;
+        }
     }
 
     public void TowerDamage()
     {
-        rangedTowerDamage = 20;
-        GameValue.instance.RangedTowerDamage = 20;
+        if (StarPoint._starPoint > 0)
+        {
+            rangedTowerDamage = 20;
+            GameValue.instance.RangedTowerDamage = 20;
+            StarPoint._starPoint -= 1;
+        }
+        
+        if (StarPoint._starPoint < 0)
+        {
+            StarPoint._starPoint = 0;
+        }
     }
 
     public void TowerRangeUpgrade()
     {
-        towerRangeUpgrade = 20;
-        GameValue.instance.TowerRangeUpgrade = 20;
+        if (StarPoint._starPoint > 0)
+        {
+            towerRangeUpgrade = 20;
+            GameValue.instance.TowerRangeUpgrade = 20;
+            StarPoint._starPoint -= 1;
+        }
+        
+        if (StarPoint._starPoint < 0)
+        {
+            StarPoint._starPoint = 0;
+        }
     }
 
     public void RangeTowerCrit()
     {
-        rangeTowerCritDamage = GameValue.instance.RangedTowerDamage * 10 / 100;
-        GameValue.instance.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
+        if (StarPoint._starPoint > 0)
+        {
+            rangeTowerCritDamage = GameValue.instance.RangedTowerDamage * 10 / 100;
+            GameValue.instance.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
+            StarPoint._starPoint -= 1;
+        }
+        
+        if (StarPoint._starPoint < 0)
+        {
+            StarPoint._starPoint = 0;
+        }
     }
 }

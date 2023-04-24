@@ -77,7 +77,9 @@ public class TowerTarget : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (fireCountdown <= 0f && GameValue.instance.NewFireCountDown == 1)
+        //Kritik hasar verme olasýlýðý (Satýr 82/95)
+
+        if (fireCountdown <= 0f)
         {
             CritValue = Random.Range(1, 101);
             Shoot();
