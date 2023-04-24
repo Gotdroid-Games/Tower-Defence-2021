@@ -14,7 +14,7 @@
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
-- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Yusuf Kağan Öztürk) 🟥
+- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Metehan Tınaz) 🟥
 
 
 ## Yapılanlar Listesi
