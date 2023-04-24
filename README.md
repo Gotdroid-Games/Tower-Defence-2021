@@ -58,9 +58,9 @@
 
  - Enemy healt barının direk ekrana bakması (Slider düşman ile birlikte dönmeyecek kameraya bakacak) (Emre Özcan) ✅
  
- - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan Öztürk)) ✅
+ - Düşmanların canları bar olarak üzerine eklenicek (Yusuf Kağan Öztürk) ✅
  
- - Düşmanların canını azaltacak kodlar eklenecek (Yusuf Kağan Öztürk)) ✅
+ - Düşmanların canını azaltacak kodlar eklenecek (Yusuf Kağan Öztürk) ✅
 
  
 # İleri Yapılıcak listesi
