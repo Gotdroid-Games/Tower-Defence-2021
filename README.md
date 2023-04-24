@@ -16,7 +16,7 @@
 
 - Kulelerin gelişme sistemi içerisine eğer kule geliştirildiyse bir sonra ki seviyenin prefabını ve materyalini yükleme (Metehan Tınaz) ✅
 
-- Yıldız puanını menüde bulunan text bağlama (Melih Doğan) ✅
+- Yıldız puanını menüde bulunan text bağlama (Metehan Tınaz) ✅
 
 - Ansiklopedi paneline özelliğini anlatacağımız objelerin butonlarını ekleme (Metehan Tınaz) ✅
 
