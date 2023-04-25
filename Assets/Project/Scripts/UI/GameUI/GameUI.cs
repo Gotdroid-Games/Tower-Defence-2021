@@ -16,9 +16,9 @@ public class GameUI : MonoBehaviour
     //Oyun içerisinde bulunan tüm butonlar diziye atandý
     public class ButtonAssignments
     {
-        public GameObject[] GameUIButtons = new GameObject[13];
+        public GameObject[] GameUIButtons = new GameObject[14];
 
-        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _continueButton,GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar)
+        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _continueButton,GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar, GameObject _continueButtonEndGame)
 
         {
             GameUIButtons[0] = _pauseButton;
@@ -34,6 +34,7 @@ public class GameUI : MonoBehaviour
             GameUIButtons[10] = _firstStar;
             GameUIButtons[11] = _secondStar;
             GameUIButtons[12] = _thirdStar;
+            GameUIButtons[13] = _continueButtonEndGame;
         }
     }
     #endregion
@@ -78,6 +79,12 @@ public class GameUI : MonoBehaviour
             _Button.GameUIButtons[i].SetActive(true);
         }
         _Button.GameUIButtons[0].SetActive(false);
+        _Button.GameUIButtons[9].SetActive(false);
+        _Button.GameUIButtons[10].SetActive(false);
+        _Button.GameUIButtons[11].SetActive(false);
+        _Button.GameUIButtons[12].SetActive(false);
+        _Button.GameUIButtons[13].SetActive(false);
+
     }
 
     // [0] (_pauseButton)

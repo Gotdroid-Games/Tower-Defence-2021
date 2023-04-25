@@ -20,6 +20,13 @@ public class TowerMenu : MonoBehaviour
         
         TowerTarget = TowerTarget.instance;
     }
+    private void Update()
+    {
+        if (TowerRangeController.instance.counts >= 2)
+        {
+            TowerRangeController.instance.counts = 2;
+        }
+    }
 
     private void OnMouseDown()
     {
@@ -47,22 +54,16 @@ public class TowerMenu : MonoBehaviour
     {
         Debug.Log(gameObject.name);
         Tower = gameObject;
-        gameObject.GetComponent<TowerRangeController>().counts++;
-
 
         if (Quaity.Instance._coinText >= 120)
         {
             Quaity.Instance.TowerUpgradeMoney(120);
-        }
+            gameObject.GetComponent<TowerRangeController>().counts++;
 
-        if (TowerRangeController.instance.counts >= 3)
-        {
-            TowerRangeController.instance.counts = 3;
-        }
-
-        if(TowerRangeController.instance.counts <= 3)
-        {
-            RangeUpgrade.instance.Attribute();
+            if (TowerRangeController.instance.counts <= 2)
+            {
+                RangeUpgrade.instance.Attribute();
+            }
         }
 
         for (int i = 0; i < TowerRangeController.instance.UIController.Count; i++)
@@ -70,7 +71,6 @@ public class TowerMenu : MonoBehaviour
             TowerRangeController.instance.UIController[i].SetActive(false);
         }
 
-        
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
     }

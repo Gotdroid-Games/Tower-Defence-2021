@@ -13,7 +13,7 @@ public class Quaity : MonoBehaviour
     public int _heartText = 20;
     public int _waveText = 0;
     
-    //public bool CoinControl;
+    
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class Quaity : MonoBehaviour
 
     private void Update()
     {
-        if (_heartText <= 0 || _waveText >= 1)
+        if (_heartText <= 0 || _waveText >= 12)
         {
             gameObject.SetActive(false);
         }
@@ -102,7 +102,7 @@ public class Quaity : MonoBehaviour
 
     public void PaidTower(int Decrease)
     {
-        _coinText-=Decrease;
+        _coinText -= Decrease;
         CoinText.text = _coinText.ToString();
     }
 
@@ -120,7 +120,7 @@ public class Quaity : MonoBehaviour
 
     public void Winning()
     {
-        if(_waveText>=1)
+        if(_waveText>=10)
         {
             GameUI.Instance._Button.GameUIButtons[2].SetActive(true);
             GameUI.Instance._Button.GameUIButtons[9].SetActive(true);
