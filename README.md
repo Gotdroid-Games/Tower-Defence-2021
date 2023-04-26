@@ -18,6 +18,8 @@
 
 - Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
 
+- Tüm kuleler multi object olarak sahneye geçecek (Bug fixleme) (Bekir Mustafa Yoğurtçu)🟥
+
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
