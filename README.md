@@ -16,7 +16,7 @@
 
 - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Metehan Tınaz) 🟥
 
-- Her farklı kule seviyesi için geliştirme ücreti artışı sistemi 🟥
+- Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
 
 
 ## Yapılanlar Listesi
