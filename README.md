@@ -18,8 +18,6 @@
 
 - Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
 
-- fdghljfghfgdh
-
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
