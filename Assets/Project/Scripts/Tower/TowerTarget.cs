@@ -20,6 +20,7 @@ public class TowerTarget : MonoBehaviour
 
     public string enemyTag = "Enemy";
 
+    public string enemyTag1 = "GorillaRobot";
     public Transform partToRotate;
     public float turnspeed;
 
@@ -41,18 +42,32 @@ public class TowerTarget : MonoBehaviour
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies1 = GameObject.FindGameObjectsWithTag(enemyTag1);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToenemy=Vector3.Distance(transform.position, enemy.transform.position);
-            if(distanceToenemy < shortestDistance)
+        
+            foreach (GameObject enemy in enemies)
             {
-                shortestDistance = distanceToenemy;
-                nearestEnemy = enemy;
+                Debug.Log(enemyTag);
+                float distanceToenemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToenemy < shortestDistance)
+                {
+                    shortestDistance = distanceToenemy;
+                    nearestEnemy = enemy;
+                }
             }
-        }
+
+            foreach (GameObject enemy in enemies1)
+            {
+                float distanceToenemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToenemy < shortestDistance)
+                {
+                    shortestDistance = distanceToenemy;
+                    nearestEnemy = enemy;
+                }
+            }
+        
+
 
         if (nearestEnemy != null && shortestDistance <= RangeUpgrade.instance.Range)
         {
@@ -62,6 +77,9 @@ public class TowerTarget : MonoBehaviour
         {
             Target = null;
         }
+
+        
+
     }
 
 

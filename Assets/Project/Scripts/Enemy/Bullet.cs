@@ -9,10 +9,7 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
 
 
-    private void Awake()
-    {
-
-    }
+   
     public void Seek (Transform _target)
     {
         target = _target;
@@ -40,7 +37,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy")|| other.gameObject.CompareTag("GorillaRobot"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage();
