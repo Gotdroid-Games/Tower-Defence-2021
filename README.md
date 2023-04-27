@@ -14,8 +14,6 @@
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
-
-
 - Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
 
 - Oyun içerisine yeni düşman robotlarını ekleme ve öz niteliklerinin girilmesi (Can değeri, hız değeri collider, rigidbody, Way point takip vb.) (Bekir Mustafa Yoğurtçu) 🟥
