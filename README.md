@@ -14,8 +14,6 @@
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
-- Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
-
 - Oyun içerisine yeni düşman robotlarını ekleme ve öz niteliklerinin girilmesi (Can değeri, hız değeri collider, rigidbody, Way point takip vb.) (Bekir Mustafa Yoğurtçu) 🟥
 
 - Eklenen düşman robotları için her bir dalgaya özel spawn adeti girilecek (Örnek 1. dalgada 2 temel robot 3 goril robot 1 akıllı süpürge / 2. dalga 1 temel robot 5 goril robot 3 akıllı süpürge) 🟥
@@ -63,6 +61,10 @@
  - Dalga çağırma butonuna basıldığında dalga sayacının 1 artması (Metehan Tınaz)✅
 
  - Kulenin seviyesi azami değere ulaştığında tekrardan geliştirme butonuna basılırsa paradan eksilmeyecek (Metehan Tınaz) ✅
+
+ - Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Metehan Tınaz) ✅
+
+ - Her farklı kule seviyesi için satış ücreti artış sistemi (Metehan Tınaz) ✅
 
  - Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan / Metehan Tınaz) ✅
 
