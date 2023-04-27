@@ -4,7 +4,7 @@ public class BuildManager : MonoBehaviour
 {
 
     public static BuildManager instance;
-
+    public GameObject standardTurretPrefab;
     void Awake()
     {
         if (instance != null)
@@ -16,7 +16,7 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardTurretPrefab;
+   
     //public GameObject anotherTurretPrefab;
 
      GameObject turretToBuild;
