@@ -20,19 +20,21 @@
 
 - Tüm kuleler multi object olarak sahneye geçecek (Bug fixleme) (Bekir Mustafa Yoğurtçu) ✅
 
-- Yıldız sisteminde bulunan hatayı giderme (Eğer 20 canla biterse sadece 3. yıldız yanıyor tamamı yanması gerekirken) (Metehan Tınaz) 🟥
+- Yıldız sisteminde bulunan hatayı giderme (Eğer 20 canla biterse sadece 3. yıldız yanıyor tamamı yanması gerekirken) (Metehan Tınaz) ✅
 
-- Levels sahnesine back butonu eklenecek (Ana menüye döndürülecek) (Bekir Mustafa Yoğurtçu) 🟥
+- Levels sahnesine back butonu eklenecek (Ana menüye döndürülecek) (Metehan Tınaz) ✅
 
 - Oyun içerisine yeni düşman robotlarını ekleme ve öz niteliklerinin girilmesi (Can değeri, hız değeri collider, rigidbody, Way point takip vb.) (Bekir Mustafa Yoğurtçu) 🟥
 
 - Eklenen düşman robotları için her bir dalgaya özel spawn adeti girilecek (Örnek 1. dalgada 2 temel robot 3 goril robot 1 akıllı süpürge / 2. dalga 1 temel robot 5 goril robot 3 akıllı süpürge) 🟥
 
-- Dalga çağırma butonuna basıldığında dalga sayacının 1 artması 🟥
+- Dalga çağırma butonuna basıldığında dalga sayacının 1 artması (Metehan Tınaz)✅
 
 - Kule geliştirme seçeneği olan UI butonlarının bug fixlemesi (Birden fazla kule varsa eğer birinciden sonra oluşturulan her bir kulenin etkisi birinci kuleye etki etmekte) 🟥
 
-- Düşman üzerine yapışan mermileri yok etme (Bug fixed) 🟥
+- Düşman üzerine yapışan mermileri yok etme (Bug fixed) (Bekir Mustafa Yoğurtçu) ✅
+
+- Kulenin seviyesi azami değere ulaştığında tekrardan geliştirme butonuna basılırsa paradan eksilmeyecek (Metehan Tınaz) 🟥
 
 
 
