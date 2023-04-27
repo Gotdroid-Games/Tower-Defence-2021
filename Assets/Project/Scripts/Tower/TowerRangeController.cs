@@ -14,7 +14,7 @@ public class TowerRangeController : MonoBehaviour
     public List<GameObject> TouchObjList = new List<GameObject>();
     public GameObject touchGameObj;
     public int counts;
-
+    public int countcheck;
 
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class TowerRangeController : MonoBehaviour
     }
     private void Update()
     {
+        countcheck = counts;
         if (counts <= 2)
         {
             touchGameObj = TouchObjList[counts];
