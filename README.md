@@ -14,11 +14,23 @@
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
-- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Metehan Tınaz) 🟥
+- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Metehan Tınaz) ✅
 
 - Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
 
-- Tüm kuleler multi object olarak sahneye geçecek (Bug fixleme) (Bekir Mustafa Yoğurtçu)🟥
+- Tüm kuleler multi object olarak sahneye geçecek (Bug fixleme) (Bekir Mustafa Yoğurtçu) ✅
+
+- Yıldız sisteminde bulunan hatayı giderme (Eğer 20 canla biterse sadece 3. yıldız yanıyor tamamı yanması gerekirken) (Metehan Tınaz) 🟥
+
+- Levels sahnesine back butonu eklenecek (Ana menüye döndürülecek) (Bekir Mustafa Yoğurtçu) 🟥
+
+- Oyun içerisine yeni düşman robotlarını ekleme 🟥
+
+- Eklenen düşman robotları için her bir dalgaya özel spawn adeti girilecek (Örnek 1. dalgada 2 temel robot 3 goril robot 1 akıllı süpürge / 2. dalga 1 temel robot 5 goril robot 3 akıllı süpürge) 🟥
+
+- Dalga çağırma butonuna basıldığında dalga sayacının 1 artması 🟥
+
+
 
 
 ## Yapılanlar Listesi
