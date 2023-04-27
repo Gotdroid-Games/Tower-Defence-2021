@@ -3,23 +3,21 @@ using UnityEngine;
 
 public class TowerRangeController : MonoBehaviour
 {
-    
-    [SerializeField] public static TowerRangeController instance;
+   
     public List<GameObject> UIController = new List<GameObject>();
     public List<GameObject> TouchObjList = new List<GameObject>();
     public GameObject touchGameObj;
     public int counts;
     public int countcheck;
 
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-    }
+    TowerMenu TowerMenu;
+
 
     private void Start()
     {
         TouchObjList[0].SetActive(true);
+        TowerMenu = FindObjectOfType<TowerMenu>();
+        
     }
     private void Update()
     {
@@ -29,12 +27,12 @@ public class TowerRangeController : MonoBehaviour
             touchGameObj = TouchObjList[counts];
         }
 
-        if(counts>=2)
+        if (counts >= 2)
         {
             counts = 2;
         }
 
-        if(countcheck>=2)
+        if (countcheck >= 2)
         {
             countcheck = 2;
         }
@@ -43,7 +41,7 @@ public class TowerRangeController : MonoBehaviour
         {
             if (counts == 0)
             {
-                TowerMenu.instance.Tower=TouchObjList[0];
+                TowerMenu.Tower=TouchObjList[0];
                 TouchObjList[0].SetActive(true);
                 TouchObjList[1].SetActive(false);
                 TouchObjList[2].SetActive(false);
@@ -51,7 +49,7 @@ public class TowerRangeController : MonoBehaviour
 
             if (counts == 1)
             {
-                TowerMenu.instance.Tower = TouchObjList[1];
+                TowerMenu.Tower = TouchObjList[1];
                 TouchObjList[0].SetActive(false);
                 TouchObjList[1].SetActive(true);
                 TouchObjList[2].SetActive(false);
@@ -59,7 +57,7 @@ public class TowerRangeController : MonoBehaviour
 
             if (counts == 2)
             {
-                TowerMenu.instance.Tower = TouchObjList[2];
+                TowerMenu.Tower = TouchObjList[2];
                 TouchObjList[0].SetActive(false);
                 TouchObjList[1].SetActive(false);
                 TouchObjList[2].SetActive(true);

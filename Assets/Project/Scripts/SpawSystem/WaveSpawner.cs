@@ -6,66 +6,62 @@ public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner Instance;
 
-    public GameObject _startWave;
-    bool StartWaveControl;
+    [SerializeField] private GameObject _startWave;
+    [SerializeField] private Transform enemyPrefab;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private TextMeshProUGUI waveCountdownText;
 
-    public Transform enemyPrefab;
-    public Transform spawnPoint;
-
-    public float timeBetweenWaves = 5f;
+    private bool startWaveControl;
+    private float timeBetweenWaves = 5f;
     public float countdown = 2f;
-
-    public TextMeshProUGUI waweCountdownText;
-
-    int waweIndex = 0;
+    private int waveIndex = 0;
 
     private void Start()
     {
         Instance = this;
-        StartWaveControl = false;
+        startWaveControl = false;
     }
 
     private void Update()
     {
-        if (countdown <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-            StartWaveControl = false;
-        }
-        if(StartWaveControl==true)
+        if (startWaveControl)
         {
             countdown -= Time.deltaTime;
-            waweCountdownText.text = Mathf.Round(countdown).ToString();
-            
+            waveCountdownText.text = Mathf.Round(countdown).ToString();
         }
-        if(StartWaveControl ==false)
+        else
         {
             _startWave.SetActive(true);
         }
 
+        if (countdown <= 0f)
+        {
+            SpawnWave();
+            countdown = timeBetweenWaves;
+            startWaveControl = false;
+        }
     }
 
     public void StartWave()
     {
-        StartWaveControl = true;
+        startWaveControl = true;
         _startWave.SetActive(false);
+        Quaity.Instance.WaveValue(1);
     }
 
-    IEnumerator SpawnWave()
+    private void SpawnWave()
     {
-        waweIndex++;
+        waveIndex++;
 
-        for (int i = 0; i < waweIndex; i++)
+        for (int i = 0; i < waveIndex; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            Invoke("SpawnEnemy", 0.5f * i);
         }
+    }
 
-
-        void SpawnEnemy()
-        {
-            Instantiate(enemyPrefab,spawnPoint.position,spawnPoint.rotation);
-        }
+    private void SpawnEnemy()
+    {
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
+

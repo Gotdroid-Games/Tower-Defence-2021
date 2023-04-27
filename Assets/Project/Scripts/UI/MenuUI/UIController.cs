@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIController : MonoBehaviour
@@ -18,5 +19,10 @@ public class UIController : MonoBehaviour
     {
         StarMenuUI = StarPoint._starPoint;
         StarMenuText.text=StarMenuUI.ToString();
+    }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

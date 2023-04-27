@@ -80,7 +80,7 @@ public class Quaity : MonoBehaviour
         }
     }
 
-    void WaveValue(int wave)
+    public void WaveValue(int wave)
     {
         _waveText += wave;
         WaveText.text = _waveText.ToString();

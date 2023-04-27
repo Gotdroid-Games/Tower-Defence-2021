@@ -4738,12 +4738,12 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1713795534}
         m_TargetAssemblyTypeName: LevelCompletionController, Assembly-CSharp
-        m_MethodName: Level1Complete
-        m_Mode: 1
+        m_MethodName: LevelComplete
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5837,9 +5837,7 @@ MonoBehaviour:
   _startWave: {fileID: 313361781}
   enemyPrefab: {fileID: 4669008204138783820, guid: e0e47059f94c83f4ebc7c230b6a484b3, type: 3}
   spawnPoint: {fileID: 874705094}
-  timeBetweenWaves: 5
-  countdown: 2
-  waweCountdownText: {fileID: 1079759053}
+  waveCountdownText: {fileID: 1079759053}
 --- !u!4 &589565926
 Transform:
   m_ObjectHideFlags: 0

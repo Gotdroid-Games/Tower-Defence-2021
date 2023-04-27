@@ -2,30 +2,31 @@ using UnityEngine;
 
 public class TowerMenu : MonoBehaviour
 {
+    TowerRangeController TowerRangeController;
+    RangeUpgrade RangeUpgrade;
     TowerTarget TowerTarget;
-    public static TowerMenu instance;
+    Quaity Quaity;
+    
     public GameObject UpgradeButton1;
     public GameObject Tower;
     public GameObject SellButton;
-
-    private void Awake()
-    {
-        if(instance==null)
-        {
-            instance = this;
-        }
-    }
+    int countcheck;
+    
     private void Start()
     {
-        
-        TowerTarget = TowerTarget.instance;
+        TowerTarget = FindObjectOfType<TowerTarget>();
+        TowerRangeController = FindObjectOfType<TowerRangeController>();
+        Quaity = FindObjectOfType<Quaity>();
+        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
     }
     private void Update()
     {
-        if (TowerRangeController.instance.counts >= 2)
+        if (TowerRangeController.counts >= 2)
         {
-            TowerRangeController.instance.counts = 2;
+            TowerRangeController.counts = 2;
         }
+
+        countcheck = TowerRangeController.counts;
     }
 
     private void OnMouseDown()
@@ -41,9 +42,9 @@ public class TowerMenu : MonoBehaviour
                 UpgradeButton1.SetActive(true);
                 SellButton.SetActive(true);
 
-                for (int i = 0; i < TowerRangeController.instance.UIController.Count; i++)
+                for (int i = 0; i <  TowerRangeController.UIController.Count; i++ )
                 {
-                    TowerRangeController.instance.UIController[i].SetActive(true);
+                    TowerRangeController.UIController[i].SetActive(true);
                 }
                 Debug.Log(hit.collider.gameObject.name);
             }
@@ -55,20 +56,20 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         Tower = gameObject;
 
-        if (Quaity.Instance._coinText >= 120)
+        if (Quaity._coinText >= 120)
         {
-            Quaity.Instance.TowerUpgradeMoney(120);
             gameObject.GetComponent<TowerRangeController>().counts++;
 
-            if (TowerRangeController.instance.counts <= 2)
+            if(countcheck<2)
             {
-                RangeUpgrade.instance.Attribute();
+                RangeUpgrade.Attribute();
+                Quaity.TowerUpgradeMoney(120);
             }
         }
 
-        for (int i = 0; i < TowerRangeController.instance.UIController.Count; i++)
+        for (int i = 0; i < TowerRangeController.UIController.Count; i++)
         {
-            TowerRangeController.instance.UIController[i].SetActive(false);
+            TowerRangeController.UIController[i].SetActive(false);
         }
 
         UpgradeButton1.SetActive(false);
@@ -77,7 +78,7 @@ public class TowerMenu : MonoBehaviour
 
     public void Sell()
     {
-        Quaity.Instance.SellTower(70);
+        Quaity.SellTower(70);
         Destroy(gameObject);
     }
 }
