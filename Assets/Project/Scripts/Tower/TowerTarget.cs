@@ -26,8 +26,8 @@ public class TowerTarget : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
-
     
+
     private void Awake()
     {
         if (instance == null)
@@ -35,14 +35,16 @@ public class TowerTarget : MonoBehaviour
     }
     private void Start()
     {
+        
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
     
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         GameObject[] enemies1 = GameObject.FindGameObjectsWithTag(enemyTag1);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         
