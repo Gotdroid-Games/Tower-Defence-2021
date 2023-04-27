@@ -13,15 +13,16 @@ public class Node : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
-
+    Quaity quaity;
     BuildManager buildManager;
+
 
     private void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-
-        buildManager = BuildManager.instance;
+        quaity = FindObjectOfType<Quaity>();
+        buildManager = FindObjectOfType<BuildManager>();
     }
 
     private void OnMouseDown()
@@ -37,18 +38,13 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        if (Quaity.Instance._coinText >= 70)
+        if (quaity._coinText >= 70)
         {
             GameObject turretToBuild = buildManager.GetTurretToBuild();
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            Quaity.Instance.PaidTower(70);
+            quaity.PaidTower(70);
         }
-
-        
-
-
-
-        //Build a turret (Tarret inþa et)
+      //Build a turret (Tarret inþa et)
 
     }
 

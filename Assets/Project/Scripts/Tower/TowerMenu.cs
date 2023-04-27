@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class TowerMenu : MonoBehaviour
 {
     TowerRangeController TowerRangeController;
@@ -42,7 +42,7 @@ public class TowerMenu : MonoBehaviour
                 UpgradeButton1.SetActive(true);
                 SellButton.SetActive(true);
 
-                for (int i = 0; i <  TowerRangeController.UIController.Count; i++ )
+                for (int i = 0; i < TowerRangeController.UIController.Count; i++ )
                 {
                     TowerRangeController.UIController[i].SetActive(true);
                 }
@@ -58,7 +58,7 @@ public class TowerMenu : MonoBehaviour
 
         if (Quaity._coinText >= 120)
         {
-            gameObject.GetComponent<TowerRangeController>().counts++;
+            GetComponent<TowerRangeController>().counts++;
 
             if(countcheck<2)
             {
@@ -67,7 +67,7 @@ public class TowerMenu : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < TowerRangeController.UIController.Count; i++)
+        for (int i = 0; i <GetComponent<TowerRangeController>().UIController.Count; i++)
         {
             TowerRangeController.UIController[i].SetActive(false);
         }
@@ -78,7 +78,21 @@ public class TowerMenu : MonoBehaviour
 
     public void Sell()
     {
-        Quaity.SellTower(70);
         Destroy(gameObject);
+
+        if (countcheck == 0)
+        {
+            Quaity.SellTower(70);
+        }
+
+        if (countcheck == 1)
+        {
+            Quaity.SellTower(100);
+        }
+
+        if (countcheck == 2)
+        {
+            Quaity.SellTower(120);
+        }
     }
 }
