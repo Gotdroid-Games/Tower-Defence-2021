@@ -32,6 +32,8 @@
 
 - Kule geliştirme seçeneği olan UI butonlarının bug fixlemesi (Birden fazla kule varsa eğer birinciden sonra oluşturulan her bir kulenin etkisi birinci kuleye etki etmekte) 🟥
 
+- Düşman üzerine yapışan mermileri yok etme (Bug fixed) 🟥
+
 
 
 ## Yapılanlar Listesi
