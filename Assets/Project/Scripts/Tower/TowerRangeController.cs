@@ -34,6 +34,16 @@ public class TowerRangeController : MonoBehaviour
             touchGameObj = TouchObjList[counts];
         }
 
+        if(counts>=2)
+        {
+            counts = 2;
+        }
+
+        if(countcheck>=2)
+        {
+            countcheck = 2;
+        }
+
         if (touchGameObj != null)
         {
             if (counts == 0)
