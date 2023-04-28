@@ -18,10 +18,10 @@ public class GameValue : MonoBehaviour
     {
         UpgradeMenu = FindObjectOfType<UpgradeMenu>();
 
-        NewFireCountDown = UpgradeMenu.newfirecontdown;
-        TowerPrice = UpgradeMenu.towerPrice;
-        RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
-        TowerRangeUpgrade = UpgradeMenu.towerRangeUpgrade;
-        RangedTowerCritDamage = UpgradeMenu.rangeTowerCritDamage;
+        //NewFireCountDown = UpgradeMenu.newfirecontdown;
+        //TowerPrice = UpgradeMenu.towerPrice;
+        //RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
+        //TowerRangeUpgrade = UpgradeMenu.towerRangeUpgrade;
+        //RangedTowerCritDamage = UpgradeMenu.rangeTowerCritDamage;
     }
 }

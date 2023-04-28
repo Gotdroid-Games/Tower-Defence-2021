@@ -64,10 +64,10 @@ public class Enemy : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         transform.rotation = Quaternion.LookRotation(dir);
-        //if (gameObject.CompareTag("GorillaRobot"))
-        //{
-        //    transform.rotation *= Quaternion.Euler(-90, 0, 0);
-        //}
+        if (gameObject.CompareTag("GorillaRobot"))
+        {
+            transform.rotation *= Quaternion.Euler(-90, 0, 0);
+        }
             if(Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWayPoint();

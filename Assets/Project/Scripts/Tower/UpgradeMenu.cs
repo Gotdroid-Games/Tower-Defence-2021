@@ -4,7 +4,7 @@ using UnityEngine;
 public class UpgradeMenu : MonoBehaviour
 {
     GameValue GameValue;
-    public float newfirecontdown;
+    public float newfirecontdown=1f;
     public int towerPrice;
     public int rangedTowerDamage;
     public int rangeTowerCritDamage; 
@@ -12,9 +12,10 @@ public class UpgradeMenu : MonoBehaviour
 
     private void Start()
     {
-        GameValue = FindObjectOfType<GameValue>();
-        newfirecontdown = 1f;
+        
         towerPrice = 120;
+        GameValue = FindObjectOfType<GameValue>();
+        
     }
 
     public void TowerSpeedUp()
