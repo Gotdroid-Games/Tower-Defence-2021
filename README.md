@@ -22,7 +22,7 @@
 
 - Singleton sistemleri Multi Object sistemlere çevirme (Gerekli yerler için) (Metehan Tınaz) ✅
 
-- Multi Object sonrası meydana gelen hataları fixleme (Kule geliştirme)
+- Multi Object sonrası meydana gelen hataları fixleme (Kule geliştirme) 🟥
 
 
 ## Yapılanlar Listesi
