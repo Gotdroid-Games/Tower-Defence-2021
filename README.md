@@ -22,7 +22,9 @@
 
 - Singleton sistemleri Multi Object sistemlere çevirme (Gerekli yerler için) (Metehan Tınaz) ✅
 
-- Multi Object sonrası meydana gelen hataları fixleme (Kule geliştirme) 🟥
+- Multi Object sonrası meydana gelen hataları fixleme (Kule geliştirme) (Bekir Mustafa Yoğurtçu) ✅
+
+- Yıldız puanı ile kulelere kazandırılam öz nitelik sistemindeki bugu fixleme (Menüden oyun sahnesine değerler geçirelecek) 🟥
 
 
 ## Yapılanlar Listesi
