@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= RangeUpgrade.Damage;
         _healthbar.SetHealth(currentHealth);
-        if (TowerTarget.CritValue >= 1 && TowerTarget.CritValue <= 10)
+        if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
         {
             currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
             _healthbar.SetHealth(currentHealth);
