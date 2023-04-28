@@ -64,7 +64,7 @@ public class TowerMenu : MonoBehaviour
 
             if(countcheck<2)
             {
-                RangeUpgrade.Attribute();
+                //RangeUpgrade.Attribute();
                 Quaity.TowerUpgradeMoney(120);
             }
         }
