@@ -17,11 +17,17 @@ public class GameValue : MonoBehaviour
     private void Start()
     {
         UpgradeMenu = FindObjectOfType<UpgradeMenu>();
-
-        //NewFireCountDown = UpgradeMenu.newfirecontdown;
-        //TowerPrice = UpgradeMenu.towerPrice;
-        //RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
-        //TowerRangeUpgrade = UpgradeMenu.towerRangeUpgrade;
-        //RangedTowerCritDamage = UpgradeMenu.rangeTowerCritDamage;
+        if (UpgradeMenu == null)
+        {
+            Debug.Log("gameobject null");
+        }
+        else
+        {
+            NewFireCountDown = UpgradeMenu.newfirecontdown;
+            TowerPrice = UpgradeMenu.towerPrice;
+            RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
+            TowerRangeUpgrade = UpgradeMenu.towerRangeUpgrade;
+            RangedTowerCritDamage = UpgradeMenu.rangeTowerCritDamage;
+        }
     }
 }
