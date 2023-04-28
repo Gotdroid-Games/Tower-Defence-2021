@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class TowerTarget : MonoBehaviour
 {
-    GameValue GameValue;
-    RangeUpgrade RangeUpgrade;
+    public static TowerTarget instance;
+
     private Transform Target;
     
     [Header("Attributes")]
@@ -26,19 +26,25 @@ public class TowerTarget : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     private void Start()
     {
-        GameValue = FindObjectOfType<GameValue>();
-        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
+        
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
     
 
     void UpdateTarget()
     {
+        GameObject[] enemies1 = GameObject.FindGameObjectsWithTag(enemyTag1);
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        //GameObject[] enemies1 = GameObject.FindGameObjectsWithTag(enemyTag1);
+        
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         
@@ -53,19 +59,19 @@ public class TowerTarget : MonoBehaviour
                 }
             }
 
-            //foreach (GameObject enemy in enemies1)
-            //{
-            //    float distanceToenemy = Vector3.Distance(transform.position, enemy.transform.position);
-            //    if (distanceToenemy < shortestDistance)
-            //    {
-            //        shortestDistance = distanceToenemy;
-            //        nearestEnemy = enemy;
-            //    }
-            //}
+            foreach (GameObject enemy in enemies1)
+            {
+                float distanceToenemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToenemy < shortestDistance)
+                {
+                    shortestDistance = distanceToenemy;
+                    nearestEnemy = enemy;
+                }
+            }
         
 
 
-        if (nearestEnemy != null && shortestDistance <= RangeUpgrade.Range)
+        if (nearestEnemy != null && shortestDistance <= RangeUpgrade.instance.Range)
         {
             Target = nearestEnemy.transform;
         }
@@ -99,7 +105,7 @@ public class TowerTarget : MonoBehaviour
             Shoot();
             fireCountdown = 1f / fireRate;
         }
-        else if (fireCountdown <= 0f && GameValue.NewFireCountDown == 0.2f)
+        else if (fireCountdown <= 0f && GameValue.instance.NewFireCountDown == 0.2f)
         {
             CritValue = Random.Range(1, 101);
             Shoot();

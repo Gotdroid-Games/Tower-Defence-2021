@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 4187792454327620608}
   UpgradeButton1: {fileID: 5570693761724152515}
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
@@ -105,6 +106,7 @@ MonoBehaviour:
   - {fileID: 7392681481885285183}
   touchGameObj: {fileID: 0}
   counts: 0
+  countcheck: 0
 --- !u!114 &3466389259416718448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 15
   Range: 15
+  countcheck: 0
 --- !u!1001 &2961568775980864385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -536,6 +539,11 @@ PrefabInstance:
 --- !u!224 &1779699863680219487 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+  m_PrefabInstance: {fileID: 8584960502076002925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &4187792454327620608 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5565867617261815405, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 8584960502076002925}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5570693761724152515 stripped
