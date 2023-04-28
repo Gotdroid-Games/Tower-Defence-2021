@@ -20,6 +20,8 @@
 
 - Kule geliştirme seçeneği olan UI butonlarının bug fixlemesi (Birden fazla kule varsa eğer birinciden sonra oluşturulan her bir kulenin etkisi birinci kuleye etki etmekte) (Bekir Mustafa Yoğurtçu) 🟥
 
+- Singleton sistemleri Multi Object sistemlere çevirme (Gerekli yerler için) (Metehan Tınaz) 🟥 
+
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
