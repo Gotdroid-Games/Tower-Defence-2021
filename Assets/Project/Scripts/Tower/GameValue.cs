@@ -23,6 +23,7 @@ public class GameValue : MonoBehaviour
         }
         else
         {
+            Debug.Log("not null");
             NewFireCountDown = UpgradeMenu.newfirecontdown;
             TowerPrice = UpgradeMenu.towerPrice;
             RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
