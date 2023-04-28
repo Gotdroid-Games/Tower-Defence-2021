@@ -5,109 +5,69 @@ public class InfoMenu : MonoBehaviour
 {
     public TextMeshProUGUI InfoTextUI;
     public string InfoText;
-    public GameObject[] UpgradeMenuButtons=new GameObject[7];
+    public GameObject[] UpgradeMenuButtons = new GameObject[7];
+    public GameObject InfoBackGround, ResetButton, RateOnFireDoneButton, SaleDoneButton, DamageDoneButton, RangeDoneButton, CritDamageDoneButton;
 
-    void UpgradeUIButtons(GameObject InfoBackGround, GameObject ResetButton, GameObject RateOnFireDoneButton, GameObject SaleDoneButton, GameObject DamageDoneButton, GameObject RangeDoneButton, GameObject CritDamageDoneButton)
+    void Start()
     {
-        UpgradeMenuButtons[0]=InfoBackGround;
-        UpgradeMenuButtons[1]=ResetButton;
-        UpgradeMenuButtons[2]=RateOnFireDoneButton;
-        UpgradeMenuButtons[3]=SaleDoneButton;
-        UpgradeMenuButtons[4]=DamageDoneButton;
-        UpgradeMenuButtons[5]=RangeDoneButton;
-        UpgradeMenuButtons[6]=CritDamageDoneButton;
+        UpgradeUIButtons();
+        UpgradeMenuButtons[0].SetActive(false);
+        UpgradeMenuButtons[1].SetActive(false);
     }
-    
 
-    private void Awake()
+    void UpgradeUIButtons()
     {
-       UpgradeMenuButtons[0].SetActive(false);
-       UpgradeMenuButtons[1].SetActive(false);
-        
+        UpgradeMenuButtons[0] = InfoBackGround;
+        UpgradeMenuButtons[1] = ResetButton;
+        UpgradeMenuButtons[2] = RateOnFireDoneButton;
+        UpgradeMenuButtons[3] = SaleDoneButton;
+        UpgradeMenuButtons[4] = DamageDoneButton;
+        UpgradeMenuButtons[5] = RangeDoneButton;
+        UpgradeMenuButtons[6] = CritDamageDoneButton;
+    }
+
+    void UpgradeUI(bool[] activeButtons, string infoText)
+    {
+        InfoTextUI.text = infoText;
+        for (int i = 0; i < activeButtons.Length; i++)
+        {
+            UpgradeMenuButtons[i].SetActive(activeButtons[i]);
+        }
     }
 
     public void RateOnFire()
     {
+        bool[] activeButtons = { true, true, true, false, false, false, false };
         InfoText = "%20 saldýrý hýzý artýþý saðlar";
-        InfoTextUI.text = InfoText;
-        for (int i = 0; i <= 2; i++)
-        {
-           UpgradeMenuButtons[i].SetActive(true);
-
-        }
-
-        for (int i = 3; i <= 6; i++)
-        {
-            UpgradeMenuButtons[i].SetActive(false);
-        }
+        UpgradeUI(activeButtons, InfoText);
     }
 
     public void Sale()
     {
+        bool[] activeButtons = { true, true, false, true, false, false, false };
         InfoText = "niþancý kulesý -30 daha az altýn ister";
-        InfoTextUI.text = InfoText;
-
-        for (int i = 0; i <= 1; i++)
-        {
-            UpgradeMenuButtons[i].SetActive(true);
-        }
-
-        UpgradeMenuButtons[2].SetActive(false);
-        UpgradeMenuButtons[3].SetActive(true);
-
-        for (int i = 4; i <= 6; i++)
-        {
-            UpgradeMenuButtons[i].SetActive(false);
-        }
+        UpgradeUI(activeButtons, InfoText);
     }
 
     public void Damage()
     {
+        bool[] activeButtons = { true, true, false, false, true, false, false };
         InfoText = "Niþancý kulesinin hasarý %20 artar";
-        InfoTextUI.text = InfoText;
-
-        for (int i = 0; i <= 1; i++)
-        {
-            UpgradeMenuButtons[i].SetActive(true);
-        }
-
-        for (int i = 2; i <= 3; i++)
-        {
-            UpgradeMenuButtons[i].SetActive(false);
-        }
-
-        UpgradeMenuButtons[4].SetActive(true);
-
-        for (int i = 5; i <=6 ; i++)
-        {
-            UpgradeMenuButtons[i].SetActive(false);
-        }
+        UpgradeUI(activeButtons, InfoText);
     }
 
     public void Range()
     {
+        bool[] activeButtons = { true, true, false, false, false, true, false };
         InfoText = "Niþancý kulesinin menzili %20 artar";
-        InfoTextUI.text = InfoText;
-        UpgradeMenuButtons[0].SetActive(true);
-        UpgradeMenuButtons[1].SetActive(true);
-        UpgradeMenuButtons[2].SetActive(false);
-        UpgradeMenuButtons[3].SetActive(false);
-        UpgradeMenuButtons[4].SetActive(false);
-        UpgradeMenuButtons[5].SetActive(true);
-        UpgradeMenuButtons[6].SetActive(false);
+        UpgradeUI(activeButtons, InfoText);
     }
 
     public void CritDamage()
     {
+        bool[] activeButtons = { true, true, false, false, false, false, true };
         InfoText = "Niþancý kulesinin kritik hasarý %20 artar";
-        InfoTextUI.text = InfoText;
-        UpgradeMenuButtons[0].SetActive(true);
-        UpgradeMenuButtons[1].SetActive(true);
-        UpgradeMenuButtons[2].SetActive(false);
-        UpgradeMenuButtons[3].SetActive(false);
-        UpgradeMenuButtons[4].SetActive(false);
-        UpgradeMenuButtons[5].SetActive(false);
-        UpgradeMenuButtons[6].SetActive(true);
+        UpgradeUI(activeButtons, InfoText);
     }
 
     public void InfoBack()

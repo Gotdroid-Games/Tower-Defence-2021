@@ -2,25 +2,22 @@ using UnityEngine;
 
 public class GameValue : MonoBehaviour
 {
-    public static GameValue instance;
+    UpgradeMenu UpgradeMenu;
     public int TowerPrice = 120;
     public int RangedTowerDamage = 20;
     public int TowerRangeUpgrade = 20;
     public int RangedTowerCritDamage;
     public float NewFireCountDown = 1f;
-    
 
 
     private void Awake()
     {
-        if(instance==null)
-        {
-            instance = this;
-        }
+        
     }
-
     private void Start()
     {
+        UpgradeMenu = FindObjectOfType<UpgradeMenu>();
+
         NewFireCountDown = UpgradeMenu.newfirecontdown;
         TowerPrice = UpgradeMenu.towerPrice;
         RangedTowerDamage = UpgradeMenu.rangedTowerDamage;

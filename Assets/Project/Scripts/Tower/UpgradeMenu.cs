@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    
-    public static float newfirecontdown;
-    public static int towerPrice;
-    public static int rangedTowerDamage;
-    public static int rangeTowerCritDamage; 
-    public static int towerRangeUpgrade;
+    GameValue GameValue;
+    public float newfirecontdown;
+    public int towerPrice;
+    public int rangedTowerDamage;
+    public int rangeTowerCritDamage; 
+    public int towerRangeUpgrade;
 
     private void Start()
     {
+        GameValue = FindObjectOfType<GameValue>();
         newfirecontdown = 1f;
         towerPrice = 120;
     }
@@ -21,7 +22,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             newfirecontdown = 0.2f;
-            GameValue.instance.NewFireCountDown = 0.2f;
+            GameValue.NewFireCountDown = 0.2f;
             StarPoint._starPoint -= 1;
         }
 
@@ -36,7 +37,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             towerPrice -= 30;
-            GameValue.instance.TowerPrice = 90;
+            GameValue.TowerPrice = 90;
             StarPoint._starPoint -= 1;
         }
         
@@ -51,7 +52,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             rangedTowerDamage = 20;
-            GameValue.instance.RangedTowerDamage = 20;
+            GameValue.RangedTowerDamage = 20;
             StarPoint._starPoint -= 1;
         }
         
@@ -66,7 +67,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             towerRangeUpgrade = 20;
-            GameValue.instance.TowerRangeUpgrade = 20;
+            GameValue.TowerRangeUpgrade = 20;
             StarPoint._starPoint -= 1;
         }
         
@@ -80,8 +81,8 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (StarPoint._starPoint > 0)
         {
-            rangeTowerCritDamage = GameValue.instance.RangedTowerDamage * 10 / 100;
-            GameValue.instance.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
+            rangeTowerCritDamage = GameValue.RangedTowerDamage * 10 / 100;
+            GameValue.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
             StarPoint._starPoint -= 1;
         }
         

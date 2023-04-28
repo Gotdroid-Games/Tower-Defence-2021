@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-
+    Quaity Quaity;
+    BuildManager BuildManager;
     public Color hoverColor;
     public Vector3 positionOffset;
 
@@ -14,14 +15,14 @@ public class Node : MonoBehaviour
     private Renderer rend;
     private Color startColor;
 
-    BuildManager buildManager;
+    
 
     private void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-
-        buildManager = BuildManager.instance;
+        Quaity=FindObjectOfType<Quaity>();
+        BuildManager = FindObjectOfType<BuildManager>();
     }
 
     private void OnMouseDown()
@@ -29,7 +30,7 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (BuildManager.GetTurretToBuild() == null)
             return;
 
         
@@ -37,16 +38,12 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        if (Quaity.Instance._coinText >= 70)
+        if (Quaity._coinText >= 70)
         {
-            GameObject turretToBuild = buildManager.GetTurretToBuild();
+            GameObject turretToBuild = BuildManager.GetTurretToBuild();
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            Quaity.Instance.PaidTower(70);
+            Quaity.PaidTower(70);
         }
-
-        
-
-
 
         //Build a turret (Tarret inþa et)
 
@@ -59,7 +56,7 @@ public class Node : MonoBehaviour
 
 
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (BuildManager.GetTurretToBuild() == null)
             return;
 
         rend.material.color = hoverColor;

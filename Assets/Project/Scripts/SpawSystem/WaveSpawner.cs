@@ -4,7 +4,7 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public static WaveSpawner Instance;
+    Quaity Quaity;
 
     [SerializeField] private GameObject _startWave;
     [SerializeField] private Transform enemyPrefab;
@@ -18,8 +18,8 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        Instance = this;
         startWaveControl = false;
+        Quaity=FindObjectOfType<Quaity>();
     }
 
     private void Update()
@@ -46,7 +46,7 @@ public class WaveSpawner : MonoBehaviour
     {
         startWaveControl = true;
         _startWave.SetActive(false);
-        Quaity.Instance.WaveValue(1);
+        Quaity.WaveValue(1);
     }
 
     private void SpawnWave()

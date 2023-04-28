@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class StarPoint : MonoBehaviour
 {
-    public static StarPoint Instance;
+    Quaity Quaity;
+    GameUI GameUI;
     public TextMeshProUGUI starPointText;
     public static int _starPoint = 0;
 
-    private void Awake()
+    private void Start()
     {
-        Instance = this;
+        Quaity = FindObjectOfType<Quaity>();
+        GameUI = FindObjectOfType<GameUI>();
     }
 
     private void Update()
     {
-        if (Quaity.Instance._waveText >= 12)
+        if (Quaity._waveText >= 12)
         {
             StartCoroutine(Waitfor());
         }
@@ -30,13 +32,13 @@ public class StarPoint : MonoBehaviour
     {
         // Yýldýzlarýn aktifleþtirilmesi ve her aktif olan yýldýz karþýlýðýnda +1 puan kazanýlmasý
         int[] heartLevels = { 1, 10, 17 };
-        GameObject[] starButtons = { GameUI.Instance._Button.GameUIButtons[10], GameUI.Instance._Button.GameUIButtons[11], GameUI.Instance._Button.GameUIButtons[12] };
+        GameObject[] starButtons = { GameUI._Button.GameUIButtons[10], GameUI._Button.GameUIButtons[11], GameUI._Button.GameUIButtons[12] };
 
         for (int i = 0; i < heartLevels.Length; i++)
         {
             yield return new WaitForSeconds(i == 0 ? 2f : 1f);
 
-            if (Quaity.Instance._heartText >= heartLevels[i] && Quaity.Instance._heartText <= 20)
+            if (Quaity._heartText >= heartLevels[i] && Quaity._heartText <= 20)
             {
                 starButtons[i].SetActive(true);
                 if (_starPoint < i + 1)

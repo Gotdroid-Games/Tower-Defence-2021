@@ -5,8 +5,8 @@ using TMPro;
 
 public class GameUI : MonoBehaviour
 {
+    AudioManager AudioManager;
     [SerializeField] public ButtonAssignments _Button;
-    public static GameUI Instance;
     public Slider _musicSlider, _sfxSlider;
 
     #region Button
@@ -40,7 +40,7 @@ public class GameUI : MonoBehaviour
     #endregion
     private void Start()
     {
-        Instance = this;
+        AudioManager = FindObjectOfType<AudioManager>();
     }
     
 
@@ -148,25 +148,25 @@ public class GameUI : MonoBehaviour
     public void ToggleMusic()
     {
         //Müzik sesini susturma ve aktif etme
-        AudioManager.Instance.ToggleMusic();
+        AudioManager.ToggleMusic();
     }
 
     public void ToggleSFX()
     {
         //Ses efektlerini susturma ve aktif etme
-        AudioManager.Instance.ToggleSFX();
+        AudioManager.ToggleSFX();
     }
 
     public void MusicVolume()
     {
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
-        AudioManager.Instance.MusicVolume(_musicSlider.value);
+        AudioManager.MusicVolume(_musicSlider.value);
     }
 
     public void SFXVolume()
     {
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
-        AudioManager.Instance.SFXVolume(_sfxSlider.value);
+        AudioManager.SFXVolume(_sfxSlider.value);
     }
 
     public void ContinueButton()

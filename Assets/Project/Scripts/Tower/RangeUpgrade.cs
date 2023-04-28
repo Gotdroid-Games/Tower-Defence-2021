@@ -4,26 +4,19 @@ using UnityEngine;
 
 public class RangeUpgrade : MonoBehaviour
 {
-    public static RangeUpgrade instance;
+    GameValue GameValue;
     public int Damage = 15;
     public float Range = 15f;
     public int countcheck;
     private bool damageAdded = false;
     private bool damageAdded2 = false;
-    
-    private void Awake()
-    {
-        if (instance==null)
-        {
-            instance = this;
-        } 
-    }
+
     
     private void Start()
     {
-       
-        Damage += GameValue.instance.RangedTowerDamage;
-        Range += GameValue.instance.TowerRangeUpgrade;
+        GameValue = FindObjectOfType<GameValue>();
+        Damage += GameValue.RangedTowerDamage;
+        Range += GameValue.TowerRangeUpgrade;
     }
     private void Update()
     {
@@ -47,8 +40,8 @@ public class RangeUpgrade : MonoBehaviour
     }
     public void Attribute()
     {
-        Damage += GameValue.instance.RangedTowerDamage;
-        Range += GameValue.instance.TowerRangeUpgrade;
+        Damage += GameValue.RangedTowerDamage;
+        Range += GameValue.TowerRangeUpgrade;
        
     }
 
