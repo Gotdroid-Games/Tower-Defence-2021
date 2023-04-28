@@ -17,7 +17,6 @@ public class TowerTarget : MonoBehaviour
 
         [Header("Unity Setup Fields")]
         public string enemyTag = "Enemy";
-        public string enemyTag1 = "GorillaRobot";
         public Transform partToRotate;
         public float turnSpeed;
         public GameObject bulletPrefab;
@@ -31,8 +30,9 @@ public class TowerTarget : MonoBehaviour
         }
 
         private void UpdateTarget()
-        {
-            GameObject[] enemies1 = GameObject.FindGameObjectsWithTag(enemyTag1);
+        {   
+            GameObject[] enemies1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
+            
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
             float shortestDistance = Mathf.Infinity;
             GameObject nearestEnemy = null;
