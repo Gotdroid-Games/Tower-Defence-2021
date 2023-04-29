@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
+        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
+        TowerTarget = FindObjectOfType<TowerTarget>();
         currentHealth -= RangeUpgrade.Damage;
         _healthbar.SetHealth(currentHealth);
         if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)

@@ -7,7 +7,8 @@ public class WaveSpawner : MonoBehaviour
     Quaity Quaity;
 
     [SerializeField] private GameObject _startWave;
-    [SerializeField] private Transform enemyPrefab;
+    [SerializeField] private Transform enemyPrefab1;
+    [SerializeField] private Transform enemyPrefab2;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private TextMeshProUGUI waveCountdownText;
 
@@ -16,10 +17,13 @@ public class WaveSpawner : MonoBehaviour
     public float countdown = 2f;
     private int waveIndex = 0;
 
+    public int[] enemy1Counts;
+    public int[] enemy2Counts;
+
     private void Start()
     {
         startWaveControl = false;
-        Quaity=FindObjectOfType<Quaity>();
+        Quaity = FindObjectOfType<Quaity>();
     }
 
     private void Update()
@@ -36,7 +40,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (countdown <= 0f)
         {
-            SpawnWave();
+            StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
             startWaveControl = false;
         }
@@ -49,19 +53,25 @@ public class WaveSpawner : MonoBehaviour
         Quaity.WaveValue(1);
     }
 
-    private void SpawnWave()
+    private IEnumerator SpawnWave()
     {
         waveIndex++;
 
-        for (int i = 0; i < waveIndex; i++)
+        for (int i = 0; i < enemy1Counts[waveIndex - 1]; i++)
         {
-            Invoke("SpawnEnemy", 0.5f * i);
+            SpawnEnemy(enemyPrefab1);
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
+        {
+            SpawnEnemy(enemyPrefab2);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(Transform enemyPrefab)
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
-

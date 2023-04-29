@@ -106,7 +106,7 @@ MonoBehaviour:
   TowerMenu: {fileID: 0}
   _healthbar: {fileID: 7033084522787973258}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   startSpeed: 10
   speed: 10
   worth: 50
