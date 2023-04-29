@@ -30,9 +30,9 @@ public class TowerTarget : MonoBehaviour
         }
 
         private void UpdateTarget()
-        {   
+        {
+            GameObject[] enemies2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
             GameObject[] enemies1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
-            
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
             float shortestDistance = Mathf.Infinity;
             GameObject nearestEnemy = null;
@@ -56,8 +56,16 @@ public class TowerTarget : MonoBehaviour
                     nearestEnemy = enemy;
                 }
             }
-
-            target = nearestEnemy != null && shortestDistance <= rangeUpgrade.Range ? nearestEnemy.transform : null;
+            foreach (GameObject enemy in enemies2)
+            {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+            }
+        target = nearestEnemy != null && shortestDistance <= rangeUpgrade.Range ? nearestEnemy.transform : null;
         }
 
         private void Update()

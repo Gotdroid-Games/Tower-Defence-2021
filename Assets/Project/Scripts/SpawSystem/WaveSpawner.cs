@@ -9,6 +9,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject _startWave;
     [SerializeField] private Transform enemyPrefab1;
     [SerializeField] private Transform enemyPrefab2;
+    [SerializeField] private Transform enemyPrefab3;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private TextMeshProUGUI waveCountdownText;
 
@@ -19,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
 
     public int[] enemy1Counts;
     public int[] enemy2Counts;
-
+    public int[] enemy3Counts;
     private void Start()
     {
         startWaveControl = false;
@@ -66,6 +67,11 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
         {
             SpawnEnemy(enemyPrefab2);
+            yield return new WaitForSeconds(0.5f);
+        }
+        for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
+        {
+            SpawnEnemy(enemyPrefab3);
             yield return new WaitForSeconds(0.5f);
         }
     }

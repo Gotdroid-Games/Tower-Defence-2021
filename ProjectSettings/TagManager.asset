@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - GorillaRobot
+  - SupurgeRobot
   layers:
   - Default
   - TransparentFX
