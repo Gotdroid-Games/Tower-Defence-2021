@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        Quaity = FindObjectOfType<Quaity>();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
