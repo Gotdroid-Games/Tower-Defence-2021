@@ -14,16 +14,18 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveCountdownText;
 
     private bool startWaveControl;
-    private float timeBetweenWaves = 5f;
-    public float countdown = 2f;
+    public float[] timeBetweenWaves;
+    public float waveCountdown;
     private int waveIndex = 0;
 
     public int[] enemy1Counts;
     public int[] enemy2Counts;
     public int[] enemy3Counts;
+
     private void Start()
     {
         startWaveControl = false;
+        waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
     }
 
@@ -31,18 +33,18 @@ public class WaveSpawner : MonoBehaviour
     {
         if (startWaveControl)
         {
-            countdown -= Time.deltaTime;
-            waveCountdownText.text = Mathf.Round(countdown).ToString();
+            waveCountdown -= Time.deltaTime;
+            waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
         }
         else
         {
             _startWave.SetActive(true);
         }
 
-        if (countdown <= 0f)
+        if (waveCountdown <= 0f)
         {
             StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+            waveCountdown = timeBetweenWaves[waveIndex];
             startWaveControl = false;
         }
     }
@@ -52,6 +54,7 @@ public class WaveSpawner : MonoBehaviour
         startWaveControl = true;
         _startWave.SetActive(false);
         Quaity.WaveValue(1);
+        waveCountdown = timeBetweenWaves[waveIndex];
     }
 
     private IEnumerator SpawnWave()
@@ -69,6 +72,7 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy(enemyPrefab2);
             yield return new WaitForSeconds(0.5f);
         }
+
         for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
         {
             SpawnEnemy(enemyPrefab3);

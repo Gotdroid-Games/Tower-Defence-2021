@@ -86,7 +86,7 @@ public class Quaity : MonoBehaviour
     }
         void WaveCounter()
     {
-        if (WaveSpawner.countdown <= 0)
+        if (WaveSpawner.waveCountdown <= 0)
         {
             WaveValue(1);
         }
