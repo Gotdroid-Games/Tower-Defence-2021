@@ -41,8 +41,11 @@ public class WaveSpawner : MonoBehaviour
             _startWave.SetActive(true);
         }
 
-        if (waveCountdown <= 0f)
+
+
+        if (waveIndex <= 11 && waveCountdown <= 0f)
         {
+            waveIndex++;
             StartCoroutine(SpawnWave());
             waveCountdown = timeBetweenWaves[waveIndex];
             startWaveControl = false;
@@ -59,24 +62,31 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        waveIndex++;
 
-        for (int i = 0; i < enemy1Counts[waveIndex - 1]; i++)
-        {
-            SpawnEnemy(enemyPrefab1);
-            yield return new WaitForSeconds(0.5f);
-        }
 
-        for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
+        if (waveIndex <= 11)
         {
-            SpawnEnemy(enemyPrefab2);
-            yield return new WaitForSeconds(0.5f);
-        }
 
-        for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
-        {
-            SpawnEnemy(enemyPrefab3);
-            yield return new WaitForSeconds(0.5f);
+            Debug.Log(waveIndex);
+
+            for (int i = 0; i < enemy1Counts[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(enemyPrefab1);
+                yield return new WaitForSeconds(0.5f);
+
+            }
+
+            for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(enemyPrefab2);
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(enemyPrefab3);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
     }
 
