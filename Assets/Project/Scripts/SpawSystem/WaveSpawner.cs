@@ -32,9 +32,11 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         if (startWaveControl)
-        {
-            waveCountdown -= Time.deltaTime;
-            waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
+        {   if (waveIndex <= 11)
+            {
+                waveCountdown -= Time.deltaTime;
+                waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
+            }
         }
         else
         {
@@ -45,9 +47,11 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex <= 11 && waveCountdown <= 0f)
         {
+           
             waveIndex++;
             StartCoroutine(SpawnWave());
-            waveCountdown = timeBetweenWaves[waveIndex];
+            Debug.Log(waveIndex);
+            waveCountdown = timeBetweenWaves[waveIndex-1];
             startWaveControl = false;
         }
     }
@@ -57,6 +61,8 @@ public class WaveSpawner : MonoBehaviour
         startWaveControl = true;
         _startWave.SetActive(false);
         Quaity.WaveValue(1);
+        
+        
         waveCountdown = timeBetweenWaves[waveIndex];
     }
 
@@ -67,9 +73,9 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex <= 11)
         {
 
-            Debug.Log(waveIndex);
+            
 
-            for (int i = 0; i < enemy1Counts[waveIndex - 1]; i++)
+            for (int i = 0; i < enemy1Counts[waveIndex-1]; i++)
             {
                 SpawnEnemy(enemyPrefab1);
                 yield return new WaitForSeconds(0.5f);
