@@ -26,6 +26,8 @@
 
 - Yıldız puanı ile kulelere kazandırılam öz nitelik sistemindeki bugu fixleme (Menüden oyun sahnesine değerler geçirelecek) 🟥
 
+- Oyun 12. dalgaya geldiğinde ve tüm düşmanlar öldüğünde kazanma ekranı aktif hale gelecek  🟥
+
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
