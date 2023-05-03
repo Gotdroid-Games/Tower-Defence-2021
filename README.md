@@ -26,11 +26,11 @@
 
 - Yıldız puanı ile kulelere kazandırılam öz nitelik sistemindeki bugu fixleme (Menüden oyun sahnesine değerler geçirelecek) 🟥
 
-- Oyun 12. dalgaya geldiğinde ve tüm düşmanlar öldüğünde kazanma ekranı aktif hale gelecek  🟥
-
 - DoTween sisteminin projeye eklenmesi (Kolay animasyon işlemleri sağlayan kod bileşenleri) (Melih Doğan) 🟥
 
-- Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 🟥 (Bekir Mustafa Yoğurtçu)
+- Wave başlatma butonuna kullanıcı basmazsa belirli bir süre sonra butonun kendiliğinden aktif hale gelmesi ve dalganın başlaması (Sürenin devreye gireceği sistem: Bir wave spawn olduktan sonra ve başlanan wave içerisinde ki tüm düşmanlar bittiğinde sayaç başlayacak) (Bekir Mustafa Yoğurtçu) 🟥
+
+- Oyun 12. dalgaya geldiğinde ve tüm düşmanlar öldüğünde kazanma ekranı aktif hale gelecek 🟥
 
 
 ## Yapılanlar Listesi
