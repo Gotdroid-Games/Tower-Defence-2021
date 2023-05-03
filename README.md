@@ -30,6 +30,8 @@
 
 - DoTween sisteminin projeye eklenmesi (Kolay animasyon işlemleri sağlayan kod bileşenleri) (Melih Doğan) 🟥
 
+- Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 🟥 (Bekir Mustafa Yoğurtçu)
+
 
 ## Yapılanlar Listesi
  - Para sistemi yapılacak. (Metehan Tınaz) ✅
@@ -98,5 +100,3 @@
 # İleri Yapılıcak listesi
 
  - Object pooling (kule ateş etmeleri ve düşman spawn için) 🟥
-
- - Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 🟥
