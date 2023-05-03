@@ -28,7 +28,7 @@
 
 - Oyun 12. dalgaya geldiğinde ve tüm düşmanlar öldüğünde kazanma ekranı aktif hale gelecek  🟥
 
-- DoTween sisteminin projeye eklenmesi (Kolay animasyon işlemleri sağlayan kod bileşenleri) (Melih Doğan)
+- DoTween sisteminin projeye eklenmesi (Kolay animasyon işlemleri sağlayan kod bileşenleri) (Melih Doğan) 🟥
 
 
 ## Yapılanlar Listesi
