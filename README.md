@@ -14,11 +14,11 @@
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
-- Oyun içerisine yeni düşman robotlarını ekleme ve öz niteliklerinin girilmesi (Can değeri, hız değeri collider, rigidbody, Way point takip vb.) (Bekir Mustafa Yoğurtçu) 🟥
+- Oyun içerisine yeni düşman robotlarını ekleme ve öz niteliklerinin girilmesi (Can değeri, hız değeri collider, rigidbody, Way point takip vb.) (Bekir Mustafa Yoğurtçu) ✅
 
-- Eklenen düşman robotları için her bir dalgaya özel spawn adeti girilecek (Örnek 1. dalgada 2 temel robot 3 goril robot 1 akıllı süpürge / 2. dalga 1 temel robot 5 goril robot 3 akıllı süpürge) 🟥
+- Eklenen düşman robotları için her bir dalgaya özel spawn adeti girilecek (Örnek 1. dalgada 2 temel robot 3 goril robot 1 akıllı süpürge / 2. dalga 1 temel robot 5 goril robot 3 akıllı süpürge) (Bekir Mustafa Yoğurtçu) ✅
 
-- Kule geliştirme seçeneği olan UI butonlarının bug fixlemesi (Birden fazla kule varsa eğer birinciden sonra oluşturulan her bir kulenin etkisi birinci kuleye etki etmekte) (Bekir Mustafa Yoğurtçu) 🟥
+- Kule geliştirme seçeneği olan UI butonlarının bug fixlemesi (Birden fazla kule varsa eğer birinciden sonra oluşturulan her bir kulenin etkisi birinci kuleye etki etmekte) (Bekir Mustafa Yoğurtçu) ✅
 
 - Singleton sistemleri Multi Object sistemlere çevirme (Gerekli yerler için) (Metehan Tınaz) ✅
 
