@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     Quaity Quaity;
@@ -16,12 +16,11 @@ public class WaveSpawner : MonoBehaviour
     private bool startWaveControl;
     public float[] timeBetweenWaves;
     public float waveCountdown;
-    public float[] Automaticwavespawner;
-    private int waveIndex = 0;
+    public int waveIndex = 0;
     public int[] enemy1Counts;
     public int[] enemy2Counts;
     public int[] enemy3Counts;
-
+    
     private void Start()
     {
         startWaveControl = false;
@@ -31,7 +30,12 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (startWaveControl)
+        
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] objectsWithTag1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
+        GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
+        
+        if (startWaveControl&& (objectsWithTag.Length==0 && objectsWithTag1.Length == 0&&objectsWithTag2.Length == 0))
         {   if (waveIndex <= 11)
             {
                 waveCountdown -= Time.deltaTime;
@@ -40,27 +44,46 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            _startWave.SetActive(true);
+            //_startWave.SetActive(true);
         }
 
 
 
-        if (waveIndex <= 11 && waveCountdown <= 0f)
+        if (waveIndex <= 11 && waveCountdown <= 0f&&(objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
         {
-           
-            waveIndex++;
-            StartCoroutine(SpawnWave());
-            waveCountdown = timeBetweenWaves[waveIndex-1];
-            startWaveControl = false;
+                Debug.Log("otomatik çalýþtý");
+                if(waveIndex==0)
+                {
+
+                }
+                else
+                {
+                waveIndex++;
+                Quaity.WaveValue(1);
+                StartCoroutine(SpawnWave());
+                waveCountdown = timeBetweenWaves[waveIndex - 1];
+                //startWaveControl = false;
+                _startWave.SetActive(true);
+                }
+                
         }
+       
     }
 
     public void StartWave()
     {
-        startWaveControl = true;
-        _startWave.SetActive(false);
-        Quaity.WaveValue(1);
-        waveCountdown = timeBetweenWaves[waveIndex];
+        if (waveIndex <= 11)
+        {
+            Debug.Log("basma çalýþtý");
+            StartCoroutine(SpawnWave());
+            waveIndex++;
+            startWaveControl = true;
+            _startWave.SetActive(false);
+            Quaity.WaveValue(1);
+            waveCountdown = timeBetweenWaves[waveIndex];
+            
+        } 
+            
     }
 
     private IEnumerator SpawnWave()
@@ -70,27 +93,30 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex <= 11)
         {
 
-            
 
-            for (int i = 0; i < enemy1Counts[waveIndex-1]; i++)
+            if (waveIndex > 0)
             {
-                SpawnEnemy(enemyPrefab1);
-                yield return new WaitForSeconds(0.5f);
+                for (int i = 0; i < enemy1Counts[waveIndex - 1]; i++)
+                {
+                    SpawnEnemy(enemyPrefab1);
+                    yield return new WaitForSeconds(0.5f);
 
-            }
+                }
 
-            for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
-            {
-                SpawnEnemy(enemyPrefab2);
-                yield return new WaitForSeconds(0.5f);
-            }
+                for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
+                {
+                    SpawnEnemy(enemyPrefab2);
+                    yield return new WaitForSeconds(0.5f);
+                }
 
-            for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
-            {
-                SpawnEnemy(enemyPrefab3);
-                yield return new WaitForSeconds(0.5f);
+                for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
+                {
+                    SpawnEnemy(enemyPrefab3);
+                    yield return new WaitForSeconds(0.5f);
+                }
             }
         }
+        
     }
 
     private void SpawnEnemy(Transform enemyPrefab)
