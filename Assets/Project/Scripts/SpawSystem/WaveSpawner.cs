@@ -40,6 +40,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 waveCountdown -= Time.deltaTime;
                 waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
+                
             }
         }
         else
@@ -51,21 +52,15 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex <= 11 && waveCountdown <= 0f&&(objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
         {
-                Debug.Log("otomatik çalýþtý");
-                if(waveIndex==0)
-                {
-
-                }
-                else
-                {
+            Debug.Log("otomatik çalýþtý");
                 waveIndex++;
                 Quaity.WaveValue(1);
                 StartCoroutine(SpawnWave());
                 waveCountdown = timeBetweenWaves[waveIndex - 1];
                 //startWaveControl = false;
                 _startWave.SetActive(true);
-                }
-                
+           
+
         }
        
     }
@@ -75,13 +70,12 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex <= 11)
         {
             Debug.Log("basma çalýþtý");
-            StartCoroutine(SpawnWave());
             waveIndex++;
             startWaveControl = true;
             _startWave.SetActive(false);
             Quaity.WaveValue(1);
-            waveCountdown = timeBetweenWaves[waveIndex];
-            
+            waveCountdown = timeBetweenWaves[waveIndex];           
+            StartCoroutine(SpawnWave());
         } 
             
     }
