@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerMenu: {fileID: 0}
   _healthbar: {fileID: 7033084522787973258}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   startSpeed: 10
   speed: 10
   worth: 50
@@ -118,7 +119,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5440478736474701558}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 2.291713
   m_Height: 5.183581

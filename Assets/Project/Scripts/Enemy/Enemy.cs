@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
+    RangeUpgrade RangeUpgrade;
+    Quaity Quaity;
+    GameValue GameValue;
     TowerTarget TowerTarget;
 
     public int maxHealth = 100;
@@ -21,10 +24,13 @@ public class Enemy : MonoBehaviour
 
     [Header("Unity Stuff")]
     public Slider healthBar;
-
+   
     private void Start()
     {
-        TowerTarget = TowerTarget.instance;
+        TowerTarget = FindObjectOfType<TowerTarget>();
+        Quaity = FindObjectOfType<Quaity>();
+        GameValue = FindObjectOfType<GameValue>();
+        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
         speed = startSpeed;
         target = WayPoints.points[0];
         currentHealth = maxHealth;
@@ -33,14 +39,23 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth -= TowerTarget.damage;
+        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
+        TowerTarget = FindObjectOfType<TowerTarget>();
+        currentHealth -= RangeUpgrade.Damage;
         _healthbar.SetHealth(currentHealth);
+        if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
+        {
+            currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
+            _healthbar.SetHealth(currentHealth);
+        }
     }
 
     private void Update()
     {
+        Quaity = FindObjectOfType<Quaity>();
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Destroy(gameObject);
         }
          
@@ -52,8 +67,11 @@ public class Enemy : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         transform.rotation = Quaternion.LookRotation(dir);
-
-        if(Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (gameObject.CompareTag("GorillaRobot"))
+        {
+            transform.rotation *= Quaternion.Euler(-90, 0, 0);
+        }
+            if(Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWayPoint();
         }
@@ -66,7 +84,7 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
         {
-            Destroy(target.gameObject);
+            Destroy(gameObject);
 
             return;
         }
@@ -77,7 +95,7 @@ public class Enemy : MonoBehaviour
     {
         if(currentHealth<=0)
         {
-            Quaity.Instance.CoinValue(10);
+            Quaity.CoinValue(10);
         }
     }
 }

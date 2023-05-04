@@ -9,10 +9,7 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
 
 
-    private void Awake()
-    {
-
-    }
+   
     public void Seek (Transform _target)
     {
         target = _target;
@@ -38,12 +35,17 @@ public class Bullet : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy")|| other.gameObject.CompareTag("GorillaRobot") || other.gameObject.CompareTag("SupurgeRobot"))
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage();
+            Destroy(gameObject);
         }
+
     }
+
+   
+
 }

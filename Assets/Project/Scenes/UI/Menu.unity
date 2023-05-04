@@ -670,16 +670,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSlider: {fileID: 858031931}
   _sfxSlider: {fileID: 1484089523}
-  _Buttons:
-    Buttons:
-    - {fileID: 582993538}
-    - {fileID: 1337861204}
-    - {fileID: 312142584}
-    - {fileID: 1065682300}
-    - {fileID: 794451276}
-    - {fileID: 1941998162}
-    - {fileID: 858031929}
-    - {fileID: 1484089521}
+  _buttons:
+  - {fileID: 582993538}
+  - {fileID: 1337861204}
+  - {fileID: 312142584}
+  - {fileID: 794451276}
+  - {fileID: 1065682300}
+  - {fileID: 1941998162}
+  - {fileID: 858031929}
+  - {fileID: 1484089521}
+  - {fileID: 1851614101}
+  - {fileID: 1873388376}
 --- !u!4 &298731807
 Transform:
   m_ObjectHideFlags: 0
