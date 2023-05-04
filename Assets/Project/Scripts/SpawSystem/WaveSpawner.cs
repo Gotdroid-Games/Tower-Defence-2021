@@ -59,7 +59,11 @@ public class WaveSpawner : MonoBehaviour
                 waveCountdown = timeBetweenWaves[waveIndex - 1];
                 //startWaveControl = false;
                 _startWave.SetActive(true);
-           
+                if(waveIndex>=11)
+            {
+                _startWave.SetActive(false);
+
+            }
 
         }
        
@@ -74,7 +78,7 @@ public class WaveSpawner : MonoBehaviour
             startWaveControl = true;
             _startWave.SetActive(false);
             Quaity.WaveValue(1);
-            waveCountdown = timeBetweenWaves[waveIndex];           
+            waveCountdown = timeBetweenWaves[waveIndex];
             StartCoroutine(SpawnWave());
         } 
             
