@@ -14,9 +14,23 @@
 
 - Bomba kulesini NodeUI paneline ekleme 🟥
 
-- Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Metehan Tınaz) 🟥
+- Oyun içerisine yeni düşman robotlarını ekleme ve öz niteliklerinin girilmesi (Can değeri, hız değeri collider, rigidbody, Way point takip vb.) (Bekir Mustafa Yoğurtçu) ✅
 
-- Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Melih Doğan) 🟥
+- Eklenen düşman robotları için her bir dalgaya özel spawn adeti girilecek (Örnek 1. dalgada 2 temel robot 3 goril robot 1 akıllı süpürge / 2. dalga 1 temel robot 5 goril robot 3 akıllı süpürge) (Bekir Mustafa Yoğurtçu) ✅
+
+- Kule geliştirme seçeneği olan UI butonlarının bug fixlemesi (Birden fazla kule varsa eğer birinciden sonra oluşturulan her bir kulenin etkisi birinci kuleye etki etmekte) (Bekir Mustafa Yoğurtçu) ✅
+
+- Singleton sistemleri Multi Object sistemlere çevirme (Gerekli yerler için) (Metehan Tınaz) ✅
+
+- Multi Object sonrası meydana gelen hataları fixleme (Kule geliştirme) (Bekir Mustafa Yoğurtçu) ✅
+
+- Yıldız puanı ile kulelere kazandırılam öz nitelik sistemindeki bugu fixleme (Menüden oyun sahnesine değerler geçirelecek) 🟥
+
+- DoTween sisteminin projeye eklenmesi (Kolay animasyon işlemleri sağlayan kod bileşenleri) (Melih Doğan) 🟥
+
+- Wave başlatma butonuna kullanıcı basmazsa belirli bir süre sonra butonun kendiliğinden aktif hale gelmesi ve dalganın başlaması (Sürenin devreye gireceği sistem: Bir wave spawn olduktan sonra ve başlanan wave içerisinde ki tüm düşmanlar bittiğinde sayaç başlayacak) (Bekir Mustafa Yoğurtçu) 🟥
+
+- Oyun 12. dalgaya geldiğinde ve tüm düşmanlar öldüğünde kazanma ekranı aktif hale gelecek 🟥
 
 
 ## Yapılanlar Listesi
@@ -50,6 +64,20 @@
 
  - Ansiklopedi panelinde bulunan butonlara text ve image alanı bağlaması (Metehan Tınaz) ✅
 
+ - Unlock Level sistemi (Herhangi bir levelden sonra gelecek olan levelin kilidi) (Metehan Tınaz) ✅
+
+ - Yıldız sisteminde bulunan hatayı giderme (Eğer 20 canla biterse sadece 3. yıldız yanıyor tamamı yanması gerekirken) (Metehan Tınaz) ✅
+
+ - Levels sahnesine back butonu eklenecek (Ana menüye döndürülecek) (Metehan Tınaz) ✅
+
+ - Dalga çağırma butonuna basıldığında dalga sayacının 1 artması (Metehan Tınaz)✅
+
+ - Kulenin seviyesi azami değere ulaştığında tekrardan geliştirme butonuna basılırsa paradan eksilmeyecek (Metehan Tınaz) ✅
+
+ - Her farklı kule seviyesi için geliştirme ücreti artışı sistemi (Metehan Tınaz) ✅
+
+ - Her farklı kule seviyesi için satış ücreti artış sistemi (Metehan Tınaz) ✅
+
  - Yıldız puanı ile birlikte kulelerin öz niteliklerini arttırma sistemi (Eyüp Ensar Erdoğan / Metehan Tınaz) ✅
 
  - Level sistemi (Bir bölüm bittikten sonra diğer bölüme geçiş) (Eyüp Ensar Erdoğan) ✅
@@ -64,9 +92,11 @@
  
  - Düşmanların canını azaltacak kodlar eklenecek (Yusuf Kağan Öztürk) ✅
 
+ - Tüm kuleler multi object olarak sahneye geçecek (Bug fixleme) (Bekir Mustafa Yoğurtçu) ✅
+
+ - Düşman üzerine yapışan mermileri yok etme (Bug fixed) (Bekir Mustafa Yoğurtçu) ✅
+
  
 # İleri Yapılıcak listesi
 
  - Object pooling (kule ateş etmeleri ve düşman spawn için) 🟥
-
- - Wave Spawner güncelleme (Bir birlikten kaç tane gelecek her dalga için ve butonun belli bir süre sonra otomatik olarak kendiliğinden dalga başlatması ve süreye göre gelecek olan para (Ne kadar erken basılırsa o kadar fazla para gelecek)) 🟥
