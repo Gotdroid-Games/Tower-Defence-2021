@@ -8,6 +8,6 @@ public class Level : MonoBehaviour
 {
     public void LoadLevel(int levelIndex)
     {
-        SceneManager.LoadScene("Level_" + levelIndex);
+        SceneManager.LoadScene("Level_" + levelIndex.ToString());
     }
 }
