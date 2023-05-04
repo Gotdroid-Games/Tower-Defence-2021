@@ -16,8 +16,8 @@ public class WaveSpawner : MonoBehaviour
     private bool startWaveControl;
     public float[] timeBetweenWaves;
     public float waveCountdown;
+    public float[] Automaticwavespawner;
     private int waveIndex = 0;
-
     public int[] enemy1Counts;
     public int[] enemy2Counts;
     public int[] enemy3Counts;
@@ -50,7 +50,6 @@ public class WaveSpawner : MonoBehaviour
            
             waveIndex++;
             StartCoroutine(SpawnWave());
-            Debug.Log(waveIndex);
             waveCountdown = timeBetweenWaves[waveIndex-1];
             startWaveControl = false;
         }
@@ -61,8 +60,6 @@ public class WaveSpawner : MonoBehaviour
         startWaveControl = true;
         _startWave.SetActive(false);
         Quaity.WaveValue(1);
-        
-        
         waveCountdown = timeBetweenWaves[waveIndex];
     }
 
