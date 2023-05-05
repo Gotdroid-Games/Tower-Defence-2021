@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     Quaity Quaity;
+    GameUI GameUI;
 
     [SerializeField] private GameObject _startWave;
     [SerializeField] private Transform enemyPrefab1;
@@ -26,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
+        GameUI = FindObjectOfType<GameUI>();
     }
 
     private void Update()
@@ -121,4 +123,17 @@ public class WaveSpawner : MonoBehaviour
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
+
+    public void PanelActive()
+    {
+        GameUI._Button.GameUIButtons[14].SetActive(true);
+        Debug.Log("Ýnfo Butonu Aktif");
+    }
+
+    public void PanelPassive()
+    {
+        GameUI._Button.GameUIButtons[14].SetActive(false);
+        Debug.Log("Ýnfo Butonu Pasif");
+    }
+        
 }
