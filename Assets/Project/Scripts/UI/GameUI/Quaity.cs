@@ -15,7 +15,7 @@ public class Quaity : MonoBehaviour
     public int _coinText = 1000;
     public int _heartText = 20;
     public int _waveText = 0;
-
+    
     private void Start()
     {
         _heartText = 20;

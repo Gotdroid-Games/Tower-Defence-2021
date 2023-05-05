@@ -108,7 +108,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   startSpeed: 10
-  speed: 10
+  coinvalue: 10
   worth: 50
   healthBar: {fileID: 3215120449306259149}
 --- !u!136 &1413488299929992252

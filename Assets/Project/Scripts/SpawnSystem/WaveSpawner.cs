@@ -16,6 +16,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Transform basicRobotPrefab;
     [SerializeField] private Transform gorillaRobotPrefab;
     [SerializeField] private Transform smartHomeRobotPrefab;
+    [SerializeField] private Transform DronePrefab;
+
     [SerializeField] private Transform spawnPoint;
 
     [Header("Wave Texts")]
@@ -34,11 +36,13 @@ public class WaveSpawner : MonoBehaviour
     public int[] basicRobot;
     public int[] gorillaRobot;
     public int[] smarthomeRobot;
+    public int[] DroneRobot;
 
     [Header("Enemy Spawn Info")]
     string[] basicRobotWaveInfo;
     string[] gorillaRobotWaveInfo;
     string[] smarthomeRobotWaveInfo;
+    string[] droneRobotWaveInfo;
 
 
 
@@ -52,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
         basicRobotWaveInfo = new string[basicRobot.Length];
         gorillaRobotWaveInfo = new string[gorillaRobot.Length];
         smarthomeRobotWaveInfo = new string[smarthomeRobot.Length];
+        droneRobotWaveInfo = new string[DroneRobot.Length];
 
     }
 
@@ -115,6 +120,7 @@ public class WaveSpawner : MonoBehaviour
         string[] basicRobotWaveInfo = Array.ConvertAll(basicRobot, x => x.ToString());
         string[] gorillaRobotWaveInfo = Array.ConvertAll(gorillaRobot, x => x.ToString());
         string[] smarthomeRobotWaveInfo = Array.ConvertAll(smarthomeRobot, x => x.ToString());
+        string[] droneRobotWaveInfo = Array.ConvertAll(DroneRobot, x => x.ToString());
 
         if (waveIndex >= 0 && waveIndex <= 12)
         {
@@ -124,7 +130,8 @@ public class WaveSpawner : MonoBehaviour
             {
         ("Temel Düþman", basicRobotWaveInfo),
         ("Goril Robot", gorillaRobotWaveInfo),
-        ("Akýllý Ev Süpürgesi", smarthomeRobotWaveInfo)
+        ("Akýllý Ev Süpürgesi", smarthomeRobotWaveInfo),
+        ("Drone Robot", droneRobotWaveInfo)
             };
 
             waveStartInfo = string.Join("\n", robotInfos
@@ -154,6 +161,11 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < smarthomeRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(smartHomeRobotPrefab);
+                yield return new WaitForSeconds(spawnTime);
+            }
+            for (int i = 0; i < DroneRobot[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(DronePrefab);
                 yield return new WaitForSeconds(spawnTime);
             }
         }

@@ -17,11 +17,11 @@ public class Enemy : MonoBehaviour
     public float startSpeed = 10f;
     private Transform target;
     private int wavepointIndex = 0;
-
+    public int coinvalue;
     [HideInInspector]
-    public float speed;
+    
     public float worth = 50;
-
+    
     [Header("Unity Stuff")]
     public Slider healthBar;
    
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         Quaity = FindObjectOfType<Quaity>();
         GameValue = FindObjectOfType<GameValue>();
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
-        speed = startSpeed;
+       
         target = WayPoints.points[0];
         currentHealth = maxHealth;
     }
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         }
 
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
         transform.rotation = Quaternion.LookRotation(dir);
         if (gameObject.CompareTag("GorillaRobot"))
         {
@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     {
         if(currentHealth<=0)
         {
-            Quaity.CoinValue(10);
+            Quaity.CoinValue(coinvalue);
         }
     }
 }
