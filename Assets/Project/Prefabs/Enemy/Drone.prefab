@@ -510,10 +510,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerMenu: {fileID: 0}
-  _healthbar: {fileID: 0}
+  _healthbar: {fileID: 91165671481526198}
   maxHealth: 75
   currentHealth: 75
   startSpeed: 10
   coinvalue: 10
   worth: 50
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5496375811872162289}
