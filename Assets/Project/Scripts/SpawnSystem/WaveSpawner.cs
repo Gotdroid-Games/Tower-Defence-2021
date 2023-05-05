@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     Quaity Quaity;
-    GameUI GameUI;
 
     [SerializeField] private GameObject _startWave;
     [SerializeField] private Transform enemyPrefab1;
@@ -27,7 +26,6 @@ public class WaveSpawner : MonoBehaviour
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
-        GameUI = FindObjectOfType<GameUI>();
     }
 
     private void Update()
@@ -42,6 +40,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 waveCountdown -= Time.deltaTime;
                 waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
+                
             }
         }
         else
@@ -53,21 +52,19 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex <= 11 && waveCountdown <= 0f&&(objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
         {
-                Debug.Log("otomatik çalýþtý");
-                if(waveIndex==0)
-                {
-
-                }
-                else
-                {
+            Debug.Log("otomatik çalýþtý");
                 waveIndex++;
                 Quaity.WaveValue(1);
                 StartCoroutine(SpawnWave());
                 waveCountdown = timeBetweenWaves[waveIndex - 1];
                 //startWaveControl = false;
                 _startWave.SetActive(true);
-                }
-                
+                if(waveIndex>=11)
+            {
+                _startWave.SetActive(false);
+
+            }
+
         }
        
     }
@@ -77,13 +74,14 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex <= 11)
         {
             Debug.Log("basma çalýþtý");
-            StartCoroutine(SpawnWave());
             waveIndex++;
             startWaveControl = true;
             _startWave.SetActive(false);
             Quaity.WaveValue(1);
             waveCountdown = timeBetweenWaves[waveIndex];
-        }   
+            StartCoroutine(SpawnWave());
+        } 
+            
     }
 
     private IEnumerator SpawnWave()
@@ -122,19 +120,5 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy(Transform enemyPrefab)
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-    }
-
-    public void InfoActive()
-    {
-        GameUI._Button.GameUIButtons[14].gameObject.SetActive(true);
-        Debug.Log("Ýnfo Butonu Aktif");
-    }
-
-
-
-    public void InfoPassive()
-    {
-        GameUI._Button.GameUIButtons[14].SetActive(false);
-        Debug.Log("Ýnfo Butonu Deaktif");
     }
 }
