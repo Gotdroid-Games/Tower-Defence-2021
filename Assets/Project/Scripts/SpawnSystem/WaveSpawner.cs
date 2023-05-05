@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     Quaity Quaity;
+    GameUI GameUI;
 
     [SerializeField] private GameObject _startWave;
     [SerializeField] private Transform enemyPrefab1;
@@ -26,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
+        GameUI = FindObjectOfType<GameUI>();
     }
 
     private void Update()
@@ -81,9 +83,7 @@ public class WaveSpawner : MonoBehaviour
             _startWave.SetActive(false);
             Quaity.WaveValue(1);
             waveCountdown = timeBetweenWaves[waveIndex];
-            
-        } 
-            
+        }   
     }
 
     private IEnumerator SpawnWave()
@@ -122,5 +122,19 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy(Transform enemyPrefab)
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    public void InfoActive()
+    {
+        GameUI._Button.GameUIButtons[14].gameObject.SetActive(true);
+        Debug.Log("Ýnfo Butonu Aktif");
+    }
+
+
+
+    public void InfoPassive()
+    {
+        GameUI._Button.GameUIButtons[14].SetActive(false);
+        Debug.Log("Ýnfo Butonu Deaktif");
     }
 }

@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameUI : MonoBehaviour
 {
     AudioManager AudioManager;
     [SerializeField] public ButtonAssignments _Button;
     public Slider _musicSlider, _sfxSlider;
+    public Image wavestartinfopanel;
 
     #region Button
     [System.Serializable]
@@ -16,9 +18,9 @@ public class GameUI : MonoBehaviour
     //Oyun içerisinde bulunan tüm butonlar diziye atandý
     public class ButtonAssignments
     {
-        public GameObject[] GameUIButtons = new GameObject[14];
+        public GameObject[] GameUIButtons = new GameObject[15];
 
-        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _continueButton,GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar, GameObject _continueButtonEndGame)
+        void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicButton, GameObject _sfxButton, GameObject _continueButton,GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar, GameObject _continueButtonEndGame, GameObject _waveStartButtonInfoPanel)
 
         {
             GameUIButtons[0] = _pauseButton;
@@ -35,6 +37,7 @@ public class GameUI : MonoBehaviour
             GameUIButtons[11] = _secondStar;
             GameUIButtons[12] = _thirdStar;
             GameUIButtons[13] = _continueButtonEndGame;
+            GameUIButtons[14] = _waveStartButtonInfoPanel;
         }
     }
     #endregion
