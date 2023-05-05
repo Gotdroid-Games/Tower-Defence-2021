@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -10,26 +11,36 @@ public class WaveSpawner : MonoBehaviour
     GameUI GameUI;
 
     [SerializeField] private GameObject _startWave;
-    [SerializeField] private Transform enemyPrefab1;
-    [SerializeField] private Transform enemyPrefab2;
-    [SerializeField] private Transform enemyPrefab3;
+
+    [Header("Enemy Prefabs")]
+    [SerializeField] private Transform basicRobotPrefab;
+    [SerializeField] private Transform gorillaRobotPrefab;
+    [SerializeField] private Transform smartHomeRobotPrefab;
     [SerializeField] private Transform spawnPoint;
+
+    [Header("Wave Texts")]
     [SerializeField] private TextMeshProUGUI waveCountdownText;
     [SerializeField] private TextMeshProUGUI waveStartInfoText;
 
+    [Header("Time Control Variables")]
+    public float waveCountdown;
+    public float spawnTime;
+    public int waveIndex = 0;
     private bool startWaveControl;
     public float[] timeBetweenWaves;
-    public float waveCountdown;
-    public int waveIndex = 0;
-    public string waveStartInfo;
-    public int[] enemy1Counts;
-    public int[] enemy2Counts;
-    public int[] enemy3Counts;
-    public string[] enemy1CountsAsString;
-    public string[] enemy2CountsAsString;
-    public string[] enemy3CountsAsString;
+    string waveStartInfo;
 
-    
+    [Header("Enemy List")]
+    public int[] basicRobot;
+    public int[] gorillaRobot;
+    public int[] smarthomeRobot;
+
+    [Header("Enemy Spawn Info")]
+    string[] basicRobotWaveInfo;
+    string[] gorillaRobotWaveInfo;
+    string[] smarthomeRobotWaveInfo;
+
+
 
     private void Start()
     {
@@ -38,9 +49,9 @@ public class WaveSpawner : MonoBehaviour
         waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
-        enemy1CountsAsString = new string[enemy1Counts.Length];
-        enemy2CountsAsString = new string[enemy2Counts.Length];
-        enemy3CountsAsString = new string[enemy3Counts.Length];
+        basicRobotWaveInfo = new string[basicRobot.Length];
+        gorillaRobotWaveInfo = new string[gorillaRobot.Length];
+        smarthomeRobotWaveInfo = new string[smarthomeRobot.Length];
 
     }
 
@@ -64,7 +75,6 @@ public class WaveSpawner : MonoBehaviour
             //_startWave.SetActive(true);
         }
 
-
         if (waveIndex <= 11 && waveCountdown <= 0f && (objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
         {
             Debug.Log("otomatik çalýþtý");
@@ -77,7 +87,6 @@ public class WaveSpawner : MonoBehaviour
             if (waveIndex >= 11)
             {
                 _startWave.SetActive(false);
-
             }
         }
 
@@ -96,19 +105,31 @@ public class WaveSpawner : MonoBehaviour
             waveCountdown = timeBetweenWaves[waveIndex];
             StartCoroutine(SpawnWave());
         }
-
     }
 
     public void WaveInfo()
     {
-        string[] enemy1CountsAsString = Array.ConvertAll(enemy1Counts, x => x.ToString());
-        string[] enemy2CountsAsString = Array.ConvertAll(enemy2Counts, x => x.ToString());
-        string[] enemy3CountsAsString = Array.ConvertAll(enemy3Counts, x => x.ToString());
+        //Dalga butonunun üzerine fare ile gelindiðinde aktif olan image içerisine hangi düþmandan kaç adet geleceðini belirten sistem
+        //113 - 114 satýrlarý arasýnda bulunan kodlar 33 - 35 satýrlarý arasýnda bulunan dizilerini string olarak dönüþtürüp basicRobotWaveInfo 113 - 114 arasýnda bulunan deðiþkenlerine atama yapýyor
+
+        string[] basicRobotWaveInfo = Array.ConvertAll(basicRobot, x => x.ToString());
+        string[] gorillaRobotWaveInfo = Array.ConvertAll(gorillaRobot, x => x.ToString());
+        string[] smarthomeRobotWaveInfo = Array.ConvertAll(smarthomeRobot, x => x.ToString());
 
         if (waveIndex >= 0 && waveIndex <= 12)
         {
             waveStartInfoText.text = waveStartInfo;
-            waveStartInfo = "Temel Düþman " + enemy1CountsAsString[waveIndex] + "\nGoril Robot " + enemy2CountsAsString[waveIndex] + "\nAkýllý Ev Süpürgesi " + enemy3CountsAsString[waveIndex];
+
+            var robotInfos = new (string, string[])[]
+            {
+        ("Temel Düþman", basicRobotWaveInfo),
+        ("Goril Robot", gorillaRobotWaveInfo),
+        ("Akýllý Ev Süpürgesi", smarthomeRobotWaveInfo)
+            };
+
+            waveStartInfo = string.Join("\n", robotInfos
+                .Where(r => r.Item2[waveIndex] != "0")
+                .Select(r => $"{r.Item1} {r.Item2[waveIndex]}"));
         }
     }
 
@@ -116,38 +137,27 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-
-
-        if (waveIndex <= 11)
+        if (waveIndex > 0 && waveIndex <= 11)
         {
-
-
-            if (waveIndex > 0)
+            for (int i = 0; i < basicRobot[waveIndex - 1]; i++)
             {
-                for (int i = 0; i < enemy1Counts[waveIndex - 1]; i++)
-                {
-                    SpawnEnemy(enemyPrefab1);
-                    yield return new WaitForSeconds(0.5f);
+                SpawnEnemy(basicRobotPrefab);
+                yield return new WaitForSeconds(spawnTime);
+            }
 
-                }
+            for (int i = 0; i < gorillaRobot[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(gorillaRobotPrefab);
+                yield return new WaitForSeconds(spawnTime);
+            }
 
-                for (int i = 0; i < enemy2Counts[waveIndex - 1]; i++)
-                {
-                    SpawnEnemy(enemyPrefab2);
-                    yield return new WaitForSeconds(0.5f);
-                }
-
-                for (int i = 0; i < enemy3Counts[waveIndex - 1]; i++)
-                {
-                    SpawnEnemy(enemyPrefab3);
-                    yield return new WaitForSeconds(0.5f);
-                }
+            for (int i = 0; i < smarthomeRobot[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(smartHomeRobotPrefab);
+                yield return new WaitForSeconds(spawnTime);
             }
         }
-
     }
-
-
 
     private void SpawnEnemy(Transform enemyPrefab)
     {
@@ -165,7 +175,4 @@ public class WaveSpawner : MonoBehaviour
         GameUI._Button.GameUIButtons[14].SetActive(false);
         Debug.Log("Ýnfo Butonu Pasif");
     }
-
-
-
 }
