@@ -82,7 +82,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 4187792454327620608}
   UpgradeButton1: {fileID: 5570693761724152515}
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
@@ -396,11 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204515996240845847, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4798481332785250763, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_Enabled
@@ -539,11 +538,6 @@ PrefabInstance:
 --- !u!224 &1779699863680219487 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
-  m_PrefabInstance: {fileID: 8584960502076002925}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &4187792454327620608 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 5565867617261815405, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 8584960502076002925}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5570693761724152515 stripped
