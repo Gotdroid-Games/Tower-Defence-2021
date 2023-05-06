@@ -31,7 +31,9 @@ public class WaveSpawner : MonoBehaviour
     private bool startWaveControl;
     public float[] timeBetweenWaves;
     string waveStartInfo;
+    
 
+    
     [Header("Enemy List")]
     public int[] basicRobot;
     public int[] gorillaRobot;
@@ -48,7 +50,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-
+       
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
@@ -62,14 +64,17 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        
+        
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject[] objectsWithTag1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
         GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
 
         if (startWaveControl && (objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
         {
+            
             if (waveIndex <= 11)
-            {
+            {  
                 waveCountdown -= Time.deltaTime;
                 waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
             }
@@ -88,12 +93,14 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave());
             waveCountdown = timeBetweenWaves[waveIndex - 1];
             //startWaveControl = false;
-            _startWave.SetActive(true);
+            _startWave.SetActive(false);
             if (waveIndex >= 11)
             {
                 _startWave.SetActive(false);
             }
         }
+
+        
 
         WaveInfo();
     }
@@ -144,36 +151,55 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
+        int totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1];
+        int spawnedEnemies = 0;
+        
+
         if (waveIndex > 0 && waveIndex <= 11)
         {
             for (int i = 0; i < basicRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(basicRobotPrefab);
                 yield return new WaitForSeconds(spawnTime);
+                spawnedEnemies++;   
             }
 
             for (int i = 0; i < gorillaRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(gorillaRobotPrefab);
                 yield return new WaitForSeconds(spawnTime);
+                spawnedEnemies++;
             }
 
             for (int i = 0; i < smarthomeRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(smartHomeRobotPrefab);
                 yield return new WaitForSeconds(spawnTime);
+                spawnedEnemies++;
             }
             for (int i = 0; i < DroneRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(DronePrefab);
                 yield return new WaitForSeconds(spawnTime);
+                spawnedEnemies++;
             }
         }
+        if (spawnedEnemies == totalEnemies)
+        {
+            yield return new WaitForSeconds(3f);
+            _startWave.SetActive(true);
+            
+        }
+
+
     }
 
     private void SpawnEnemy(Transform enemyPrefab)
-    {
+    {   
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        
+        
+        
     }
 
     public void PanelActive()
