@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class Quaity : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class Quaity : MonoBehaviour
     public int _coinText = 1000;
     public int _heartText = 20;
     public int _waveText = 0;
-    
+    float Product=2;
+
+
     private void Start()
     {
         _heartText = 20;
@@ -115,11 +118,23 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
-    public void WaveStartCoin(int Decrease)
+    //public void WaveStartCoinFunction()
+    //{
+    //    _coinText += WaveSpawner.WaveStartCoin;
+    //    CoinText.text += _coinText.ToString(); 
+    //}
+
+    public void WaveStartCoinFunction()
     {
-        _coinText += Decrease;
-        CoinText.text += _coinText.ToString();
+        float count = WaveSpawner.waveCountdown*=Product;
+        _coinText += (int)count;
+        CoinText.text = _coinText.ToString();
+        Debug.Log(WaveSpawner.waveCountdown);
+        Debug.Log(count);
+        
     }
+
+
 
     public void Winning()
     {

@@ -15,8 +15,6 @@ public class RangeUpgrade : MonoBehaviour
     private void Start()
     {
         GameValue = FindObjectOfType<GameValue>();
-        //Damage += GameValue.RangedTowerDamage;
-        //Range += GameValue.TowerRangeUpgrade;
     }
     private void Update()
     {
@@ -38,13 +36,7 @@ public class RangeUpgrade : MonoBehaviour
         }
 
     }
-    /*public void Attribute()
-    {
-        Damage += GameValue.RangedTowerDamage;
-        Range += GameValue.TowerRangeUpgrade;
-       
-    }
-    */
+
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

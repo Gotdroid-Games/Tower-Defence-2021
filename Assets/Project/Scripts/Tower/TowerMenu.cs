@@ -6,7 +6,6 @@ public class TowerMenu : MonoBehaviour
     RangeUpgrade RangeUpgrade;
     TowerTarget TowerTarget;
     Quaity Quaity;
-
     public GameObject UpgradeButton1;
     public GameObject Tower;
     public GameObject SellButton;

@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerRangeController : MonoBehaviour
 {
-   
+    Quaity Quaity;
     public List<GameObject> UIController = new List<GameObject>();
     public List<GameObject> TouchObjList = new List<GameObject>();
+    public Button UpgradeButton;
+    public Button SellButton;
     public GameObject touchGameObj;
     public int counts;
     public int countcheck;
@@ -17,7 +20,7 @@ public class TowerRangeController : MonoBehaviour
     {
         TouchObjList[0].SetActive(true);
         TowerMenu = FindObjectOfType<TowerMenu>();
-        
+        Quaity = FindObjectOfType<Quaity>();
     }
     private void Update()
     {
@@ -62,6 +65,16 @@ public class TowerRangeController : MonoBehaviour
                 TouchObjList[1].SetActive(false);
                 TouchObjList[2].SetActive(true);
             }
+        }
+
+        if (Quaity._coinText>=120)
+        {
+            UpgradeButton.interactable= true;
+            SellButton.interactable= true;
+        }
+        else
+        {
+            UpgradeButton.interactable = false;
         }
     }
 }

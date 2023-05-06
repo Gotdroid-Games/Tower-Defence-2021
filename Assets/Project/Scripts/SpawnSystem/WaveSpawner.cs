@@ -61,13 +61,14 @@ public class WaveSpawner : MonoBehaviour
         gorillaRobotWaveInfo = new string[gorillaRobot.Length];
         smarthomeRobotWaveInfo = new string[smarthomeRobot.Length];
         droneRobotWaveInfo = new string[DroneRobot.Length];
+        //WaveStartCoin += (int)waveCountdown;
         
     }
 
     private void Update()
     {
         
-        
+
         //GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
         //GameObject[] objectsWithTag1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
         //GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
@@ -104,12 +105,11 @@ public class WaveSpawner : MonoBehaviour
             }
         }
 
-        //if(waveCountdown>0)
-        //{
-        //   WaveStartCoin = Quaity.WaveStartCoin(10 * timeBetweenWaves);
-        //}
+        
 
         WaveInfo();
+
+        
     }
 
     public void StartWave()
@@ -228,5 +228,11 @@ public class WaveSpawner : MonoBehaviour
     {
         GameUI._Button.GameUIButtons[14].SetActive(false);
         Debug.Log("Ýnfo Butonu Pasif");
+    }
+
+    public void StartWaveCoin()
+    {
+        Quaity.WaveStartCoinFunction();
+        StartWave();
     }
 }
