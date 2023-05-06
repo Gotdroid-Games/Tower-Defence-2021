@@ -31,9 +31,12 @@ public class WaveSpawner : MonoBehaviour
     private bool startWaveControl;
     public float[] timeBetweenWaves;
     string waveStartInfo;
-    
+    int totalEnemies = 0;
+    int spawnedEnemies = 0;
+    public int WaveStartCoin;
 
-    
+
+
     [Header("Enemy List")]
     public int[] basicRobot;
     public int[] gorillaRobot;
@@ -50,7 +53,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-       
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
@@ -59,18 +61,18 @@ public class WaveSpawner : MonoBehaviour
         gorillaRobotWaveInfo = new string[gorillaRobot.Length];
         smarthomeRobotWaveInfo = new string[smarthomeRobot.Length];
         droneRobotWaveInfo = new string[DroneRobot.Length];
-
+        
     }
 
     private void Update()
     {
         
         
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] objectsWithTag1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
-        GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
+        //GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
+        //GameObject[] objectsWithTag1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
+        //GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
 
-        if (startWaveControl && (objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
+        if (startWaveControl == true && spawnedEnemies == totalEnemies) 
         {
             
             if (waveIndex <= 11)
@@ -85,9 +87,11 @@ public class WaveSpawner : MonoBehaviour
             //_startWave.SetActive(true);
         }
 
-        if (waveIndex <= 11 && waveCountdown <= 0f && (objectsWithTag.Length == 0 && objectsWithTag1.Length == 0 && objectsWithTag2.Length == 0))
+        if (waveIndex <= 11 && waveCountdown <= 0f && spawnedEnemies == totalEnemies) 
         {
             Debug.Log("otomatik çalýþtý");
+            Debug.Log(totalEnemies);
+            Debug.Log(spawnedEnemies);
             waveIndex++;
             Quaity.WaveValue(1);
             StartCoroutine(SpawnWave());
@@ -100,7 +104,10 @@ public class WaveSpawner : MonoBehaviour
             }
         }
 
-        
+        //if(waveCountdown>0)
+        //{
+        //   WaveStartCoin = Quaity.WaveStartCoin(10 * timeBetweenWaves);
+        //}
 
         WaveInfo();
     }
@@ -116,43 +123,51 @@ public class WaveSpawner : MonoBehaviour
             Quaity.WaveValue(1);
             waveCountdown = timeBetweenWaves[waveIndex];
             StartCoroutine(SpawnWave());
+
+            
         }
     }
 
     public void WaveInfo()
     {
         //Dalga butonunun üzerine fare ile gelindiðinde aktif olan image içerisine hangi düþmandan kaç adet geleceðini belirten sistem
-        //113 - 114 satýrlarý arasýnda bulunan kodlar 33 - 35 satýrlarý arasýnda bulunan dizilerini string olarak dönüþtürüp basicRobotWaveInfo 113 - 114 arasýnda bulunan deðiþkenlerine atama yapýyor
+        //138 - 141 satýrlarý arasýnda bulunan kodlar 38 - 41 satýrlarý arasýnda bulunan dizilerini string olarak dönüþtürüp basicRobotWaveInfo 138 - 141 arasýnda bulunan deðiþkenlerine atama yapýyor
 
-        string[] basicRobotWaveInfo = Array.ConvertAll(basicRobot, x => x.ToString());
-        string[] gorillaRobotWaveInfo = Array.ConvertAll(gorillaRobot, x => x.ToString());
-        string[] smarthomeRobotWaveInfo = Array.ConvertAll(smarthomeRobot, x => x.ToString());
-        string[] droneRobotWaveInfo = Array.ConvertAll(DroneRobot, x => x.ToString());
-
-        if (waveIndex >= 0 && waveIndex <= 12)
+        if (waveIndex < 0)
         {
-            waveStartInfoText.text = waveStartInfo;
-
-            var robotInfos = new (string, string[])[]
-            {
-        ("Temel Düþman", basicRobotWaveInfo),
-        ("Goril Robot", gorillaRobotWaveInfo),
-        ("Akýllý Ev Süpürgesi", smarthomeRobotWaveInfo),
-        ("Drone Robot", droneRobotWaveInfo)
-            };
-
-            waveStartInfo = string.Join("\n", robotInfos
-                .Where(r => r.Item2[waveIndex] != "0")
-                .Select(r => $"{r.Item1} {r.Item2[waveIndex]}"));
+            waveIndex = 0;
         }
+        else if (waveIndex > 12)
+        {
+            waveIndex = 12;
+        }
+
+        waveStartInfoText.text = waveStartInfo;
+
+        var basicRobotWaveInfo = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13" };
+        var gorillaRobotWaveInfo = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" };
+        var smarthomeRobotWaveInfo = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" };
+        var droneRobotWaveInfo = new string[] { "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1" };
+
+        var robotInfos = new (string, string[])[]
+        {
+    ("Temel Düþman", basicRobotWaveInfo),
+    ("Goril Robot", gorillaRobotWaveInfo),
+    ("Akýllý Ev Süpürgesi", smarthomeRobotWaveInfo),
+    ("Drone Robot", droneRobotWaveInfo)
+        };
+
+        waveStartInfo = string.Join("\n", robotInfos
+            .Where(r => r.Item2.Length > waveIndex && r.Item2[waveIndex] != "0")
+            .Select(r => $"{r.Item1} {r.Item2[waveIndex]}"));
     }
 
 
 
     private IEnumerator SpawnWave()
     {
-        int totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1];
-        int spawnedEnemies = 0;
+        totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1];
+        
         
 
         if (waveIndex > 0 && waveIndex <= 11)
@@ -186,11 +201,12 @@ public class WaveSpawner : MonoBehaviour
         }
         if (spawnedEnemies == totalEnemies)
         {
-            yield return new WaitForSeconds(3f);//buradan wavespawn olduktan sonra kaçsaniye sonra buton aktif olsun ona bakýyoruz
+            yield return new WaitForSeconds(4f);//buradan wavespawn olduktan sonra kaçsaniye sonra buton aktif olsun ona bakýyoruz
             _startWave.SetActive(true);
             
         }
-
+        totalEnemies = 0;
+        spawnedEnemies = 0;
 
     }
 

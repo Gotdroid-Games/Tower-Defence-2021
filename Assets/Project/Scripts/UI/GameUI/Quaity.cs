@@ -115,9 +115,15 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
+    public void WaveStartCoin(int Decrease)
+    {
+        _coinText += Decrease;
+        CoinText.text += _coinText.ToString();
+    }
+
     public void Winning()
     {
-        if (_waveText >= 10)
+        if (_waveText >= 12)
         {
             GameUI._Button.GameUIButtons[2].SetActive(true);
             GameUI._Button.GameUIButtons[9].SetActive(true);

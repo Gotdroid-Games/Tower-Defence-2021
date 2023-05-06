@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -93,9 +94,10 @@ public class Enemy : MonoBehaviour
 
     void Coin()
     {
-        if(currentHealth<=0)
+        if (currentHealth <= 0)
         {
             Quaity.CoinValue(coinvalue);
         }
     }
+        
 }
