@@ -92,7 +92,7 @@ public class WaveSpawner : MonoBehaviour
             Quaity.WaveValue(1);
             StartCoroutine(SpawnWave());
             waveCountdown = timeBetweenWaves[waveIndex - 1];
-            //startWaveControl = false;
+            
             _startWave.SetActive(false);
             if (waveIndex >= 11)
             {
@@ -186,7 +186,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if (spawnedEnemies == totalEnemies)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3f);//buradan wavespawn olduktan sonra kaçsaniye sonra buton aktif olsun ona bakýyoruz
             _startWave.SetActive(true);
             
         }
