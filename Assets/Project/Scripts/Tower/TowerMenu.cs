@@ -57,15 +57,30 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         Tower = gameObject;
 
-        if (Quaity._coinText >= 120)
+        if (Quaity._coinText >= TowerRangeController.TowerUpgradeMoneyValue[0])
         {
             GetComponent<TowerRangeController>().counts++;
+            
 
-            if(countcheck<2)
+            if(countcheck==0)
             {
-                //RangeUpgrade.Attribute();
-                Quaity.TowerUpgradeMoney(120);
+                Quaity.TowerUpgradeMoney(TowerRangeController.TowerUpgradeMoneyValue[0]);
+                Debug.Log("Countcheck 0");
             }
+
+            if(countcheck==1)
+            {
+                Quaity.TowerUpgradeMoney(TowerRangeController.TowerUpgradeMoneyValue[1]);
+                Debug.Log("Countcheck 1");
+            }
+
+            if(countcheck==2)
+            {
+                Quaity.TowerUpgradeMoney(0);
+                Debug.Log("Countcheck 2");
+            }
+
+            Debug.Log("Upgrade aktif");
         }
 
         for (int i = 0; i <TowerRangeController.UIController.Count; i++)

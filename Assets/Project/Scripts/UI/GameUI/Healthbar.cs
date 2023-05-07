@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
     public Slider slider;
-    private Camera camera;
+    private Camera Camera;
 
     private void Start()
     {
-        camera = Camera.main;
+        Camera = Camera.main;
     }
 
     public void SetSlider(Slider healthSlider)
@@ -30,7 +30,7 @@ public class Healthbar : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.LookRotation(transform.position - camera.transform.position);
+        transform.rotation = Quaternion.LookRotation(transform.position - Camera.transform.position);
     }
 
 

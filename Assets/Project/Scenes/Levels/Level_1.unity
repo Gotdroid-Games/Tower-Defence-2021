@@ -3945,7 +3945,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 589565924}
         m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
-        m_MethodName: StartWave
+        m_MethodName: StartWaveCoin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5981,6 +5981,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 874705094}
   waveCountdownText: {fileID: 1079759053}
   waveStartInfoText: {fileID: 1251296305}
+  WaveStartCoin: 0
   waveCountdown: 0
   spawnTime: 0.7
   waveIndex: 0
@@ -5998,7 +5999,6 @@ MonoBehaviour:
   - 15
   - 15
   - 15
-  WaveStartCoin: 0
   basicRobot: 010000000100000001000000030000000500000008000000010000000100000002000000000000000100000001000000
   gorillaRobot: 010000000000000001000000030000000700000005000000000000000100000000000000000000000100000001000000
   smarthomeRobot: 010000000200000004000000020000000100000008000000010000000100000001000000010000000100000001000000
@@ -6885,8 +6885,12 @@ MonoBehaviour:
   panSpeed: 30
   panBorderThickness: 10
   scrollSpeed: 5
+  minX: 20
+  maxX: 40
   minY: 10
   maxY: 80
+  minZ: -85
+  maxZ: -70
 --- !u!4 &986810483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5746039872563645070, guid: 877ad89950da72240b7e8f09ff3cadab, type: 3}
