@@ -15,14 +15,17 @@ public class Node : MonoBehaviour
     private Color startColor;
     Quaity quaity;
     BuildManager buildManager;
+    Shop shop;
 
 
     private void Start()
     {
         rend = GetComponent<Renderer>();
+        shop = GetComponent<Shop>();
         startColor = rend.material.color;
         quaity = FindObjectOfType<Quaity>();
         buildManager = FindObjectOfType<BuildManager>();
+        shop = FindObjectOfType<Shop>();
     }
 
     private void OnMouseDown()
@@ -38,14 +41,19 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        if (quaity._coinText >= 70)
-        {
-            GameObject turretToBuild = buildManager.GetTurretToBuild();
+        GameObject turretToBuild = buildManager.GetTurretToBuild();
+        if (quaity._coinText >= 70 && shop.bombSelected == false)
+        {  
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             quaity.PaidTower(70);
         }
-      //Build a turret (Tarret inþa et)
+        //Build a turret (Tarret inï¿½a et)
 
+        if (quaity._coinText >= 90 && shop.bombSelected == true)
+        {
+            turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+            quaity.PaidBombTower(90);
+        }
     }
 
     private void OnMouseEnter()

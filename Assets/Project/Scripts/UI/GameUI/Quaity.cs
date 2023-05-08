@@ -116,6 +116,11 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
+    public void PaidBombTower(int Decreasebomb)
+    {
+        _coinText -= Decreasebomb;
+        CoinText.text = _coinText.ToString();
+    }
   
 
     public void SellTower(int value)
