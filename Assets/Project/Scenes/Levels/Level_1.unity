@@ -4327,8 +4327,8 @@ MonoBehaviour:
   WaveText: {fileID: 1515769404}
   CoinText: {fileID: 2143163063}
   _coinText: 0
-  _heartText: 1
-  _waveText: 1
+  _heartText: 0
+  _waveText: 0
   Product: 2
 --- !u!1 &420811207
 GameObject:
@@ -6345,7 +6345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b855ffcc02955984e9323e7d94f163e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: 1000
+  coinText: 500
   heartText: 20
   waveText: 0
   _Product: 2

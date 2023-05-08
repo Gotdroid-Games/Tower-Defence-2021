@@ -41,7 +41,10 @@ public class GameManager : MonoBehaviour
     public float _spawnTime;
     public float[] _timeBetweenWaves;
 
-
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {

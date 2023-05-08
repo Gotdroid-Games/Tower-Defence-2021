@@ -20,13 +20,20 @@ public class Quaity : MonoBehaviour
     public float Product;
 
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         
         GameUI = FindObjectOfType<GameUI>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
+
         
+
     }
 
     private void Update()
