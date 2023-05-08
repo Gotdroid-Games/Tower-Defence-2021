@@ -103,6 +103,8 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
+  
+
     public void SellTower(int value)
     {
         _coinText += value;
