@@ -241,7 +241,6 @@ MonoBehaviour:
   UpgradeButton: {fileID: 2084141346023942752}
   SellButton: {fileID: 812539179705206028}
   MaxLevelButton: {fileID: 7678200046167059464}
-  touchGameObj: {fileID: 0}
   TowerUpgradeMoneyText: {fileID: 7873258569713408904}
   counts: 0
   countcheck: 0
