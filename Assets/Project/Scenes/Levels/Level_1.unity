@@ -6345,7 +6345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b855ffcc02955984e9323e7d94f163e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: 500
+  _fireRate: 1
+  _critValue: 20
+  coinText: 1000
   heartText: 20
   waveText: 0
   _Product: 2

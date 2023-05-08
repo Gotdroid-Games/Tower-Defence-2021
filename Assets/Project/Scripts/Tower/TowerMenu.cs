@@ -15,7 +15,7 @@ public class TowerMenu : MonoBehaviour
     {
         TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
-        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
+        RangeUpgrade = GetComponent<RangeUpgrade>();
     }
     private void Update()
     {

@@ -9,10 +9,11 @@ public class TowerTarget : MonoBehaviour
     private GameValue gameValue;
     private RangeUpgrade rangeUpgrade;
     private Transform target;
+    GameManager GameManager;
 
     [Header("Attributes")]
-    public float fireRate = 100f;
-    public float fireCountdown = 1f;
+    public float fireRate;
+    public float fireCountdown;
     public int critValue;
 
     [Header("Unity Setup Fields")]
@@ -26,6 +27,7 @@ public class TowerTarget : MonoBehaviour
     {
         gameValue = FindObjectOfType<GameValue>();
         rangeUpgrade = FindObjectOfType<RangeUpgrade>();
+        GameManager = FindObjectOfType<GameManager>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -72,6 +74,7 @@ public class TowerTarget : MonoBehaviour
 
     private void Update()
     {
+        
         if (target == null)
             return;
 
@@ -84,12 +87,18 @@ public class TowerTarget : MonoBehaviour
         // Crit chance
         if (fireCountdown <= 0f)
         {
-            critValue = Random.Range(1, 101);
             Shoot();
-            fireCountdown = gameValue.NewFireCountDown == 0.2f ? 0.2f / fireRate : 1f / fireRate;
+            critValue = Random.Range(1, 101);
+            fireCountdown = fireRate;
+            
+            //if (gameValue.NewFireCountDown == 0.2f)
+            //{
+            //    fireCountdown = 0.2f / fireRate;
+            //}
+            
         }
-
         fireCountdown -= Time.deltaTime;
+
     }
 
     private void Shoot()
