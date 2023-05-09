@@ -135,6 +135,12 @@ public class Quaity : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
+    public void BombTowerUpgradeMoney(int Decreasei)
+    {
+        _coinText -= Decreasei;
+        CoinText.text = _coinText.ToString();
+    }
+
     public void WaveStartCoinFunction()
     {
         if (WaveSpawner.waveIndex == 0)
