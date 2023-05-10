@@ -7,7 +7,6 @@ public class TowerRangeController : MonoBehaviour
 {
     Quaity Quaity;
     RangeUpgrade RangeUpgrade;
-    WaveSpawner WaveSpawner;
     GameManager GameManager;
     public List<GameObject> UIController = new List<GameObject>();
     public List<GameObject> TouchObjList = new List<GameObject>();
@@ -29,7 +28,6 @@ public class TowerRangeController : MonoBehaviour
         TowerMenu = FindObjectOfType<TowerMenu>();
         Quaity = FindObjectOfType<Quaity>();
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
-        WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
     }
     private void Update()
