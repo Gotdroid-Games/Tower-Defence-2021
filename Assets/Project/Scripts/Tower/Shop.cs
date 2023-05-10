@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    BuildManager BuildManager; // BuildManager sýnýfýndan bir nesne referansý tanýmlanýyor.
+    BuildManager BuildManager; // BuildManager sï¿½nï¿½fï¿½ndan bir nesne referansï¿½ tanï¿½mlanï¿½yor.
+    public bool bombSelected;
 
     private void Start()
     {
-        BuildManager = FindObjectOfType<BuildManager>(); // Oyun baþladýðýnda BuildManager nesnesi bulunarak tanýmlanýyor.
+        BuildManager = FindObjectOfType<BuildManager>(); // Oyun baï¿½ladï¿½ï¿½ï¿½nda BuildManager nesnesi bulunarak tanï¿½mlanï¿½yor.
     }
 
     public void PurchaseStandTurret()
     {
-        Debug.Log("Stand Turret Selected"); // Standart kule seçildiðinde konsola yazdýrýlýyor.
-        BuildManager.SetTurretToBuild(BuildManager.standardTurretPrefab); // BuildManager sýnýfýndaki SetTurretToBuild metodu çaðýrýlýyor ve parametre olarak standart kule prefabý gönderiliyor.
+        Debug.Log("Stand Turret Selected"); // Standart kule seï¿½ildiï¿½inde konsola yazdï¿½rï¿½lï¿½yor.
+        BuildManager.SetTurretToBuild(BuildManager.standardTurretPrefab); // BuildManager sï¿½nï¿½fï¿½ndaki SetTurretToBuild metodu ï¿½aï¿½ï¿½rï¿½lï¿½yor ve parametre olarak standart kule prefabï¿½ gï¿½nderiliyor.
+        bombSelected = false;
+        Debug.Log(bombSelected);
     }
 
     public void PurchaseAnotherTurret()
     {
-        Debug.Log("Another Turret Selected"); // Baþka bir kule seçildiðinde konsola yazdýrýlýyor.
-        //buildManager.SetTurretToBuild(buildManager.anotherTurretPrefab); Yorum satýrý olduðu için bu satýr etkisiz hale getirilmiþtir.
+        Debug.Log("Another Turret Selected"); // Baï¿½ka bir kule seï¿½ildiï¿½inde konsola yazdï¿½rï¿½lï¿½yor.
+        BuildManager.SetTurretToBuild(BuildManager.anotherTurretPrefab);
+        bombSelected = true;
+        Debug.Log(bombSelected);
     }
 }
