@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     TowerTarget TowerTarget;
     Enemy Enemy;
 
+    [Header("TowerTarget Attributes")]
+
+    public float _fireRate;
+    public int _critValue;
 
     [Header("Quality Attributes")]
 
@@ -20,7 +24,7 @@ public class GameManager : MonoBehaviour
     [Header("Money Controls")]
     //Product WaveSpawner sýnýfý içerisinde bulunan WaveCountDown deðeriyle Quality sýnýfý içerisinde bulunan Product deðiþkeninin çarpýp zamana göre extra para kazanmaya yarýyor
     public int _Product;
-    
+
 
 
     [Header("Enemy List")]
@@ -43,33 +47,56 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     private void Start()
     {
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         Quaity = FindObjectOfType<Quaity>();
-        TowerTarget = FindObjectOfType<TowerTarget>();
+        
         Enemy = FindObjectOfType<Enemy>();
 
+        //Kule Öz Nitelikleri
+
+
+
+
+        //Oyun Ýçi Bilgi Alaný Öz Nitelikleri
+        Quaity._coinText = coinText;
+        Quaity._heartText = heartText;
+        Quaity._waveText = waveText;
+
+        //Para Deðerleri
+        Quaity.Product = _Product;
+
+        //Düþman Dizileri
         WaveSpawner.basicRobot = _basicRobot;
         WaveSpawner.gorillaRobot = _gorillaRobot;
         WaveSpawner.smarthomeRobot = _smartHomeRobot;
         WaveSpawner.DroneRobot = _droneRobot;
 
+        //Düþman Bilgi Dizileri
         WaveSpawner.basicRobotWaveInfo = _basicRobotWaveInfo;
         WaveSpawner.gorillaRobotWaveInfo = _gorillaRobotWaveInfo;
         WaveSpawner.smarthomeRobotWaveInfo = _smarthomeRobotWaveInfo;
         WaveSpawner.droneRobotWaveInfo = _droneRobotWaveInfo;
 
-        WaveSpawner.spawnTime= _spawnTime;
-        WaveSpawner.timeBetweenWaves= _timeBetweenWaves;
+        //Zaman Deðerleri
+        WaveSpawner.spawnTime = _spawnTime;
+        WaveSpawner.timeBetweenWaves = _timeBetweenWaves;
 
-        Quaity._coinText = coinText;
-        Quaity._heartText = heartText;
-        Quaity._waveText = waveText;
 
-        Quaity.Product = _Product;
+    }
+
+    private void Update()
+    {
+        TowerTarget = FindObjectOfType<TowerTarget>();
+        if ( TowerTarget != null )
+        {
+            TowerTarget.fireRate = _fireRate;
+            TowerTarget.critValue = _critValue;
+        }
+        
     }
 }

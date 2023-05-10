@@ -25,8 +25,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveCountdownText;
     [SerializeField] private TextMeshProUGUI waveStartInfoText;
 
-    [Header("Money Controls")]
-
     [Header("Time Control Variables")]
     public float waveCountdown;
     public float spawnTime;
