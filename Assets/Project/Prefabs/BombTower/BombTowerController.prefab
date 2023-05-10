@@ -253,6 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3488515214769342755}
   - component: {fileID: 7673684480523168095}
+  - component: {fileID: 845767025554001964}
   m_Layer: 0
   m_Name: BombTowerController
   m_TagString: Untagged
@@ -304,6 +305,19 @@ MonoBehaviour:
   - {fileID: 6857959501953687688}
   - {fileID: 2341376662875871168}
   BombTowerUpgradeMoneyText: {fileID: 6195096927764653901}
+--- !u!65 &845767025554001964
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300374256345671116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8157358, y: 4.7989926, z: 3.9658628}
+  m_Center: {x: 0.12526846, y: 1.8994968, z: -0.0510633}
 --- !u!1001 &1132498226743542278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,7 +377,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7771849519198115834, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
 --- !u!1 &2341376662875871168 stripped
 GameObject:
@@ -430,7 +445,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: bomba_1_ Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2965087077329033773, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
 --- !u!4 &1725701384876862544 stripped
 Transform:
@@ -501,7 +525,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1376908061751552577, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
 --- !u!4 &6081985370055424562 stripped
 Transform:

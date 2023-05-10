@@ -23,13 +23,23 @@ public class BombTowerMenu : MonoBehaviour
 
     void Start()
     {
+        _upgradeButton.SetActive(false);
+        SellButton.SetActive(false);
         Count = 0;
         BombObjList[0].SetActive(true);
         Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
     }
+    public void ClickedTower()
+    {
+        Debug.Log("click çlıştı");
+        _upgradeButton.SetActive(true);
+        SellButton.SetActive(true);
+    }
+
     private void OnMouseDown()
     {
+        Debug.Log("çalıştııııı");
         _upgradeButton.SetActive(true);
         SellButton.SetActive(true);
     }
@@ -48,6 +58,7 @@ public class BombTowerMenu : MonoBehaviour
         {
             if (Count == 0)
             {
+                BombTower = BombObjList[0];
                 BombObjList[0].SetActive(true);
                 BombObjList[1].SetActive(false);
                 BombObjList[2].SetActive(false);
@@ -55,6 +66,7 @@ public class BombTowerMenu : MonoBehaviour
             }
             if (Count == 1)
             {
+                BombTower = BombObjList[1];
                 BombObjList[0].SetActive(false);
                 BombObjList[1].SetActive(true);
                 BombObjList[2].SetActive(false);
@@ -62,6 +74,7 @@ public class BombTowerMenu : MonoBehaviour
             }
             if (Count == 2)
             {
+                BombTower = BombObjList[2];
                 BombObjList[0].SetActive(false);
                 BombObjList[1].SetActive(false);
                 BombObjList[2].SetActive(true);
