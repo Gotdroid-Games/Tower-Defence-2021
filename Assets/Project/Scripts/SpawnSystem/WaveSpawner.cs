@@ -21,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] private Transform spawnPoint;
 
+    
     [Header("Wave Texts")]
     [SerializeField] private TextMeshProUGUI waveCountdownText;
     [SerializeField] private TextMeshProUGUI waveStartInfoText;

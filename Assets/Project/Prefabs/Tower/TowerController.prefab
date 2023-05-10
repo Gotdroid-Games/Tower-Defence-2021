@@ -241,10 +241,9 @@ MonoBehaviour:
   UpgradeButton: {fileID: 2084141346023942752}
   SellButton: {fileID: 812539179705206028}
   MaxLevelButton: {fileID: 7678200046167059464}
-  TowerUpgradeMoneyText: {fileID: 7873258569713408904}
+  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
   counts: 0
   countcheck: 0
-  TowerUpgradeMoneyValue: 7800000096000000
 --- !u!114 &3466389259416718448
 MonoBehaviour:
   m_ObjectHideFlags: 0

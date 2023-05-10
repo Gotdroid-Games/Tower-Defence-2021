@@ -8,16 +8,16 @@ public class TowerRangeController : MonoBehaviour
     Quaity Quaity;
     RangeUpgrade RangeUpgrade;
     WaveSpawner WaveSpawner;
+    GameManager GameManager;
     public List<GameObject> UIController = new List<GameObject>();
     public List<GameObject> TouchObjList = new List<GameObject>();
     public Button UpgradeButton;
     public Button SellButton;
     public Image MaxLevelButton;
     GameObject touchGameObj;
-    public TextMeshProUGUI TowerUpgradeMoneyText;
+    public TextMeshProUGUI SniperTowerUpgradeMoneyText;
     public int counts;
     public int countcheck;
-    public int[] TowerUpgradeMoneyValue;
     
     
 
@@ -31,6 +31,7 @@ public class TowerRangeController : MonoBehaviour
         Quaity = FindObjectOfType<Quaity>();
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
+        GameManager = FindObjectOfType<GameManager>();
     }
     private void Update()
     {
@@ -79,19 +80,19 @@ public class TowerRangeController : MonoBehaviour
 
 
 
-        if (Quaity._coinText >= TowerUpgradeMoneyValue[0] && RangeUpgrade.countcheck == 0)
+        if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[0] && RangeUpgrade.countcheck == 0)
         {
             UpgradeButton.interactable = true;
             SellButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
-            TowerUpgradeMoneyText.text = TowerUpgradeMoneyValue[0].ToString();
+            SniperTowerUpgradeMoneyText.text = GameManager._sniperTowerUpgradeMoney[0].ToString();
         }
-        else if (Quaity._coinText >= TowerUpgradeMoneyValue[1] && RangeUpgrade.countcheck == 1)
+        else if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[1] && RangeUpgrade.countcheck == 1)
         {
             UpgradeButton.interactable = true;
             SellButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
-            TowerUpgradeMoneyText.text = TowerUpgradeMoneyValue[1].ToString();
+            SniperTowerUpgradeMoneyText.text = GameManager._sniperTowerUpgradeMoney[1].ToString();
         }
         else
         {

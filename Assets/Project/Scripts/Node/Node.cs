@@ -15,6 +15,7 @@ public class Node : MonoBehaviour
     private Color startColor;
     Quaity quaity;
     BuildManager buildManager;
+    GameManager GameManager;
     Shop shop;
 
 
@@ -26,6 +27,7 @@ public class Node : MonoBehaviour
         quaity = FindObjectOfType<Quaity>();
         buildManager = FindObjectOfType<BuildManager>();
         shop = FindObjectOfType<Shop>();
+        GameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnMouseDown()
@@ -42,17 +44,17 @@ public class Node : MonoBehaviour
             return;
         }
         GameObject turretToBuild = buildManager.GetTurretToBuild();
-        if (quaity._coinText >= 70 && shop.bombSelected == false)
+        if (quaity._coinText >= GameManager._sniperTowerBuyMoney && shop.bombSelected == false)
         {  
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            quaity.PaidTower(70);
+            quaity.PaidTower(GameManager._sniperTowerBuyMoney);
         }
         //Build a turret (Tarret in�a et)
 
-        if (quaity._coinText >= 90 && shop.bombSelected == true)
+        if (quaity._coinText >= GameManager._bombTowerBuyMoney && shop.bombSelected == true)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            quaity.PaidBombTower(90);
+            quaity.PaidBombTower(GameManager._bombTowerBuyMoney);
         }
     }
 

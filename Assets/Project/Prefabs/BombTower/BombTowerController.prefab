@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7510624679813293082}
   - component: {fileID: 6195096927764653901}
   m_Layer: 5
-  m_Name: Tower Upgrade Coin Text
+  m_Name: Bomb Tower Upgrade Coin Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,17 +291,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1b04717c30045e08d0557d46e46be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Upgradebutton: {fileID: 7833588467662875292}
+  _upgradeButton: {fileID: 7833588467662875292}
   SellButton: {fileID: 8836688118391823909}
   BombTower: {fileID: 7300374256345671116}
   BombTowerUpgradeMoneyList: 
   Count: 0
   CountCheck: 0
   MaxlevelImage: {fileID: 7885912670436056943}
+  BombTowerUpgradeButton: {fileID: 4401477812567882303}
   BombObjList:
   - {fileID: 2069752473757447914}
   - {fileID: 6857959501953687688}
   - {fileID: 2341376662875871168}
+  BombTowerUpgradeMoneyText: {fileID: 6195096927764653901}
 --- !u!1001 &1132498226743542278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4957091178424623601, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.95
+      value: 2.72
       objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_Interactable
@@ -710,6 +712,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 6258459030584738354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4401477812567882303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+  m_PrefabInstance: {fileID: 6258459030584738354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833588467662875292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7833588467662875292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}

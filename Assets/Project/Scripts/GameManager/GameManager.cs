@@ -10,45 +10,56 @@ public class GameManager : MonoBehaviour
     TowerTarget TowerTarget;
     Enemy Enemy;
 
+    [Space(5f)]
     [Header("TowerTarget Attributes")]
 
     public float _fireRate;
     public int _critValue;
 
+    [Space(5f)]
     [Header("Quality Attributes")]
 
     public int coinText;
     public int heartText;
     public int waveText;
 
+    [Space(5f)]
     [Header("Money Controls")]
     //Product WaveSpawner sýnýfý içerisinde bulunan WaveCountDown deðeriyle Quality sýnýfý içerisinde bulunan Product deðiþkeninin çarpýp zamana göre extra para kazanmaya yarýyor
     public int _Product;
+    [Header(" ")]
+
+    public int _sniperTowerBuyMoney;
+    public int[] _sniperTowerMoneySell;
+    public int[] _sniperTowerUpgradeMoney;
+
+    [Header(" ")]
+
+    public int _bombTowerBuyMoney;
+    public int[] _bombTowerMoneySell;
+    public int[] _bombTowerUpgradeMoney;
 
 
-
+    [Space(5f)]
     [Header("Enemy List")]
     public int[] _basicRobot;
     public int[] _gorillaRobot;
     public int[] _smartHomeRobot;
     public int[] _droneRobot;
 
-
+    [Space(5f)]
     [Header("Enemy Spawn Info")]
     string[] _basicRobotWaveInfo;
     string[] _gorillaRobotWaveInfo;
     string[] _smarthomeRobotWaveInfo;
     string[] _droneRobotWaveInfo;
 
+    [Space(5f)]
     [Header("Enemy Time Control Variables")]
 
     public float _spawnTime;
     public float[] _timeBetweenWaves;
 
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {

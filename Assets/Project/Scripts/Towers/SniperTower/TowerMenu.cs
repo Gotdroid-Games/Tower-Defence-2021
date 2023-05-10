@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public class TowerMenu : MonoBehaviour
 {
     TowerRangeController TowerRangeController;
+    GameManager GameManager;
     RangeUpgrade RangeUpgrade;
     TowerTarget TowerTarget;
     Quaity Quaity;
@@ -16,6 +17,7 @@ public class TowerMenu : MonoBehaviour
         TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
         RangeUpgrade = GetComponent<RangeUpgrade>();
+        GameManager = FindObjectOfType<GameManager>();
     }
     private void Update()
     {
@@ -57,20 +59,20 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         Tower = gameObject;
 
-        if (Quaity._coinText >= TowerRangeController.TowerUpgradeMoneyValue[0])
+        if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[0])
         {
             GetComponent<TowerRangeController>().counts++;
             
 
             if(countcheck==0)
             {
-                Quaity.TowerUpgradeMoney(TowerRangeController.TowerUpgradeMoneyValue[0]);
+                Quaity.TowerUpgradeMoney(GameManager._sniperTowerUpgradeMoney[0]);
                 Debug.Log("Countcheck 0");
             }
 
             if(countcheck==1)
             {
-                Quaity.TowerUpgradeMoney(TowerRangeController.TowerUpgradeMoneyValue[1]);
+                Quaity.TowerUpgradeMoney(GameManager._sniperTowerUpgradeMoney[1]);
                 Debug.Log("Countcheck 1");
             }
 
@@ -98,17 +100,17 @@ public class TowerMenu : MonoBehaviour
 
         if (countcheck == 0)
         {
-            Quaity.SellTower(70);
+            Quaity.SellTower(GameManager._sniperTowerMoneySell[0]);
         }
 
         if (countcheck == 1)
         {
-            Quaity.SellTower(100);
+            Quaity.SellTower(GameManager._sniperTowerMoneySell[1]);
         }
 
         if (countcheck == 2)
         {
-            Quaity.SellTower(120);
+            Quaity.SellTower(GameManager._sniperTowerMoneySell[2]);
         }
     }
 }
