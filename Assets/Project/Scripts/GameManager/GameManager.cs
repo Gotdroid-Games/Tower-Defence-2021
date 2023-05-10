@@ -73,9 +73,6 @@ public class GameManager : MonoBehaviour
 
         //Kule Öz Nitelikleri
 
-
-
-
         //Oyun Ýçi Bilgi Alaný Öz Nitelikleri
         Quaity._coinText = coinText;
         Quaity._heartText = heartText;
