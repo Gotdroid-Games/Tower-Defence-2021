@@ -22,24 +22,31 @@ public class Quaity : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     private void Start()
     {
-        
+
         GameUI = FindObjectOfType<GameUI>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
 
-        
+
 
     }
 
     private void Update()
     {
+
         WaveText.text = _waveText.ToString();
         CoinText.text = _coinText.ToString();
+        
+        if (_heartText<0)
+        {
+            _heartText = 0;
+            heartText.text = _heartText.ToString();
+        }
         heartText.text = _heartText.ToString();
 
         if (_heartText <= 0 || _waveText >= 12)
@@ -51,6 +58,8 @@ public class Quaity : MonoBehaviour
         {
             _coinText = 0;
         }
+
+        
 
         WaveCounter();
     }
@@ -70,9 +79,25 @@ public class Quaity : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("GorillaRobot") || other.gameObject.CompareTag("SupurgeRobot"))
+        if (other.gameObject.CompareTag("BasicRobot"))
         {
-            Damage(1);
+            Damage(GameManager.EnemyDamage[0]);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("GorillaRobot"))
+        {
+            Damage(GameManager.EnemyDamage[1]);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("SupurgeRobot"))
+        {
+            Damage(GameManager.EnemyDamage[2]);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("DroneRobot"))
+        {
+            Damage(GameManager.EnemyDamage[3]);
             Destroy(other.gameObject);
         }
     }
@@ -81,6 +106,7 @@ public class Quaity : MonoBehaviour
     {
         if (_heartText <= 0)
         {
+            _heartText = 0;
             GameUI.DefeatMenu();
         }
     }
@@ -121,7 +147,7 @@ public class Quaity : MonoBehaviour
         _coinText -= Decreasebomb;
         CoinText.text = _coinText.ToString();
     }
-  
+
 
     public void SellTower(int value)
     {

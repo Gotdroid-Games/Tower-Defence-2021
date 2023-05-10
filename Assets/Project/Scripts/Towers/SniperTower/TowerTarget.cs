@@ -10,14 +10,13 @@ public class TowerTarget : MonoBehaviour
     private RangeUpgrade rangeUpgrade;
     private Transform target;
     GameManager GameManager;
-
+    Enemy Enemy;
     [Header("Attributes")]
     public float fireRate;
     public float fireCountdown;
     public int critValue;
 
     [Header("Unity Setup Fields")]
-    public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float turnSpeed;
     public GameObject bulletPrefab;
@@ -28,18 +27,22 @@ public class TowerTarget : MonoBehaviour
         gameValue = FindObjectOfType<GameValue>();
         rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
+        Enemy = FindObjectOfType<Enemy>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     private void UpdateTarget()
     {
-        GameObject[] enemies2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
-        GameObject[] enemies1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] BasicRobotTag = GameObject.FindGameObjectsWithTag("BasicRobot");
+        GameObject[] GorillaRobotTag = GameObject.FindGameObjectsWithTag("GorillaRobot");
+        GameObject[] SmartHomeRobotTag = GameObject.FindGameObjectsWithTag("SupurgeRobot");
+        GameObject[] DroneRobotTag = GameObject.FindGameObjectsWithTag("DroneRobot");
+
+
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in BasicRobotTag)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
@@ -49,7 +52,7 @@ public class TowerTarget : MonoBehaviour
             }
         }
 
-        foreach (GameObject enemy in enemies1)
+        foreach (GameObject enemy in GorillaRobotTag)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
@@ -59,7 +62,16 @@ public class TowerTarget : MonoBehaviour
             }
         }
 
-        foreach (GameObject enemy in enemies2)
+        foreach (GameObject enemy in SmartHomeRobotTag)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+        foreach (GameObject enemy in DroneRobotTag)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
@@ -74,7 +86,7 @@ public class TowerTarget : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (target == null)
             return;
 
@@ -90,12 +102,12 @@ public class TowerTarget : MonoBehaviour
             Shoot();
             critValue = Random.Range(1, 101);
             fireCountdown = fireRate;
-            
+
             //if (gameValue.NewFireCountDown == 0.2f)
             //{
             //    fireCountdown = 0.2f / fireRate;
             //}
-            
+
         }
         fireCountdown -= Time.deltaTime;
 

@@ -73,31 +73,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab10f4ed3dfc4228b7d49ca4bed12dc, type: 3}
---- !u!1 &2965087077329033773 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bab10f4ed3dfc4228b7d49ca4bed12dc, type: 3}
-  m_PrefabInstance: {fileID: 2731278337480681340}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-1228801002187575975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965087077329033773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1b04717c30045e08d0557d46e46be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Upgradebutton: {fileID: 0}
-  SellButton: {fileID: 0}
-  BombTower: {fileID: 2965087077329033773}
-  BombTowerUpgradeMoneyList: 
-  Count: 0
-  CountCheck: 0
-  MaxlevelImage: {fileID: 0}
-  BombObjList:
-  - {fileID: 2965087077329033773}
-  - {fileID: 7279371253048320067, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
-  - {fileID: 3443367538809116102, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}

@@ -695,10 +695,14 @@ PrefabInstance:
     - target: {fileID: 8963658608316602209, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7673684480523168095}
     - target: {fileID: 8963658608316602209, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Sell
+      value: BombTowerSell
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963658608316602209, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BombTowerMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}

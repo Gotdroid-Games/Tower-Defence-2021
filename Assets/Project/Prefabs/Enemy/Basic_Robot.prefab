@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 327432136027976392}
   m_Layer: 0
   m_Name: Basic_Robot
-  m_TagString: Enemy
+  m_TagString: BasicRobot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

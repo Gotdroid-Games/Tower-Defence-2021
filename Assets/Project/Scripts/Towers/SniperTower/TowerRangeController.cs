@@ -12,7 +12,6 @@ public class TowerRangeController : MonoBehaviour
     public List<GameObject> UIController = new List<GameObject>();
     public List<GameObject> TouchObjList = new List<GameObject>();
     public Button UpgradeButton;
-    public Button SellButton;
     public Image MaxLevelButton;
     GameObject touchGameObj;
     public TextMeshProUGUI SniperTowerUpgradeMoneyText;
@@ -83,14 +82,12 @@ public class TowerRangeController : MonoBehaviour
         if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[0] && RangeUpgrade.countcheck == 0)
         {
             UpgradeButton.interactable = true;
-            SellButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
             SniperTowerUpgradeMoneyText.text = GameManager._sniperTowerUpgradeMoney[0].ToString();
         }
         else if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[1] && RangeUpgrade.countcheck == 1)
         {
             UpgradeButton.interactable = true;
-            SellButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
             SniperTowerUpgradeMoneyText.text = GameManager._sniperTowerUpgradeMoney[1].ToString();
         }

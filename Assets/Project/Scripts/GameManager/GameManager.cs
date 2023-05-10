@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     WaveSpawner WaveSpawner;
     Quaity Quaity;
     TowerTarget TowerTarget;
-    Enemy Enemy;
 
     [Space(5f)]
     [Header("TowerTarget Attributes")]
@@ -59,14 +58,18 @@ public class GameManager : MonoBehaviour
 
     public float _spawnTime;
     public float[] _timeBetweenWaves;
+    
+    [Header("Enemy Damage")]
+    
+    public int[] EnemyDamage;
 
+    [Header("Enemy Healts")]
 
+    public int[] EnemyHealth;
     private void Start()
     {
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         Quaity = FindObjectOfType<Quaity>();
-        
-        Enemy = FindObjectOfType<Enemy>();
 
         //Kule Öz Nitelikleri
 

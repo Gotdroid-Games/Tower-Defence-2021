@@ -94,7 +94,7 @@ public class TowerMenu : MonoBehaviour
         SellButton.SetActive(false);
     }
 
-    public void Sell()
+    public void SniperTowerSell()
     {
         Destroy(gameObject);
 

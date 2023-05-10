@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     Quaity Quaity;
     GameValue GameValue;
     TowerTarget TowerTarget;
+    GameManager GameManager;
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -20,21 +21,50 @@ public class Enemy : MonoBehaviour
     private int wavepointIndex = 0;
     public int coinvalue;
     [HideInInspector]
-    
+
     public float worth = 50;
-    
+
     [Header("Unity Stuff")]
     public Slider healthBar;
-   
+
     private void Start()
     {
         TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
         GameValue = FindObjectOfType<GameValue>();
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
-       
+        GameManager = FindObjectOfType<GameManager>();
         target = WayPoints.points[0];
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
+
+        if (GameObject.FindGameObjectWithTag("BasicRobot"))
+        {
+            maxHealth = GameManager.EnemyHealth[0];
+            currentHealth = maxHealth;
+            _healthbar.SetMaxHealth(maxHealth);
+        }
+
+        if (GameObject.FindGameObjectWithTag("GorillaRobot"))
+        {
+            maxHealth = GameManager.EnemyHealth[1];
+            currentHealth = maxHealth;
+            _healthbar.SetMaxHealth(maxHealth);
+        }
+
+        if (GameObject.FindGameObjectWithTag("SupurgeRobot"))
+        {
+            maxHealth = GameManager.EnemyHealth[2];
+            currentHealth = maxHealth;
+            _healthbar.SetMaxHealth(maxHealth);
+        }
+
+        if (GameObject.FindGameObjectWithTag("DroneRobot"))
+        {
+            maxHealth = GameManager.EnemyHealth[3];
+            currentHealth = maxHealth;
+            _healthbar.SetMaxHealth(maxHealth);
+        }
+
     }
 
 
@@ -59,7 +89,7 @@ public class Enemy : MonoBehaviour
             currentHealth = 0;
             Destroy(gameObject);
         }
-         
+
         if (target == null)
         {
             return;
@@ -72,7 +102,7 @@ public class Enemy : MonoBehaviour
         {
             transform.rotation *= Quaternion.Euler(-90, 0, 0);
         }
-            if(Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWayPoint();
         }
@@ -99,5 +129,5 @@ public class Enemy : MonoBehaviour
             Quaity.CoinValue(coinvalue);
         }
     }
-        
+
 }
