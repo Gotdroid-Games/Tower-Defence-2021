@@ -216,8 +216,8 @@ GameObject:
   - component: {fileID: 7624107195544428829}
   - component: {fileID: 6800891240094363320}
   - component: {fileID: 8756521346192841330}
-  - component: {fileID: 4552692602953087847}
   - component: {fileID: 4552692602953087840}
+  - component: {fileID: 4552692602953087847}
   - component: {fileID: 7945753152795543281}
   - component: {fileID: 7945753152795543280}
   m_Layer: 0
@@ -296,26 +296,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &4552692602953087847
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7099244992331037607}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ee883a5295ffe854fa185f4edf3bb5e2, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &4552692602953087840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +316,26 @@ MonoBehaviour:
   coinvalue: 5
   worth: 50
   healthBar: {fileID: 5135594772425055881}
+--- !u!95 &4552692602953087847
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099244992331037607}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ee883a5295ffe854fa185f4edf3bb5e2, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!54 &7945753152795543281
 Rigidbody:
   m_ObjectHideFlags: 0

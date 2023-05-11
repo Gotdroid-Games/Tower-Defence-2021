@@ -72,20 +72,20 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         Tower = gameObject;
 
-        if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[0])
+        if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[0]._sniperTowerUpgradeMoney)
         {
             GetComponent<TowerRangeController>().counts++;
             
 
             if(countcheck==0)
             {
-                Quaity.TowerUpgradeMoney(GameManager._sniperTowerUpgradeMoney[0]);
+                Quaity.TowerUpgradeMoney(GameManager._sniperTowerUpgradeMoney[0]._sniperTowerUpgradeMoney);
                 Debug.Log("Countcheck 0");
             }
 
             if(countcheck==1)
             {
-                Quaity.TowerUpgradeMoney(GameManager._sniperTowerUpgradeMoney[1]);
+                Quaity.TowerUpgradeMoney(GameManager._sniperTowerUpgradeMoney[1]._sniperTowerUpgradeMoney);
                 Debug.Log("Countcheck 1");
             }
 
@@ -113,17 +113,17 @@ public class TowerMenu : MonoBehaviour
 
         if (countcheck == 0)
         {
-            Quaity.SellTower(GameManager._sniperTowerMoneySell[0]);
+            Quaity.SellTower(GameManager._sniperTowerMoneySell[0]._sniperTowerMoneySell);
         }
 
         if (countcheck == 1)
         {
-            Quaity.SellTower(GameManager._sniperTowerMoneySell[1]);
+            Quaity.SellTower(GameManager._sniperTowerMoneySell[1]._sniperTowerMoneySell);
         }
 
         if (countcheck == 2)
         {
-            Quaity.SellTower(GameManager._sniperTowerMoneySell[2]);
+            Quaity.SellTower(GameManager._sniperTowerMoneySell[2]._sniperTowerMoneySell);
         }
     }
 }

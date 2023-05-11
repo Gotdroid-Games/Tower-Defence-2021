@@ -81,23 +81,23 @@ public class Quaity : MonoBehaviour
     {
         if (other.gameObject.CompareTag("BasicRobot"))
         {
-            Damage(GameManager.EnemyDamage[0]);
+            Damage(GameManager.EnemyDamage[0]._EnemyDamage);
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("GorillaRobot"))
         {
-            Damage(GameManager.EnemyDamage[1]);
+            Damage(GameManager.EnemyDamage[1]._EnemyDamage);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("SupurgeRobot"))
         {
-            Damage(GameManager.EnemyDamage[2]);
+            Damage(GameManager.EnemyDamage[2]._EnemyDamage);
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("DroneRobot"))
         {
-            Damage(GameManager.EnemyDamage[3]);
+            Damage(GameManager.EnemyDamage[3]._EnemyDamage);
             Destroy(other.gameObject);
         }
     }

@@ -1,7 +1,94 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static sniperTowerMoneySell;
+
+
+[System.Serializable]
+public class sniperTowerMoneySell
+{
+
+    //Niþancý Kulesi Satma
+    [HideInInspector]
+    public string name;
+    public int _sniperTowerMoneySell;
+}
+
+[System.Serializable]
+public class SniperTowerUpgradeMoney
+{
+    //Niþancý Kulesi Geliþtirme
+    [HideInInspector]
+    public string name;
+    public int _sniperTowerUpgradeMoney;
+}
+
+[System.Serializable]
+public class BombTowerMoneySell
+{
+    //Bomba Kulesi Satma
+    [HideInInspector]
+    public string name;
+    public int _bombTowerMoneySell;
+}
+
+[System.Serializable]
+public class BombTowerUpgradeMoney
+{
+    //Bomba Kulesi Geliþtirme
+    [HideInInspector]
+    public string name;
+    public int _bombTowerUpgradeMoney;
+}
+
+[System.Serializable]
+public class EnemyDamage
+{
+    //Düþman Son Nokta Geçiþ Hasarý
+    [HideInInspector]
+    public string name;
+    public int _EnemyDamage;
+}
+
+[System.Serializable]
+public class EnemyHealth
+{
+    //Düþman Caný
+    [HideInInspector]
+    public string name;
+    public int _EnemyHealth;
+}
+
+[System.Serializable]
+public class EnemySpeed
+{
+    //Düþman Hareket Hýzý
+    [HideInInspector]
+    public string name;
+    public float _EnemySpeed;
+}
+
+[System.Serializable]
+public class EnemyKillCoinValue
+{
+    //Düþman Öldürme Para Miktarý
+    //[HideInInspector]
+    public string name;
+    public int EnemyKillCoin;
+}
+
+[System.Serializable]
+public class EnemySpawnTime
+{
+    //Düþman Öldürme Para Miktarý
+    //[HideInInspector]
+    public string name;
+    public float enemySpawnTime;
+}
+
 
 public class GameManager : MonoBehaviour
 {
@@ -29,14 +116,14 @@ public class GameManager : MonoBehaviour
     [Header(" ")]
 
     public int _sniperTowerBuyMoney;
-    public int[] _sniperTowerMoneySell;
-    public int[] _sniperTowerUpgradeMoney;
+    public SniperTowerUpgradeMoney[] _sniperTowerUpgradeMoney;
+    public sniperTowerMoneySell[] _sniperTowerMoneySell;
 
     [Header(" ")]
 
     public int _bombTowerBuyMoney;
-    public int[] _bombTowerMoneySell;
-    public int[] _bombTowerUpgradeMoney;
+    public BombTowerUpgradeMoney[] _bombTowerUpgradeMoney;
+    public BombTowerMoneySell[] _bombTowerMoneySell;
 
 
     [Space(5f)]
@@ -54,22 +141,25 @@ public class GameManager : MonoBehaviour
     string[] _droneRobotWaveInfo;
 
     [Space(5f)]
-    [Header("Enemy Time Control Variables")]
+    [Header("Time Control Variables")]
 
-    public float _spawnTime;
+    public EnemySpawnTime[] EnemySpawnTime;
     public float[] _timeBetweenWaves;
-    
-    [Header("Enemy Damage")]
-    
-    public int[] EnemyDamage;
+    [Header(" ")]
+    public float WaveStartTimeAdjustment;
 
-    [Header("Enemy Healts")]
 
-    public int[] EnemyHealth;
+
+    [Header("Enemy Attributes")]
+    public EnemyDamage[] EnemyDamage;
+    public EnemyHealth[] EnemyHealth;
+    public EnemySpeed[] EnemySpeed;
+    public EnemyKillCoinValue[] _EnemyKillCoin;
     private void Start()
     {
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         Quaity = FindObjectOfType<Quaity>();
+
 
         //Kule Öz Nitelikleri
 
@@ -94,20 +184,29 @@ public class GameManager : MonoBehaviour
         WaveSpawner.droneRobotWaveInfo = _droneRobotWaveInfo;
 
         //Zaman Deðerleri
-        WaveSpawner.spawnTime = _spawnTime;
         WaveSpawner.timeBetweenWaves = _timeBetweenWaves;
 
 
     }
 
+
+
     private void Update()
     {
         TowerTarget = FindObjectOfType<TowerTarget>();
-        if ( TowerTarget != null )
+        if (TowerTarget != null)
         {
             TowerTarget.fireRate = _fireRate;
             TowerTarget.critValue = _critValue;
         }
-        
     }
+
+
 }
+
+
+
+
+
+
+

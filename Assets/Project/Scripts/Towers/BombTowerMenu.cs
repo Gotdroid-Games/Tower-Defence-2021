@@ -90,13 +90,13 @@ public class BombTowerMenu : MonoBehaviour
             }
         }
 
-        if (Quaity._coinText >= GameManager._bombTowerUpgradeMoney[0] && CountCheck == 0)
+        if (Quaity._coinText >= GameManager._bombTowerUpgradeMoney[0]._bombTowerUpgradeMoney && CountCheck == 0)
         {
             BombTowerUpgradeButton.interactable = true;
             MaxlevelImage.gameObject.SetActive(false);
             BombTowerUpgradeMoneyText.text = GameManager._bombTowerUpgradeMoney[0].ToString();
         }
-        else if (Quaity._coinText >= GameManager._bombTowerUpgradeMoney[1] && CountCheck == 1)
+        else if (Quaity._coinText >= GameManager._bombTowerUpgradeMoney[1]._bombTowerUpgradeMoney && CountCheck == 1)
         {
             BombTowerUpgradeButton.interactable = true;
             MaxlevelImage.gameObject.SetActive(false);
@@ -114,13 +114,13 @@ public class BombTowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         BombTower = gameObject;
 
-        if (Quaity._coinText >= GameManager._bombTowerUpgradeMoney[0])
+        if (Quaity._coinText >= GameManager._bombTowerUpgradeMoney[0]._bombTowerUpgradeMoney)
         {
 
 
             if (CountCheck == 0)
             {
-                Quaity.BombTowerUpgradeMoney(GameManager._bombTowerUpgradeMoney[0]);
+                Quaity.BombTowerUpgradeMoney(GameManager._bombTowerUpgradeMoney[0]._bombTowerUpgradeMoney);
                 Debug.Log("BombCountcheck = " + CountCheck);
             }
 
@@ -128,7 +128,7 @@ public class BombTowerMenu : MonoBehaviour
             {
                 _upgradeButton.gameObject.SetActive(false);
                 MaxlevelImage.gameObject.SetActive(true);
-                Quaity.BombTowerUpgradeMoney(GameManager._bombTowerUpgradeMoney[1]);
+                Quaity.BombTowerUpgradeMoney(GameManager._bombTowerUpgradeMoney[1]._bombTowerUpgradeMoney);
                 Debug.Log("BombCountcheck = " + CountCheck);
             }
         }
@@ -140,17 +140,17 @@ public class BombTowerMenu : MonoBehaviour
 
         if (CountCheck == 0)
         {
-            Quaity.SellTower(GameManager._bombTowerMoneySell[0]);
+            Quaity.SellTower(GameManager._bombTowerMoneySell[0]._bombTowerMoneySell);
         }
 
         if (CountCheck == 1)
         {
-            Quaity.SellTower(GameManager._bombTowerMoneySell[1]);
+            Quaity.SellTower(GameManager._bombTowerMoneySell[1]._bombTowerMoneySell);
         }
 
         if (CountCheck == 2)
         {
-            Quaity.SellTower(GameManager._bombTowerMoneySell[2]);
+            Quaity.SellTower(GameManager._bombTowerMoneySell[2]._bombTowerMoneySell);
         }
         Destroy(gameObject);
     }

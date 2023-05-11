@@ -368,10 +368,10 @@ GameObject:
   - component: {fileID: 8644620791068981995}
   - component: {fileID: 4636463906679715150}
   - component: {fileID: 7475113442727199108}
+  - component: {fileID: 8105746726278798598}
   - component: {fileID: 2384638523935465617}
   - component: {fileID: 8105746726278798596}
   - component: {fileID: 8105746726278798599}
-  - component: {fileID: 8105746726278798598}
   m_Layer: 0
   m_Name: Drone
   m_TagString: DroneRobot
@@ -448,6 +448,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8105746726278798598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8988072573370572881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerMenu: {fileID: 0}
+  _healthbar: {fileID: 91165671481526198}
+  maxHealth: 75
+  currentHealth: 75
+  startSpeed: 10
+  coinvalue: 10
+  worth: 50
+  healthBar: {fileID: 5496375811872162289}
 --- !u!95 &2384638523935465617
 Animator:
   serializedVersion: 5
@@ -497,23 +517,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.9876547, y: 1.610287, z: 3.9265494}
   m_Center: {x: 0.08918238, y: 0.4845382, z: -0.23288822}
---- !u!114 &8105746726278798598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8988072573370572881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerMenu: {fileID: 0}
-  _healthbar: {fileID: 91165671481526198}
-  maxHealth: 75
-  currentHealth: 75
-  startSpeed: 10
-  coinvalue: 10
-  worth: 50
-  healthBar: {fileID: 5496375811872162289}

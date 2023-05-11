@@ -6623,16 +6623,44 @@ MonoBehaviour:
   waveText: 0
   _Product: 2
   _sniperTowerBuyMoney: 70
-  _sniperTowerMoneySell: 370000005a00000078000000
-  _sniperTowerUpgradeMoney: 6e0000008c000000
+  _sniperTowerUpgradeMoney:
+  - name: 'Sniper Tower Level 2 '
+    _sniperTowerUpgradeMoney: 110
+  - name: 'Sniper Tower Level 3 '
+    _sniperTowerUpgradeMoney: 150
+  _sniperTowerMoneySell:
+  - name: 'Sniper Tower Level 1 '
+    _sniperTowerMoneySell: 60
+  - name: 'Sniper Tower Level 2 '
+    _sniperTowerMoneySell: 80
+  - name: Sniper Tower Level 3
+    _sniperTowerMoneySell: 120
   _bombTowerBuyMoney: 90
-  _bombTowerMoneySell: 4b0000006e000000a0000000
-  _bombTowerUpgradeMoney: 96000000d20000002c010000
-  _basicRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _gorillaRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _smartHomeRobot: 010000000100000003000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _droneRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _spawnTime: 0.7
+  _bombTowerUpgradeMoney:
+  - name: Bomb Tower Level 2
+    _bombTowerUpgradeMoney: 210
+  - name: Bomb Tower Level 3
+    _bombTowerUpgradeMoney: 300
+  _bombTowerMoneySell:
+  - name: Bomb Tower Level 1
+    _bombTowerMoneySell: 110
+  - name: Bomb Tower Level 2
+    _bombTowerMoneySell: 160
+  - name: Bomb Tower Level 3
+    _bombTowerMoneySell: 220
+  _basicRobot: 030000000200000001000000030000000200000004000000050000000100000007000000010000000500000002000000
+  _gorillaRobot: 030000000300000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _smartHomeRobot: 030000000100000003000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _droneRobot: 030000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  EnemySpawnTime:
+  - name: Basic Robot
+    enemySpawnTime: 0.7
+  - name: Gorilla Robot
+    enemySpawnTime: 0.2
+  - name: Smart Home Robot
+    enemySpawnTime: 0.8
+  - name: Drone Robot
+    enemySpawnTime: 0.6
   _timeBetweenWaves:
   - 16
   - 16
@@ -6647,8 +6675,43 @@ MonoBehaviour:
   - 16
   - 16
   - 16
-  EnemyDamage: 01000000020000000100000001000000
-  EnemyHealth: 6400000096000000c8000000fa000000
+  WaveStartTimeAdjustment: 4
+  EnemyDamage:
+  - name: Basic Robot
+    _EnemyDamage: 1
+  - name: Gorilla Robot
+    _EnemyDamage: 2
+  - name: Smart Home Robot
+    _EnemyDamage: 1
+  - name: Drone Robot
+    _EnemyDamage: 1
+  EnemyHealth:
+  - name: Basic Robot
+    _EnemyHealth: 100
+  - name: Gorilla Robot
+    _EnemyHealth: 300
+  - name: Smart Home Robot
+    _EnemyHealth: 70
+  - name: Drone Robot
+    _EnemyHealth: 100
+  EnemySpeed:
+  - name: Basic Robot
+    _EnemySpeed: 10
+  - name: Gorilla Robot
+    _EnemySpeed: 5
+  - name: Smart Home Robot
+    _EnemySpeed: 13
+  - name: Drone Robot
+    _EnemySpeed: 11
+  _EnemyKillCoin:
+  - name: Basic Robot
+    EnemyKillCoin: 10
+  - name: Gorilla Robot
+    EnemyKillCoin: 30
+  - name: Smart Home Robot
+    EnemyKillCoin: 7
+  - name: Drone Robot
+    EnemyKillCoin: 5
 --- !u!4 &683488745
 Transform:
   m_ObjectHideFlags: 0
