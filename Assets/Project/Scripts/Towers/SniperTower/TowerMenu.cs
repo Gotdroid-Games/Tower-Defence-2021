@@ -57,11 +57,6 @@ public class TowerMenu : MonoBehaviour
                     TowerClicked = false;
                 }
 
-
-
-               // UpgradeButton1.SetActive(true);
-                //SellButton.SetActive(true);
-
                 for (int i = 0; i < TowerRangeController.UIController.Count; i++ )
                 {
                    TowerRangeController.UIController[i].SetActive(true);
