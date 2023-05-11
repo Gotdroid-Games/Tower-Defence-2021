@@ -10,10 +10,12 @@ public class TowerMenu : MonoBehaviour
     public GameObject UpgradeButton1;
     public GameObject Tower;
     public GameObject SellButton;
+    public bool TowerClicked;
     int countcheck;
     
     private void Start()
     {
+        TowerClicked = false;
         TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
         RangeUpgrade = GetComponent<RangeUpgrade>();
@@ -40,9 +42,25 @@ public class TowerMenu : MonoBehaviour
         if (Physics.Raycast(transform.position, -up, out hit, 2))
         {
             if (hit.collider != null)
-            {   
-                UpgradeButton1.SetActive(true);
-                SellButton.SetActive(true);
+            {
+
+                if (TowerClicked==false)
+                {
+                    UpgradeButton1.SetActive(true);
+                    SellButton.SetActive(true);
+                    TowerClicked = true;
+                }
+                else
+                {
+                    UpgradeButton1.SetActive(false);
+                    SellButton.SetActive(false);
+                    TowerClicked = false;
+                }
+
+
+
+               // UpgradeButton1.SetActive(true);
+                //SellButton.SetActive(true);
 
                 for (int i = 0; i < TowerRangeController.UIController.Count; i++ )
                 {

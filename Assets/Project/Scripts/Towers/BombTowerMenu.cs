@@ -15,6 +15,7 @@ public class BombTowerMenu : MonoBehaviour
     public int[] BombTowerUpgradeMoneyList;
     public int Count;
     public int CountCheck;
+    public bool BombTowerClicked;
     public Image MaxlevelImage;
     public Button BombTowerUpgradeButton;
     public List<GameObject> BombObjList = new List<GameObject>();
@@ -23,6 +24,7 @@ public class BombTowerMenu : MonoBehaviour
 
     void Start()
     {
+        BombTowerClicked = false;
         _upgradeButton.SetActive(false);
         SellButton.SetActive(false);
         Count = 0;
@@ -30,18 +32,24 @@ public class BombTowerMenu : MonoBehaviour
         Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
     }
-    public void ClickedTower()
-    {
-        Debug.Log("click çlıştı");
-        _upgradeButton.SetActive(true);
-        SellButton.SetActive(true);
-    }
 
     private void OnMouseDown()
     {
+
+        if (BombTowerClicked == false)
+        {
+            _upgradeButton.SetActive(true);
+            SellButton.SetActive(true);
+            BombTowerClicked = true;
+        }
+        else
+        {
+            _upgradeButton.SetActive(false);
+            SellButton.SetActive(false);
+            BombTowerClicked = false;
+        }
         Debug.Log("çalıştııııı");
-        _upgradeButton.SetActive(true);
-        SellButton.SetActive(true);
+        
     }
 
     void Update()
