@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (GameObject.FindGameObjectWithTag("BasicRobot"))
+        if (gameObject.CompareTag("BasicRobot"))
         {
             target = WayPoints.points[wavepointIndex];
             Vector3 dir1 = target.position - transform.position;
@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(dir1);
         }
 
-        if (GameObject.FindGameObjectWithTag("GorillaRobot"))
+        if (gameObject.CompareTag("GorillaRobot"))
         {
             target = WayPoints.points[wavepointIndex];
             Vector3 dir2 = target.position - transform.position;
@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(dir2);
         }
 
-        if (GameObject.FindGameObjectWithTag("SupurgeRobot"))
+        if (gameObject.CompareTag("SupurgeRobot"))
         {
             target = WayPoints.points[wavepointIndex];
             Vector3 dir3 = target.position - transform.position;
@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(dir3);
         }
 
-        if (GameObject.FindGameObjectWithTag("DroneRobot"))
+        if (gameObject.CompareTag("DroneRobot"))
         {
             target = WayPoints.points[wavepointIndex];
             Vector3 dir4 = target.position - transform.position;
@@ -134,10 +134,10 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        target = WayPoints.points[wavepointIndex];
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
-        transform.rotation = Quaternion.LookRotation(dir);
+        //target = WayPoints.points[wavepointIndex];
+        //Vector3 dir = target.position - transform.position;
+        //transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
+        //transform.rotation = Quaternion.LookRotation(dir);
         if (gameObject.CompareTag("GorillaRobot"))
         {
             transform.rotation *= Quaternion.Euler(-90, 0, 0);
