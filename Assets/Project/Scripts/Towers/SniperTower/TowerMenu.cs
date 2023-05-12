@@ -72,6 +72,8 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         Tower = gameObject;
 
+        UpgradeButton1.SetActive(false);
+        SellButton.SetActive(false);
         if (Quaity._coinText >= GameManager._sniperTowerUpgradeMoney[0]._sniperTowerUpgradeMoney)
         {
             GetComponent<TowerRangeController>().counts++;
