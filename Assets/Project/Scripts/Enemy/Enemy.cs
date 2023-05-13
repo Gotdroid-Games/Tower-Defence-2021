@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+
+    public EnemyManager.EnemyType RobotType;
+
+    [Header("")]
+     
     [SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
     RangeUpgrade RangeUpgrade;
@@ -16,7 +21,8 @@ public class Enemy : MonoBehaviour
     int maxHealth;
     int currentHealth;
 
-    public float startSpeed;
+    public float RobotSpeed;
+    public int RobotDamage;
     private Transform target;
     private int wavepointIndex = 0;
     public int EnemyKillCoinValue;
@@ -39,36 +45,44 @@ public class Enemy : MonoBehaviour
         
         //currentHealth = maxHealth;
 
-        if (GameObject.FindGameObjectWithTag("BasicRobot"))
+        if (RobotType == EnemyManager.EnemyType.BasicRobot)
         {
-            maxHealth = GameManager.EnemyHealth[0]._EnemyHealth;
+            maxHealth = GameManager.EnemyVariables[0]._EnemyHealth;
             currentHealth = maxHealth;
             _healthbar.SetMaxHealth(maxHealth);
-            EnemyKillCoinValue = GameManager._EnemyKillCoin[0].EnemyKillCoin;
+            EnemyKillCoinValue = GameManager.EnemyVariables[0].EnemyKillCoin;
+            RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+            RobotDamage = GameManager.EnemyVariables[0]._EnemyDamage;
         }
 
-        if (GameObject.FindGameObjectWithTag("GorillaRobot"))
+        if (RobotType == EnemyManager.EnemyType.GorillaRobot)
         {
-            maxHealth = GameManager.EnemyHealth[1]._EnemyHealth;
+            maxHealth = GameManager.EnemyVariables[1]._EnemyHealth;
             currentHealth = maxHealth;
             _healthbar.SetMaxHealth(maxHealth);
-            EnemyKillCoinValue = GameManager._EnemyKillCoin[1].EnemyKillCoin;
+            EnemyKillCoinValue = GameManager.EnemyVariables[1].EnemyKillCoin;
+            RobotSpeed = GameManager.EnemyVariables[1]._EnemySpeed;
+            RobotDamage = GameManager.EnemyVariables[1]._EnemyDamage;
         }
 
-        if (GameObject.FindGameObjectWithTag("SupurgeRobot"))
+        if (RobotType == EnemyManager.EnemyType.SmartHomeRobot)
         {
-            maxHealth = GameManager.EnemyHealth[2]._EnemyHealth;
+            maxHealth = GameManager.EnemyVariables[2]._EnemyHealth;
             currentHealth = maxHealth;
             _healthbar.SetMaxHealth(maxHealth);
-            EnemyKillCoinValue = GameManager._EnemyKillCoin[2].EnemyKillCoin;
+            EnemyKillCoinValue = GameManager.EnemyVariables[2].EnemyKillCoin;
+            RobotSpeed = GameManager.EnemyVariables[2]._EnemySpeed;
+            RobotDamage = GameManager.EnemyVariables[2]._EnemyDamage;
         }
 
-        if (GameObject.FindGameObjectWithTag("DroneRobot"))
+        if (RobotType == EnemyManager.EnemyType.DroneRobot)
         {
-            maxHealth = GameManager.EnemyHealth[3]._EnemyHealth;
+            maxHealth = GameManager.EnemyVariables[3]._EnemyHealth;
             currentHealth = maxHealth;
             _healthbar.SetMaxHealth(maxHealth);
-            EnemyKillCoinValue = GameManager._EnemyKillCoin[3].EnemyKillCoin;
+            EnemyKillCoinValue = GameManager.EnemyVariables[3].EnemyKillCoin;
+            RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
+            RobotDamage = GameManager.EnemyVariables[3]._EnemyDamage;
         }
 
     }
@@ -89,38 +103,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.CompareTag("BasicRobot"))
-        {
-            target = WayPoints.points[wavepointIndex];
-            Vector3 dir1 = target.position - transform.position;
-            transform.Translate(dir1.normalized * GameManager.EnemySpeed[0]._EnemySpeed * Time.deltaTime, Space.World);
-            transform.rotation = Quaternion.LookRotation(dir1);
-        }
-
-        if (gameObject.CompareTag("GorillaRobot"))
-        {
-            target = WayPoints.points[wavepointIndex];
-            Vector3 dir2 = target.position - transform.position;
-            transform.Translate(dir2.normalized * GameManager.EnemySpeed[1]._EnemySpeed * Time.deltaTime, Space.World);
-            transform.rotation = Quaternion.LookRotation(dir2);
-        }
-
-        if (gameObject.CompareTag("SupurgeRobot"))
-        {
-            target = WayPoints.points[wavepointIndex];
-            Vector3 dir3 = target.position - transform.position;
-            transform.Translate(dir3.normalized * GameManager.EnemySpeed[2]._EnemySpeed * Time.deltaTime, Space.World);
-            transform.rotation = Quaternion.LookRotation(dir3);
-        }
-
-        if (gameObject.CompareTag("DroneRobot"))
-        {
-            target = WayPoints.points[wavepointIndex];
-            Vector3 dir4 = target.position - transform.position;
-            transform.Translate(dir4.normalized * GameManager.EnemySpeed[3]._EnemySpeed * Time.deltaTime, Space.World);
-            transform.rotation = Quaternion.LookRotation(dir4);
-        }
-        
+        target = WayPoints.points[wavepointIndex];
+        Vector3 dir1 = target.position - transform.position;
+        transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
+        transform.rotation = Quaternion.LookRotation(dir1);   
 
         Quaity = FindObjectOfType<Quaity>();
         if (currentHealth <= 0)

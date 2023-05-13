@@ -79,25 +79,9 @@ public class Quaity : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("BasicRobot"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Damage(GameManager.EnemyDamage[0]._EnemyDamage);
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("GorillaRobot"))
-        {
-            Damage(GameManager.EnemyDamage[1]._EnemyDamage);
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject.CompareTag("SupurgeRobot"))
-        {
-            Damage(GameManager.EnemyDamage[2]._EnemyDamage);
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("DroneRobot"))
-        {
-            Damage(GameManager.EnemyDamage[3]._EnemyDamage);
+            Damage(other.gameObject.GetComponent<Enemy>().RobotDamage);
             Destroy(other.gameObject);
         }
     }

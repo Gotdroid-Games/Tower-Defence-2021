@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 327432136027976392}
   m_Layer: 0
   m_Name: Basic_Robot
-  m_TagString: BasicRobot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,12 +103,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RobotType: 0
   TowerMenu: {fileID: 0}
   _healthbar: {fileID: 7033084522787973258}
-  maxHealth: 100
-  currentHealth: 100
-  startSpeed: 10
-  coinvalue: 10
+  RobotSpeed: 0
+  RobotDamage: 0
+  EnemyKillCoinValue: 0
   worth: 50
   healthBar: {fileID: 3215120449306259149}
 --- !u!136 &1413488299929992252

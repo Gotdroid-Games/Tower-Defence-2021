@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 8105746726278798599}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: DroneRobot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,12 +460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RobotType: 3
   TowerMenu: {fileID: 0}
   _healthbar: {fileID: 91165671481526198}
-  maxHealth: 75
-  currentHealth: 75
-  startSpeed: 10
-  coinvalue: 10
+  RobotSpeed: 0
+  RobotDamage: 0
+  EnemyKillCoinValue: 0
   worth: 50
   healthBar: {fileID: 5496375811872162289}
 --- !u!95 &2384638523935465617

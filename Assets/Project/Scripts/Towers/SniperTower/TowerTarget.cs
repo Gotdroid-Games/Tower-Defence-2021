@@ -33,45 +33,12 @@ public class TowerTarget : MonoBehaviour
 
     private void UpdateTarget()
     {
-        GameObject[] BasicRobotTag = GameObject.FindGameObjectsWithTag("BasicRobot");
-        GameObject[] GorillaRobotTag = GameObject.FindGameObjectsWithTag("GorillaRobot");
-        GameObject[] SmartHomeRobotTag = GameObject.FindGameObjectsWithTag("SupurgeRobot");
-        GameObject[] DroneRobotTag = GameObject.FindGameObjectsWithTag("DroneRobot");
-
+        GameObject[] Robots = GameObject.FindGameObjectsWithTag("Enemy");
 
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-        foreach (GameObject enemy in BasicRobotTag)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-
-        foreach (GameObject enemy in GorillaRobotTag)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-
-        foreach (GameObject enemy in SmartHomeRobotTag)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-        foreach (GameObject enemy in DroneRobotTag)
+        foreach (GameObject enemy in Robots)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)

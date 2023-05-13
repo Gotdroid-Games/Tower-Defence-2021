@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("BasicRobot")|| other.gameObject.CompareTag("GorillaRobot") || other.gameObject.CompareTag("SupurgeRobot") || other.gameObject.CompareTag("DroneRobot"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage();

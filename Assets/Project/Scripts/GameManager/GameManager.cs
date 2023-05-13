@@ -45,50 +45,16 @@ public class BombTowerUpgradeMoney
 }
 
 [System.Serializable]
-public class EnemyDamage
-{
-    //Düþman Son Nokta Geçiþ Hasarý
-    [HideInInspector]
-    public string name;
-    public int _EnemyDamage;
-}
-
-[System.Serializable]
-public class EnemyHealth
+public class EnemyVariables
 {
     //Düþman Caný
-    [HideInInspector]
     public string name;
     public int _EnemyHealth;
-}
-
-[System.Serializable]
-public class EnemySpeed
-{
-    //Düþman Hareket Hýzý
-    [HideInInspector]
-    public string name;
-    public float _EnemySpeed;
-}
-
-[System.Serializable]
-public class EnemyKillCoinValue
-{
-    //Düþman Öldürme Para Miktarý
-    //[HideInInspector]
-    public string name;
+    public int _EnemySpeed;
+    public int _EnemyDamage;
     public int EnemyKillCoin;
-}
-
-[System.Serializable]
-public class EnemySpawnTime
-{
-    //Düþman Öldürme Para Miktarý
-    //[HideInInspector]
-    public string name;
     public float enemySpawnTime;
 }
-
 
 public class GameManager : MonoBehaviour
 {
@@ -143,7 +109,6 @@ public class GameManager : MonoBehaviour
     [Space(5f)]
     [Header("Time Control Variables")]
 
-    public EnemySpawnTime[] EnemySpawnTime;
     public float[] _timeBetweenWaves;
     [Header(" ")]
     public float WaveStartTimeAdjustment;
@@ -151,10 +116,10 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Enemy Attributes")]
-    public EnemyDamage[] EnemyDamage;
-    public EnemyHealth[] EnemyHealth;
-    public EnemySpeed[] EnemySpeed;
-    public EnemyKillCoinValue[] _EnemyKillCoin;
+
+    public List<EnemyVariables> EnemyVariables;
+
+
     private void Start()
     {
         WaveSpawner = FindObjectOfType<WaveSpawner>();

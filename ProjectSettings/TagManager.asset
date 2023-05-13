@@ -8,6 +8,7 @@ TagManager:
   - SupurgeRobot
   - DroneRobot
   - BasicRobot
+  - Enemy
   layers:
   - Default
   - TransparentFX

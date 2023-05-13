@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2000938294319143498}
   m_Layer: 0
   m_Name: Gorilla_Robot
-  m_TagString: GorillaRobot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,12 +227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RobotType: 1
   TowerMenu: {fileID: 0}
   _healthbar: {fileID: 42565231193784355}
-  maxHealth: 150
-  currentHealth: 150
-  startSpeed: 5
-  coinvalue: 30
+  RobotSpeed: 0
+  RobotDamage: 0
+  EnemyKillCoinValue: 0
   worth: 50
   healthBar: {fileID: 5590047707851638372}
 --- !u!136 &2000938294319143497

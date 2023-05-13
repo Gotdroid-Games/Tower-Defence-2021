@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 7945753152795543280}
   m_Layer: 0
   m_Name: Smart_Home_Robot
-  m_TagString: SupurgeRobot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,12 +308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1bfa5e4a155c140b14dfc00620c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RobotType: 2
   TowerMenu: {fileID: 0}
   _healthbar: {fileID: 739050087662147790}
-  maxHealth: 70
-  currentHealth: 70
-  startSpeed: 15
-  coinvalue: 5
+  RobotSpeed: 0
+  RobotDamage: 0
+  EnemyKillCoinValue: 0
   worth: 50
   healthBar: {fileID: 5135594772425055881}
 --- !u!95 &4552692602953087847

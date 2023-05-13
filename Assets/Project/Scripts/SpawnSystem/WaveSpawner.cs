@@ -176,27 +176,27 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < basicRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(basicRobotPrefab);
-                yield return new WaitForSeconds(GameManager.EnemySpawnTime[0].enemySpawnTime);
+                yield return new WaitForSeconds(GameManager.EnemyVariables[0].enemySpawnTime);
                 spawnedEnemies++;
             }
 
             for (int i = 0; i < gorillaRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(gorillaRobotPrefab);
-                yield return new WaitForSeconds(GameManager.EnemySpawnTime[1].enemySpawnTime);
+                yield return new WaitForSeconds(GameManager.EnemyVariables[1].enemySpawnTime);
                 spawnedEnemies++;
             }
 
             for (int i = 0; i < smarthomeRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(smartHomeRobotPrefab);
-                yield return new WaitForSeconds(GameManager.EnemySpawnTime[2].enemySpawnTime);
+                yield return new WaitForSeconds(GameManager.EnemyVariables[2].enemySpawnTime);
                 spawnedEnemies++;
             }
             for (int i = 0; i < DroneRobot[waveIndex - 1]; i++)
             {
                 SpawnEnemy(DronePrefab);
-                yield return new WaitForSeconds(GameManager.EnemySpawnTime[3].enemySpawnTime);
+                yield return new WaitForSeconds(GameManager.EnemyVariables[3].enemySpawnTime);
                 spawnedEnemies++;
             }
         }
