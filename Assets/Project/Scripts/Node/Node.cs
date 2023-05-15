@@ -44,17 +44,17 @@ public class Node : MonoBehaviour
             return;
         }
         GameObject turretToBuild = buildManager.GetTurretToBuild();
-        if (quaity._coinText >= GameManager._sniperTowerBuyMoney && shop.bombSelected == false)
+        if (quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy && shop.bombSelected == false)
         {  
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            quaity.PaidTower(GameManager._sniperTowerBuyMoney);
+            quaity.PaidTower(GameManager.TowerVaribles[0].TowerMoneyBuy);
         }
         //Build a turret (Tarret in�a et)
 
-        if (quaity._coinText >= GameManager._bombTowerBuyMoney && shop.bombSelected == true)
+        if (quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy && shop.bombSelected == true)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            quaity.PaidBombTower(GameManager._bombTowerBuyMoney);
+            quaity.PaidBombTower(GameManager.TowerVaribles[1].TowerMoneyBuy);
         }
     }
 

@@ -4,44 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static sniperTowerMoneySell;
 
 
 [System.Serializable]
-public class sniperTowerMoneySell
+public class TowerVaribles
 {
 
     //Niþancý Kulesi Satma
     [HideInInspector]
     public string name;
-    public int _sniperTowerMoneySell;
-}
-
-[System.Serializable]
-public class SniperTowerUpgradeMoney
-{
-    //Niþancý Kulesi Geliþtirme
-    [HideInInspector]
-    public string name;
-    public int _sniperTowerUpgradeMoney;
-}
-
-[System.Serializable]
-public class BombTowerMoneySell
-{
-    //Bomba Kulesi Satma
-    [HideInInspector]
-    public string name;
-    public int _bombTowerMoneySell;
-}
-
-[System.Serializable]
-public class BombTowerUpgradeMoney
-{
-    //Bomba Kulesi Geliþtirme
-    [HideInInspector]
-    public string name;
-    public int _bombTowerUpgradeMoney;
+    public int TowerMoneyBuy;
+    [Header("")]
+    public int TowerMoneyUpgrade1;
+    public int TowerMoneyUpgrade2;
+    [Header("")]
+    public int TowerMoneySell1;
+    public int TowerMoneySell2;
+    public int TowerMoneySell3;
 }
 
 [System.Serializable]
@@ -65,8 +44,13 @@ public class GameManager : MonoBehaviour
     [Space(5f)]
     [Header("TowerTarget Attributes")]
 
-    public float _fireRate;
+    public float FireRate;
     public int _critValue;
+    public List<TowerVaribles> TowerVaribles;
+
+    [Header("Enemy Attributes")]
+
+    public List<EnemyVariables> EnemyVariables;
 
     [Space(5f)]
     [Header("Quality Attributes")]
@@ -79,17 +63,6 @@ public class GameManager : MonoBehaviour
     [Header("Money Controls")]
     //Product WaveSpawner sýnýfý içerisinde bulunan WaveCountDown deðeriyle Quality sýnýfý içerisinde bulunan Product deðiþkeninin çarpýp zamana göre extra para kazanmaya yarýyor
     public int _Product;
-    [Header(" ")]
-
-    public int _sniperTowerBuyMoney;
-    public SniperTowerUpgradeMoney[] _sniperTowerUpgradeMoney;
-    public sniperTowerMoneySell[] _sniperTowerMoneySell;
-
-    [Header(" ")]
-
-    public int _bombTowerBuyMoney;
-    public BombTowerUpgradeMoney[] _bombTowerUpgradeMoney;
-    public BombTowerMoneySell[] _bombTowerMoneySell;
 
 
     [Space(5f)]
@@ -112,13 +85,6 @@ public class GameManager : MonoBehaviour
     public float[] _timeBetweenWaves;
     [Header(" ")]
     public float WaveStartTimeAdjustment;
-
-
-
-    [Header("Enemy Attributes")]
-
-    public List<EnemyVariables> EnemyVariables;
-
 
     private void Start()
     {
@@ -161,7 +127,7 @@ public class GameManager : MonoBehaviour
         TowerTarget = FindObjectOfType<TowerTarget>();
         if (TowerTarget != null)
         {
-            TowerTarget.fireRate = _fireRate;
+            TowerTarget.fireRate = FireRate;
             TowerTarget.critValue = _critValue;
         }
     }
