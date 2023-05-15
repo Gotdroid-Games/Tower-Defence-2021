@@ -39,7 +39,7 @@ public class Quaity : MonoBehaviour
     private void Update()
     {
 
-        WaveText.text = _waveText.ToString();
+        WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
         CoinText.text = _coinText.ToString();
         
         if (_heartText<0)
@@ -105,7 +105,7 @@ public class Quaity : MonoBehaviour
     public void WaveValue(int wave)
     {
         _waveText += wave;
-        WaveText.text = _waveText.ToString();
+        WaveText.text = _waveText.ToString()+"/"+GameManager._basicRobot.Length.ToString();
     }
     void WaveCounter()
     {
