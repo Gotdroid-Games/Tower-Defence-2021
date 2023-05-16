@@ -8,7 +8,7 @@ public class TowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
     private RangeUpgrade rangeUpgrade;
-    private Transform target;
+    [SerializeField] Transform target;
     GameManager GameManager;
     Enemy Enemy;
     [Header("Attributes")]

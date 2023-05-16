@@ -2,10 +2,15 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
+using System;
+using JetBrains.Annotations;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Quaity : MonoBehaviour
 {
 
+    public static Quaity Instance;
 
     GameUI GameUI;
     WaveSpawner WaveSpawner;
@@ -19,10 +24,9 @@ public class Quaity : MonoBehaviour
     public int _waveText;
     public float Product;
 
-
     private void Awake()
     {
-
+        Instance = this;
     }
 
     private void Start()
@@ -59,8 +63,6 @@ public class Quaity : MonoBehaviour
             _coinText = 0;
         }
 
-        
-
         WaveCounter();
     }
 
@@ -70,20 +72,10 @@ public class Quaity : MonoBehaviour
         Winning();
     }
 
-    void Damage(int damage)
+    public void Damage(int damage)
     {
         _heartText -= damage;
         heartText.text = _heartText.ToString();
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Damage(other.gameObject.GetComponent<Enemy>().RobotDamage);
-            Destroy(other.gameObject);
-        }
     }
 
     public void DefeatMenu()
