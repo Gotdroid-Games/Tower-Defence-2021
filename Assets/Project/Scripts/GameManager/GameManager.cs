@@ -85,9 +85,11 @@ public class GameManager : MonoBehaviour
     public float[] _timeBetweenWaves;
     [Header(" ")]
     public float WaveStartTimeAdjustment;
+    public AudioSource source;
 
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         Quaity = FindObjectOfType<Quaity>();
 

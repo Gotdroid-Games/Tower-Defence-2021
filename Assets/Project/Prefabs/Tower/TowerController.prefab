@@ -220,6 +220,7 @@ MonoBehaviour:
   UpgradeButton1: {fileID: 5570693761724152515}
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
+  TowerClicked: 0
 --- !u!114 &8988853236396017705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,6 @@ MonoBehaviour:
   - {fileID: 3823175394253368139}
   - {fileID: 7392681481885285183}
   UpgradeButton: {fileID: 2084141346023942752}
-  SellButton: {fileID: 812539179705206028}
   MaxLevelButton: {fileID: 7678200046167059464}
   SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
   counts: 0
@@ -769,17 +769,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
---- !u!114 &812539179705206028 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8963658608316602209, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
-  m_PrefabInstance: {fileID: 8584960502076002925}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6582945738517499514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1779699863680219487 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}

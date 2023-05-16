@@ -21,14 +21,18 @@ public class TowerTarget : MonoBehaviour
     public float turnSpeed;
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public AudioSource source;
+    public AudioClip voices;
 
     private void Start()
     {
+        
         gameValue = FindObjectOfType<GameValue>();
         rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        source = GameManager.source;
     }
 
     private void UpdateTarget()
@@ -83,6 +87,9 @@ public class TowerTarget : MonoBehaviour
     private void Shoot()
     {
         GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        source.clip = voices;
+        source.Play();
+
         Bullet bullet = bulletGo.GetComponent<Bullet>();
 
         if (bullet != null)

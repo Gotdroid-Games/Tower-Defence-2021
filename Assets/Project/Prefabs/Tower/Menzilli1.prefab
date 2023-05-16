@@ -121,6 +121,7 @@ MonoBehaviour:
   UpgradeButton1: {fileID: 0}
   Tower: {fileID: 4428868809097593808}
   SellButton: {fileID: 0}
+  TowerClicked: 0
 --- !u!1 &8281821227323552488
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,16 +243,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 15
-  damage: 15
   fireRate: 1
   fireCountdown: 1
-  NewFireCountDown: 0
-  enemyTag: Enemy
+  critValue: 0
   partToRotate: {fileID: 5272536013202032936}
-  turnspeed: 15
+  turnSpeed: 0
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
   firePoint: {fileID: 8712005221667911394}
+  source: {fileID: 0}
+  voices: {fileID: 8300000, guid: 1e217ec81a87b7441acc5deea95bc347, type: 3}
 --- !u!4 &5272536013202032936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5568596818714593023, guid: e2e4877e495d3f447839dbafa7407e18, type: 3}
