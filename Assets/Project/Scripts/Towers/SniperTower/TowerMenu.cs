@@ -72,7 +72,13 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         Tower = gameObject;
 
+
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgrade1)
+
+        UpgradeButton1.SetActive(false);
+        SellButton.SetActive(false);
+        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgrade1)
+
         {
             GetComponent<TowerRangeController>().counts++;
             

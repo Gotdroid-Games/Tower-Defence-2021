@@ -114,6 +114,12 @@ public class BombTowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         BombTower = gameObject;
 
+
+        if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgrade1)
+
+        _upgradeButton.SetActive(false);
+        SellButton.SetActive(false);
+
         if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgrade1)
         {
 
