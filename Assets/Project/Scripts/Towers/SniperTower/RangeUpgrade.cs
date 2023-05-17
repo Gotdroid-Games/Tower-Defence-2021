@@ -9,7 +9,8 @@ public class RangeUpgrade : MonoBehaviour
     GameManager GameManager;
     public int Damage;
     public float Range;
-    public int countcheck;
+    public int sniperTowerCountCheck;
+    public int bombTowerCountCheck;
     private bool damageAdded = false;
     private bool damageAdded2 = false;
 
@@ -21,19 +22,23 @@ public class RangeUpgrade : MonoBehaviour
 
         Damage = GameManager.TowerVaribles[0].TowerDamage;
         Range = GameManager.TowerVaribles[0].TowerRange;
+
+        Damage = GameManager.TowerVaribles[1].TowerDamage;
+        Range = GameManager.TowerVaribles[2].TowerRange;
     }
     private void Update()
     {
        
-        countcheck = GetComponent<TowerRangeController>().countcheck;
-        if (countcheck == 1 && !damageAdded)
+        sniperTowerCountCheck = GetComponent<TowerRangeController>().sniperTowerCountCheck;
+        bombTowerCountCheck=GetComponent<TowerRangeController>().bombTowerCountCheck;
+        if (sniperTowerCountCheck == 1 && !damageAdded)
         {
             Damage += GameManager.TowerVaribles[0].TowerDamageIncreaseValue;
             Range += GameManager.TowerVaribles[0].TowerRangeIncreaseValue;
             damageAdded = true;
             Debug.Log("Damage: " + Damage);
         }
-        if (countcheck == 2 && damageAdded&&!damageAdded2)
+        if (sniperTowerCountCheck == 2 && damageAdded&&!damageAdded2)
         {
             Damage += 15;
             Range += 15;

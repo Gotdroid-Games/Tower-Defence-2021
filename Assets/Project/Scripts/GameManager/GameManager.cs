@@ -29,6 +29,7 @@ public class TowerVaribles
     [Header("")]
     public AudioSource AudioSource;
     public AudioClip TowerAttackSFX;
+    public AudioClip EnemyTouchSFX;
 }
 
 [System.Serializable]

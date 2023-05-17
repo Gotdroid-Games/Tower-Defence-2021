@@ -21,7 +21,7 @@ public class TowerTarget : MonoBehaviour
     public float turnSpeed;
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public AudioSource source;
+    AudioSource source;
 
     private void Awake()
     {

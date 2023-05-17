@@ -14,8 +14,10 @@ public class TowerRangeController : MonoBehaviour
     public Image MaxLevelButton;
     GameObject touchGameObj;
     public TextMeshProUGUI SniperTowerUpgradeMoneyText;
-    public int counts;
-    public int countcheck;
+    public int sniperTowerCounts;
+    public int sniperTowerCountCheck;
+    public int bombTowerCounts;
+    public int bombTowerCountCheck;
     
     
 
@@ -32,25 +34,25 @@ public class TowerRangeController : MonoBehaviour
     }
     private void Update()
     {
-        countcheck = counts;
-        if (counts <= 2)
+        sniperTowerCountCheck = sniperTowerCounts;
+        if (sniperTowerCounts <= 2)
         {
-            touchGameObj = TouchObjList[counts];
+            touchGameObj = TouchObjList[sniperTowerCounts];
         }
 
-        if (counts >= 2)
+        if (sniperTowerCounts >= 2)
         {
-            counts = 2;
+            sniperTowerCounts = 2;
         }
 
-        if (countcheck >= 2)
+        if (sniperTowerCountCheck >= 2)
         {
-            countcheck = 2;
+            sniperTowerCountCheck = 2;
         }
 
         if (touchGameObj != null)
         {
-            if (counts == 0)
+            if (sniperTowerCounts == 0)
             {
                 TowerMenu.Tower = TouchObjList[0];
                 TouchObjList[0].SetActive(true);
@@ -58,7 +60,7 @@ public class TowerRangeController : MonoBehaviour
                 TouchObjList[2].SetActive(false);
             }
 
-            if (counts == 1)
+            if (sniperTowerCounts == 1)
             {
                 TowerMenu.Tower = TouchObjList[1];
                 TouchObjList[0].SetActive(false);
@@ -66,7 +68,7 @@ public class TowerRangeController : MonoBehaviour
                 TouchObjList[2].SetActive(false);
             }
 
-            if (counts == 2)
+            if (sniperTowerCounts == 2)
             {
                 TowerMenu.Tower = TouchObjList[2];
                 TouchObjList[0].SetActive(false);
@@ -77,13 +79,13 @@ public class TowerRangeController : MonoBehaviour
 
 
 
-        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1 && RangeUpgrade.countcheck == 0)
+        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1 && RangeUpgrade.sniperTowerCountCheck == 0)
         {
             UpgradeButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
             SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2 && RangeUpgrade.countcheck == 1)
+        else if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2 && RangeUpgrade.sniperTowerCountCheck == 1)
         {
             UpgradeButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
@@ -101,7 +103,7 @@ public class TowerRangeController : MonoBehaviour
         }
 
 
-        if (RangeUpgrade.countcheck == 2)
+        if (RangeUpgrade.sniperTowerCountCheck == 2)
         {
             UpgradeButton.gameObject.SetActive(false);
             MaxLevelButton.gameObject.SetActive(true);

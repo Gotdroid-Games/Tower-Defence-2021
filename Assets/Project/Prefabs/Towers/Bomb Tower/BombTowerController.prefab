@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 3488515214769342755}
   - component: {fileID: 7673684480523168095}
   - component: {fileID: 845767025554001964}
+  - component: {fileID: -8705960121749447461}
   m_Layer: 0
   m_Name: BombTowerController
   m_TagString: Untagged
@@ -298,6 +299,7 @@ MonoBehaviour:
   BombTowerUpgradeMoneyList: 
   Count: 0
   CountCheck: 0
+  BombTowerClicked: 0
   MaxlevelImage: {fileID: 7885912670436056943}
   BombTowerUpgradeButton: {fileID: 4401477812567882303}
   BombObjList:
@@ -318,6 +320,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8157358, y: 4.7989926, z: 3.9658628}
   m_Center: {x: 0.12526846, y: 1.8994968, z: -0.0510633}
+--- !u!114 &-8705960121749447461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300374256345671116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64caa64944e3d784bad2decd6bcfa3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
+  Range: 10
+  countcheck: 0
 --- !u!1001 &1132498226743542278
 PrefabInstance:
   m_ObjectHideFlags: 0

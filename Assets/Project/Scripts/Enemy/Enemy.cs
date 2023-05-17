@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     GameManager GameManager;
 
     int maxHealth;
-    int currentHealth;
+    public int currentHealth;
 
     public float RobotSpeed;
     public int RobotDamage;

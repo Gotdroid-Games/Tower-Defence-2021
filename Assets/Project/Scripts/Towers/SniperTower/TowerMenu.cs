@@ -11,7 +11,7 @@ public class TowerMenu : MonoBehaviour
     public GameObject Tower;
     public GameObject SellButton;
     public bool TowerClicked;
-    int countcheck;
+    int sniperTowerCountCheck;
     
     private void Start()
     {
@@ -24,10 +24,10 @@ public class TowerMenu : MonoBehaviour
     private void Update()
     {
         TowerRangeController = FindObjectOfType<TowerRangeController>();
-        countcheck = TowerRangeController.counts;
-        if (TowerRangeController.counts >= 2)
+        sniperTowerCountCheck = TowerRangeController.sniperTowerCounts;
+        if (TowerRangeController.sniperTowerCounts >= 2)
         {
-            TowerRangeController.counts = 2;
+            TowerRangeController.sniperTowerCounts = 2;
         }
 
        
@@ -80,22 +80,22 @@ public class TowerMenu : MonoBehaviour
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
-            GetComponent<TowerRangeController>().counts++;
+            GetComponent<TowerRangeController>().sniperTowerCounts++;
             
 
-            if(countcheck==0)
+            if(sniperTowerCountCheck==0)
             {
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 Debug.Log("Countcheck 0");
             }
 
-            if(countcheck==1)
+            if(sniperTowerCountCheck==1)
             {
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 Debug.Log("Countcheck 1");
             }
 
-            if(countcheck==2)
+            if(sniperTowerCountCheck==2)
             {
                 Quaity.TowerUpgradeMoney(0);
                 Debug.Log("Countcheck 2");
@@ -117,17 +117,17 @@ public class TowerMenu : MonoBehaviour
     {
         Destroy(gameObject);
 
-        if (countcheck == 0)
+        if (sniperTowerCountCheck == 0)
         {
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
         }
 
-        if (countcheck == 1)
+        if (sniperTowerCountCheck == 1)
         {
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
         }
 
-        if (countcheck == 2)
+        if (sniperTowerCountCheck == 2)
         {
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
