@@ -76,6 +76,68 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1310817407595524036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8136036616688648912}
+  m_Layer: 0
+  m_Name: Firepoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8136036616688648912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310817407595524036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.13, y: 2.51, z: 0.36211652}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3113655335721323898}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2587537612112791974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3230239426696086172}
+  m_Layer: 0
+  m_Name: Firepoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3230239426696086172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587537612112791974}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.13, y: 2.51, z: 0.36211652}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6081985370055424562}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5305786503569727320
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +405,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3488515214769342755}
     m_Modifications:
+    - target: {fileID: -6341144826867820573, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
+      propertyPath: bombTowerFireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341144826867820573, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
+      propertyPath: bombTowerFirePoint
+      value: 
+      objectReference: {fileID: 8136036616688648912}
+    - target: {fileID: -6341144826867820573, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
+      propertyPath: bombTowerBulletPrefab
+      value: 
+      objectReference: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
     - target: {fileID: 2630836815055310716, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -471,6 +545,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7409502081566840516, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+      propertyPath: m_Name
+      value: Firepoint
+      objectReference: {fileID: 0}
     - target: {fileID: 7445553323170514166, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
       propertyPath: bombTowerFirePoint
       value: 
@@ -493,6 +571,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2965087077329033773, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
   m_PrefabInstance: {fileID: 3863848873168481479}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1896049173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069752473757447914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  bombTowerDamage: 0
+  bombTowerRange: 10
+  bombTowerFireRate: 1
+  bombTowerBulletPrefab: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
+  bombTowerFirePoint: {fileID: 544794239506954970}
 --- !u!1001 &4191118709509865675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,6 +596,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3488515214769342755}
     m_Modifications:
+    - target: {fileID: -2525711046404256741, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
+      propertyPath: bombTowerFireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2525711046404256741, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
+      propertyPath: bombTowerFirePoint
+      value: 
+      objectReference: {fileID: 3230239426696086172}
+    - target: {fileID: -2525711046404256741, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
+      propertyPath: bombTowerBulletPrefab
+      value: 
+      objectReference: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
     - target: {fileID: 7279371253048320067, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
       propertyPath: m_Name
       value: bomba_2_ Variant
