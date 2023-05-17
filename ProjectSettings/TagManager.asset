@@ -4,10 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - GorillaRobot
-  - SupurgeRobot
-  - DroneRobot
-  - BasicRobot
   - Enemy
   layers:
   - Default

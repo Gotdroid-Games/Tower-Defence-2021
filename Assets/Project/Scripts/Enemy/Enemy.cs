@@ -124,11 +124,8 @@ public class Enemy : MonoBehaviour
         //Vector3 dir = target.position - transform.position;
         //transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
         //transform.rotation = Quaternion.LookRotation(dir);
-        if (gameObject.CompareTag("GorillaRobot"))
-        {
-            transform.rotation *= Quaternion.Euler(-90, 0, 0);
-        }
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+
+        if (Vector3.Distance(transform.position, target.position) <= 0.1f)
         {
             GetNextWayPoint();
         }
@@ -141,6 +138,7 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
         {
+            Quaity.Instance.Damage(RobotDamage);
             Destroy(gameObject);
 
             return;

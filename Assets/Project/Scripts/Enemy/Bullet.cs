@@ -15,10 +15,6 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         if(target == null)
@@ -32,18 +28,10 @@ public class Bullet : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (Vector3.Distance(this.transform.position, target.position) < 0.1f)
         {
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage();
-
+            target.GetComponent<Enemy>().TakeDamage();
             Destroy(gameObject);
         }
     }
-
 }
