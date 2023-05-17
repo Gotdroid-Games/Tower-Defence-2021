@@ -94,11 +94,12 @@ public class Enemy : MonoBehaviour
         TowerTarget = FindObjectOfType<TowerTarget>();
         currentHealth -= RangeUpgrade.Damage;
         _healthbar.SetHealth(currentHealth);
-        if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
-        {
-            currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
-            _healthbar.SetHealth(currentHealth);
-        }
+
+        //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
+        //{
+        //    currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
+        //    _healthbar.SetHealth(currentHealth);
+        //}
     }
 
     private void Update()

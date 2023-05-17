@@ -77,17 +77,17 @@ public class TowerRangeController : MonoBehaviour
 
 
 
-        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgrade1 && RangeUpgrade.countcheck == 0)
+        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1 && RangeUpgrade.countcheck == 0)
         {
             UpgradeButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
-            SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgrade1.ToString();
+            SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgrade2 && RangeUpgrade.countcheck == 1)
+        else if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2 && RangeUpgrade.countcheck == 1)
         {
             UpgradeButton.interactable = true;
             MaxLevelButton.gameObject.SetActive(false);
-            SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgrade2.ToString();
+            SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2.ToString();
         }
         else
         {

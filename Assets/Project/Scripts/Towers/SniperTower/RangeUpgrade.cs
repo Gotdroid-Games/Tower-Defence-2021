@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class RangeUpgrade : MonoBehaviour
 {
     GameValue GameValue;
-    public int Damage = 15;
-    public float Range = 15f;
+    GameManager GameManager;
+    public int Damage;
+    public float Range;
     public int countcheck;
     private bool damageAdded = false;
     private bool damageAdded2 = false;
 
-    
+
     private void Start()
     {
         GameValue = FindObjectOfType<GameValue>();
+        GameManager = FindObjectOfType<GameManager>();
+
+        Damage = GameManager.TowerVaribles[0].TowerDamage;
+        Range = GameManager.TowerVaribles[0].TowerRange;
     }
     private void Update()
     {
@@ -22,8 +28,8 @@ public class RangeUpgrade : MonoBehaviour
         countcheck = GetComponent<TowerRangeController>().countcheck;
         if (countcheck == 1 && !damageAdded)
         {
-            Damage+= 15;
-            Range+= 15;
+            Damage += GameManager.TowerVaribles[0].TowerDamageIncreaseValue;
+            Range += GameManager.TowerVaribles[0].TowerRangeIncreaseValue;
             damageAdded = true;
             Debug.Log("Damage: " + Damage);
         }

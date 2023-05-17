@@ -1,9 +1,8 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+
 
 
 [System.Serializable]
@@ -13,14 +12,23 @@ public class TowerVaribles
     //Niþancý Kulesi Satma
     [HideInInspector]
     public string name;
+    //Kulenin
+    public int TowerDamage;
+    public int TowerDamageIncreaseValue;
+    public int TowerRange;
+    public int TowerRangeIncreaseValue;
+    [Header("")]
     public int TowerMoneyBuy;
     [Header("")]
-    public int TowerMoneyUpgrade1;
-    public int TowerMoneyUpgrade2;
+    public int TowerMoneyUpgradeLevel1;
+    public int TowerMoneyUpgradeLevel2;
     [Header("")]
-    public int TowerMoneySell1;
-    public int TowerMoneySell2;
-    public int TowerMoneySell3;
+    public int TowerMoneySellLevel1;
+    public int TowerMoneySellLevel2;
+    public int TowerMoneySellLevel3;
+    [Header("")]
+    public AudioSource AudioSource;
+    public AudioClip TowerAttackSFX;
 }
 
 [System.Serializable]
@@ -34,6 +42,8 @@ public class EnemyVariables
     public int EnemyKillCoin;
     public float enemySpawnTime;
 }
+
+
 
 public class GameManager : MonoBehaviour
 {
@@ -85,11 +95,12 @@ public class GameManager : MonoBehaviour
     public float[] _timeBetweenWaves;
     [Header(" ")]
     public float WaveStartTimeAdjustment;
-    public AudioSource source;
+
 
     private void Start()
     {
-        source = GetComponent<AudioSource>();
+        TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
+        //AudioVaribles.AudioClip = GetComponent<AudioClip>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         Quaity = FindObjectOfType<Quaity>();
 

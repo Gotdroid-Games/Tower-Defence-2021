@@ -6424,19 +6424,31 @@ MonoBehaviour:
   _critValue: 0
   TowerVaribles:
   - name: Sniper Tower
+    TowerDamage: 15
+    TowerDamageIncreaseValue: 7
+    TowerRange: 10
+    TowerRangeIncreaseValue: 5
     TowerMoneyBuy: 70
-    TowerMoneyUpgrade1: 110
-    TowerMoneyUpgrade2: 150
-    TowerMoneySell1: 50
-    TowerMoneySell2: 80
-    TowerMoneySell3: 120
+    TowerMoneyUpgradeLevel1: 0
+    TowerMoneyUpgradeLevel2: 0
+    TowerMoneySellLevel1: 0
+    TowerMoneySellLevel2: 0
+    TowerMoneySellLevel3: 0
+    AudioSource: {fileID: 683488746}
+    TowerAttackSFX: {fileID: 0}
   - name: Bomb Tower
+    TowerDamage: 0
+    TowerDamageIncreaseValue: 0
+    TowerRange: 0
+    TowerRangeIncreaseValue: 0
     TowerMoneyBuy: 100
-    TowerMoneyUpgrade1: 230
-    TowerMoneyUpgrade2: 300
-    TowerMoneySell1: 80
-    TowerMoneySell2: 120
-    TowerMoneySell3: 170
+    TowerMoneyUpgradeLevel1: 0
+    TowerMoneyUpgradeLevel2: 0
+    TowerMoneySellLevel1: 0
+    TowerMoneySellLevel2: 0
+    TowerMoneySellLevel3: 0
+    AudioSource: {fileID: 683488746}
+    TowerAttackSFX: {fileID: 8300000, guid: d2fb941b043f58d47810c6aa363e5f29, type: 3}
   EnemyVariables:
   - name: Basic Robot
     _EnemyHealth: 100
@@ -6683,7 +6695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.5634869, y: -0.05261991, z: 0.67672074, w: 0.47091705}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 9.2, y: 93.4, z: -83.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

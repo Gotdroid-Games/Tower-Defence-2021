@@ -73,11 +73,11 @@ public class TowerMenu : MonoBehaviour
         Tower = gameObject;
 
 
-        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgrade1)
+        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
-        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgrade1)
+        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
             GetComponent<TowerRangeController>().counts++;
@@ -85,13 +85,13 @@ public class TowerMenu : MonoBehaviour
 
             if(countcheck==0)
             {
-                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgrade1);
+                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 Debug.Log("Countcheck 0");
             }
 
             if(countcheck==1)
             {
-                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgrade2);
+                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 Debug.Log("Countcheck 1");
             }
 
@@ -119,17 +119,17 @@ public class TowerMenu : MonoBehaviour
 
         if (countcheck == 0)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySell1);
+            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
         }
 
         if (countcheck == 1)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySell2);
+            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
         }
 
         if (countcheck == 2)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySell3);
+            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
     }
 }
