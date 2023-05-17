@@ -4,8 +4,6 @@ using DG.Tweening;
 
 public class BombTowerTarget : MonoBehaviour
 {
-
-
     private GameValue gameValue;
     private RangeUpgrade rangeUpgrade;
     [SerializeField] Transform target;
@@ -13,13 +11,11 @@ public class BombTowerTarget : MonoBehaviour
     public int bombTowerDamage;
     public int bombTowerRange;
 
-
-
     public float bombTowerFireRate;
     private float bombTowerFireCountdown;
 
     public GameObject bombTowerBulletPrefab;
-    public Transform bombTowerfirePoint;
+    public Transform bombTowerFirePoint;
 
     private void Start()
     {
@@ -30,26 +26,22 @@ public class BombTowerTarget : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
-            return;
+        if (target == null)
         {
-            Vector3 dir = target.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(dir);
-
-            // Crit chance
-            if (bombTowerFireCountdown <= 0f)
-            {
-                Shoot();
-                bombTowerFireCountdown = bombTowerFireRate;
-
-                //if (gameValue.NewFireCountDown == 0.2f)
-                //{
-                //    fireCountdown = 0.2f / fireRate;
-                //}
-            }
-
-            bombTowerFireCountdown -= Time.deltaTime;
+           
+            return;
         }
+
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+
+        if (bombTowerFireCountdown <= 0f)
+        {
+            Shoot();
+            bombTowerFireCountdown = bombTowerFireRate;
+        }
+
+        bombTowerFireCountdown -= Time.deltaTime;
     }
 
     private void BombTowerUpdateTarget()
@@ -81,107 +73,15 @@ public class BombTowerTarget : MonoBehaviour
 
     private void Shoot()
     {
-        if (bombTowerBulletPrefab != null && bombTowerfirePoint != null && target != null)
-        {
-            GameObject bulletGo = Instantiate(bombTowerBulletPrefab, bombTowerfirePoint.position, bombTowerfirePoint.rotation);
+       
+            GameObject bulletGo = Instantiate(bombTowerBulletPrefab, bombTowerFirePoint.position, bombTowerFirePoint.rotation);
             Bullet bullet = bulletGo.GetComponent<Bullet>();
 
             if (bullet != null)
             {
+                Debug.Log("girdi");
                 bullet.Seek(target);
             }
-        }
+        
     }
 }
-#region
-//public GameObject bombBulletPrefab;
-//public List<GameObject> enemyList = new List<GameObject>();
-//public float detectionRadius;
-////private float distanceToEnemy;
-//private Transform target;
-//private RangeUpgrade rangeUpgrade;
-////private List<Collider> enemyCollider = new List<Collider>();
-//Collider[] enemyCollider;
-//// Start is called before the first frame update
-//void Start()
-//{
-//    rangeUpgrade = FindObjectOfType<RangeUpgrade>();
-//    InvokeRepeating("BombShooting", 0f, 0.5f);
-//}
-
-//// Update is called once per frame
-//void Update()
-//{
-
-//}
-//private void BombShooting()
-//{
-//    BombTargetCalculator();
-
-//    // enemyTarget.transform.position - zýplama poziyonu , 3 - zýplama gücü , 1 - zýplama sayýsý , 1 - süre(saniye)
-//    if (_enemy != null)
-//    {
-//        float distanceToEnemy = Vector3.Distance(transform.position, _enemy.transform.position); //HATAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-//        GameObject bombBullet = Instantiate(bombBulletPrefab, transform.position, transform.rotation);
-//        enemyCollider = Physics.OverlapSphere(bombBullet.transform.position, detectionRadius);
-//        bombBullet.GetComponent<Rigidbody>().DOJump(target.transform.position, 3, 1, 1).OnComplete(() =>
-//        {
-//            for (int i = 0; i < enemyCollider.Length; i++)
-//            {
-//                Debug.Log(enemyCollider[i]);
-//                enemyCollider[i].GetComponent<Enemy>().currentHealth -= 15;
-//            }
-//            Destroy(bombBullet, 1f);
-//        }
-//    }
-//}
-//public void BombTargetCalculator()
-//{
-//    GameObject[] Robots = GameObject.FindGameObjectsWithTag("Enemy");
-
-//    float shortestDistance = Mathf.Infinity;
-//    GameObject nearestEnemy = null;
-//    foreach (GameObject enemy in Robots)
-//    {
-//        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-//        if (distanceToEnemy < shortestDistance)
-//        {
-//            shortestDistance = distanceToEnemy;
-//            nearestEnemy = enemy;
-//        }
-
-//    }
-//foreach (GameObject enemy in GorillaRobotTag)
-//{
-//    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-//    if (distanceToEnemy < shortestDistance)
-//    {
-//        shortestDistance = distanceToEnemy;
-//        nearestEnemy = enemy;
-//        _enemy = enemy;
-//    }
-//}
-//foreach (GameObject enemy in SmartHomeRobotTag)
-//{
-//    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-//    if (distanceToEnemy < shortestDistance)
-//    {
-//        shortestDistance = distanceToEnemy;
-//        nearestEnemy = enemy;
-//        _enemy = enemy;
-//    }
-//}
-//foreach (GameObject enemy in DroneRobotTag)
-//{
-
-//    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-//    if (distanceToEnemy < shortestDistance)
-//    {
-//        shortestDistance = distanceToEnemy;
-//        nearestEnemy = enemy;
-//        _enemy = enemy;
-//    }
-//}
-//target = nearestEnemy != null && shortestDistance <= rangeUpgrade.Range ? nearestEnemy.transform : null;
-//}
-#endregion

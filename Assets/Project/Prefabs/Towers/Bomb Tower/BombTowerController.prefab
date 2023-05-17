@@ -298,8 +298,8 @@ MonoBehaviour:
   BombTower: {fileID: 7300374256345671116}
   BombTowerUpgradeMoneyList: 
   Count: 0
-  CountCheck: 0
-  BombTowerClicked: 0
+  bombTowerCountCheck: 0
+  bombTowerClicked: 0
   MaxlevelImage: {fileID: 7885912670436056943}
   BombTowerUpgradeButton: {fileID: 4401477812567882303}
   BombObjList:
@@ -334,7 +334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Range: 10
-  countcheck: 0
+  sniperTowerCountCheck: 0
+  bombTowerCountCheck: 0
 --- !u!1001 &1132498226743542278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -470,9 +471,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7445553323170514166, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+      propertyPath: bombTowerFirePoint
+      value: 
+      objectReference: {fileID: 544794239506954970}
     m_RemovedComponents:
     - {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+--- !u!4 &544794239506954970 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3607481628063798813, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+  m_PrefabInstance: {fileID: 3863848873168481479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1725701384876862544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2480861415485472919, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}

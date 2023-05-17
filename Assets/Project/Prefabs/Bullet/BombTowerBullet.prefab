@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3954339858565403008}
   - component: {fileID: 3788706032276474329}
   - component: {fileID: 3418901631672622356}
+  - component: {fileID: 6366706264729431733}
   m_Layer: 0
   m_Name: BombTowerBullet
   m_TagString: Untagged
@@ -97,3 +98,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6366706264729431733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363376687213830531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069f9b5a515c57544a7e639373a70834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 70
+  explosionRadius: 0
+  impactEffect: {fileID: 5305970559723833175, guid: 8d3b3b67371f4d940a3d1dc4d5a90327, type: 3}
+  EnemyTouchSFX: {fileID: 0}
