@@ -75,13 +75,17 @@ public class BombTowerTarget : MonoBehaviour
     {
        
             GameObject bulletGo = Instantiate(bombTowerBulletPrefab, bombTowerFirePoint.position, bombTowerFirePoint.rotation);
-            Bullet bullet = bulletGo.GetComponent<Bullet>();
+            Bombbullet bullet = bulletGo.GetComponent<Bombbullet>();
 
             if (bullet != null)
             {
-                Debug.Log("girdi");
+               
                 bullet.Seek(target);
             }
-        
+        if (target != null)
+        {
+            bullet.transform.DOJump(target.position, 10f, 1, 0.8f);
+        }
+
     }
 }
