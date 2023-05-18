@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7505,8 +7505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startWave: {fileID: 313361781}
-  basicRobotPrefab: {fileID: 4669008204138783820, guid: e0e47059f94c83f4ebc7c230b6a484b3, type: 3}
-  gorillaRobotPrefab: {fileID: 2736554358299548564, guid: 820b711fafe4dc848a3ba9a62361c181, type: 3}
+  basicRobotPrefab: {fileID: 7555736311174528154, guid: 2ecd0573baf719547bab145e4da95496, type: 3}
+  gorillaRobotPrefab: {fileID: 4938474476380220235, guid: 547d76cc3623e0e428566f3846df9990, type: 3}
   smartHomeRobotPrefab: {fileID: 7624107195544428829, guid: 24d022a751861994ab6451140ff1e1f3, type: 3}
   DronePrefab: {fileID: 8644620791068981995, guid: e1e197fb44f96af4ba8a81936835309f, type: 3}
   spawnPoint: {fileID: 874705094}
