@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8025,11 +8025,11 @@ MonoBehaviour:
     TowerRange: 10
     TowerRangeIncreaseValue: 5
     TowerMoneyBuy: 70
-    TowerMoneyUpgradeLevel1: 0
-    TowerMoneyUpgradeLevel2: 0
-    TowerMoneySellLevel1: 0
-    TowerMoneySellLevel2: 0
-    TowerMoneySellLevel3: 0
+    TowerMoneyUpgradeLevel1: 90
+    TowerMoneyUpgradeLevel2: 130
+    TowerMoneySellLevel1: 50
+    TowerMoneySellLevel2: 80
+    TowerMoneySellLevel3: 110
     AudioSource: {fileID: 683488746}
     TowerAttackSFX: {fileID: 8300000, guid: 1e217ec81a87b7441acc5deea95bc347, type: 3}
     EnemyTouchSFX: {fileID: 8300000, guid: 3eaa6d5073d856b4bb2afe72394a2ec3, type: 3}
@@ -8039,11 +8039,11 @@ MonoBehaviour:
     TowerRange: 10
     TowerRangeIncreaseValue: 15
     TowerMoneyBuy: 100
-    TowerMoneyUpgradeLevel1: 0
-    TowerMoneyUpgradeLevel2: 0
-    TowerMoneySellLevel1: 0
-    TowerMoneySellLevel2: 0
-    TowerMoneySellLevel3: 0
+    TowerMoneyUpgradeLevel1: 210
+    TowerMoneyUpgradeLevel2: 300
+    TowerMoneySellLevel1: 80
+    TowerMoneySellLevel2: 150
+    TowerMoneySellLevel3: 260
     AudioSource: {fileID: 683488746}
     TowerAttackSFX: {fileID: 8300000, guid: d2fb941b043f58d47810c6aa363e5f29, type: 3}
     EnemyTouchSFX: {fileID: 0}

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3607481628063798813}
-  - component: {fileID: 7445553323170514166}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 2480861415485472919}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7445553323170514166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7409502081566840516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  bombTowerFireRate: 1
-  bombTowerFireCountdown: 1
-  bombTowerBulletPrefab: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
-  bombTowerfirePoint: {fileID: 3607481628063798813}
 --- !u!1001 &2731278337480681340
 PrefabInstance:
   m_ObjectHideFlags: 0

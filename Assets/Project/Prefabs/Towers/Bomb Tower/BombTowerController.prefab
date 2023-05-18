@@ -549,10 +549,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Firepoint
       objectReference: {fileID: 0}
-    - target: {fileID: 7445553323170514166, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
-      propertyPath: bombTowerFirePoint
-      value: 
-      objectReference: {fileID: 544794239506954970}
     m_RemovedComponents:
     - {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
@@ -586,7 +582,7 @@ MonoBehaviour:
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 10
-  bombTowerFireRate: 1
+  bombTowerFireRate: 2
   bombTowerBulletPrefab: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
   bombTowerFirePoint: {fileID: 544794239506954970}
 --- !u!1001 &4191118709509865675

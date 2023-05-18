@@ -12,7 +12,7 @@ public class TowerMenu : MonoBehaviour
     public GameObject SellButton;
     public bool TowerClicked;
     int sniperTowerCountCheck;
-    
+
     private void Start()
     {
         TowerClicked = false;
@@ -30,7 +30,14 @@ public class TowerMenu : MonoBehaviour
             TowerRangeController.sniperTowerCounts = 2;
         }
 
-       
+        if (sniperTowerCountCheck == 2 && TowerClicked == true)
+        {
+            TowerRangeController.MaxLevelButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
+        }
     }
 
     private void OnMouseDown()
@@ -44,7 +51,7 @@ public class TowerMenu : MonoBehaviour
             if (hit.collider != null)
             {
 
-                if (TowerClicked==false)
+                if (TowerClicked == false)
                 {
                     UpgradeButton1.SetActive(true);
                     SellButton.SetActive(true);
@@ -54,14 +61,15 @@ public class TowerMenu : MonoBehaviour
                 {
                     UpgradeButton1.SetActive(false);
                     SellButton.SetActive(false);
+                    TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
                     TowerClicked = false;
                 }
 
-                for (int i = 0; i < TowerRangeController.UIController.Count; i++ )
+                for (int i = 0; i < TowerRangeController.UIController.Count; i++)
                 {
-                   TowerRangeController.UIController[i].SetActive(true);
+                    TowerRangeController.UIController[i].SetActive(true);
                 }
-                
+
                 Debug.Log(hit.collider.gameObject.name);
             }
         }
@@ -75,38 +83,40 @@ public class TowerMenu : MonoBehaviour
 
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
-        UpgradeButton1.SetActive(false);
+            UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
             GetComponent<TowerRangeController>().sniperTowerCounts++;
-            
 
-            if(sniperTowerCountCheck==0)
+
+            if (sniperTowerCountCheck == 0)
             {
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 Debug.Log("Countcheck 0");
             }
 
-            if(sniperTowerCountCheck==1)
+            if (sniperTowerCountCheck == 1)
             {
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 Debug.Log("Countcheck 1");
             }
 
-            if(sniperTowerCountCheck==2)
+            if (sniperTowerCountCheck == 2)
             {
                 Quaity.TowerUpgradeMoney(0);
                 Debug.Log("Countcheck 2");
             }
 
+            
+
             Debug.Log("Upgrade aktif");
         }
 
-        for (int i = 0; i <TowerRangeController.UIController.Count; i++)
+        for (int i = 0; i < TowerRangeController.UIController.Count; i++)
         {
-           TowerRangeController.UIController[i].SetActive(false);
+            TowerRangeController.UIController[i].SetActive(false);
         }
 
         UpgradeButton1.SetActive(false);
