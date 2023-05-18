@@ -7999,7 +7999,7 @@ GameObject:
   - component: {fileID: 683488746}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8016,14 +8016,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b855ffcc02955984e9323e7d94f163e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 1
   _critValue: 0
+  bombTowerExplosionRadius: 10
   TowerVaribles:
   - name: Sniper Tower
     TowerDamage: 15
     TowerDamageIncreaseValue: 7
     TowerRange: 10
     TowerRangeIncreaseValue: 5
+    FireRate: 1
     TowerMoneyBuy: 70
     TowerMoneyUpgradeLevel1: 90
     TowerMoneyUpgradeLevel2: 130
@@ -8038,6 +8039,7 @@ MonoBehaviour:
     TowerDamageIncreaseValue: 15
     TowerRange: 10
     TowerRangeIncreaseValue: 15
+    FireRate: 2
     TowerMoneyBuy: 100
     TowerMoneyUpgradeLevel1: 210
     TowerMoneyUpgradeLevel2: 300

@@ -5,7 +5,6 @@ public class Bombbullet : MonoBehaviour
     GameManager GameManager;
     private Transform target;
     public float speed = 70f;
-    public float explosionRadius = 0f;
     public GameObject impactEffect;
     public AudioClip EnemyTouchSFX;
     AudioSource source;
@@ -37,7 +36,7 @@ public class Bombbullet : MonoBehaviour
 
         if (Vector3.Distance(this.transform.position, target.position) < 0.1f)
         {
-            if (explosionRadius > 0f)
+            if (GameManager.bombTowerExplosionRadius > 0f)
             {
                 Explode();
             }
@@ -50,7 +49,7 @@ public class Bombbullet : MonoBehaviour
 
     private void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, GameManager.bombTowerExplosionRadius);
 
         foreach (Collider collider in colliders)
         {

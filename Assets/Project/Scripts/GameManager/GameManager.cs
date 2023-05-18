@@ -17,6 +17,7 @@ public class TowerVaribles
     public int TowerDamageIncreaseValue;
     public int TowerRange;
     public int TowerRangeIncreaseValue;
+    public float FireRate;
     [Header("")]
     public int TowerMoneyBuy;
     [Header("")]
@@ -55,8 +56,9 @@ public class GameManager : MonoBehaviour
     [Space(5f)]
     [Header("TowerTarget Attributes")]
 
-    public float FireRate;
+    
     public int _critValue;
+    public float bombTowerExplosionRadius;
     public List<TowerVaribles> TowerVaribles;
 
     [Header("Enemy Attributes")]
@@ -141,7 +143,7 @@ public class GameManager : MonoBehaviour
         TowerTarget = FindObjectOfType<TowerTarget>();
         if (TowerTarget != null)
         {
-            TowerTarget.fireRate = FireRate;
+            TowerTarget.fireRate = TowerVaribles[0].FireRate;
             TowerTarget.critValue = _critValue;
         }
     }
