@@ -28,10 +28,8 @@ public class BombTowerTarget : MonoBehaviour
     private void Update()
     {
         if (target == null)
-        {
-
             return;
-        }
+
 
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -47,7 +45,7 @@ public class BombTowerTarget : MonoBehaviour
 
     private void BombTowerUpdateTarget()
     {
-        GameObject[] robots = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] robots = GameManager.Instance.ActiveRobots;
 
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
@@ -78,15 +76,8 @@ public class BombTowerTarget : MonoBehaviour
         GameObject bulletGo = Instantiate(bombTowerBulletPrefab, bombTowerFirePoint.position, bombTowerFirePoint.rotation);
         Bombbullet bullet = bulletGo.GetComponent<Bombbullet>();
 
-        if (bullet != null)
-        {
-
-            bullet.Seek(target);
-        }
-        if (target != null)
-        {
-            bullet.transform.DOJump(target.position, 10f, 1, 0.8f);
-        }
+        bullet.Seek(target);
+        bullet.transform.DOJump(new Vector3(target.position.x, 0f, target.position.z), 10f, 1, 1f);
     }
 
 

@@ -49,6 +49,8 @@ public class EnemyVariables
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     WaveSpawner WaveSpawner;
     Quaity Quaity;
     TowerTarget TowerTarget;
@@ -99,6 +101,12 @@ public class GameManager : MonoBehaviour
     [Header(" ")]
     public float WaveStartTimeAdjustment;
 
+    public GameObject[] ActiveRobots;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -148,7 +156,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public void RefreshRobotList()
+    {
+        ActiveRobots = GameObject.FindGameObjectsWithTag("Enemy");
+    }
 }
 
 

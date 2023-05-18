@@ -214,6 +214,7 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy(Transform enemyPrefab)
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameManager.Instance.RefreshRobotList();
     }
 
     public void PanelActive()

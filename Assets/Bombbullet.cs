@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Bombbullet : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Bombbullet : MonoBehaviour
     public GameObject impactEffect;
     public AudioClip EnemyTouchSFX;
     AudioSource source;
+
+    float Sin;
 
     public void Seek(Transform _target)
     {
@@ -29,51 +32,24 @@ public class Bombbullet : MonoBehaviour
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
-
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-
-        if (Vector3.Distance(this.transform.position, target.position) < 0.1f)
-        {
-            if (GameManager.bombTowerExplosionRadius > 0f)
-            {
-                Explode();
-            }
-            else
-            {
-                HitTarget();
-            }
-        }
+        if (transform.position.y <= target.position.y)
+            Explode();
     }
 
-    private void Explode()
+    public void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, GameManager.bombTowerExplosionRadius);
 
-        foreach (Collider collider in colliders)
+        for (int i = 0; i < GameManager.Instance.ActiveRobots.Length; i++)
         {
-            if (collider.CompareTag("Enemy"))
+            if (GameManager.Instance.ActiveRobots[i] != null && Vector3.Distance(GameManager.Instance.ActiveRobots[i].transform.position, this.transform.position) < GameManager.bombTowerExplosionRadius)
             {
-                collider.GetComponent<Enemy>().TakeDamage();
+                GameManager.Instance.ActiveRobots[i].GetComponent<Enemy>().TakeDamage();
             }
         }
+
+        source.clip = GameManager.TowerVaribles[0].EnemyTouchSFX;
+        source.Play();
 
         Destroy(gameObject);
-    }
-
-    private void HitTarget()
-    {
-        target.GetComponent<Enemy>().TakeDamage();
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            source.clip = GameManager.TowerVaribles[0].EnemyTouchSFX;
-            source.Play();
-        }
     }
 }
