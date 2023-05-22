@@ -19,7 +19,7 @@ public class ArrowSpawner : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject) // Fare pozisyonu buton üzerindeyken
         {
-            if (Input.GetMouseButtonDown(0)) // Fare týklamasý algýlandýðýnda
+            if (Input.GetMouseButtonDown(0)) // Fare týklamasý algýzlandýðýnda
             {
                 StartSpawning();
             }
