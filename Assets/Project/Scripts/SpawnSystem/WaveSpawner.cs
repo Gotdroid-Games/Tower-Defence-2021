@@ -51,7 +51,7 @@ public class WaveSpawner : MonoBehaviour
     public string[] smarthomeRobotWaveInfo;
     public string[] droneRobotWaveInfo;
 
-
+    public GameObject Arrowprefab;
 
     private void Start()
     {
@@ -221,6 +221,10 @@ public class WaveSpawner : MonoBehaviour
     {
         GameUI._Button.GameUIButtons[14].SetActive(true);
         Debug.Log("Ýnfo Butonu Aktif");
+        if (GameUI._Button.GameUIButtons[14].activeSelf)
+        {
+           Arrowprefab.gameObject.SetActive(true);
+        }
     }
 
     public void PanelPassive()
