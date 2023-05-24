@@ -46,19 +46,27 @@ public class TowerTarget : MonoBehaviour
         GameObject[] Robots = GameObject.FindGameObjectsWithTag("Enemy");
 
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        GameObject TargetEnemy = null;
+        int ActiveWaypointNumber = 0;
+        float ActiveWaypointDistance = 1000f;
 
-        foreach (GameObject enemy in Robots)
+        for (int i = 0; i < Robots.Length; i++)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            shortestDistance = Vector3.Distance(this.transform.position, Robots[i].transform.position);
+
+            if(Robots[i].GetComponent<Enemy>().NextWaypointNumber >= ActiveWaypointNumber && Robots[i].GetComponent<Enemy>().NextWaypointDistance <= ActiveWaypointDistance && shortestDistance <= rangeUpgrade.Range)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                TargetEnemy = Robots[i];
+                ActiveWaypointDistance = Robots[i].GetComponent<Enemy>().NextWaypointDistance;
+                ActiveWaypointNumber = Robots[i].GetComponent<Enemy>().NextWaypointNumber;
             }
         }
 
-        target = nearestEnemy != null && shortestDistance <= rangeUpgrade.Range ? nearestEnemy.transform : null;
+        if (TargetEnemy != null && Vector3.Distance(this.transform.position, TargetEnemy.transform.position) <= rangeUpgrade.Range)
+            target = TargetEnemy.transform;
+
+        else
+            target = null;
     }
 
     private void Update()

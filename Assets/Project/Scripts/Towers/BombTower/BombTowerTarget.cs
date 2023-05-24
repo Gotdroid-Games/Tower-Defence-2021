@@ -77,7 +77,7 @@ public class BombTowerTarget : MonoBehaviour
         Bombbullet bullet = bulletGo.GetComponent<Bombbullet>();
 
         bullet.Seek(target);
-        bullet.transform.DOJump(new Vector3(target.position.x, 0f, target.position.z), 10f, 1, 1f);
+        bullet.transform.DOJump(new Vector3(target.position.x, 0f, target.position.z), 10f, 1, 0.5f);
     }
 
 

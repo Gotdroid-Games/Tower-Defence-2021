@@ -34,6 +34,11 @@ public class Enemy : MonoBehaviour
     [Header("Unity Stuff")]
     public Slider healthBar;
 
+    [Header("Waypoint Variables")]
+
+    public int NextWaypointNumber;
+    public float NextWaypointDistance;
+
     private void Start()
     {
         TowerTarget = FindObjectOfType<TowerTarget>();
@@ -125,6 +130,9 @@ public class Enemy : MonoBehaviour
         //Vector3 dir = target.position - transform.position;
         //transform.Translate(dir.normalized * startSpeed * Time.deltaTime, Space.World);
         //transform.rotation = Quaternion.LookRotation(dir);
+
+        NextWaypointDistance = Vector3.Distance(transform.position, target.position);
+        NextWaypointNumber = wavepointIndex;
 
         if (Vector3.Distance(transform.position, target.position) <= 0.1f)
         {
