@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1166271622211005113
 Transform:
   m_ObjectHideFlags: 0
@@ -355,13 +355,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1b04717c30045e08d0557d46e46be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombtowerUI: {fileID: 0}
   _upgradeButton: {fileID: 7833588467662875292}
   SellButton: {fileID: 8836688118391823909}
   BombTower: {fileID: 7300374256345671116}
+  canvas: {fileID: 6538476493829151990}
   BombTowerUpgradeMoneyList: 
   Count: 0
   bombTowerCountCheck: 0
-  bombTowerClicked: 0
+  bombTowerClicked: 1
   MaxlevelImage: {fileID: 7885912670436056943}
   BombTowerUpgradeButton: {fileID: 4401477812567882303}
   BombObjList:
@@ -582,7 +584,6 @@ MonoBehaviour:
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 10
-  bombTowerFireRate: 2
   bombTowerBulletPrefab: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
   bombTowerFirePoint: {fileID: 544794239506954970}
 --- !u!1001 &4191118709509865675
