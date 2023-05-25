@@ -9,6 +9,7 @@ public class BombTowerMenu : MonoBehaviour
     Quaity Quaity;
     GameManager GameManager;
     public GameObject towerUI;
+    public GameObject tower;
     TowerUIManager towerUIManager;
     public GameObject _upgradeButton;
     public GameObject SellButton;
@@ -22,15 +23,15 @@ public class BombTowerMenu : MonoBehaviour
     public Image MaxlevelImage;
     public Button BombTowerUpgradeButton;
     public List<GameObject> BombObjList = new List<GameObject>();
-
     public TextMeshProUGUI BombTowerUpgradeMoneyText;
+
+    Dictionary<GameObject, GameObject> towerUIDictionary = new Dictionary<GameObject, GameObject>();
 
     void Start()
     {
-       
         MaxlevelImage.gameObject.SetActive(false);
         bombTowerClicked = false;
-        canvas.SetActive(false);
+       // canvas.SetActive(false);
        // _upgradeButton.SetActive(false);
         //SellButton.SetActive(false);
         Count = 0;
@@ -39,14 +40,14 @@ public class BombTowerMenu : MonoBehaviour
         GameManager = FindObjectOfType<GameManager>();
         towerUIManager = FindObjectOfType<TowerUIManager>();
     }
-
     private void OnMouseDown()
     {
-        towerUIManager.SetActiveTowerUI(gameObject, towerUI);
-        
-         if (bombTowerClicked == false)
+        Debug.Log("on mouse downçalıştıı");
+        towerUIManager.SetActiveTowerUI(tower, towerUI);
+        if (bombTowerClicked == false)
         {
-            canvas.SetActive(true);
+            
+             towerUI.SetActive(true);
             /*
             _upgradeButton.SetActive(true);
             SellButton.SetActive(true);
@@ -56,7 +57,8 @@ public class BombTowerMenu : MonoBehaviour
         }
         else
         {
-            canvas.SetActive(false);
+           // towerUIManager.DeactivateTowerUI(tower);
+             towerUI.SetActive(false);
             /*
             _upgradeButton.SetActive(false);
             SellButton.SetActive(false);
@@ -64,8 +66,9 @@ public class BombTowerMenu : MonoBehaviour
              */
             bombTowerClicked = false;
         }
-        
-        Debug.Log("çalıştııııı");
+
+      
+       
         
     }
 
