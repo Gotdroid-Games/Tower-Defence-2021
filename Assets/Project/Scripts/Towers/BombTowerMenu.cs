@@ -8,9 +8,12 @@ public class BombTowerMenu : MonoBehaviour
 {
     Quaity Quaity;
     GameManager GameManager;
+    public GameObject bombtowerUI;
+    private TowerUIManager towerUIManager;
     public GameObject _upgradeButton;
     public GameObject SellButton;
     public GameObject BombTower;
+    public GameObject canvas;
     GameObject bombObjList;
     public int[] BombTowerUpgradeMoneyList;
     public int Count;
@@ -24,34 +27,43 @@ public class BombTowerMenu : MonoBehaviour
 
     void Start()
     {
+       
         MaxlevelImage.gameObject.SetActive(false);
         bombTowerClicked = false;
-        _upgradeButton.SetActive(false);
-        SellButton.SetActive(false);
+        canvas.SetActive(false);
+       // _upgradeButton.SetActive(false);
+        //SellButton.SetActive(false);
         Count = 0;
         BombObjList[0].SetActive(true);
         Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
+        towerUIManager = FindObjectOfType<TowerUIManager>();
     }
 
     private void OnMouseDown()
     {
-
         if (bombTowerClicked == false)
         {
+            canvas.SetActive(true);
+            /*
             _upgradeButton.SetActive(true);
             SellButton.SetActive(true);
+             */
             bombTowerClicked = true;
+           
         }
         else
         {
+            canvas.SetActive(false);
+            /*
             _upgradeButton.SetActive(false);
             SellButton.SetActive(false);
             MaxlevelImage.gameObject.SetActive(false);
+             */
             bombTowerClicked = false;
+           
         }
         Debug.Log("çalıştııııı");
-
     }
 
     void Update()
