@@ -330,7 +330,6 @@ GameObject:
   - component: {fileID: 7673684480523168095}
   - component: {fileID: 845767025554001964}
   - component: {fileID: -8705960121749447461}
-  - component: {fileID: 3422018657790790769}
   - component: {fileID: 2972964232947008613}
   - component: {fileID: 467243095527234657}
   m_Layer: 0
@@ -417,18 +416,6 @@ MonoBehaviour:
   Range: 10
   sniperTowerCountCheck: 0
   bombTowerCountCheck: 0
---- !u!114 &3422018657790790769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7300374256345671116}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d592eec4db79b4a9085a7c10fac1d030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2972964232947008613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7300374256345671116}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
   m_Name: 

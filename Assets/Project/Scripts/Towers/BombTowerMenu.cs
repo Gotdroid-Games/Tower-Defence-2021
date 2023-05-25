@@ -10,7 +10,6 @@ public class BombTowerMenu : MonoBehaviour
     GameManager GameManager;
     public GameObject towerUI;
     public GameObject tower;
-    TowerUIManager towerUIManager;
     public GameObject _upgradeButton;
     public GameObject SellButton;
     public GameObject BombTower;
@@ -25,8 +24,6 @@ public class BombTowerMenu : MonoBehaviour
     public List<GameObject> BombObjList = new List<GameObject>();
     public TextMeshProUGUI BombTowerUpgradeMoneyText;
 
-    Dictionary<GameObject, GameObject> towerUIDictionary = new Dictionary<GameObject, GameObject>();
-
     void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
@@ -35,12 +32,10 @@ public class BombTowerMenu : MonoBehaviour
         BombObjList[0].SetActive(true);
         Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
-        towerUIManager = FindObjectOfType<TowerUIManager>();
     }
     private void OnMouseDown()
     {
         Debug.Log("on mouse downçalıştıı");
-        towerUIManager.SetActiveTowerUI(tower, towerUI);
         if (bombTowerClicked == false)
         {
             
