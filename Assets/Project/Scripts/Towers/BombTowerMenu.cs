@@ -31,9 +31,6 @@ public class BombTowerMenu : MonoBehaviour
     {
         MaxlevelImage.gameObject.SetActive(false);
         bombTowerClicked = false;
-       // canvas.SetActive(false);
-       // _upgradeButton.SetActive(false);
-        //SellButton.SetActive(false);
         Count = 0;
         BombObjList[0].SetActive(true);
         Quaity = FindObjectOfType<Quaity>();
@@ -48,22 +45,12 @@ public class BombTowerMenu : MonoBehaviour
         {
             
              towerUI.SetActive(true);
-            /*
-            _upgradeButton.SetActive(true);
-            SellButton.SetActive(true);
-             */
             bombTowerClicked = true;
            
         }
         else
         {
-           // towerUIManager.DeactivateTowerUI(tower);
              towerUI.SetActive(false);
-            /*
-            _upgradeButton.SetActive(false);
-            SellButton.SetActive(false);
-            MaxlevelImage.gameObject.SetActive(false);
-             */
             bombTowerClicked = false;
         }
 
