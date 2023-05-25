@@ -8,8 +8,8 @@ public class BombTowerMenu : MonoBehaviour
 {
     Quaity Quaity;
     GameManager GameManager;
-    public GameObject bombtowerUI;
-    private TowerUIManager towerUIManager;
+    public GameObject towerUI;
+    TowerUIManager towerUIManager;
     public GameObject _upgradeButton;
     public GameObject SellButton;
     public GameObject BombTower;
@@ -42,7 +42,9 @@ public class BombTowerMenu : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (bombTowerClicked == false)
+        towerUIManager.SetActiveTowerUI(gameObject, towerUI);
+        
+         if (bombTowerClicked == false)
         {
             canvas.SetActive(true);
             /*
@@ -61,9 +63,10 @@ public class BombTowerMenu : MonoBehaviour
             MaxlevelImage.gameObject.SetActive(false);
              */
             bombTowerClicked = false;
-           
         }
+        
         Debug.Log("çalıştııııı");
+        
     }
 
     void Update()

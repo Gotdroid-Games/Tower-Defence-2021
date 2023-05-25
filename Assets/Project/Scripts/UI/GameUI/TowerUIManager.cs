@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TowerUIManager : MonoBehaviour
 {
-    private Dictionary<GameObject, GameObject> towerUITable = new Dictionary<GameObject, GameObject>();
+    public  Dictionary<GameObject, GameObject> towerUITable = new Dictionary<GameObject, GameObject>();
 
     public void SetActiveTowerUI(GameObject tower, GameObject towerUI)
     {
