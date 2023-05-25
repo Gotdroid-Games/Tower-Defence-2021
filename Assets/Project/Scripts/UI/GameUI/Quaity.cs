@@ -55,7 +55,7 @@ public class Quaity : MonoBehaviour
 
         if (_heartText <= 0 || _waveText >= 12)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         if (_coinText <= 0)
@@ -64,12 +64,12 @@ public class Quaity : MonoBehaviour
         }
 
         WaveCounter();
+        Winning();
     }
 
     private void OnDisable()
     {
         DefeatMenu();
-        Winning();
     }
 
     public void Damage(int damage)
@@ -161,7 +161,7 @@ public class Quaity : MonoBehaviour
 
     public void Winning()
     {
-        if (_waveText >= 12)
+        if (_waveText >= 12&& WaveSpawner.totalenemiescheck==0)
         {
             GameUI._Button.GameUIButtons[2].SetActive(true);
             GameUI._Button.GameUIButtons[9].SetActive(true);

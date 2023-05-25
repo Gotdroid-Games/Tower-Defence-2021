@@ -33,7 +33,8 @@ public class WaveSpawner : MonoBehaviour
     private bool startWaveControl;
     public float[] timeBetweenWaves;
     string waveStartInfo;
-    int totalEnemies = 0;
+    public int totalEnemies = 0;
+    public int totalenemiescheck = 0;
     int spawnedEnemies = 0;
 
 
@@ -51,7 +52,7 @@ public class WaveSpawner : MonoBehaviour
     public string[] smarthomeRobotWaveInfo;
     public string[] droneRobotWaveInfo;
 
-    public GameObject Arrowprefab;
+
 
     private void Start()
     {
@@ -70,6 +71,8 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        Totalenemycheck();
+
         WaveInfo(GameManager);
 
         //GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
@@ -108,11 +111,15 @@ public class WaveSpawner : MonoBehaviour
             }
         }
 
+    }
+    public void Totalenemycheck()
+    {
+        if (waveIndex>=12)
+        {
+            GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
+            totalenemiescheck = objectsWithTag.Length;
 
-
-
-
-
+        }
     }
 
     public void StartWave()
@@ -168,7 +175,7 @@ public class WaveSpawner : MonoBehaviour
     private IEnumerator SpawnWave()
     {
         totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1];
-
+        
 
 
         if (waveIndex > 0 && waveIndex <= 11)
@@ -221,10 +228,7 @@ public class WaveSpawner : MonoBehaviour
     {
         GameUI._Button.GameUIButtons[14].SetActive(true);
         Debug.Log("Ýnfo Butonu Aktif");
-        if (GameUI._Button.GameUIButtons[14].activeSelf)
-        {
-           Arrowprefab.gameObject.SetActive(true);
-        }
+        
     }
 
     public void PanelPassive()

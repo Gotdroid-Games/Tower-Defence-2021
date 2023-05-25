@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -381,134 +381,6 @@ Transform:
   m_Father: {fileID: 20035803}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &67301373
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 67301378}
-  - component: {fileID: 67301377}
-  - component: {fileID: 67301376}
-  - component: {fileID: 67301375}
-  - component: {fileID: 67301379}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Arrow
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &67301375
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67301373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &67301376
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67301373}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &67301377
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67301373}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &67301378
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67301373}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.19, y: 1.1, z: -4.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &67301379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67301373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05773e71f8f478c448b92feb314f1f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 9131289025770343543, guid: 6a1e224f3eed226468d617b7a9bbe5ae, type: 3}
-  waypoints:
-  - {fileID: 621087234}
-  - {fileID: 525729422}
-  - {fileID: 142100068}
-  - {fileID: 986810483}
-  - {fileID: 296167307}
-  - {fileID: 522257267}
-  - {fileID: 1791691274}
-  - {fileID: 1331462189}
-  - {fileID: 61978420}
-  - {fileID: 1728205754}
-  - {fileID: 1811536240}
-  - {fileID: 1532161664}
-  - {fileID: 141399894}
-  - {fileID: 999130338}
-  interval: 0.5
-  speed: 50
 --- !u!1 &111438900
 GameObject:
   m_ObjectHideFlags: 0
@@ -7537,7 +7409,6 @@ MonoBehaviour:
   gorillaRobotWaveInfo: []
   smarthomeRobotWaveInfo: []
   droneRobotWaveInfo: []
-  Arrowprefab: {fileID: 67301373}
 --- !u!4 &589565926
 Transform:
   m_ObjectHideFlags: 0
@@ -8050,7 +7921,7 @@ MonoBehaviour:
   - name: Sniper Tower
     TowerDamage: 15
     TowerDamageIncreaseValue: 7
-    TowerRange: 10
+    TowerRange: 15
     TowerRangeIncreaseValue: 5
     FireRate: 1
     TowerMoneyBuy: 70
@@ -8106,10 +7977,10 @@ MonoBehaviour:
   heartText: 20
   waveText: 0
   _Product: 10
-  _basicRobot: 030000000100000002000000050000000400000001000000020000000300000004000000050000000100000002000000
-  _gorillaRobot: 030000000300000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _smartHomeRobot: 030000000100000003000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _droneRobot: 030000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _basicRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _gorillaRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _smartHomeRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _droneRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _timeBetweenWaves:
   - 16
   - 16

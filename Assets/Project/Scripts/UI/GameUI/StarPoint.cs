@@ -6,6 +6,7 @@ public class StarPoint : MonoBehaviour
 {
     Quaity Quaity;
     GameUI GameUI;
+    WaveSpawner waveSpawner;
     public TextMeshProUGUI starPointText;
     public static int _starPoint = 0;
 
@@ -13,11 +14,12 @@ public class StarPoint : MonoBehaviour
     {
         Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
+        waveSpawner = FindObjectOfType<WaveSpawner>();
     }
 
     private void Update()
     {
-        if (Quaity._waveText >= 12)
+        if (Quaity._waveText >= 12&&waveSpawner.totalenemiescheck==0)
         {
             StartCoroutine(Waitfor());
         }

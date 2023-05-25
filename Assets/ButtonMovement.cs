@@ -43,7 +43,6 @@ public class ButtonMovement : MonoBehaviour
         {
             if (GameUI._Button.GameUIButtons[14].activeSelf==false)
             {
-                Debug.Log("girdi");
                 transform.position = waypoints[0].position;
                 currentWaypointIndex = 0;
                 objectPrefab.SetActive(false);

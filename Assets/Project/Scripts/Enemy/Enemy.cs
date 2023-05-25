@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
      
     [SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
+    WaveSpawner waveSpawner;
     RangeUpgrade RangeUpgrade;
     Quaity Quaity;
     GameValue GameValue;
@@ -46,6 +47,8 @@ public class Enemy : MonoBehaviour
         GameValue = FindObjectOfType<GameValue>();
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
+        waveSpawner = FindObjectOfType<WaveSpawner>();
+
         target = WayPoints.points[0];
         
         //currentHealth = maxHealth;
@@ -119,6 +122,7 @@ public class Enemy : MonoBehaviour
         {
             currentHealth = 0;
             Destroy(gameObject);
+           
         }
 
         if (target == null)
@@ -149,6 +153,7 @@ public class Enemy : MonoBehaviour
         {
             Quaity.Instance.Damage(RobotDamage);
             Destroy(gameObject);
+            
 
             return;
         }
