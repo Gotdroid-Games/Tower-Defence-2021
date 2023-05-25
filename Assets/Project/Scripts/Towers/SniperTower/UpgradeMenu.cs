@@ -38,7 +38,6 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             towerPrice -= 30;
-            GameValue.TowerPrice = 90;
             StarPoint._starPoint -= 1;
         }
         

@@ -53,11 +53,6 @@ public class Quaity : MonoBehaviour
         }
         heartText.text = _heartText.ToString();
 
-        if (_heartText <= 0 || _waveText >= 12)
-        {
-            //gameObject.SetActive(false);
-        }
-
         if (_coinText <= 0)
         {
             _coinText = 0;
@@ -155,8 +150,6 @@ public class Quaity : MonoBehaviour
         float count = WaveSpawner.waveCountdown * Product;
         _coinText += (int)count;
         CoinText.text = _coinText.ToString();
-        Debug.Log(WaveSpawner.waveCountdown);
-        Debug.Log(count);
     }
 
     public void Winning()

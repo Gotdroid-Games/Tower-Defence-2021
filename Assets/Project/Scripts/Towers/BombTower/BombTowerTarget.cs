@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
+using static Unity.VisualScripting.Member;
 
 public class BombTowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
     private RangeUpgrade rangeUpgrade;
     GameManager GameManager;
+    AudioSource source;
     [SerializeField] Transform target;
 
     public int bombTowerDamage;
@@ -23,6 +25,7 @@ public class BombTowerTarget : MonoBehaviour
         rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         InvokeRepeating("BombTowerUpdateTarget", 0f, 0.5f);
+        source = GameManager.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -51,7 +54,8 @@ public class BombTowerTarget : MonoBehaviour
         GameObject nearestEnemy = null;
 
         foreach (GameObject enemy in robots)
-        {if (enemy != null)
+        {
+            if (enemy != null)
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
                 if (distanceToEnemy < shortestDistance)
@@ -77,7 +81,8 @@ public class BombTowerTarget : MonoBehaviour
 
         GameObject bulletGo = Instantiate(bombTowerBulletPrefab, bombTowerFirePoint.position, bombTowerFirePoint.rotation);
         Bombbullet bullet = bulletGo.GetComponent<Bombbullet>();
-
+        source.clip = GameManager.TowerVaribles[1].TowerAttackSFX;
+        source.Play();
         bullet.Seek(target);
         bullet.transform.DOJump(new Vector3(target.position.x, 0f, target.position.z), 10f, 1, 0.5f);
     }

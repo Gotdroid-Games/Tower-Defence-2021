@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InfoMenu : MonoBehaviour
 {
+    UpgradeMenu UpgradeMenu;
     public TextMeshProUGUI InfoTextUI;
     public string InfoText;
     public GameObject[] UpgradeMenuButtons = new GameObject[7];
@@ -10,6 +11,7 @@ public class InfoMenu : MonoBehaviour
 
     void Start()
     {
+        UpgradeMenu = FindObjectOfType<UpgradeMenu>();
         UpgradeUIButtons();
         UpgradeMenuButtons[0].SetActive(false);
         UpgradeMenuButtons[1].SetActive(false);

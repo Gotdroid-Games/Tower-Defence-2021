@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour
     private bool startWaveControl;
     public float[] timeBetweenWaves;
     string waveStartInfo;
-    public int totalEnemies = 0;
+    int totalEnemies = 0;
     public int totalenemiescheck = 0;
     int spawnedEnemies = 0;
 
@@ -72,43 +72,37 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         Totalenemycheck();
-
         WaveInfo(GameManager);
 
-        //GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
-        //GameObject[] objectsWithTag1 = GameObject.FindGameObjectsWithTag("GorillaRobot");
-        //GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("SupurgeRobot");
 
         if (startWaveControl == true && spawnedEnemies == totalEnemies)
         {
 
-            if (waveIndex <= 11)
+            if (waveIndex <= 12)
             {
                 waveCountdown -= Time.deltaTime;
                 waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
             }
         }
 
-        else
+        if (waveIndex <= 12 && waveCountdown <= 0f && spawnedEnemies == totalEnemies)
         {
-            //_startWave.SetActive(true);
-        }
-
-        if (waveIndex <= 11 && waveCountdown <= 0f && spawnedEnemies == totalEnemies)
-        {
-            Debug.Log("otomatik çalýþtý");
-            Debug.Log(totalEnemies);
-            Debug.Log(spawnedEnemies);
             waveIndex++;
             Quaity.WaveValue(1);
             StartCoroutine(SpawnWave());
             waveCountdown = timeBetweenWaves[waveIndex - 1];
 
             _startWave.SetActive(false);
-            if (waveIndex >= 11)
+            if (waveIndex >= 12)
             {
                 _startWave.SetActive(false);
             }
+        }
+
+        if (waveIndex >= 12)
+        {
+            _startWave.SetActive(false);
+            GameUI._Button.GameUIButtons[14].SetActive(false);
         }
 
     }
@@ -124,9 +118,8 @@ public class WaveSpawner : MonoBehaviour
 
     public void StartWave()
     {
-        if (waveIndex <= 11)
+        if (waveIndex <= 12)
         {
-            Debug.Log("basma çalýþtý");
             waveIndex++;
             startWaveControl = true;
             _startWave.SetActive(false);
@@ -178,7 +171,7 @@ public class WaveSpawner : MonoBehaviour
         
 
 
-        if (waveIndex > 0 && waveIndex <= 11)
+        if (waveIndex > 0 && waveIndex <= 12)
         {
             for (int i = 0; i < basicRobot[waveIndex - 1]; i++)
             {
@@ -234,7 +227,6 @@ public class WaveSpawner : MonoBehaviour
     public void PanelPassive()
     {
         GameUI._Button.GameUIButtons[14].SetActive(false);
-        Debug.Log("Ýnfo Butonu Pasif");
     }
 
     public void StartWaveCoin()
