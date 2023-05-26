@@ -40,12 +40,15 @@ public class BombTowerMenu : MonoBehaviour
         {
             
              towerUI.SetActive(true);
+            _upgradeButton.SetActive(true);
+            SellButton.SetActive(true);
             bombTowerClicked = true;
            
         }
         else
         {
              towerUI.SetActive(false);
+            
             bombTowerClicked = false;
         }
 
@@ -88,11 +91,6 @@ public class BombTowerMenu : MonoBehaviour
                 BombObjList[0].SetActive(false);
                 BombObjList[1].SetActive(false);
                 BombObjList[2].SetActive(true);
-
-            }
-
-            if (Count == 2)
-            {
                 _upgradeButton.SetActive(false);
                 MaxlevelImage.gameObject.SetActive(true);
             }
@@ -116,6 +114,13 @@ public class BombTowerMenu : MonoBehaviour
         {
             BombTowerUpgradeButton.interactable = false;
         }
+
+        if(bombTowerClicked==false)
+        {
+            _upgradeButton.SetActive(false);
+            SellButton.SetActive(false);
+        }
+
     }
 
     public void UpgradeBomb()
