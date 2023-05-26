@@ -8,9 +8,13 @@ public class ClickDetector : MonoBehaviour
     private void Start()
     {
         bombmenu = FindObjectOfType<BombTowerMenu>();
+        
     }
     private void Update()
     {
+        
+
+
         if (Input.GetMouseButtonDown(0))
         {
             bool isClickedOnGameObject = false;
@@ -20,9 +24,18 @@ public class ClickDetector : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject)
+                if (hit.collider.gameObject == gameObject|| hit.collider.gameObject == bombmenu._upgradeButton|| hit.collider.gameObject == bombmenu.SellButton)
                 {
+                    Debug.Log("objeye tıklandı");
+                   if( bombmenu.bombTowerCountCheck!=2)
+                    {
+                        bombmenu._upgradeButton.SetActive(true);
+                        
+                    }
+                    bombmenu.SellButton.SetActive(true);
+                    bombmenu.towerUI.SetActive(true);
                     isClickedOnGameObject = true;
+                    
                 }
             }
 

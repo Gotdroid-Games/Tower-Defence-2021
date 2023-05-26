@@ -18,6 +18,7 @@ public class BombTowerTarget : MonoBehaviour
 
     public GameObject bombTowerBulletPrefab;
     public Transform bombTowerFirePoint;
+    BombTowerMenu bombmenu;
 
     private void Start()
     {
@@ -26,6 +27,11 @@ public class BombTowerTarget : MonoBehaviour
         GameManager = FindObjectOfType<GameManager>();
         InvokeRepeating("BombTowerUpdateTarget", 0f, 0.5f);
         source = GameManager.GetComponent<AudioSource>();
+        bombmenu = FindObjectOfType<BombTowerMenu>();
+        bombmenu._upgradeButton.SetActive(false);
+        bombmenu.SellButton.SetActive(false);
+
+        
     }
 
     private void Update()

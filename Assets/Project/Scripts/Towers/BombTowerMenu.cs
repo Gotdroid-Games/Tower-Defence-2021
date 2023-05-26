@@ -23,7 +23,7 @@ public class BombTowerMenu : MonoBehaviour
     public Button BombTowerUpgradeButton;
     public List<GameObject> BombObjList = new List<GameObject>();
     public TextMeshProUGUI BombTowerUpgradeMoneyText;
-
+    
     void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
@@ -91,7 +91,7 @@ public class BombTowerMenu : MonoBehaviour
 
             }
 
-            if (Count == 2 && bombTowerClicked == true)
+            if (Count == 2)
             {
                 _upgradeButton.SetActive(false);
                 MaxlevelImage.gameObject.SetActive(true);
@@ -125,9 +125,8 @@ public class BombTowerMenu : MonoBehaviour
         BombTower = gameObject;
         bombTowerClicked = false;
 
-        if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
 
-            _upgradeButton.SetActive(false);
+        _upgradeButton.SetActive(false);
         SellButton.SetActive(false);
 
         if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)

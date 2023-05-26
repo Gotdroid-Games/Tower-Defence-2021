@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1166271622211005113
 Transform:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   _upgradeButton: {fileID: 7833588467662875292}
   SellButton: {fileID: 8836688118391823909}
   BombTower: {fileID: 7300374256345671116}
-  canvas: {fileID: 0}
+  canvas: {fileID: 5355797852411512471}
   BombTowerUpgradeMoneyList: 
   Count: 0
   bombTowerCountCheck: 0
@@ -581,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2965087077329033773, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
       propertyPath: m_Enabled
@@ -733,6 +733,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4190851318481280401, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.417
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190851318481280401, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.791
+      objectReference: {fileID: 0}
     - target: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -743,11 +751,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4957091178424623601, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.71
+      value: -0.316
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957091178424623601, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.098
       objectReference: {fileID: 0}
     - target: {fileID: 4957091178424623601, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.72
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_Interactable
@@ -924,6 +936,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5355797852411512471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2056208313504171173, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+  m_PrefabInstance: {fileID: 6258459030584738354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7833588467662875292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}

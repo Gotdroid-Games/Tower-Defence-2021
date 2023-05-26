@@ -17,7 +17,7 @@ public class Node : MonoBehaviour
     BuildManager buildManager;
     GameManager GameManager;
     Shop shop;
-
+   
 
     private void Start()
     {
@@ -28,6 +28,7 @@ public class Node : MonoBehaviour
         buildManager = FindObjectOfType<BuildManager>();
         shop = FindObjectOfType<Shop>();
         GameManager = FindObjectOfType<GameManager>();
+       
     }
 
     private void OnMouseDown()
