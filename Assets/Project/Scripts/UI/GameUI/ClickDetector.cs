@@ -24,16 +24,17 @@ public class ClickDetector : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject|| hit.collider.gameObject == bombmenu._upgradeButton|| hit.collider.gameObject == bombmenu.SellButton)
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == bombmenu._upgradeButton || hit.collider.gameObject == bombmenu.SellButton)
                 {
                     Debug.Log("objeye tıklandı");
+                    
                    if( bombmenu.bombTowerCountCheck!=2)
                     {
                         bombmenu._upgradeButton.SetActive(true);
                         
                     }
                     bombmenu.SellButton.SetActive(true);
-                    bombmenu.towerUI.SetActive(true);
+                 //   bombmenu.towerUI.SetActive(true);
                     isClickedOnGameObject = true;
                     
                 }
@@ -42,7 +43,9 @@ public class ClickDetector : MonoBehaviour
             if (!isClickedOnGameObject)
             {
                 Debug.Log("Başka bir yere tıklandı");
-                bombmenu.towerUI.SetActive(false);
+                bombmenu._upgradeButton.SetActive(false);
+                bombmenu.SellButton.SetActive(false);
+                // bombmenu.towerUI.SetActive(false);
             }
         }
     }

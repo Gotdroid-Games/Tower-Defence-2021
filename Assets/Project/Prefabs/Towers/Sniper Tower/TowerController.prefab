@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 3570579970620275783}
   - component: {fileID: 8988853236396017705}
   - component: {fileID: 3466389259416718448}
+  - component: {fileID: 2243671109611598848}
   m_Layer: 0
   m_Name: TowerController
   m_TagString: Untagged
@@ -221,6 +222,7 @@ MonoBehaviour:
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
   TowerClicked: 0
+  sniperTowerCountCheck: 0
 --- !u!114 &8988853236396017705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,8 +244,10 @@ MonoBehaviour:
   UpgradeButton: {fileID: 2084141346023942752}
   MaxLevelButton: {fileID: 7678200046167059464}
   SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
-  counts: 0
-  countcheck: 0
+  sniperTowerCounts: 0
+  sniperTowerCountCheck: 0
+  bombTowerCounts: 0
+  bombTowerCountCheck: 0
 --- !u!114 &3466389259416718448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +262,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 15
   Range: 15
-  countcheck: 0
+  sniperTowerCountCheck: 0
+  bombTowerCountCheck: 0
+--- !u!114 &2243671109611598848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206315001989547515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7844188310735390510
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +442,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4428868809097593808, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
   m_PrefabInstance: {fileID: 2961568775980864385}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4698799641321746280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472426025184628817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2244141748342999787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908368132307261802, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
@@ -508,6 +537,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 810594891836936283, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
   m_PrefabInstance: {fileID: 4481479659704531728}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1309574835100623077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823175394253368139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4487121724467065329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 32685658667453153, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
@@ -587,6 +628,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3706185201927625526, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
   m_PrefabInstance: {fileID: 6194445572910735369}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3170344774944695664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392681481885285183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7913884540464079237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4045590785461371276, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
@@ -795,6 +848,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 8584960502076002925}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &7909426071298222178
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570693761724152515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4763112
+  m_Center: {x: 0, y: -0.12006363, z: 1.0952103}
 --- !u!1 &6582945738517499514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3204515996240845847, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}

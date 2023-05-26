@@ -282,7 +282,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1166271622211005113}
-  - component: {fileID: 2009967554797283735}
   m_Layer: 0
   m_Name: TowerManager
   m_TagString: Untagged
@@ -306,18 +305,6 @@ Transform:
   m_Father: {fileID: 3488515214769342755}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2009967554797283735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538476493829151990}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d592eec4db79b4a9085a7c10fac1d030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7300374256345671116
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +318,6 @@ GameObject:
   - component: {fileID: 845767025554001964}
   - component: {fileID: -8705960121749447461}
   - component: {fileID: 2972964232947008613}
-  - component: {fileID: 467243095527234657}
   m_Layer: 0
   m_Name: BombTowerController
   m_TagString: Untagged
@@ -428,18 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &467243095527234657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7300374256345671116}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1132498226743542278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,6 +493,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3443367538809116102, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
   m_PrefabInstance: {fileID: 1132498226743542278}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2073897608465378533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341376662875871168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3113655335721323898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2630836815055310716, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
@@ -581,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2965087077329033773, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
       propertyPath: m_Enabled
@@ -626,6 +612,18 @@ MonoBehaviour:
   bombTowerRange: 10
   bombTowerBulletPrefab: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
   bombTowerFirePoint: {fileID: 544794239506954970}
+--- !u!114 &2778534885676706837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069752473757447914}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4191118709509865675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,6 +708,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7279371253048320067, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
   m_PrefabInstance: {fileID: 4191118709509865675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2962163013451316738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857959501953687688}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6258459030584738354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -867,7 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_LocalRotation.w
@@ -891,7 +901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 8039254706058930994, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -959,7 +969,7 @@ SphereCollider:
   m_GameObject: {fileID: 7833588467662875292}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2.3989382
   m_Center: {x: -0.29446608, y: 0.05497621, z: -0.0000000031660792}

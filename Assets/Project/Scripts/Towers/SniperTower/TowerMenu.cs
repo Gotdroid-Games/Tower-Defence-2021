@@ -11,7 +11,7 @@ public class TowerMenu : MonoBehaviour
     public GameObject Tower;
     public GameObject SellButton;
     public bool TowerClicked;
-    int sniperTowerCountCheck;
+   public int sniperTowerCountCheck;
 
     private void Start()
     {
