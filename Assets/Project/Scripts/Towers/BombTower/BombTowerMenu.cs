@@ -23,7 +23,7 @@ public class BombTowerMenu : MonoBehaviour
     public Button BombTowerUpgradeButton;
     public List<GameObject> BombObjList = new List<GameObject>();
     public TextMeshProUGUI BombTowerUpgradeMoneyText;
-    
+
     void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
@@ -38,23 +38,16 @@ public class BombTowerMenu : MonoBehaviour
         Debug.Log("on mouse downçalıştıı");
         if (bombTowerClicked == false)
         {
-            
-             towerUI.SetActive(true);
+            towerUI.SetActive(true);
             _upgradeButton.SetActive(true);
             SellButton.SetActive(true);
             bombTowerClicked = true;
-           
         }
         else
         {
-             towerUI.SetActive(false);
-            
+            towerUI.SetActive(false);
             bombTowerClicked = false;
         }
-
-      
-       
-        
     }
 
     void Update()
@@ -63,49 +56,32 @@ public class BombTowerMenu : MonoBehaviour
         if (Count <= 2)
         {
             bombObjList = BombObjList[Count];
+            bombTowerCountCheck = Count;
+
+            BombObjList[0].SetActive(Count == 0);
+            BombObjList[1].SetActive(Count == 1);
+            BombObjList[2].SetActive(Count == 2);
+
+            BombTower = BombObjList[Count];
         }
 
-        bombTowerCountCheck = Count;
-
-        if (bombObjList != null)
+        if (Count == 2)
         {
-            if (Count == 0)
-            {
-                BombTower = BombObjList[0];
-                BombObjList[0].SetActive(true);
-                BombObjList[1].SetActive(false);
-                BombObjList[2].SetActive(false);
-
-            }
-            if (Count == 1)
-            {
-                BombTower = BombObjList[1];
-                BombObjList[0].SetActive(false);
-                BombObjList[1].SetActive(true);
-                BombObjList[2].SetActive(false);
-
-            }
-            if (Count == 2)
-            {
-                BombTower = BombObjList[2];
-                BombObjList[0].SetActive(false);
-                BombObjList[1].SetActive(false);
-                BombObjList[2].SetActive(true);
-                _upgradeButton.SetActive(false);
-                MaxlevelImage.gameObject.SetActive(true);
-            }
-            else
-            {
-                MaxlevelImage.gameObject.SetActive(false);
-            }
+            _upgradeButton.SetActive(false);
+        }
+        else
+        {
+            _upgradeButton.SetActive(bombTowerClicked);
         }
 
-        if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1 && bombTowerCountCheck == 0)
+        MaxlevelImage.gameObject.SetActive(Count == 2 && bombTowerClicked);
+
+        if (bombTowerCountCheck == 0 && Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
         {
             BombTowerUpgradeButton.interactable = true;
             BombTowerUpgradeMoneyText.text = GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2 && bombTowerCountCheck == 1)
+        else if (bombTowerCountCheck == 1 && Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2)
         {
             BombTowerUpgradeButton.interactable = true;
             BombTowerUpgradeMoneyText.text = GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2.ToString();
@@ -115,12 +91,7 @@ public class BombTowerMenu : MonoBehaviour
             BombTowerUpgradeButton.interactable = false;
         }
 
-        if(bombTowerClicked==false)
-        {
-            _upgradeButton.SetActive(false);
-            SellButton.SetActive(false);
-        }
-
+        SellButton.SetActive(bombTowerClicked);
     }
 
     public void UpgradeBomb()
@@ -130,14 +101,11 @@ public class BombTowerMenu : MonoBehaviour
         BombTower = gameObject;
         bombTowerClicked = false;
 
-
         _upgradeButton.SetActive(false);
         SellButton.SetActive(false);
 
         if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
         {
-
-
             if (bombTowerCountCheck == 0)
             {
                 Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
@@ -146,7 +114,6 @@ public class BombTowerMenu : MonoBehaviour
 
             if (bombTowerCountCheck == 1)
             {
-                _upgradeButton.gameObject.SetActive(false);
                 Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
             }
@@ -155,8 +122,6 @@ public class BombTowerMenu : MonoBehaviour
 
     public void BombTowerSell()
     {
-
-
         if (bombTowerCountCheck == 0)
         {
             Quaity.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel1);
