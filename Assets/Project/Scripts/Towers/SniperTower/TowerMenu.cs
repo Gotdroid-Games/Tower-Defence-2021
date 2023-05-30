@@ -44,7 +44,7 @@ public class TowerMenu : MonoBehaviour
     {
         var up = transform.TransformDirection(Vector3.up);
         RaycastHit hit;
-        Debug.DrawRay(transform.position, -up * 2, Color.green);
+        Debug.DrawRay(transform.position, -up * 2, Color.magenta);
 
         if (Physics.Raycast(transform.position, -up, out hit, 2))
         {
@@ -83,7 +83,7 @@ public class TowerMenu : MonoBehaviour
 
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
-            UpgradeButton1.SetActive(false);
+        UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
