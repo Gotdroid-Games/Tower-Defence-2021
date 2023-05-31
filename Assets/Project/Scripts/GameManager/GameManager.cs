@@ -37,12 +37,29 @@ public class TowerVaribles
 public class EnemyVariables
 {
     //Düþman Caný
+    public EnemyManager.EnemyType enemyType;
     public string name;
     public int _EnemyHealth;
     public int _EnemySpeed;
     public int _EnemyDamage;
     public int EnemyKillCoin;
     public float enemySpawnTime;
+}
+
+[System.Serializable]
+public class WaveInfo
+{
+    public Transform[] SpawnPoints;
+    public List<WaveVariables> WaveVariables;
+    public float TimeBetweenWaves;
+}
+
+[System.Serializable]
+public class WaveVariables
+{
+    public EnemyManager.EnemyType EnemyType;
+    public int SpawnerEnemy;
+    public Transform ActiveSpawner;
 }
 
 
@@ -103,6 +120,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] ActiveRobots;
 
+    [Header("Waves")]
+
+    public List<WaveInfo> Waves;
+
     private void Awake()
     {
         Instance = this;
@@ -137,11 +158,6 @@ public class GameManager : MonoBehaviour
         WaveSpawner.gorillaRobotWaveInfo = _gorillaRobotWaveInfo;
         WaveSpawner.smarthomeRobotWaveInfo = _smarthomeRobotWaveInfo;
         WaveSpawner.droneRobotWaveInfo = _droneRobotWaveInfo;
-
-        //Zaman Deðerleri
-        WaveSpawner.timeBetweenWaves = _timeBetweenWaves;
-
-
     }
 
 
