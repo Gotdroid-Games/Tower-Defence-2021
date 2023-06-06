@@ -764,6 +764,10 @@ PrefabInstance:
       value: -0.008
       objectReference: {fileID: 0}
     - target: {fileID: 4957091178424623601, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957091178424623601, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.098
       objectReference: {fileID: 0}
@@ -781,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -960,7 +964,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 6258459030584738354}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &5886596802549270600
+--- !u!135 &8242467981751888724
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -971,8 +975,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.3989382
-  m_Center: {x: -0.29446608, y: 0.05497621, z: -0.0000000031660792}
+  m_Radius: 2.4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8836688118391823909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3204515996240845847, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
