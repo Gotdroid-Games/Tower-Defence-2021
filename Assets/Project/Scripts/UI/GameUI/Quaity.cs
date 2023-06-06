@@ -89,16 +89,16 @@ public class Quaity : MonoBehaviour
         }
     }
 
-    public void WaveValue(int wave)
+    public void WaveValue()
     {
-        _waveText += wave;
+        _waveText++;
         WaveText.text = _waveText.ToString()+"/"+GameManager._basicRobot.Length.ToString();
     }
     void WaveCounter()
     {
         if (WaveSpawner.waveCountdown <= 0)
         {
-            WaveValue(1);
+            WaveValue();
         }
     }
     public void CoinValue(int coin)

@@ -19,9 +19,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Transform smartHomeRobotPrefab;
     [SerializeField] private Transform DronePrefab;
 
-    [SerializeField] private Transform spawnPoint;
-
-    
     [Header("Wave Texts")]
     [SerializeField] private TextMeshProUGUI waveCountdownText;
     [SerializeField] private TextMeshProUGUI waveStartInfoText;
@@ -31,7 +28,6 @@ public class WaveSpawner : MonoBehaviour
     public float spawnTime;
     public int waveIndex = 0;
     private bool startWaveControl;
-    public float[] timeBetweenWaves;
     string waveStartInfo;
     int totalEnemies = 0;
     public int totalenemiescheck = 0;
@@ -52,15 +48,18 @@ public class WaveSpawner : MonoBehaviour
     public string[] smarthomeRobotWaveInfo;
     public string[] droneRobotWaveInfo;
 
+    GameObject SelectedRobot;
+    float WaitForSec;
+
 
 
     private void Start()
     {
-        startWaveControl = false;
-        waveCountdown = timeBetweenWaves[0];
         Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
         GameManager = FindObjectOfType<GameManager>();
+        startWaveControl = false;
+        waveCountdown = GameManager.Waves[0].TimeBetweenWaves;
 
         basicRobotWaveInfo = new string[basicRobot.Length];
         gorillaRobotWaveInfo = new string[gorillaRobot.Length];
@@ -85,13 +84,12 @@ public class WaveSpawner : MonoBehaviour
             }
         }
 
-        if (waveIndex <= 12 && waveCountdown <= 0f && spawnedEnemies == totalEnemies)
+        if (waveIndex <= 12 && waveCountdown <= 0f && spawnedEnemies == totalEnemies && startWaveControl == true)
         {
             waveIndex++;
-            Quaity.WaveValue(1);
+            Quaity.WaveValue();
             StartCoroutine(SpawnWave());
-            waveCountdown = timeBetweenWaves[waveIndex - 1];
-
+            waveCountdown = GameManager.Waves[waveIndex - 1].TimeBetweenWaves;
             _startWave.SetActive(false);
             if (waveIndex >= 12)
             {
@@ -108,7 +106,7 @@ public class WaveSpawner : MonoBehaviour
     }
     public void Totalenemycheck()
     {
-        if (waveIndex>=12)
+        if (waveIndex >= 12)
         {
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
             totalenemiescheck = objectsWithTag.Length;
@@ -118,21 +116,19 @@ public class WaveSpawner : MonoBehaviour
 
     public void StartWave()
     {
-        if (waveIndex <= 12)
+        if (waveIndex <= GameManager.Waves.Count)
         {
             waveIndex++;
             startWaveControl = true;
             _startWave.SetActive(false);
-            Quaity.WaveValue(1);
-            waveCountdown = timeBetweenWaves[waveIndex];
+            Quaity.WaveValue();
+            waveCountdown = GameManager.Waves[waveIndex].TimeBetweenWaves;
             StartCoroutine(SpawnWave());
-
-
         }
     }
 
     public void WaveInfo(GameManager gameManager)
-    {
+    {/*
         //Dalga butonunun üzerine fare ile gelindiðinde aktif olan image içerisine hangi düþmandan kaç adet geleceðini belirten sistem
         //138 - 141 satýrlarý arasýnda bulunan kodlar 38 - 41 satýrlarý arasýnda bulunan dizilerini string olarak dönüþtürüp basicRobotWaveInfo 138 - 141 arasýnda bulunan deðiþkenlerine atama yapýyor
 
@@ -147,11 +143,6 @@ public class WaveSpawner : MonoBehaviour
 
         waveStartInfoText.text = waveStartInfo;
 
-        var basicRobotWaveInfo = gameManager._basicRobot.Select(x => x.ToString()).ToArray();
-        var gorillaRobotWaveInfo = gameManager._gorillaRobot.Select(x => x.ToString()).ToArray();
-        var smarthomeRobotWaveInfo = gameManager._smartHomeRobot.Select(x => x.ToString()).ToArray();
-        var droneRobotWaveInfo = gameManager._droneRobot.Select(x => x.ToString()).ToArray();
-
         var robotInfos = new (string, string[])[]
         {
     ("Temel Düþman", basicRobotWaveInfo),
@@ -163,43 +154,35 @@ public class WaveSpawner : MonoBehaviour
         waveStartInfo = string.Join("\n", robotInfos
             .Where(r => r.Item2.Length > waveIndex && r.Item2[waveIndex] != "0")
             .Select(r => $"{r.Item1} {r.Item2[waveIndex]}"));
+        */
     }
 
-    private IEnumerator SpawnWave()
-    {
-        totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1];
-        
-
-
-        if (waveIndex > 0 && waveIndex <= 12)
+        private IEnumerator SpawnWave()
+    {   
+        if (waveIndex > 0 && waveIndex <= GameManager.Waves.Count)
         {
-            for (int i = 0; i < basicRobot[waveIndex - 1]; i++)
+            for (int i = 0; i < GameManager.Waves[waveIndex - 1].WaveVariables.Count; i++)
             {
-                SpawnEnemy(basicRobotPrefab);
-                yield return new WaitForSeconds(GameManager.EnemyVariables[0].enemySpawnTime);
-                spawnedEnemies++;
-            }
+                for (int a = 0; a < GameManager.Waves[waveIndex - 1].WaveVariables[i].SpawnerEnemy; a++)
+                {
+                    for (int x = 0; x < EnemyManager.Instance.Enemies.Length; x++)
+                    {
+                        if (GameManager.Waves[waveIndex - 1].WaveVariables[i].EnemyType == EnemyManager.Instance.Enemies[x].GetComponent<Enemy>().RobotType)
+                            SelectedRobot = EnemyManager.Instance.Enemies[x];
+                    }
 
-            for (int i = 0; i < gorillaRobot[waveIndex - 1]; i++)
-            {
-                SpawnEnemy(gorillaRobotPrefab);
-                yield return new WaitForSeconds(GameManager.EnemyVariables[1].enemySpawnTime);
-                spawnedEnemies++;
-            }
+                    for (int y = 0; y < GameManager.EnemyVariables.Count; y++)
+                    {
+                        if (GameManager.Waves[waveIndex - 1].WaveVariables[i].EnemyType == GameManager.EnemyVariables[y].enemyType)
+                            WaitForSec = GameManager.EnemyVariables[y].enemySpawnTime;
+                    }
 
-            for (int i = 0; i < smarthomeRobot[waveIndex - 1]; i++)
-            {
-                SpawnEnemy(smartHomeRobotPrefab);
-                yield return new WaitForSeconds(GameManager.EnemyVariables[2].enemySpawnTime);
-                spawnedEnemies++;
-            }
-            for (int i = 0; i < DroneRobot[waveIndex - 1]; i++)
-            {
-                SpawnEnemy(DronePrefab);
-                yield return new WaitForSeconds(GameManager.EnemyVariables[3].enemySpawnTime);
-                spawnedEnemies++;
+                    SpawnEnemy(SelectedRobot, GameManager.Waves[waveIndex - 1].WaveVariables[i].ActiveSpawner);
+                    yield return new WaitForSeconds(WaitForSec);
+                }
             }
         }
+
         if (spawnedEnemies == totalEnemies)
         {
             yield return new WaitForSeconds(GameManager.WaveStartTimeAdjustment);//buradan wavespawn olduktan sonra kaçsaniye sonra buton aktif olsun ona bakýyoruz
@@ -211,7 +194,7 @@ public class WaveSpawner : MonoBehaviour
 
     }
 
-    private void SpawnEnemy(Transform enemyPrefab)
+    private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint)
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         GameManager.Instance.RefreshRobotList();
