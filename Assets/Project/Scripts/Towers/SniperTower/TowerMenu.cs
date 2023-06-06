@@ -11,7 +11,11 @@ public class TowerMenu : MonoBehaviour
     public GameObject Tower;
     public GameObject SellButton;
     public bool TowerClicked;
-   public int sniperTowerCountCheck;
+    private bool sniperTowerDamageUpgradeLevel1 = false;
+    private bool sniperTowerDamageUpgradeLevel2 = false;
+    public int sniperTowerCountCheck;
+    public int sniperTowerDamage;
+    public int sniperTowerRange;
 
     private void Start()
     {
@@ -20,6 +24,8 @@ public class TowerMenu : MonoBehaviour
         Quaity = FindObjectOfType<Quaity>();
         RangeUpgrade = GetComponent<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
+        sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
+        sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
     }
     private void Update()
     {
@@ -93,19 +99,27 @@ public class TowerMenu : MonoBehaviour
 
             if (sniperTowerCountCheck == 0)
             {
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 Debug.Log("Countcheck 0");
             }
 
-            if (sniperTowerCountCheck == 1)
+            if (sniperTowerCountCheck == 1 && !sniperTowerDamageUpgradeLevel1)
             {
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel1;
+                sniperTowerDamageUpgradeLevel1 = true;
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 Debug.Log("Countcheck 1");
             }
 
-            if (sniperTowerCountCheck == 2)
+            if (sniperTowerCountCheck == 2 && sniperTowerDamageUpgradeLevel1 && !sniperTowerDamageUpgradeLevel2)
             {
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
                 Quaity.TowerUpgradeMoney(0);
+                sniperTowerDamageUpgradeLevel2 = true;
                 Debug.Log("Countcheck 2");
             }
 

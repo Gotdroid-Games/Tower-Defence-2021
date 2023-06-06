@@ -13,8 +13,7 @@ public class RangeUpgrade : MonoBehaviour
     public float Range;
     public int sniperTowerCountCheck;
     public int bombTowerCountCheck;
-    private bool damageAdded = false;
-    private bool damageAdded2 = false;
+    
     private bool bombtowerdamageAdded = false;
     private bool bombtowerdamageAdded2 = false;
 
@@ -42,25 +41,25 @@ public class RangeUpgrade : MonoBehaviour
         {
             bombTowerCountCheck = GetComponent<BombTowerMenu>().bombTowerCountCheck;
         }
-        if (sniperTowerCountCheck == 1 && !damageAdded)
-        {
-            Damage += GameManager.TowerVaribles[0].TowerDamageIncreaseValue;
-            Range += GameManager.TowerVaribles[0].TowerRangeIncreaseValue;
-            damageAdded = true;
-            Debug.Log("Damage: " + Damage);
-        }
-        if (sniperTowerCountCheck == 2 && damageAdded&&!damageAdded2)
-        {
-            Damage += 15;
-            Range += 15;
-            damageAdded2 = true;
-            Debug.Log("damage" + Damage);
-        }
+        //if (sniperTowerCountCheck == 1 )//&& !damageAdded)
+        //{
+        //    Damage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+        //    Range += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
+        //    //damageAdded = true;
+        //    Debug.Log("Damage: " + Damage);
+        //}
+        //if (sniperTowerCountCheck == 2 )//&& damageAdded&&!damageAdded2)
+        //{
+        //    Damage += 15;
+        //    Range += 15;
+        //    //damageAdded2 = true;
+        //    Debug.Log("damage" + Damage);
+        //}
 
         if (bombTowerCountCheck == 1 && !bombtowerdamageAdded)
         {
-            Damage += GameManager.TowerVaribles[0].TowerDamageIncreaseValue;
-            Range += GameManager.TowerVaribles[0].TowerRangeIncreaseValue;
+            Damage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+            Range += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
             bombtowerdamageAdded = true;
             Debug.Log("Damage: " + Damage);
         }

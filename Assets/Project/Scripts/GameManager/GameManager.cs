@@ -14,9 +14,11 @@ public class TowerVaribles
     public string name;
     //Kulenin
     public int TowerDamage;
-    public int TowerDamageIncreaseValue;
+    public int TowerDamageIncreaseValueLevel1;
+    public int TowerDamageIncreaseValueLevel2;
     public int TowerRange;
-    public int TowerRangeIncreaseValue;
+    public int TowerRangeIncreaseValueLevel1;
+    public int TowerRangeIncreaseValueLevel2;
     public float FireRate;
     [Header("")]
     public int TowerMoneyBuy;
