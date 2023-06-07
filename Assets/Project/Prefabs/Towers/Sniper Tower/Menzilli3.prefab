@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4045590785461371276}
   - component: {fileID: 1119998792704970281}
   - component: {fileID: 2913828676080188131}
-  - component: {fileID: 994983002094070448}
   - component: {fileID: 2713979459960920417}
   m_Layer: 0
   m_Name: Menzilli3
@@ -91,26 +90,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &994983002094070448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3706185201927625526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerType: 0
-  UpgradeButton1: {fileID: 0}
-  Tower: {fileID: 3706185201927625526}
-  SellButton: {fileID: 0}
-  TowerClicked: 0
-  sniperTowerCountCheck: 0
-  sniperTowerDamage: 0
-  sniperTowerRange: 0
 --- !u!65 &2713979459960920417
 BoxCollider:
   m_ObjectHideFlags: 0

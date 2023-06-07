@@ -126,8 +126,8 @@ public class TowerMenu : MonoBehaviour
         Debug.Log(gameObject.name);
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
-        UpgradeButton1.SetActive(false);
-        SellButton.SetActive(false);
+        //UpgradeButton1.SetActive(false);
+        //SellButton.SetActive(false);
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
