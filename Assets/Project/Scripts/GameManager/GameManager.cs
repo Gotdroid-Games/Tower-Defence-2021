@@ -11,7 +11,7 @@ public class TowerVaribles
     [HideInInspector]
     public string name;
     //Kulenin
-    public EnemyManager.TowerType TowerType;
+    
     public int TowerDamage;
     public int TowerDamageIncreaseValueLevel1;
     public int TowerDamageIncreaseValueLevel2;

@@ -33,7 +33,10 @@ public class Bombbullet : MonoBehaviour
         }
 
         if (transform.position.y <= target.position.y)
+        {
             Explode();
+        }
+            
     }
 
     public void Explode()

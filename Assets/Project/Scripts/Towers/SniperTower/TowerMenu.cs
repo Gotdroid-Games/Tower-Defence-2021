@@ -6,6 +6,7 @@ public class TowerMenu : MonoBehaviour
     GameManager GameManager;
     RangeUpgrade RangeUpgrade;
     TowerTarget TowerTarget;
+    Enemy Enemy;
     Quaity Quaity;
     public GameObject UpgradeButton1;
     public GameObject Tower;
@@ -16,7 +17,7 @@ public class TowerMenu : MonoBehaviour
     public int sniperTowerCountCheck;
     public int sniperTowerDamage;
     public int sniperTowerRange;
-
+    public EnemyManager.TowerType TowerType;
     private void Start()
     {
         TowerClicked = false;
@@ -24,6 +25,7 @@ public class TowerMenu : MonoBehaviour
         Quaity = FindObjectOfType<Quaity>();
         RangeUpgrade = GetComponent<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
+        Enemy = FindObjectOfType<Enemy>();
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
         sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
     }

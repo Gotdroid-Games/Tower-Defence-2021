@@ -3,12 +3,7 @@ guid: 1f4e604040f021b4590597927242ac4d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: scfi
-    second: {fileID: 2100000, guid: 943366af2b2d7734db1597eec247dca0, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

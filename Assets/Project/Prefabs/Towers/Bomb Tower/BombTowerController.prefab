@@ -374,6 +374,7 @@ MonoBehaviour:
   - {fileID: 6857959501953687688}
   - {fileID: 2341376662875871168}
   BombTowerUpgradeMoneyText: {fileID: 6195096927764653901}
+  TowerType: 1
 --- !u!65 &845767025554001964
 BoxCollider:
   m_ObjectHideFlags: 0

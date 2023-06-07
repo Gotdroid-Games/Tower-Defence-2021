@@ -3,7 +3,22 @@ guid: fc88a74ab6c1e4244b7557487d98e6f0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base
+    second: {fileID: 2100000, guid: fe88bc7daafdfe0468e8f8f8f1237e2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light.001
+    second: {fileID: 2100000, guid: 621554784a8d47941b4c788dffa423fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scfi
+    second: {fileID: 2100000, guid: ce15c19af549298479adff7f637cdeda, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

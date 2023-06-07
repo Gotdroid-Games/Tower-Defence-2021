@@ -7,11 +7,11 @@ public class Enemy : MonoBehaviour
 {
 
     public EnemyManager.EnemyType RobotType;
-    public EnemyManager.TowerType TowerType;
+    
 
     [Header("")]
      
-    [SerializeField] TowerMenu TowerMenu;
+    //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
     WaveSpawner waveSpawner;
     RangeUpgrade RangeUpgrade;
@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
     GameValue GameValue;
     TowerTarget TowerTarget;
     GameManager GameManager;
-
+    BombTowerMenu BombTowerMenu;
+    TowerMenu Towermenu;
     int maxHealth;
     public int currentHealth;
 
@@ -48,6 +49,9 @@ public class Enemy : MonoBehaviour
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
+        BombTowerMenu = FindObjectOfType<BombTowerMenu>();
+        Towermenu = FindObjectOfType<TowerMenu>();
+
 
         target = WayPoints.points[0];
         
@@ -98,26 +102,30 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
-        TowerTarget = FindObjectOfType<TowerTarget>();
+            TowerTarget = FindObjectOfType<TowerTarget>();
 
-        if ( GameManager.TowerVaribles[0].TowerType == EnemyManager.TowerType.sniperTower)
+        if (Towermenu != null)
         {
-            currentHealth -= GameManager.TowerVaribles[0].TowerDamage;
+            if (Towermenu.TowerType == EnemyManager.TowerType.sniperTower)
+            {
+                currentHealth -= GameManager.TowerVaribles[0].TowerDamage;
+            }
         }
+        if (BombTowerMenu != null)
+        {
+            if (BombTowerMenu.TowerType == EnemyManager.TowerType.bombTower)
+            {
+                currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
+            }
+        }
+            _healthbar.SetHealth(currentHealth);
+
+            //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
+            //{
+            //    currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
+            //    _healthbar.SetHealth(currentHealth);
+            //}
         
-        if (GameManager.TowerVaribles[1].TowerType == EnemyManager.TowerType.bombTower)
-        {
-            currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
-        }
-
-        _healthbar.SetHealth(currentHealth);
-
-        //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
-        //{
-        //    currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
-        //    _healthbar.SetHealth(currentHealth);
-        //}
     }
 
     private void Update()

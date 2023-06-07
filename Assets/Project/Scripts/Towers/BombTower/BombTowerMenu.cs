@@ -27,7 +27,7 @@ public class BombTowerMenu : MonoBehaviour
     public Button BombTowerUpgradeButton;
     public List<GameObject> BombObjList = new List<GameObject>();
     public TextMeshProUGUI BombTowerUpgradeMoneyText;
-
+    public EnemyManager.TowerType TowerType;
     void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
