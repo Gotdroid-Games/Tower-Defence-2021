@@ -12,4 +12,10 @@ public class EnemyManager : MonoBehaviour
         DroneRobot
 
     }
+
+    public enum TowerType
+    {
+        sniperTower,
+        bombTower
+    }
 }

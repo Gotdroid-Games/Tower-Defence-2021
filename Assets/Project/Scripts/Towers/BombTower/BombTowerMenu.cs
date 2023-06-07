@@ -18,6 +18,10 @@ public class BombTowerMenu : MonoBehaviour
     public int[] BombTowerUpgradeMoneyList;
     public int Count;
     public int bombTowerCountCheck;
+    public int bombTowerDamage;
+    public int bombTowerRange;
+    private bool bombTowerDamageUpgradeLevel1 = false;
+    private bool bombTowerDamageUpgradeLevel2 = false;
     public bool bombTowerClicked;
     public Image MaxlevelImage;
     public Button BombTowerUpgradeButton;
@@ -32,6 +36,9 @@ public class BombTowerMenu : MonoBehaviour
         BombObjList[0].SetActive(true);
         Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
+
+        bombTowerDamage = GameManager.TowerVaribles[1].TowerDamage;
+        bombTowerRange = GameManager.TowerVaribles[1].TowerRange;
     }
     private void OnMouseDown()
     {
@@ -109,12 +116,16 @@ public class BombTowerMenu : MonoBehaviour
             if (bombTowerCountCheck == 0)
             {
                 Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
+                bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel1;
+                bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel1;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
             }
 
             if (bombTowerCountCheck == 1)
             {
                 Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
+                bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel2;
+                bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel2;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
             }
         }

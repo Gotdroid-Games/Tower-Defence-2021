@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 2632072291838433020}
   - component: {fileID: 3570579970620275783}
   - component: {fileID: 8988853236396017705}
-  - component: {fileID: 3466389259416718448}
   - component: {fileID: 2243671109611598848}
   m_Layer: 0
   m_Name: TowerController
@@ -223,6 +222,8 @@ MonoBehaviour:
   SellButton: {fileID: 6582945738517499514}
   TowerClicked: 0
   sniperTowerCountCheck: 0
+  sniperTowerDamage: 0
+  sniperTowerRange: 0
 --- !u!114 &8988853236396017705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,22 +248,6 @@ MonoBehaviour:
   sniperTowerCounts: 0
   sniperTowerCountCheck: 0
   bombTowerCounts: 0
-  bombTowerCountCheck: 0
---- !u!114 &3466389259416718448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206315001989547515}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64caa64944e3d784bad2decd6bcfa3a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 15
-  Range: 15
-  sniperTowerCountCheck: 0
   bombTowerCountCheck: 0
 --- !u!114 &2243671109611598848
 MonoBehaviour:
@@ -703,7 +688,7 @@ PrefabInstance:
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3466389259416718448}
+      objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

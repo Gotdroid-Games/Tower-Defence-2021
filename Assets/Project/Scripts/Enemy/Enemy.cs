@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
 
     public EnemyManager.EnemyType RobotType;
+    public EnemyManager.TowerType TowerType;
 
     [Header("")]
      
@@ -42,7 +43,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
         GameValue = FindObjectOfType<GameValue>();
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
@@ -100,7 +100,17 @@ public class Enemy : MonoBehaviour
     {
         RangeUpgrade = FindObjectOfType<RangeUpgrade>();
         TowerTarget = FindObjectOfType<TowerTarget>();
-        currentHealth -= RangeUpgrade.Damage;
+
+        if ( GameManager.TowerVaribles[0].TowerType == EnemyManager.TowerType.sniperTower)
+        {
+            currentHealth -= GameManager.TowerVaribles[0].TowerDamage;
+        }
+        
+        if (GameManager.TowerVaribles[1].TowerType == EnemyManager.TowerType.bombTower)
+        {
+            currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
+        }
+
         _healthbar.SetHealth(currentHealth);
 
         //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
