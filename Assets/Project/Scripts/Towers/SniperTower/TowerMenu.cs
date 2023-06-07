@@ -31,6 +31,7 @@ public class TowerMenu : MonoBehaviour
     {
         TowerRangeController = FindObjectOfType<TowerRangeController>();
         sniperTowerCountCheck = TowerRangeController.sniperTowerCounts;
+
         if (TowerRangeController.sniperTowerCounts >= 2)
         {
             TowerRangeController.sniperTowerCounts = 2;
@@ -100,15 +101,15 @@ public class TowerMenu : MonoBehaviour
             if (sniperTowerCountCheck == 0)
             {
                 sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
-                sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 Debug.Log("Countcheck 0");
             }
 
             if (sniperTowerCountCheck == 1 && !sniperTowerDamageUpgradeLevel1)
             {
-                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
-                sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel1;
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
                 sniperTowerDamageUpgradeLevel1 = true;
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 Debug.Log("Countcheck 1");
@@ -116,8 +117,7 @@ public class TowerMenu : MonoBehaviour
 
             if (sniperTowerCountCheck == 2 && sniperTowerDamageUpgradeLevel1 && !sniperTowerDamageUpgradeLevel2)
             {
-                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
-                sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
+               // Özel kuleler için extra geliþtirme yapýldýðý taktirde sniperTowerDamage / SniperTowerDamage artýk deðerleri buraya eklenebilir
                 Quaity.TowerUpgradeMoney(0);
                 sniperTowerDamageUpgradeLevel2 = true;
                 Debug.Log("Countcheck 2");
