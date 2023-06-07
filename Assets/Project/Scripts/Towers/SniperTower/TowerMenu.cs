@@ -1,31 +1,43 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+
 public class TowerMenu : MonoBehaviour
 {
+    //Referanslar
     TowerRangeController TowerRangeController;
     GameManager GameManager;
-    RangeUpgrade RangeUpgrade;
     TowerTarget TowerTarget;
     Enemy Enemy;
     Quaity Quaity;
+    public EnemyManager.TowerType TowerType;
+
+    //UI Elemanlarý
     public GameObject UpgradeButton1;
     public GameObject Tower;
     public GameObject SellButton;
+
+    //Durum Bilgileri
     public bool TowerClicked;
     private bool sniperTowerDamageUpgradeLevel1 = false;
     private bool sniperTowerDamageUpgradeLevel2 = false;
+
+    //Niþancý Kulesi Özellikleri 
     public int sniperTowerCountCheck;
     public int sniperTowerDamage;
     public int sniperTowerRange;
-    public EnemyManager.TowerType TowerType;
+
+    
     private void Start()
     {
+        //Referans Tanýmlamalarý
         TowerClicked = false;
         TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
-        RangeUpgrade = GetComponent<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
+
+        //Kule Hasar ve Menzil Tanýmlamalarý
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
         sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
     }
@@ -39,6 +51,7 @@ public class TowerMenu : MonoBehaviour
             TowerRangeController.sniperTowerCounts = 2;
         }
 
+        //Eðer Niþancý Kulesinin Count Deðeri 2 Ýse ve Kuleye Týklanmýþsa "MaxLevelButton" Gösterilir, Aksi Halde Gizlenir.
         if (sniperTowerCountCheck == 2 && TowerClicked == true)
         {
             TowerRangeController.MaxLevelButton.gameObject.SetActive(true);
@@ -158,4 +171,10 @@ public class TowerMenu : MonoBehaviour
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
     }
+
+    //public void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(transform.position, sniperTowerRange);
+    //}
 }
