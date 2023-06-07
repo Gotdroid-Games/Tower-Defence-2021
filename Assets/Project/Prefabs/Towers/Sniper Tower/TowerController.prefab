@@ -217,10 +217,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerType: 0
   UpgradeButton1: {fileID: 5570693761724152515}
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
+  towerUI: {fileID: 6132156409832615402}
+  TouchObjList:
+  - {fileID: 1472426025184628817}
+  - {fileID: 3823175394253368139}
+  - {fileID: 7392681481885285183}
+  sniperTower: {fileID: 7206315001989547515}
+  SniperTowerUpgradeButton: {fileID: 2084141346023942752}
+  MaxlevelImage: {fileID: 7678200046167059464}
+  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
   TowerClicked: 0
+  sniperTowerCount: 0
   sniperTowerCountCheck: 0
   sniperTowerDamage: 0
   sniperTowerRange: 0
@@ -256,7 +267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7206315001989547515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
   m_Name: 
@@ -420,7 +431,8 @@ PrefabInstance:
       propertyPath: UpgradeButton1
       value: 
       objectReference: {fileID: 5570693761724152515}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9076937117473570886, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
 --- !u!1 &1472426025184628817 stripped
 GameObject:
@@ -515,7 +527,8 @@ PrefabInstance:
       propertyPath: UpgradeButton1
       value: 
       objectReference: {fileID: 5570693761724152515}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4975620077337423782, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
 --- !u!1 &3823175394253368139 stripped
 GameObject:
@@ -606,7 +619,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 994983002094070448, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
 --- !u!1 &7392681481885285183 stripped
 GameObject:
