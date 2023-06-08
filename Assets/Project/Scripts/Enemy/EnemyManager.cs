@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -18,4 +19,6 @@ public class EnemyManager : MonoBehaviour
         sniperTower,
         bombTower
     }
+
+    public GameObject[] Enemies;
 }

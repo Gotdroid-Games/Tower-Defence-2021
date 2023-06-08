@@ -10,6 +10,7 @@ public class WaveSpawner : MonoBehaviour
     Quaity Quaity;
     GameUI GameUI;
     GameManager GameManager;
+    EnemyManager EnemyManager;
 
     [SerializeField] private GameObject _startWave;
 
@@ -58,6 +59,7 @@ public class WaveSpawner : MonoBehaviour
         Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
         GameManager = FindObjectOfType<GameManager>();
+        EnemyManager = FindObjectOfType<EnemyManager>();
         startWaveControl = false;
         waveCountdown = GameManager.Waves[0].TimeBetweenWaves;
 
@@ -165,10 +167,10 @@ public class WaveSpawner : MonoBehaviour
             {
                 for (int a = 0; a < GameManager.Waves[waveIndex - 1].WaveVariables[i].SpawnerEnemy; a++)
                 {
-                    for (int x = 0; x < EnemyManager.Instance.Enemies.Length; x++)
+                    for (int x = 0; x < EnemyManager.Enemies.Length; x++)
                     {
-                        if (GameManager.Waves[waveIndex - 1].WaveVariables[i].EnemyType == EnemyManager.Instance.Enemies[x].GetComponent<Enemy>().RobotType)
-                            SelectedRobot = EnemyManager.Instance.Enemies[x];
+                        if (GameManager.Waves[waveIndex - 1].WaveVariables[i].EnemyType == EnemyManager.Enemies[x].GetComponent<Enemy>().RobotType)
+                            SelectedRobot = EnemyManager.Enemies[x];
                     }
 
                     for (int y = 0; y < GameManager.EnemyVariables.Count; y++)
