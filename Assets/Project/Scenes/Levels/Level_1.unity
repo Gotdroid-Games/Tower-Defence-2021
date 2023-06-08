@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15775,6 +15775,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f4e604040f021b4590597927242ac4d, type: 3}
   m_PrefabInstance: {fileID: 107064131}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2060219789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2060219789, guid: f4af549e72be9ab489668815800e40a6, type: 3}
+  m_PrefabInstance: {fileID: 7766864944426261065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2060967956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: abdc9fc1e928385449783f226e82623c, type: 3}
@@ -17395,6 +17400,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4af549e72be9ab489668815800e40a6, type: 3}
+--- !u!1 &7766864944426261066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1276722247592861591, guid: f4af549e72be9ab489668815800e40a6, type: 3}
+  m_PrefabInstance: {fileID: 7766864944426261065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7766864944426261067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766864944426261066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  fireRate: 1
+  fireCountdown: 1
+  critValue: 0
+  partToRotate: {fileID: 7766864944426261068}
+  turnSpeed: 0
+  bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
+  firePoint: {fileID: 2060219789}
+--- !u!4 &7766864944426261068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 396427203804018227, guid: f4af549e72be9ab489668815800e40a6, type: 3}
+  m_PrefabInstance: {fileID: 7766864944426261065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &7986408015476344314
 MeshFilter:
   m_ObjectHideFlags: 0
