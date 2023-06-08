@@ -316,7 +316,6 @@ GameObject:
   - component: {fileID: 3488515214769342755}
   - component: {fileID: 7673684480523168095}
   - component: {fileID: 845767025554001964}
-  - component: {fileID: 2972964232947008613}
   m_Layer: 0
   m_Name: BombTowerController
   m_TagString: Untagged
@@ -388,18 +387,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8157358, y: 4.7989926, z: 3.9658628}
   m_Center: {x: 0.12526846, y: 1.8994968, z: -0.0510633}
---- !u!114 &2972964232947008613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7300374256345671116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd10f5b3daf94643864d512715e2b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1132498226743542278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -471,8 +458,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7771849519198115834, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fed70ebcd9e44d97a26e80fcc05fd0d, type: 3}
 --- !u!1 &2341376662875871168 stripped
 GameObject:
@@ -555,16 +541,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7409502081566840516, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
       propertyPath: m_Name
       value: Firepoint
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7032142598081848368, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f220db2256b74db285ba3142c9b41c8, type: 3}
 --- !u!4 &544794239506954970 stripped
 Transform:
@@ -681,8 +662,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1376908061751552577, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77104a536b77404d95254a975cfcf3e, type: 3}
 --- !u!4 &6081985370055424562 stripped
 Transform:
@@ -950,7 +930,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 6258459030584738354}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &8242467981751888724
+--- !u!135 &1968749692587904589
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -961,10 +941,23 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.4
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8836688118391823909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3204515996240845847, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 6258459030584738354}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &2139408634657730645
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836688118391823909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.3
+  m_Center: {x: 0, y: 0, z: 0}

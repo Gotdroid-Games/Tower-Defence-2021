@@ -6,7 +6,6 @@ using TMPro;
 public class TowerMenu : MonoBehaviour
 {
     //Referanslar
-    TowerRangeController TowerRangeController;
     GameManager GameManager;
     TowerTarget TowerTarget;
     Enemy Enemy;
@@ -27,8 +26,6 @@ public class TowerMenu : MonoBehaviour
 
     //Durum Bilgileri
     public bool TowerClicked;
-    private bool sniperTowerDamageUpgradeLevel1 = false;
-    private bool sniperTowerDamageUpgradeLevel2 = false;
 
     //Niþancý Kulesi Özellikleri 
     public int sniperTowerCount;
@@ -36,7 +33,7 @@ public class TowerMenu : MonoBehaviour
     public int sniperTowerDamage;
     public int sniperTowerRange;
 
-    
+
     private void Start()
     {
         //Referans Tanýmlamalarý
@@ -77,7 +74,7 @@ public class TowerMenu : MonoBehaviour
         //TowerRangeController = FindObjectOfType<TowerRangeController>();
         //sniperTowerCountCheck = TowerRangeController.sniperTowerCounts;
 
-        if (sniperTowerCount<=2)
+        if (sniperTowerCount <= 2)
         {
             touchObjList = TouchObjList[sniperTowerCount];
             sniperTowerCountCheck = sniperTowerCount;
@@ -118,7 +115,7 @@ public class TowerMenu : MonoBehaviour
         SellButton.SetActive(TowerClicked);
     }
 
-   
+
 
     public void Upgrade()
     {
@@ -135,10 +132,9 @@ public class TowerMenu : MonoBehaviour
         {
             if (sniperTowerCountCheck == 0)
             {
-                    Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
-                    sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
-                    sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
-                    Debug.Log("Countcheck 0");
+                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
             }
 
             if (sniperTowerCountCheck == 1)
@@ -146,12 +142,7 @@ public class TowerMenu : MonoBehaviour
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
                 sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
-                sniperTowerDamageUpgradeLevel1 = true;
-                
-                Debug.Log("Countcheck 1");
             }
-
-           
         }
     }
 
@@ -176,8 +167,6 @@ public class TowerMenu : MonoBehaviour
     }
 
 
-
-
     public void Clickdetector()
     {
         if (Input.GetMouseButtonDown(0))
@@ -192,33 +181,23 @@ public class TowerMenu : MonoBehaviour
                 if (hit.collider.gameObject == gameObject || hit.collider.gameObject == UpgradeButton1 || hit.collider.gameObject == SellButton)
                 {
                     Debug.Log("objeye týklandý");
-
-                    if (sniperTowerCount != 2)
-                    {
-                        UpgradeButton1.SetActive(true);
-
-                    }
-                    SellButton.SetActive(true);
-                    // bombmenu.towerUI.SetActive(true);
                     isClickedOnGameObject = true;
-
+                    towerUI.SetActive(true);
                 }
             }
 
-            if (!isClickedOnGameObject)
+            if (!isClickedOnGameObject && TowerClicked == true)
             {
                 Debug.Log("Baþka bir yere týklandý");
-                UpgradeButton1.SetActive(false);
-                SellButton.SetActive(false);
+                TowerClicked = false;
+                towerUI.SetActive(false);
             }
         }
-
-
     }
 
-    //public void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireSphere(transform.position, sniperTowerRange);
-    //}
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, sniperTowerRange);
+    }
 }

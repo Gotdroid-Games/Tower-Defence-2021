@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
-    private RangeUpgrade rangeUpgrade;
     TowerMenu TowerMenu;
     [SerializeField] Transform target;
     GameManager GameManager;
@@ -34,7 +33,6 @@ public class TowerTarget : MonoBehaviour
     {
 
         gameValue = FindObjectOfType<GameValue>();
-        rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
         TowerMenu = FindObjectOfType<TowerMenu>();

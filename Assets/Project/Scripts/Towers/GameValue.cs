@@ -19,7 +19,7 @@ public class GameValue : MonoBehaviour
         UpgradeMenu = FindObjectOfType<UpgradeMenu>();
         GameManager = FindObjectOfType<GameManager>();
         
-            Debug.Log("not null");
+            //Debug.Log("not null");
             //NewFireCountDown = UpgradeMenu.newfirecontdown;
             //GameManager.TowerVaribles[0].TowerMoneyBuy = UpgradeMenu.towerPrice;
             //RangedTowerDamage = UpgradeMenu.rangedTowerDamage;

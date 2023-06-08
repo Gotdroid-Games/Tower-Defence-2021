@@ -7,7 +7,6 @@ using static Unity.VisualScripting.Member;
 public class BombTowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
-    private RangeUpgrade rangeUpgrade;
     GameManager GameManager;
     AudioSource source;
     [SerializeField] Transform target;
@@ -23,7 +22,6 @@ public class BombTowerTarget : MonoBehaviour
     private void Start()
     {
         gameValue = FindObjectOfType<GameValue>();
-        rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         InvokeRepeating("BombTowerUpdateTarget", 0f, 0.5f);
         source = GameManager.GetComponent<AudioSource>();

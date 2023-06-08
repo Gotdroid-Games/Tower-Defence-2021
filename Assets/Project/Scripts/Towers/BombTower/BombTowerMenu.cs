@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 public class BombTowerMenu : MonoBehaviour
 {
@@ -59,7 +60,7 @@ public class BombTowerMenu : MonoBehaviour
 
     void Update()
     {
-
+        Clickdetector();
         if (Count <= 2)
         {
             bombObjList = BombObjList[Count];
@@ -148,5 +149,33 @@ public class BombTowerMenu : MonoBehaviour
             Quaity.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel3);
         }
         Destroy(gameObject);
+    }
+
+    public void Clickdetector()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            bool isClickedOnGameObject = false;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton)
+                {
+                    Debug.Log("objeye tıklandı");
+                    isClickedOnGameObject = true;
+                    towerUI.SetActive(true);
+                }
+            }
+
+            if (!isClickedOnGameObject &&bombTowerClicked==true)
+            {
+                Debug.Log("Başka bir yere tıklandı");
+                bombTowerClicked = false;
+                towerUI.SetActive(false);
+            }
+        }
     }
 }

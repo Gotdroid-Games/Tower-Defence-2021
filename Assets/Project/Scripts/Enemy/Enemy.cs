@@ -7,14 +7,13 @@ public class Enemy : MonoBehaviour
 {
 
     public EnemyManager.EnemyType RobotType;
-    
+
 
     [Header("")]
-     
+
     //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
     WaveSpawner waveSpawner;
-    RangeUpgrade RangeUpgrade;
     Quaity Quaity;
     GameValue GameValue;
     TowerTarget TowerTarget;
@@ -29,7 +28,7 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
     public int EnemyKillCoinValue;
-    
+
     [HideInInspector]
 
     public float worth = 50;
@@ -46,7 +45,6 @@ public class Enemy : MonoBehaviour
     {
         Quaity = FindObjectOfType<Quaity>();
         GameValue = FindObjectOfType<GameValue>();
-        RangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
@@ -54,7 +52,7 @@ public class Enemy : MonoBehaviour
 
 
         target = WayPoints.points[0];
-        
+
         //currentHealth = maxHealth;
 
         if (RobotType == EnemyManager.EnemyType.BasicRobot)
@@ -102,13 +100,15 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-            TowerTarget = FindObjectOfType<TowerTarget>();
+        TowerTarget = FindObjectOfType<TowerTarget>();
+        Towermenu = FindObjectOfType<TowerMenu>();
+        BombTowerMenu=FindObjectOfType<BombTowerMenu>();
 
         if (Towermenu != null)
         {
             if (Towermenu.TowerType == EnemyManager.TowerType.sniperTower)
             {
-                currentHealth -= GameManager.TowerVaribles[0].TowerDamage;
+                currentHealth -= Towermenu.sniperTowerDamage;
             }
         }
         if (BombTowerMenu != null)
@@ -118,14 +118,14 @@ public class Enemy : MonoBehaviour
                 currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
             }
         }
-            _healthbar.SetHealth(currentHealth);
+        _healthbar.SetHealth(currentHealth);
 
-            //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
-            //{
-            //    currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
-            //    _healthbar.SetHealth(currentHealth);
-            //}
-        
+        //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
+        //{
+        //    currentHealth -= RangeUpgrade.Damage + GameValue.RangedTowerCritDamage;
+        //    _healthbar.SetHealth(currentHealth);
+        //}
+
     }
 
     private void Update()
@@ -133,14 +133,14 @@ public class Enemy : MonoBehaviour
         target = WayPoints.points[wavepointIndex];
         Vector3 dir1 = target.position - transform.position;
         transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
-        transform.rotation = Quaternion.LookRotation(dir1);   
+        transform.rotation = Quaternion.LookRotation(dir1);
 
         Quaity = FindObjectOfType<Quaity>();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             Destroy(gameObject);
-           
+
         }
 
         if (target == null)
@@ -161,7 +161,7 @@ public class Enemy : MonoBehaviour
             GetNextWayPoint();
         }
 
-        
+
         Coin();
     }
 
@@ -171,7 +171,7 @@ public class Enemy : MonoBehaviour
         {
             Quaity.Instance.Damage(RobotDamage);
             Destroy(gameObject);
-            
+
 
             return;
         }

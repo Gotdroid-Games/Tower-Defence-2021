@@ -82,19 +82,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e4b012760bb74b289e795aabb9e76f4, type: 3}
   m_PrefabInstance: {fileID: 2524308657501972631}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &7771849519198115834
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3443367538809116102}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.7367516, y: 3.1484907, z: 2.9912937}
-  m_Center: {x: -0.50514793, y: 1.0742447, z: -0.20119667}
 --- !u!114 &-6341144826867820573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombBulletPrefab: {fileID: 2363376687213830531, guid: 99b3a7e0b9813114d916d7b1f85c52e4, type: 3}
-  enemyList: []
-  detectionRadius: 0
+  target: {fileID: 0}
+  bombTowerDamage: 0
+  bombTowerRange: 0
+  bombTowerBulletPrefab: {fileID: 0}
+  bombTowerFirePoint: {fileID: 0}
