@@ -78,7 +78,7 @@ public class TowerTarget : MonoBehaviour
         // Target lock on
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(lookRotation,partToRotate.rotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         // Crit chance
