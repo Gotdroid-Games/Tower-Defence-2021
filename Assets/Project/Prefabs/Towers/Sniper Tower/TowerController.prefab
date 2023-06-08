@@ -144,6 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4295589221975714963}
+  - component: {fileID: 707856777}
   m_Layer: 0
   m_Name: TowerManager
   m_TagString: Untagged
@@ -167,6 +168,36 @@ Transform:
   m_Father: {fileID: 2632072291838433020}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &707856777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132156409832615402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerType: 0
+  UpgradeButton1: {fileID: 5570693761724152515}
+  Tower: {fileID: 7206315001989547515}
+  SellButton: {fileID: 6582945738517499514}
+  towerUI: {fileID: 6132156409832615402}
+  canvas: {fileID: 0}
+  TouchObjList:
+  - {fileID: 1472426025184628817}
+  - {fileID: 3823175394253368139}
+  - {fileID: 7392681481885285183}
+  SniperTowerUpgradeButton: {fileID: 2084141346023942752}
+  MaxlevelImage: {fileID: 7678200046167059464}
+  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
+  TowerClicked: 0
+  sniperTowerCount: 0
+  sniperTowerCountCheck: 0
+  sniperTowerDamage: 0
+  sniperTowerRange: 0
 --- !u!1 &7206315001989547515
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +208,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2632072291838433020}
   - component: {fileID: 3570579970620275783}
-  - component: {fileID: 8988853236396017705}
   m_Layer: 0
   m_Name: TowerController
   m_TagString: Untagged
@@ -221,11 +251,11 @@ MonoBehaviour:
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
   towerUI: {fileID: 6132156409832615402}
+  canvas: {fileID: 7758284365336991432}
   TouchObjList:
   - {fileID: 1472426025184628817}
   - {fileID: 3823175394253368139}
   - {fileID: 7392681481885285183}
-  sniperTower: {fileID: 7206315001989547515}
   SniperTowerUpgradeButton: {fileID: 2084141346023942752}
   MaxlevelImage: {fileID: 7678200046167059464}
   SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
@@ -234,31 +264,6 @@ MonoBehaviour:
   sniperTowerCountCheck: 0
   sniperTowerDamage: 0
   sniperTowerRange: 0
---- !u!114 &8988853236396017705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206315001989547515}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee53f24d2b54f79439211788876a7510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIController:
-  - {fileID: 7758284365336991432}
-  TouchObjList:
-  - {fileID: 1472426025184628817}
-  - {fileID: 3823175394253368139}
-  - {fileID: 7392681481885285183}
-  UpgradeButton: {fileID: 2084141346023942752}
-  MaxLevelButton: {fileID: 7678200046167059464}
-  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
-  sniperTowerCounts: 0
-  sniperTowerCountCheck: 0
-  bombTowerCounts: 0
-  bombTowerCountCheck: 0
 --- !u!1 &7844188310735390510
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,48 +422,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4428868809097593808, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
   m_PrefabInstance: {fileID: 2961568775980864385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2254748318746768644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472426025184628817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerType: 0
-  UpgradeButton1: {fileID: 5570693761724152515}
-  Tower: {fileID: 7206315001989547515}
-  SellButton: {fileID: 6582945738517499514}
-  towerUI: {fileID: 6132156409832615402}
-  TouchObjList:
-  - {fileID: 1472426025184628817}
-  - {fileID: 3823175394253368139}
-  - {fileID: 7392681481885285183}
-  sniperTower: {fileID: 7206315001989547515}
-  SniperTowerUpgradeButton: {fileID: 2084141346023942752}
-  MaxlevelImage: {fileID: 7678200046167059464}
-  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
-  TowerClicked: 0
-  sniperTowerCount: 0
-  sniperTowerCountCheck: 0
-  sniperTowerDamage: 0
-  sniperTowerRange: 0
---- !u!114 &4698799641321746280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472426025184628817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2244141748342999787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908368132307261802, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
@@ -534,48 +497,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 810594891836936283, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
   m_PrefabInstance: {fileID: 4481479659704531728}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1309574835100623077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823175394253368139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5221201425058367544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823175394253368139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerType: 0
-  UpgradeButton1: {fileID: 5570693761724152515}
-  Tower: {fileID: 7206315001989547515}
-  SellButton: {fileID: 6582945738517499514}
-  towerUI: {fileID: 6132156409832615402}
-  TouchObjList:
-  - {fileID: 1472426025184628817}
-  - {fileID: 3823175394253368139}
-  - {fileID: 7392681481885285183}
-  sniperTower: {fileID: 7206315001989547515}
-  SniperTowerUpgradeButton: {fileID: 2084141346023942752}
-  MaxlevelImage: {fileID: 7678200046167059464}
-  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
-  TowerClicked: 0
-  sniperTowerCount: 0
-  sniperTowerCountCheck: 0
-  sniperTowerDamage: 0
-  sniperTowerRange: 0
 --- !u!4 &4487121724467065329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 32685658667453153, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
@@ -647,48 +568,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3706185201927625526, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
   m_PrefabInstance: {fileID: 6194445572910735369}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3170344774944695664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392681481885285183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7617505444635798692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392681481885285183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerType: 0
-  UpgradeButton1: {fileID: 5570693761724152515}
-  Tower: {fileID: 7206315001989547515}
-  SellButton: {fileID: 6582945738517499514}
-  towerUI: {fileID: 6132156409832615402}
-  TouchObjList:
-  - {fileID: 1472426025184628817}
-  - {fileID: 3823175394253368139}
-  - {fileID: 7392681481885285183}
-  sniperTower: {fileID: 7206315001989547515}
-  SniperTowerUpgradeButton: {fileID: 2084141346023942752}
-  MaxlevelImage: {fileID: 7678200046167059464}
-  SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
-  TowerClicked: 0
-  sniperTowerCount: 0
-  sniperTowerCountCheck: 0
-  sniperTowerDamage: 0
-  sniperTowerRange: 0
 --- !u!4 &7913884540464079237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4045590785461371276, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
