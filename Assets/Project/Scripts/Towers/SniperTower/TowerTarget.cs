@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
-    private RangeUpgrade rangeUpgrade;
+    TowerMenu TowerMenu;
     [SerializeField] Transform target;
     GameManager GameManager;
     Enemy Enemy;
@@ -33,9 +33,9 @@ public class TowerTarget : MonoBehaviour
     {
 
         gameValue = FindObjectOfType<GameValue>();
-        rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
+        TowerMenu = FindObjectOfType<TowerMenu>();
         source = GameManager.gameObject.GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
@@ -54,7 +54,7 @@ public class TowerTarget : MonoBehaviour
         {
             shortestDistance = Vector3.Distance(this.transform.position, Robots[i].transform.position);
 
-            if(Robots[i].GetComponent<Enemy>().NextWaypointNumber >= ActiveWaypointNumber && Robots[i].GetComponent<Enemy>().NextWaypointDistance <= ActiveWaypointDistance && shortestDistance <= rangeUpgrade.Range)
+            if(Robots[i].GetComponent<Enemy>().NextWaypointNumber >= ActiveWaypointNumber && Robots[i].GetComponent<Enemy>().NextWaypointDistance <= ActiveWaypointDistance && shortestDistance <= TowerMenu.sniperTowerRange)
             {
                 TargetEnemy = Robots[i];
                 ActiveWaypointDistance = Robots[i].GetComponent<Enemy>().NextWaypointDistance;
@@ -62,7 +62,7 @@ public class TowerTarget : MonoBehaviour
             }
         }
 
-        if (TargetEnemy != null && Vector3.Distance(this.transform.position, TargetEnemy.transform.position) <= rangeUpgrade.Range)
+        if (TargetEnemy != null && Vector3.Distance(this.transform.position, TargetEnemy.transform.position) <= TowerMenu.sniperTowerRange)
             target = TargetEnemy.transform;
 
         else
@@ -110,4 +110,7 @@ public class TowerTarget : MonoBehaviour
             bullet.Seek(target);
         }
     }
+
+
+
 }

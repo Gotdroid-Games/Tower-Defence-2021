@@ -19,7 +19,7 @@ public class StarPoint : MonoBehaviour
 
     private void Update()
     {
-        if (Quaity._waveText >= 12&&waveSpawner.totalenemiescheck==0)
+        if (Quaity._waveText >= 12 && waveSpawner.totalenemiescheck == 0)
         {
             StartCoroutine(Waitfor());
         }

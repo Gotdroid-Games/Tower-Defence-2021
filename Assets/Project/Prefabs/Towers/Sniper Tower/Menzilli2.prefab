@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 4025027277322487108}
   - component: {fileID: 1170711269313900942}
   - component: {fileID: 576080406769475179}
-  - component: {fileID: 4975620077337423782}
   m_Layer: 0
   m_Name: Menzilli2
   m_TagString: Untagged
@@ -135,21 +134,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.2895079, y: 3.9405785, z: 3.2895079}
   m_Center: {x: 0, y: 1.8720405, z: 0}
---- !u!114 &4975620077337423782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810594891836936283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpgradeButton1: {fileID: 0}
-  Tower: {fileID: 810594891836936283}
-  SellButton: {fileID: 0}
 --- !u!1001 &44081144085555306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,14 +224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 15
-  damage: 15
+  target: {fileID: 0}
   fireRate: 1
   fireCountdown: 1
-  NewFireCountDown: 0
-  enemyTag: Enemy
+  critValue: 0
   partToRotate: {fileID: 5610142480245304981}
-  turnspeed: 15
+  turnSpeed: 0
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
   firePoint: {fileID: 153309423617314515}
 --- !u!4 &5610142480245304981 stripped

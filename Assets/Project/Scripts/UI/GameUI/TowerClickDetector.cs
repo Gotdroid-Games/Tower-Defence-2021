@@ -28,7 +28,7 @@ public class TowerClickDetector : MonoBehaviour
                 {
                     Debug.Log("objeye tıklandı");
 
-                    if (TowerMenu.sniperTowerCountCheck != 2)
+                    if (TowerMenu.sniperTowerCount != 2)
                     {
                         TowerMenu.UpgradeButton1.SetActive(true);
 

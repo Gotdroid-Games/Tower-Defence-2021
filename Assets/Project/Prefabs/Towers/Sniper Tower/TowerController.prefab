@@ -177,9 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2632072291838433020}
   - component: {fileID: 3570579970620275783}
-  - component: {fileID: 8988853236396017705}
-  - component: {fileID: 3466389259416718448}
-  - component: {fileID: 2243671109611598848}
+  - component: {fileID: -2641599783724214846}
   m_Layer: 0
   m_Name: TowerController
   m_TagString: Untagged
@@ -218,64 +216,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerType: 0
   UpgradeButton1: {fileID: 5570693761724152515}
   Tower: {fileID: 7206315001989547515}
   SellButton: {fileID: 6582945738517499514}
-  TowerClicked: 0
-  sniperTowerCountCheck: 0
---- !u!114 &8988853236396017705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206315001989547515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee53f24d2b54f79439211788876a7510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIController:
-  - {fileID: 7758284365336991432}
+  towerUI: {fileID: 6132156409832615402}
+  canvas: {fileID: 7758284365336991432}
   TouchObjList:
   - {fileID: 1472426025184628817}
   - {fileID: 3823175394253368139}
   - {fileID: 7392681481885285183}
-  UpgradeButton: {fileID: 2084141346023942752}
-  MaxLevelButton: {fileID: 7678200046167059464}
+  SniperTowerUpgradeButton: {fileID: 2084141346023942752}
+  MaxlevelImage: {fileID: 7678200046167059464}
   SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}
-  sniperTowerCounts: 0
+  TowerClicked: 0
+  sniperTowerCount: 0
   sniperTowerCountCheck: 0
-  bombTowerCounts: 0
-  bombTowerCountCheck: 0
---- !u!114 &3466389259416718448
-MonoBehaviour:
+  sniperTowerDamage: 0
+  sniperTowerRange: 0
+--- !u!65 &-2641599783724214846
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7206315001989547515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64caa64944e3d784bad2decd6bcfa3a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 15
-  Range: 15
-  sniperTowerCountCheck: 0
-  bombTowerCountCheck: 0
---- !u!114 &2243671109611598848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7206315001989547515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 2.7717285, y: 5.972512, z: 3.0680668}
+  m_Center: {x: 0.08120823, y: 2.486256, z: 0.12791026}
 --- !u!1 &7844188310735390510
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,16 +396,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4428868809097593808, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9076937117473570886, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
-      propertyPath: SellButton
-      value: 
-      objectReference: {fileID: 6582945738517499514}
-    - target: {fileID: 9076937117473570886, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
-      propertyPath: UpgradeButton1
-      value: 
-      objectReference: {fileID: 5570693761724152515}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
 --- !u!1 &1472426025184628817 stripped
@@ -442,18 +405,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4428868809097593808, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
   m_PrefabInstance: {fileID: 2961568775980864385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4698799641321746280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472426025184628817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2244141748342999787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908368132307261802, guid: f081182b13cf20441a14bd611a4e7d19, type: 3}
@@ -522,33 +473,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4975620077337423782, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
-      propertyPath: SellButton
-      value: 
-      objectReference: {fileID: 6582945738517499514}
-    - target: {fileID: 4975620077337423782, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
-      propertyPath: UpgradeButton1
-      value: 
-      objectReference: {fileID: 5570693761724152515}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 576080406769475179, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
 --- !u!1 &3823175394253368139 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 810594891836936283, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
   m_PrefabInstance: {fileID: 4481479659704531728}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1309574835100623077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823175394253368139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4487121724467065329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 32685658667453153, guid: f53ec863cea44a14b8447305f7c502fd, type: 3}
@@ -561,14 +493,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2632072291838433020}
     m_Modifications:
-    - target: {fileID: 994983002094070448, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
-      propertyPath: SellButton
-      value: 
-      objectReference: {fileID: 6582945738517499514}
-    - target: {fileID: 994983002094070448, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
-      propertyPath: UpgradeButton1
-      value: 
-      objectReference: {fileID: 5570693761724152515}
     - target: {fileID: 3706185201927625526, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
       propertyPath: m_Name
       value: Menzilli3
@@ -621,25 +545,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2713979459960920417, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
 --- !u!1 &7392681481885285183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3706185201927625526, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
   m_PrefabInstance: {fileID: 6194445572910735369}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3170344774944695664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392681481885285183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fe0f155271448918286a4477fdaedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7913884540464079237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4045590785461371276, guid: 19eaccd1b3bae6340a665347b169c651, type: 3}
@@ -666,11 +579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204515996240845847, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4798481332785250763, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_Enabled
@@ -690,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -703,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3466389259416718448}
+      objectReference: {fileID: 0}
     - target: {fileID: 7768625332613675021, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -848,7 +761,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4210017246651787438, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 8584960502076002925}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &7909426071298222178
+--- !u!135 &1204630471532101660
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -859,13 +772,26 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.4
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6582945738517499514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3204515996240845847, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}
   m_PrefabInstance: {fileID: 8584960502076002925}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1482758085523936940
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582945738517499514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.02
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7758284365336991432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2056208313504171173, guid: 5b5ba033108be2e4c859e527cbdb2842, type: 3}

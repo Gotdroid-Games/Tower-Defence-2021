@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 public class BombTowerMenu : MonoBehaviour
 {
@@ -18,12 +19,16 @@ public class BombTowerMenu : MonoBehaviour
     public int[] BombTowerUpgradeMoneyList;
     public int Count;
     public int bombTowerCountCheck;
+    public int bombTowerDamage;
+    public int bombTowerRange;
+    private bool bombTowerDamageUpgradeLevel1 = false;
+    private bool bombTowerDamageUpgradeLevel2 = false;
     public bool bombTowerClicked;
     public Image MaxlevelImage;
     public Button BombTowerUpgradeButton;
     public List<GameObject> BombObjList = new List<GameObject>();
     public TextMeshProUGUI BombTowerUpgradeMoneyText;
-
+    public EnemyManager.TowerType TowerType;
     void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
@@ -32,6 +37,9 @@ public class BombTowerMenu : MonoBehaviour
         BombObjList[0].SetActive(true);
         Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
+
+        bombTowerDamage = GameManager.TowerVaribles[1].TowerDamage;
+        bombTowerRange = GameManager.TowerVaribles[1].TowerRange;
     }
     private void OnMouseDown()
     {
@@ -52,7 +60,7 @@ public class BombTowerMenu : MonoBehaviour
 
     void Update()
     {
-
+        Clickdetector();
         if (Count <= 2)
         {
             bombObjList = BombObjList[Count];
@@ -109,12 +117,16 @@ public class BombTowerMenu : MonoBehaviour
             if (bombTowerCountCheck == 0)
             {
                 Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
+                bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel1;
+                bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel1;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
             }
 
             if (bombTowerCountCheck == 1)
             {
                 Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
+                bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel2;
+                bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel2;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
             }
         }
@@ -137,5 +149,33 @@ public class BombTowerMenu : MonoBehaviour
             Quaity.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel3);
         }
         Destroy(gameObject);
+    }
+
+    public void Clickdetector()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            bool isClickedOnGameObject = false;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton)
+                {
+                    Debug.Log("objeye tıklandı");
+                    isClickedOnGameObject = true;
+                    towerUI.SetActive(true);
+                }
+            }
+
+            if (!isClickedOnGameObject &&bombTowerClicked==true)
+            {
+                Debug.Log("Başka bir yere tıklandı");
+                bombTowerClicked = false;
+                towerUI.SetActive(false);
+            }
+        }
     }
 }

@@ -1,145 +1,203 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+
 public class TowerMenu : MonoBehaviour
 {
-    TowerRangeController TowerRangeController;
+    //Referanslar
     GameManager GameManager;
-    RangeUpgrade RangeUpgrade;
     TowerTarget TowerTarget;
+    Enemy Enemy;
     Quaity Quaity;
+    GameObject touchObjList;
+    public EnemyManager.TowerType TowerType;
+
+    //UI Elemanlarý
     public GameObject UpgradeButton1;
     public GameObject Tower;
     public GameObject SellButton;
+    public GameObject towerUI;
+    public GameObject canvas;
+    public List<GameObject> TouchObjList = new List<GameObject>();
+    public Button SniperTowerUpgradeButton;
+    public Image MaxlevelImage;
+    public TextMeshProUGUI SniperTowerUpgradeMoneyText;
+
+    //Durum Bilgileri
     public bool TowerClicked;
-   public int sniperTowerCountCheck;
+
+    //Niþancý Kulesi Özellikleri 
+    public int sniperTowerCount;
+    public int sniperTowerCountCheck;
+    public int sniperTowerDamage;
+    public int sniperTowerRange;
+
 
     private void Start()
     {
+        //Referans Tanýmlamalarý
+        sniperTowerCount = 0;
         TowerClicked = false;
+        TouchObjList[0].SetActive(true);
         TowerTarget = FindObjectOfType<TowerTarget>();
         Quaity = FindObjectOfType<Quaity>();
-        RangeUpgrade = GetComponent<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
-    }
-    private void Update()
-    {
-        TowerRangeController = FindObjectOfType<TowerRangeController>();
-        sniperTowerCountCheck = TowerRangeController.sniperTowerCounts;
-        if (TowerRangeController.sniperTowerCounts >= 2)
-        {
-            TowerRangeController.sniperTowerCounts = 2;
-        }
+        Enemy = FindObjectOfType<Enemy>();
 
-        if (sniperTowerCountCheck == 2 && TowerClicked == true)
-        {
-            TowerRangeController.MaxLevelButton.gameObject.SetActive(true);
-        }
-        else
-        {
-            TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
-        }
+        //Kule Hasar ve Menzil Tanýmlamalarý
+        sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
+        sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
     }
 
     private void OnMouseDown()
     {
-        var up = transform.TransformDirection(Vector3.up);
-        RaycastHit hit;
-        Debug.DrawRay(transform.position, -up * 2, Color.magenta);
-
-        if (Physics.Raycast(transform.position, -up, out hit, 2))
+        if (TowerClicked == false)
         {
-            if (hit.collider != null)
-            {
-
-                if (TowerClicked == false)
-                {
-                    UpgradeButton1.SetActive(true);
-                    SellButton.SetActive(true);
-                    TowerClicked = true;
-                }
-                else
-                {
-                    UpgradeButton1.SetActive(false);
-                    SellButton.SetActive(false);
-                    TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
-                    TowerClicked = false;
-                }
-
-                for (int i = 0; i < TowerRangeController.UIController.Count; i++)
-                {
-                    TowerRangeController.UIController[i].SetActive(true);
-                }
-
-                Debug.Log(hit.collider.gameObject.name);
-            }
+            towerUI.SetActive(true);
+            UpgradeButton1.SetActive(true);
+            SellButton.SetActive(true);
+            TowerClicked = true;
+        }
+        else
+        {
+            //UpgradeButton1.SetActive(false);
+            //SellButton.SetActive(false);
+            //TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
+            towerUI.SetActive(false);
+            TowerClicked = false;
         }
     }
+    private void Update()
+    {
+        Clickdetector();
+        //TowerRangeController = FindObjectOfType<TowerRangeController>();
+        //sniperTowerCountCheck = TowerRangeController.sniperTowerCounts;
+
+        if (sniperTowerCount <= 2)
+        {
+            touchObjList = TouchObjList[sniperTowerCount];
+            sniperTowerCountCheck = sniperTowerCount;
+
+            TouchObjList[0].SetActive(sniperTowerCount == 0);
+            TouchObjList[1].SetActive(sniperTowerCount == 1);
+            TouchObjList[2].SetActive(sniperTowerCount == 2);
+
+            Tower = TouchObjList[sniperTowerCount];
+        }
+
+        if (sniperTowerCount == 2)
+        {
+            UpgradeButton1.SetActive(false);
+        }
+        else
+        {
+            UpgradeButton1.SetActive(TowerClicked);
+        }
+
+        MaxlevelImage.gameObject.SetActive(sniperTowerCount == 2 && TowerClicked);
+
+        if (sniperTowerCountCheck == 0 && Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
+        {
+            SniperTowerUpgradeButton.interactable = true;
+            SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1.ToString();
+        }
+        else if (sniperTowerCountCheck == 1 && Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2)
+        {
+            SniperTowerUpgradeButton.interactable = true;
+            SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2.ToString();
+        }
+        else
+        {
+            SniperTowerUpgradeButton.interactable = false;
+        }
+
+        SellButton.SetActive(TowerClicked);
+    }
+
+
 
     public void Upgrade()
     {
-        Debug.Log(gameObject.name);
+        sniperTowerCount++;
         Tower = gameObject;
-
-
-        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
+        TowerClicked = false;
+        Debug.Log(gameObject.name);
+        //if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
-            GetComponent<TowerRangeController>().sniperTowerCounts++;
-
-
             if (sniperTowerCountCheck == 0)
             {
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
-                Debug.Log("Countcheck 0");
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
             }
 
             if (sniperTowerCountCheck == 1)
             {
                 Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
-                Debug.Log("Countcheck 1");
+                sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
+                sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
             }
-
-            if (sniperTowerCountCheck == 2)
-            {
-                Quaity.TowerUpgradeMoney(0);
-                Debug.Log("Countcheck 2");
-            }
-
-            
-
-            Debug.Log("Upgrade aktif");
         }
-
-        for (int i = 0; i < TowerRangeController.UIController.Count; i++)
-        {
-            TowerRangeController.UIController[i].SetActive(false);
-        }
-
-        UpgradeButton1.SetActive(false);
-        SellButton.SetActive(false);
     }
 
     public void SniperTowerSell()
     {
         Destroy(gameObject);
 
-        if (sniperTowerCountCheck == 0)
+        if (sniperTowerCount == 0)
         {
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
         }
 
-        if (sniperTowerCountCheck == 1)
+        if (sniperTowerCount == 1)
         {
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
         }
 
-        if (sniperTowerCountCheck == 2)
+        if (sniperTowerCount == 2)
         {
             Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
+    }
+
+
+    public void Clickdetector()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            bool isClickedOnGameObject = false;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == UpgradeButton1 || hit.collider.gameObject == SellButton)
+                {
+                    Debug.Log("objeye týklandý");
+                    isClickedOnGameObject = true;
+                    towerUI.SetActive(true);
+                }
+            }
+
+            if (!isClickedOnGameObject && TowerClicked == true)
+            {
+                Debug.Log("Baþka bir yere týklandý");
+                TowerClicked = false;
+                towerUI.SetActive(false);
+            }
+        }
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, sniperTowerRange);
     }
 }

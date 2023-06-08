@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3908368132307261802}
   - component: {fileID: 113306385452537551}
   - component: {fileID: 2771539816137777669}
-  - component: {fileID: -3348610306264350645}
-  - component: {fileID: 9076937117473570886}
   m_Layer: 0
   m_Name: Menzilli1
   m_TagString: Untagged
@@ -93,35 +91,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-3348610306264350645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4428868809097593808}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.767448, y: 3.9835565, z: 3.7679818}
-  m_Center: {x: 0.14641753, y: 1.9044442, z: -0.111042984}
---- !u!114 &9076937117473570886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4428868809097593808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpgradeButton1: {fileID: 0}
-  Tower: {fileID: 4428868809097593808}
-  SellButton: {fileID: 0}
-  TowerClicked: 0
 --- !u!1 &8281821227323552488
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   fireRate: 1
   fireCountdown: 1
   critValue: 0
@@ -250,8 +220,6 @@ MonoBehaviour:
   turnSpeed: 0
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
   firePoint: {fileID: 8712005221667911394}
-  source: {fileID: 0}
-  voices: {fileID: 8300000, guid: 1e217ec81a87b7441acc5deea95bc347, type: 3}
 --- !u!4 &5272536013202032936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5568596818714593023, guid: e2e4877e495d3f447839dbafa7407e18, type: 3}

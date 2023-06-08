@@ -7,7 +7,6 @@ using static Unity.VisualScripting.Member;
 public class BombTowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
-    private RangeUpgrade rangeUpgrade;
     GameManager GameManager;
     AudioSource source;
     [SerializeField] Transform target;
@@ -18,18 +17,17 @@ public class BombTowerTarget : MonoBehaviour
 
     public GameObject bombTowerBulletPrefab;
     public Transform bombTowerFirePoint;
-    BombTowerMenu bombmenu;
+    BombTowerMenu BombTowerMenu;
 
     private void Start()
     {
         gameValue = FindObjectOfType<GameValue>();
-        rangeUpgrade = FindObjectOfType<RangeUpgrade>();
         GameManager = FindObjectOfType<GameManager>();
         InvokeRepeating("BombTowerUpdateTarget", 0f, 0.5f);
         source = GameManager.GetComponent<AudioSource>();
-        bombmenu = FindObjectOfType<BombTowerMenu>();
-        bombmenu._upgradeButton.SetActive(false);
-        bombmenu.SellButton.SetActive(false);
+        BombTowerMenu = FindObjectOfType<BombTowerMenu>();
+        BombTowerMenu._upgradeButton.SetActive(false);
+        BombTowerMenu.SellButton.SetActive(false);
 
         
     }
@@ -72,7 +70,7 @@ public class BombTowerTarget : MonoBehaviour
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= rangeUpgrade.Range)
+        if (nearestEnemy != null && shortestDistance <= BombTowerMenu.bombTowerRange)
         {
             target = nearestEnemy.transform;
         }
