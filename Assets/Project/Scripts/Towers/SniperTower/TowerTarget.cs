@@ -133,9 +133,10 @@ public class TowerTarget : MonoBehaviour
     public int critValue;
     public int angle;
     [Header("Unity Setup Fields")]
-    public Transform partToRotate;
+    public Transform partToBody;
     public Transform partToBarrel;
-    public float turnSpeed;
+    public float bodyTurnSpeed;
+    int barrelTurnSpeed = 1;
     public GameObject bulletPrefab;
     public Transform firePoint;
     AudioSource source;
@@ -191,18 +192,18 @@ public class TowerTarget : MonoBehaviour
         // Target lock on
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0f);
+        Vector3 rotation = Quaternion.Lerp(partToBody.rotation, lookRotation, Time.deltaTime * bodyTurnSpeed).eulerAngles;
+        partToBody.rotation = Quaternion.Euler(0, rotation.y, 0f);
 
         // Barrel rotation towards the target
         Vector3 barrelDir = target.position - partToBarrel.position;
         Quaternion barrelLookRotation = Quaternion.LookRotation(barrelDir);
         Vector3 barrelEulerAngles = barrelLookRotation.eulerAngles;
 
-       
+
         // Yeni rotasyonu hesapla
-        Quaternion barrelRotation = Quaternion.Euler(barrelEulerAngles.x, barrelEulerAngles.y, 0);
-        partToBarrel.rotation = Quaternion.Lerp(partToBarrel.rotation, barrelRotation, Time.deltaTime * turnSpeed);
+        Quaternion barrelRotation = Quaternion.Euler(barrelEulerAngles.x, barrelEulerAngles.y, barrelEulerAngles.z);
+        partToBarrel.rotation = Quaternion.Lerp(partToBarrel.rotation, barrelRotation, Time.deltaTime * (barrelTurnSpeed));
 
         // Crit chance
         if (fireCountdown <= 0f)
