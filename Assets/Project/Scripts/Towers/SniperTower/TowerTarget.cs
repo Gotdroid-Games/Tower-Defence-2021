@@ -131,7 +131,7 @@ public class TowerTarget : MonoBehaviour
     public float fireRate;
     public float fireCountdown;
     public int critValue;
-
+    public int angle;
     [Header("Unity Setup Fields")]
     public Transform partToRotate;
     public Transform partToBarrel;
@@ -192,19 +192,16 @@ public class TowerTarget : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(-90f, rotation.y, 0f);
+        partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0f);
 
         // Barrel rotation towards the target
         Vector3 barrelDir = target.position - partToBarrel.position;
         Quaternion barrelLookRotation = Quaternion.LookRotation(barrelDir);
         Vector3 barrelEulerAngles = barrelLookRotation.eulerAngles;
 
-        // Sýnýrlama yap
-        float clampedAngleX = Mathf.Clamp(barrelEulerAngles.x, -25f, 0f);
-        barrelEulerAngles = new Vector3(clampedAngleX, barrelEulerAngles.y, barrelEulerAngles.z);
-
+       
         // Yeni rotasyonu hesapla
-        Quaternion barrelRotation = Quaternion.Euler(barrelEulerAngles);
+        Quaternion barrelRotation = Quaternion.Euler(barrelEulerAngles.x, barrelEulerAngles.y, 0);
         partToBarrel.rotation = Quaternion.Lerp(partToBarrel.rotation, barrelRotation, Time.deltaTime * turnSpeed);
 
         // Crit chance
