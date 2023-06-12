@@ -652,7 +652,20 @@ MonoBehaviour:
   partToBarrel: {fileID: 7272495692273874484}
   bodyTurnSpeed: 10
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
-  muzzleStartingPosition: []
+  muzzleStartingPosition:
+  - {fileID: 8703601080795964951}
+  - {fileID: 523958937804804224}
+  - {fileID: 556245621945475964}
+  - {fileID: 6191204968785781530}
+  - {fileID: 939957741672585515}
+  - {fileID: 6935649885262994254}
+  _muzzleStartingPosition:
+  - {fileID: 8703601080795964951}
+  - {fileID: 523958937804804224}
+  - {fileID: 556245621945475964}
+  - {fileID: 6191204968785781530}
+  - {fileID: 939957741672585515}
+  - {fileID: 6935649885262994254}
   firePoints:
   - {fileID: 2395756077512278933}
   - {fileID: 7778067034404315588}
@@ -661,6 +674,7 @@ MonoBehaviour:
   - {fileID: 1652367404373419754}
   - {fileID: 2903949325945676207}
   firePointIndex: 0
+  recoil: 100
 --- !u!4 &7272495692273874484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7056806658113389010, guid: 490581cb945f2704787d988b374763cb, type: 3}
@@ -792,6 +806,13 @@ MonoBehaviour:
   - {fileID: 6191204968785781530}
   - {fileID: 939957741672585515}
   - {fileID: 6935649885262994254}
+  _muzzleStartingPosition:
+  - {fileID: 8703601080795964951}
+  - {fileID: 523958937804804224}
+  - {fileID: 556245621945475964}
+  - {fileID: 6191204968785781530}
+  - {fileID: 939957741672585515}
+  - {fileID: 6935649885262994254}
   firePoints:
   - {fileID: 2395756077512278933}
   - {fileID: 7778067034404315588}
@@ -800,6 +821,7 @@ MonoBehaviour:
   - {fileID: 1652367404373419754}
   - {fileID: 2903949325945676207}
   firePointIndex: 0
+  recoil: 100
 --- !u!4 &8703601080795964951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7981426662940963648, guid: 83246175dc860144fbc65a37908a03c7, type: 3}
@@ -928,7 +950,20 @@ MonoBehaviour:
   partToBarrel: {fileID: 8555884712450863542}
   bodyTurnSpeed: 10
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
-  muzzleStartingPosition: []
+  muzzleStartingPosition:
+  - {fileID: 8703601080795964951}
+  - {fileID: 523958937804804224}
+  - {fileID: 556245621945475964}
+  - {fileID: 6191204968785781530}
+  - {fileID: 939957741672585515}
+  - {fileID: 6935649885262994254}
+  _muzzleStartingPosition:
+  - {fileID: 8703601080795964951}
+  - {fileID: 523958937804804224}
+  - {fileID: 556245621945475964}
+  - {fileID: 6191204968785781530}
+  - {fileID: 939957741672585515}
+  - {fileID: 6935649885262994254}
   firePoints:
   - {fileID: 2395756077512278933}
   - {fileID: 7778067034404315588}
@@ -937,6 +972,7 @@ MonoBehaviour:
   - {fileID: 1652367404373419754}
   - {fileID: 2903949325945676207}
   firePointIndex: 0
+  recoil: 100
 --- !u!4 &8555884712450863542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5012450050094761668, guid: f7b3bfc488807e0459842c77d4b304d7, type: 3}

@@ -118,11 +118,8 @@
 
 //}
 
-using System;
-using System.Linq;
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class TowerTarget : MonoBehaviour
 {
@@ -144,10 +141,11 @@ public class TowerTarget : MonoBehaviour
     int barrelTurnSpeed = 1;
     public GameObject bulletPrefab;
     public Transform[] muzzleStartingPosition;
-
+    public Transform[] _muzzleStartingPosition;
     [Header("Tower Bullet Points")]
     public Transform[] firePoints;
     public int firePointIndex = 0;
+    public int recoil = 100;
 
     AudioSource source;
 
@@ -166,12 +164,13 @@ public class TowerTarget : MonoBehaviour
         source = GameManager.gameObject.GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
 
-        muzzleStartingPosition[0] = firePoints[0].transform;
-        muzzleStartingPosition[1] = firePoints[1].transform;
-        muzzleStartingPosition[2] = firePoints[2].transform;
-        muzzleStartingPosition[3] = firePoints[3].transform;
-        muzzleStartingPosition[4] = firePoints[4].transform;
-        muzzleStartingPosition[5] = firePoints[5].transform;
+        muzzleStartingPosition[0].position = _muzzleStartingPosition[0].position;
+        muzzleStartingPosition[1].position = _muzzleStartingPosition[1].position;
+        muzzleStartingPosition[2].position = _muzzleStartingPosition[2].position;
+        muzzleStartingPosition[3].position = _muzzleStartingPosition[3].position;
+        muzzleStartingPosition[4].position = _muzzleStartingPosition[4].position;
+        muzzleStartingPosition[5].position = _muzzleStartingPosition[5].position;
+
     }
 
     private void UpdateTarget()
@@ -240,6 +239,7 @@ public class TowerTarget : MonoBehaviour
         {
             SpawnBullet(firePoints[0]);
             MoveFirePointBackwards();
+            
         }
 
         if (TowerMenu.sniperTowerCount == 1)
@@ -301,13 +301,17 @@ public class TowerTarget : MonoBehaviour
 
     void MoveFirePointBackwards()
     {
-        muzzleStartingPosition[0].transform.Translate(Vector3.back * Time.deltaTime);
-        muzzleStartingPosition[1].transform.Translate(Vector3.back * Time.deltaTime);
-        muzzleStartingPosition[2].transform.Translate(Vector3.back * Time.deltaTime);
-        muzzleStartingPosition[3].transform.Translate(Vector3.back * Time.deltaTime);
-        muzzleStartingPosition[4].transform.Translate(Vector3.back * Time.deltaTime);
-        muzzleStartingPosition[5].transform.Translate(Vector3.back * Time.deltaTime);
+        muzzleStartingPosition[0].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+        muzzleStartingPosition[1].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+        muzzleStartingPosition[2].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+        muzzleStartingPosition[3].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+        muzzleStartingPosition[4].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+        muzzleStartingPosition[5].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+
+        
+
     }
+
 }
 
 
