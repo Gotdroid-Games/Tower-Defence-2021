@@ -71,8 +71,6 @@ public class TowerMenu : MonoBehaviour
     private void Update()
     {
         Clickdetector();
-        //TowerRangeController = FindObjectOfType<TowerRangeController>();
-        //sniperTowerCountCheck = TowerRangeController.sniperTowerCounts;
 
         if (sniperTowerCount <= 2)
         {

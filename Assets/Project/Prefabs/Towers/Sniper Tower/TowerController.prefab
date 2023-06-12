@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803315721863901339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0032, z: 0.0335}
+  m_LocalRotation: {x: 0.00000006053597, y: -3.9032588e-23, z: 2.7891493e-23, w: 1}
+  m_LocalPosition: {x: 0, y: 0.003199997, z: 0.0335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 777824591109154447}
-  m_RootOrder: 2
+  m_Father: {fileID: 8703601080795964951}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928563801123065574
 GameObject:
@@ -282,8 +282,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5844684993476106176}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.297, z: 3.319}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.45, y: 0.29699996, z: 3.319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -644,16 +644,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireRate: 0
+  fireRate: 1
   fireCountdown: 0
   critValue: 0
   angle: 0
   partToBody: {fileID: 4499797788311176970}
   partToBarrel: {fileID: 7272495692273874484}
   bodyTurnSpeed: 10
-  barrelTurnSpeed: 1
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
-  firePoint: {fileID: 1652367404373419754}
+  muzzleStartingPosition: []
+  firePoints:
+  - {fileID: 2395756077512278933}
+  - {fileID: 7778067034404315588}
+  - {fileID: 4169498859232408800}
+  - {fileID: 5074524973639644504}
+  - {fileID: 1652367404373419754}
+  - {fileID: 2903949325945676207}
+  firePointIndex: 0
 --- !u!4 &7272495692273874484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7056806658113389010, guid: 490581cb945f2704787d988b374763cb, type: 3}
@@ -770,16 +777,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireRate: 0
+  fireRate: 1
   fireCountdown: 0
   critValue: 0
   angle: 0
   partToBody: {fileID: 3349811245451419902}
   partToBarrel: {fileID: 777824591109154447}
   bodyTurnSpeed: 10
-  barrelTurnSpeed: 1
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
-  firePoint: {fileID: 2395756077512278933}
+  muzzleStartingPosition:
+  - {fileID: 8703601080795964951}
+  - {fileID: 523958937804804224}
+  - {fileID: 556245621945475964}
+  - {fileID: 6191204968785781530}
+  - {fileID: 939957741672585515}
+  - {fileID: 6935649885262994254}
+  firePoints:
+  - {fileID: 2395756077512278933}
+  - {fileID: 7778067034404315588}
+  - {fileID: 4169498859232408800}
+  - {fileID: 5074524973639644504}
+  - {fileID: 1652367404373419754}
+  - {fileID: 2903949325945676207}
+  firePointIndex: 0
+--- !u!4 &8703601080795964951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7981426662940963648, guid: 83246175dc860144fbc65a37908a03c7, type: 3}
+  m_PrefabInstance: {fileID: 1588326264700261719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3689388262396114802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -895,16 +920,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireRate: 0
+  fireRate: 1
   fireCountdown: 0
   critValue: 0
   angle: 0
   partToBody: {fileID: 657994182748869031}
   partToBarrel: {fileID: 8555884712450863542}
   bodyTurnSpeed: 10
-  barrelTurnSpeed: 1
   bulletPrefab: {fileID: 1916751730254182442, guid: d07f34c56fbf82442b866f2b73fb8276, type: 3}
-  firePoint: {fileID: 7778067034404315588}
+  muzzleStartingPosition: []
+  firePoints:
+  - {fileID: 2395756077512278933}
+  - {fileID: 7778067034404315588}
+  - {fileID: 4169498859232408800}
+  - {fileID: 5074524973639644504}
+  - {fileID: 1652367404373419754}
+  - {fileID: 2903949325945676207}
+  firePointIndex: 0
 --- !u!4 &8555884712450863542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5012450050094761668, guid: f7b3bfc488807e0459842c77d4b304d7, type: 3}

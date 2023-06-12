@@ -118,7 +118,11 @@
 
 //}
 
+using System;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TowerTarget : MonoBehaviour
 {
@@ -132,13 +136,19 @@ public class TowerTarget : MonoBehaviour
     public float fireCountdown;
     public int critValue;
     public int angle;
-    [Header("Unity Setup Fields")]
+
+    [Header("Tower Movements")]
     public Transform partToBody;
     public Transform partToBarrel;
     public float bodyTurnSpeed;
     int barrelTurnSpeed = 1;
     public GameObject bulletPrefab;
-    public Transform firePoint;
+    public Transform[] muzzleStartingPosition;
+
+    [Header("Tower Bullet Points")]
+    public Transform[] firePoints;
+    public int firePointIndex = 0;
+
     AudioSource source;
 
     private void Awake()
@@ -155,6 +165,13 @@ public class TowerTarget : MonoBehaviour
         TowerMenu = FindObjectOfType<TowerMenu>();
         source = GameManager.gameObject.GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
+        muzzleStartingPosition[0] = firePoints[0].transform;
+        muzzleStartingPosition[1] = firePoints[1].transform;
+        muzzleStartingPosition[2] = firePoints[2].transform;
+        muzzleStartingPosition[3] = firePoints[3].transform;
+        muzzleStartingPosition[4] = firePoints[4].transform;
+        muzzleStartingPosition[5] = firePoints[5].transform;
     }
 
     private void UpdateTarget()
@@ -186,6 +203,7 @@ public class TowerTarget : MonoBehaviour
 
     private void Update()
     {
+
         if (target == null)
             return;
 
@@ -209,7 +227,7 @@ public class TowerTarget : MonoBehaviour
         if (fireCountdown <= 0f)
         {
             Shoot();
-            critValue = Random.Range(1, 101);
+            //critValue = Random.Range(1, 101);
             fireCountdown = fireRate;
         }
 
@@ -218,15 +236,77 @@ public class TowerTarget : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (TowerMenu.sniperTowerCount == 0)
+        {
+            SpawnBullet(firePoints[0]);
+            MoveFirePointBackwards();
+        }
+
+        if (TowerMenu.sniperTowerCount == 1)
+        {
+            if (firePointIndex == 0)
+            {
+                SpawnBullet(firePoints[2]);
+                firePointIndex++;
+            }
+
+            else if (firePointIndex == 1)
+            {
+                SpawnBullet(firePoints[1]);
+                firePointIndex = 0;
+            }
+        }
+
+        if (TowerMenu.sniperTowerCount == 2)
+        {
+
+            if (firePointIndex == 0)
+            {
+                firePointIndex++;
+                SpawnBullet(firePoints[3]);
+            }
+
+            else if (firePointIndex == 1)
+            {
+                firePointIndex++;
+                SpawnBullet(firePoints[4]);
+            }
+
+            else if (firePointIndex == 2)
+            {
+                firePointIndex = 0;
+                SpawnBullet(firePoints[5]);
+
+            }
+        }
+
         source.clip = GameManager.TowerVaribles[0].TowerAttackSFX;
         source.Play();
-        Bullet bullet = bulletGo.GetComponent<Bullet>();
+
+        
+
+    }
+
+    private void SpawnBullet(Transform firePoint)
+    {
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
         {
             bullet.Seek(target);
         }
+        //firePointLevel1.transform.localPosition = FirePointPositionLevel1;
+    }
+
+    void MoveFirePointBackwards()
+    {
+        muzzleStartingPosition[0].transform.Translate(Vector3.back * Time.deltaTime);
+        muzzleStartingPosition[1].transform.Translate(Vector3.back * Time.deltaTime);
+        muzzleStartingPosition[2].transform.Translate(Vector3.back * Time.deltaTime);
+        muzzleStartingPosition[3].transform.Translate(Vector3.back * Time.deltaTime);
+        muzzleStartingPosition[4].transform.Translate(Vector3.back * Time.deltaTime);
+        muzzleStartingPosition[5].transform.Translate(Vector3.back * Time.deltaTime);
     }
 }
 
