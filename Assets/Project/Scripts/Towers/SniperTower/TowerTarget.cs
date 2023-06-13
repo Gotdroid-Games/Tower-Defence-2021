@@ -145,7 +145,7 @@ public class TowerTarget : MonoBehaviour
     [Header("Tower Bullet Points")]
     public Transform[] firePoints;
     public int firePointIndex = 0;
-    public int recoil = 100;
+    public int recoil = 50;
 
     AudioSource source;
 
@@ -239,6 +239,7 @@ public class TowerTarget : MonoBehaviour
         {
             SpawnBullet(firePoints[0]);
             MoveFirePointBackwards();
+            StartCoroutine(MoveFirePointForwards());
             
         }
 
@@ -301,15 +302,26 @@ public class TowerTarget : MonoBehaviour
 
     void MoveFirePointBackwards()
     {
-        muzzleStartingPosition[0].transform.Translate(Vector3.back * Time.deltaTime * recoil);
-        muzzleStartingPosition[1].transform.Translate(Vector3.back * Time.deltaTime * recoil);
-        muzzleStartingPosition[2].transform.Translate(Vector3.back * Time.deltaTime * recoil);
-        muzzleStartingPosition[3].transform.Translate(Vector3.back * Time.deltaTime * recoil);
-        muzzleStartingPosition[4].transform.Translate(Vector3.back * Time.deltaTime * recoil);
-        muzzleStartingPosition[5].transform.Translate(Vector3.back * Time.deltaTime * recoil);
+        muzzleStartingPosition[0].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[1].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[2].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[3].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[4].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[5].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
 
         
 
+    }
+
+    IEnumerator MoveFirePointForwards()
+    {
+        yield return new WaitForSeconds(0.1f);
+        muzzleStartingPosition[0].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[1].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[2].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[3].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[4].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
+        muzzleStartingPosition[5].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
     }
 
 }
