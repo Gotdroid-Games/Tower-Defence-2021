@@ -218,7 +218,7 @@ public class TowerTarget : MonoBehaviour
             2 when firePointIndex == 0 => 4,
             2 when firePointIndex == 2 => 5,
             _ => -1
-        }].transform.GetComponent<Recoil>().GunRecoil(0f, RecoilSpeed / 2);
+        }].transform.GetComponent<Recoil>().GunRecoil(0f, RecoilSpeed / 3);
     }
 
 }
