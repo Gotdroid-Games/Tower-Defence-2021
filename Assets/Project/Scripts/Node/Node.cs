@@ -13,7 +13,7 @@ public class Node : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
-    quaity quaity;
+    Quaity quaity;
     BuildManager buildManager;
     GameManager GameManager;
     Shop shop;
@@ -24,7 +24,7 @@ public class Node : MonoBehaviour
         rend = GetComponent<Renderer>();
         shop = GetComponent<Shop>();
         startColor = rend.material.color;
-        quaity = FindObjectOfType<quaity>();
+        quaity = FindObjectOfType<Quaity>();
         buildManager = FindObjectOfType<BuildManager>();
         shop = FindObjectOfType<Shop>();
         GameManager = FindObjectOfType<GameManager>();

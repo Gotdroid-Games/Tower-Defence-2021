@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarPoint : MonoBehaviour
 {
-    quaity Quaity;
+    Quaity Quaity;
     GameUI GameUI;
     WaveSpawner waveSpawner;
     public TextMeshProUGUI starPointText;
@@ -12,7 +12,7 @@ public class StarPoint : MonoBehaviour
 
     private void Start()
     {
-        Quaity = FindObjectOfType<quaity>();
+        Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
     }

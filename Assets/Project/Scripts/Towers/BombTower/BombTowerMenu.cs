@@ -6,7 +6,7 @@ using TMPro;
 
 public class BombTowerMenu : MonoBehaviour
 {
-    quaity Quaity;
+    Quaity Quaity;
     GameManager GameManager;
     public GameObject towerUI;
     public GameObject _upgradeButton;
@@ -30,7 +30,7 @@ public class BombTowerMenu : MonoBehaviour
         bombTowerClicked = false;
         Count = 0;
         BombObjList[0].SetActive(true);
-        Quaity = FindObjectOfType<quaity>();
+        Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
 
         bombTowerDamage = GameManager.TowerVaribles[1].TowerDamage;

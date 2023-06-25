@@ -11627,7 +11627,7 @@ MonoBehaviour:
   _coinText: 0
   _heartText: 0
   _waveText: 0
-  Product: 2
+  Product: 0
 --- !u!1 &1010742712
 GameObject:
   m_ObjectHideFlags: 0

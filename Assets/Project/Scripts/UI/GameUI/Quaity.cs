@@ -7,10 +7,10 @@ using JetBrains.Annotations;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class quaity : MonoBehaviour
+public class Quaity : MonoBehaviour
 {
 
-    public static quaity Instance;
+    public static Quaity Instance;
 
     GameUI GameUI;
     WaveSpawner WaveSpawner;

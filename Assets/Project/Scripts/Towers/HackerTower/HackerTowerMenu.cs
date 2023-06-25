@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HackerTowerMenu : MonoBehaviour
 {
-    quaity quaity;
+    Quaity quaity;
     GameManager gameManager;
 
     public GameObject towerUI;
@@ -31,7 +31,7 @@ public class HackerTowerMenu : MonoBehaviour
         Count = 0;
         HackerObjList[0].SetActive(true);
 
-        quaity =FindObjectOfType<quaity>();
+        quaity =FindObjectOfType<Quaity>();
         gameManager=FindObjectOfType<GameManager>();
     }
 

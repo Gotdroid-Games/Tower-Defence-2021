@@ -7,7 +7,7 @@ using System.Linq;
 
 public class WaveSpawner : MonoBehaviour
 {
-    quaity Quaity;
+    Quaity Quaity;
     GameUI GameUI;
     GameManager GameManager;
 
@@ -58,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
     {
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
-        Quaity = FindObjectOfType<quaity>();
+        Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
         GameManager = FindObjectOfType<GameManager>();
 

@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     WaveSpawner WaveSpawner;
-    quaity Quaity;
+    Quaity Quaity;
     TowerTarget TowerTarget;
 
     [Space(5f)]
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
         //AudioVaribles.AudioClip = GetComponent<AudioClip>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
-        Quaity = FindObjectOfType<quaity>();
+        Quaity = FindObjectOfType<Quaity>();
 
 
         //Kule Öz Nitelikleri

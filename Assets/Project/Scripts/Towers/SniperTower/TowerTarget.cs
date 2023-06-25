@@ -25,7 +25,8 @@ public class TowerTarget : MonoBehaviour
     [Header("Tower Bullet Points")]
     public Transform[] firePoints;
     public int firePointIndex = 0;
-    public int recoil;
+    public float recoil;
+    public float RecoilSpeed;
 
     AudioSource source;
 
@@ -182,22 +183,22 @@ public class TowerTarget : MonoBehaviour
         switch ((TowerMenu.sniperTowerCount, firePointIndex))
         {
             case (0, _):
-                muzzlePosition[0].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+                muzzlePosition[0].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
                 break;
             case (1, 0):
-                muzzlePosition[1].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+                muzzlePosition[1].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
                 break;
             case (1, 1):
-                muzzlePosition[2].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+                muzzlePosition[2].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
                 break;
             case (2, 0):
-                muzzlePosition[3].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+                muzzlePosition[3].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
                 break;
             case (2, 2):
-                muzzlePosition[4].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+                muzzlePosition[4].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
                 break;
             case (2, 1):
-                muzzlePosition[5].transform.Translate(Vector3.back * Time.fixedDeltaTime * recoil);
+                muzzlePosition[5].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
                 break;
         }
     }
@@ -217,7 +218,7 @@ public class TowerTarget : MonoBehaviour
             2 when firePointIndex == 0 => 4,
             2 when firePointIndex == 2 => 5,
             _ => -1
-        }].transform.Translate(Vector3.forward * Time.fixedDeltaTime * recoil);
+        }].transform.GetComponent<Recoil>().GunRecoil(0f, RecoilSpeed / 2);
     }
 
 }

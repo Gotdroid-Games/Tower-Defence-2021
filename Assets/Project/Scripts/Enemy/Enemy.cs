@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
     WaveSpawner waveSpawner;
-    quaity Quaity;
+    Quaity Quaity;
     GameValue GameValue;
     TowerTarget TowerTarget;
     GameManager GameManager;
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Quaity = FindObjectOfType<quaity>();
+        Quaity = FindObjectOfType<Quaity>();
         GameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
@@ -135,7 +135,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
         transform.rotation = Quaternion.LookRotation(dir1);
 
-        Quaity = FindObjectOfType<quaity>();
+        Quaity = FindObjectOfType<Quaity>();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -169,7 +169,7 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
         {
-            quaity.Instance.Damage(RobotDamage);
+            Quaity.Instance.Damage(RobotDamage);
             Destroy(gameObject);
 
 
