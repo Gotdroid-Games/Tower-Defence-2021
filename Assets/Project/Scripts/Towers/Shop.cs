@@ -15,7 +15,7 @@ public class Shop : MonoBehaviour
     public void PurchaseStandTurret()
     {
         Debug.Log("Stand Turret Selected"); // Standart kule se�ildi�inde konsola yazd�r�l�yor.
-        BuildManager.SetTurretToBuild(BuildManager.standardTurretPrefab); // BuildManager s�n�f�ndaki SetTurretToBuild metodu �a��r�l�yor ve parametre olarak standart kule prefab� g�nderiliyor.
+        BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[0]); // BuildManager s�n�f�ndaki SetTurretToBuild metodu �a��r�l�yor ve parametre olarak standart kule prefab� g�nderiliyor.
         bombSelected = false;
         Debug.Log(bombSelected);
     }
@@ -23,8 +23,15 @@ public class Shop : MonoBehaviour
     public void PurchaseAnotherTurret()
     {
         Debug.Log("Another Turret Selected"); // Ba�ka bir kule se�ildi�inde konsola yazd�r�l�yor.
-        BuildManager.SetTurretToBuild(BuildManager.anotherTurretPrefab);
+        BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[1]);
         bombSelected = true;
+        Debug.Log(bombSelected);
+    }
+    public void PurchaseHackerTower()
+    {
+        Debug.Log("Another Turret Selected"); // Ba�ka bir kule se�ildi�inde konsola yazd�r�l�yor.
+        BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[2]);
+        bombSelected = false;
         Debug.Log(bombSelected);
     }
 }

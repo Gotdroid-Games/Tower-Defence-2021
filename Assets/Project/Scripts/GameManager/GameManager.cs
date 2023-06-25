@@ -8,7 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public class TowerVaribles
 {
-    [HideInInspector]
+    //[HideInInspector]
     public string name;
     //Kulenin
     
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     WaveSpawner WaveSpawner;
-    Quaity Quaity;
+    quaity Quaity;
     TowerTarget TowerTarget;
 
     [Space(5f)]
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
         //AudioVaribles.AudioClip = GetComponent<AudioClip>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
-        Quaity = FindObjectOfType<Quaity>();
+        Quaity = FindObjectOfType<quaity>();
 
 
         //Kule Öz Nitelikleri

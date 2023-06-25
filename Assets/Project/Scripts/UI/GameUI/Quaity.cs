@@ -7,10 +7,10 @@ using JetBrains.Annotations;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class Quaity : MonoBehaviour
+public class quaity : MonoBehaviour
 {
 
-    public static Quaity Instance;
+    public static quaity Instance;
 
     GameUI GameUI;
     WaveSpawner WaveSpawner;
@@ -64,6 +64,7 @@ public class Quaity : MonoBehaviour
 
     private void OnDisable()
     {
+        // can deðeri 0'ýn altýnda düþtüðünde oyunun defeat menu ekraný gelmiyor (OnDisable fonksiyonu çalýþmýyor).
         DefeatMenu();
     }
 

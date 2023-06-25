@@ -9,7 +9,7 @@ public class TowerMenu : MonoBehaviour
     GameManager GameManager;
     TowerTarget TowerTarget;
     Enemy Enemy;
-    Quaity Quaity;
+    quaity Quaity;
     GameObject touchObjList;
     public EnemyManager.TowerType TowerType;
 
@@ -41,7 +41,7 @@ public class TowerMenu : MonoBehaviour
         TowerClicked = false;
         TouchObjList[0].SetActive(true);
         TowerTarget = FindObjectOfType<TowerTarget>();
-        Quaity = FindObjectOfType<Quaity>();
+        Quaity = FindObjectOfType<quaity>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
 
