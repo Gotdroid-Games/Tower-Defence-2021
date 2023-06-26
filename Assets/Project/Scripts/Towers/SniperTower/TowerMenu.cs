@@ -19,6 +19,7 @@ public class TowerMenu : MonoBehaviour
     public GameObject SellButton;
     public GameObject towerUI;
     public GameObject canvas;
+    public GameObject rangeindicator;
     public List<GameObject> TouchObjList = new List<GameObject>();
     public Button SniperTowerUpgradeButton;
     public Image MaxlevelImage;
@@ -65,11 +66,14 @@ public class TowerMenu : MonoBehaviour
             //SellButton.SetActive(false);
             //TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
             towerUI.SetActive(false);
+            rangeindicator.SetActive(false);
             TowerClicked = false;
+            
         }
     }
     private void Update()
     {
+        rangeindicator.transform.localScale = new Vector3(sniperTowerRange, 0.5f, sniperTowerRange);
         Clickdetector();
 
         if (sniperTowerCount <= 2)
@@ -91,6 +95,7 @@ public class TowerMenu : MonoBehaviour
         else
         {
             UpgradeButton1.SetActive(TowerClicked);
+            rangeindicator.SetActive(TowerClicked);
         }
 
         MaxlevelImage.gameObject.SetActive(sniperTowerCount == 2 && TowerClicked);
@@ -181,6 +186,9 @@ public class TowerMenu : MonoBehaviour
                     Debug.Log("objeye týklandý");
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);
+                    rangeindicator.SetActive(true);
+                    rangeindicator.transform.position = transform.position;
+                    
                 }
             }
 
@@ -188,7 +196,9 @@ public class TowerMenu : MonoBehaviour
             {
                 Debug.Log("Baþka bir yere týklandý");
                 TowerClicked = false;
-                towerUI.SetActive(false);
+                towerUI.SetActive(false); 
+                rangeindicator.SetActive(false);
+
             }
         }
     }
