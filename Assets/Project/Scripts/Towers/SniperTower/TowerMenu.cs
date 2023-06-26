@@ -91,6 +91,7 @@ public class TowerMenu : MonoBehaviour
         if (sniperTowerCount == 2)
         {
             UpgradeButton1.SetActive(false);
+            
         }
         else
         {
@@ -99,6 +100,7 @@ public class TowerMenu : MonoBehaviour
         }
 
         MaxlevelImage.gameObject.SetActive(sniperTowerCount == 2 && TowerClicked);
+        rangeindicator.SetActive(TowerClicked);
 
         if (sniperTowerCountCheck == 0 && Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
         {
@@ -130,6 +132,7 @@ public class TowerMenu : MonoBehaviour
 
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
+        rangeindicator.SetActive(false);
         if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
