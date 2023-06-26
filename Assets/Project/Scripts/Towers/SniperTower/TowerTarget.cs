@@ -27,6 +27,7 @@ public class TowerTarget : MonoBehaviour
     public int firePointIndex = 0;
     public float recoil;
     public float RecoilSpeed;
+    public GameObject Muzzle;
 
     AudioSource source;
 
@@ -170,7 +171,10 @@ public class TowerTarget : MonoBehaviour
     private void SpawnBullet(Transform firePoint)
     {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject MuzzleCopy = Instantiate(Muzzle, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        DestroyObject(MuzzleCopy, 2f);
 
         if (bullet != null)
         {
