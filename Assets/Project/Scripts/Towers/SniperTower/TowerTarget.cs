@@ -24,7 +24,7 @@ public class TowerTarget : MonoBehaviour
     public Transform[] muzzlePosition;
     [Header("Tower Bullet Points")]
     public Transform[] firePoints;
-    public int firePointIndex = 0;
+    public sbyte firePointIndex = 0;
     public float recoil;
     public float RecoilSpeed;
     public GameObject Muzzle;

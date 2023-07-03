@@ -4,13 +4,20 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class MenuUI : MonoBehaviour
 {
     AudioManager AudioManager;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
-    [SerializeField] private List<GameObject> _buttons;
+    public Image _musicButtonMuteImage;
+    public Image _sfxButtonMuteImage;
+    public string musicVolumeValue;
+    public string sfxVolumeValue;
+    public TextMeshProUGUI _musicText;
+    public TextMeshProUGUI _sfxText;
+    public List<GameObject> _buttons;
 
     private void Awake()
     {
@@ -21,6 +28,12 @@ public class MenuUI : MonoBehaviour
     private void Start()
     {
         AudioManager = FindObjectOfType<AudioManager>();
+        _musicButtonMuteImage.gameObject.SetActive(false);
+        _sfxButtonMuteImage.gameObject.SetActive(false);
+        _buttons[6].SetActive(false);
+        _buttons[7].SetActive(false);
+        _buttons[8].SetActive(false);
+        _buttons[9].SetActive(false);
     }
 
     public void BackButton()
@@ -31,6 +44,8 @@ public class MenuUI : MonoBehaviour
         _buttons[5].SetActive(false);
         _buttons[6].SetActive(false);
         _buttons[7].SetActive(false);
+        _buttons[8].SetActive(false);
+        _buttons[9].SetActive(false);
     }
 
     public void OptionsButton()
@@ -41,26 +56,68 @@ public class MenuUI : MonoBehaviour
         _buttons[5].SetActive(true);
         _buttons[6].SetActive(true);
         _buttons[7].SetActive(true);
+        _buttons[8].SetActive(true);
+        _buttons[9].SetActive(true);
     }
 
-    public void ToggleMusic()
+    public void MenuToggleMusic()
     {
-        AudioManager.ToggleMusic();
+        AudioManager.MenuToggleMusic();
     }
 
-    public void ToggleSFX()
+    public void MenuToggMusicMute()
     {
-        AudioManager.ToggleSFX();
+        AudioManager.MenuToggleMusic();
+        _buttons[8].SetActive(true);
+        _musicButtonMuteImage.gameObject.SetActive(false);
+    }
+
+    public void MenuToggleSFX()
+    {
+        AudioManager.MenuToggleSFX();
+    }
+
+    public void MenuToggleSFXMute()
+    {
+        AudioManager.MenuToggleSFX();
+        _buttons[9].SetActive(true);
+        _sfxButtonMuteImage.gameObject.SetActive(false);
     }
 
     public void MusicVolume()
     {
         AudioManager.MusicVolume(_musicSlider.value);
+        musicVolumeValue = _musicSlider.value.ToString();
+        _musicText.text = musicVolumeValue;
+
+        if (_musicSlider.value == 0)
+        {
+            _buttons[8].SetActive(false);
+            _musicButtonMuteImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            _buttons[8].SetActive(true);
+            _musicButtonMuteImage.gameObject.SetActive(false);
+        }
     }
 
     public void SFXVolume()
     {
         AudioManager.SFXVolume(_sfxSlider.value);
+        sfxVolumeValue = _sfxSlider.value.ToString();
+        _sfxText.text = sfxVolumeValue;
+
+        if (_sfxSlider.value == 0)
+        {
+            _buttons[9].SetActive(false);
+            _sfxButtonMuteImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            _buttons[9].SetActive(true);
+            _sfxButtonMuteImage.gameObject.SetActive(false);
+        }
     }
 
     public void PlayButton()
