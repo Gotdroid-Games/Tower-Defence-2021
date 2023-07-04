@@ -85,7 +85,28 @@ public class GameUI : MonoBehaviour
     // [12] (_thirdStar)
 
 
-
+    private void Update()
+    {
+        if (AudioManager.musicSource.mute==false)
+        {
+            AudioManager.recordedMusicValue = _musicSlider.value;
+        }
+        else
+        {
+            AudioManager.recordedMusicValue2 = _musicSlider.value;
+            Debug.Log(AudioManager.recordedMusicValue2);
+        }
+        
+        if (AudioManager.sfxSource.mute==false)
+        {
+            AudioManager.recordedSFXValue = _sfxSlider.value;
+        }
+        else
+        {
+            AudioManager.recordedSFXValue2 = _sfxSlider.value;
+            Debug.Log(AudioManager.recordedSFXValue2);
+        }
+    }
     public void PauseButton()
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
@@ -166,12 +187,14 @@ public class GameUI : MonoBehaviour
     {
         //Müzik sesini susturma ve aktif etme
         AudioManager.GameToggleMusic();
+        _musicSlider.value = 0;
     }
     public void ToggleMusicMute()
     {
         AudioManager.GameToggleMusic();
         _Button.GameUIButtons[9].SetActive(true);
         _musicButtonMuteImage.gameObject.SetActive(false);
+        _musicSlider.value = AudioManager.recordedMusicValue;
         Debug.Log("mute kaldýrýldý");
     }
 
@@ -179,6 +202,7 @@ public class GameUI : MonoBehaviour
     {
         //Ses efektlerini susturma ve aktif etme
         AudioManager.GameToggleSFX();
+        _sfxSlider.value = 0;
     }
 
     public void ToggleSFXMute()
@@ -186,6 +210,7 @@ public class GameUI : MonoBehaviour
         AudioManager.GameToggleSFX();
         _Button.GameUIButtons[10].SetActive(true);
         _sfxButtonMute.gameObject.SetActive(false);
+        _sfxSlider.value=AudioManager.recordedSFXValue;
 
     }
 
@@ -193,10 +218,10 @@ public class GameUI : MonoBehaviour
     {
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.MusicVolume(_musicSlider.value);
-        musicVolumeValue = _musicSlider.value.ToString();
+        musicVolumeValue = (_musicSlider.value * 100).ToString("0");
         _musicText.text = musicVolumeValue;
-        
-        if(_musicSlider.value==0)
+
+        if (_musicSlider.value == 0)
         {
             _Button.GameUIButtons[9].SetActive(false);
             _musicButtonMuteImage.gameObject.SetActive(true);
@@ -213,16 +238,16 @@ public class GameUI : MonoBehaviour
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.SFXVolume(_sfxSlider.value);
 
-        sfxVolumeValue = _sfxSlider.value.ToString();
+        sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
         _sfxText.text = sfxVolumeValue;
-       
-        if(_sfxSlider.value==0)
+
+        if (_sfxSlider.value == 0)
         {
             _Button.GameUIButtons[10].SetActive(false);
             _sfxButtonMute.gameObject.SetActive(true);
         }
 
-        else 
+        else
         {
             _Button.GameUIButtons[10].SetActive(true);
             _sfxButtonMute.gameObject.SetActive(false);

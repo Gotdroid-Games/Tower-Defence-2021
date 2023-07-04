@@ -1826,7 +1826,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2320,9 +2320,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 506468984}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3293,9 +3293,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1903436965}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 100
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3377,6 +3377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c086d86c5a7d1d49951111912215693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recordedMusicValue: 0
+  recordedMusicValue2: 0
+  recordedSFXValue: 0
+  recordedSFXValue2: 0
   musicSounds:
   - name: Theme
     clip: {fileID: 8300000, guid: d2fb941b043f58d47810c6aa363e5f29, type: 3}

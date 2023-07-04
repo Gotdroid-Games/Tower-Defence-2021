@@ -219,14 +219,14 @@ public class WaveSpawner : MonoBehaviour
 
     public void PanelActive()
     {
-        GameUI._Button.GameUIButtons[14].SetActive(true);
+        GameUI._Button.GameUIButtons[16].SetActive(true);
         Debug.Log("Ýnfo Butonu Aktif");
         
     }
 
     public void PanelPassive()
     {
-        GameUI._Button.GameUIButtons[14].SetActive(false);
+        GameUI._Button.GameUIButtons[16].SetActive(false);
     }
 
     public void StartWaveCoin()

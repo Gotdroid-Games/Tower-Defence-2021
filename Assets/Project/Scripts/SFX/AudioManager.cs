@@ -7,7 +7,10 @@ public class AudioManager : MonoBehaviour
 {
     GameUI GameUI;
     MenuUI MenuUI;
-    int deneme;
+    public float recordedMusicValue;
+    public float recordedMusicValue2;
+    public float recordedSFXValue;
+    public float recordedSFXValue2;
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
@@ -72,7 +75,7 @@ public class AudioManager : MonoBehaviour
         MenuUI._musicButtonMuteImage.gameObject.SetActive(true);
         Debug.Log("mute edildi");
     }
-    
+
     public void MenuToggleSFX()
     {
         sfxSource.mute = !sfxSource.mute;
@@ -84,10 +87,29 @@ public class AudioManager : MonoBehaviour
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
+
+        if (volume == 0)
+        {
+
+            musicSource.mute = true;
+        }
+        else
+        {
+            musicSource.mute = false;
+        }
     }
 
     public void SFXVolume(float volume)
     {
         sfxSource.volume = volume;
+
+        if (volume == 0)
+        {
+            sfxSource.mute = true;
+        }
+        else
+        {
+            sfxSource.mute = false;
+        }
     }
 }
