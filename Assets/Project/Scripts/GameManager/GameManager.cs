@@ -8,7 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public class TowerVaribles
 {
-    [HideInInspector]
+    //[HideInInspector]
     public string name;
     //Kulenin
     

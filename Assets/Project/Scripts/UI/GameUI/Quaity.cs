@@ -64,6 +64,7 @@ public class Quaity : MonoBehaviour
 
     private void OnDisable()
     {
+        // can deðeri 0'ýn altýnda düþtüðünde oyunun defeat menu ekraný gelmiyor (OnDisable fonksiyonu çalýþmýyor).
         DefeatMenu();
     }
 

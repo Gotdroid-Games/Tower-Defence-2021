@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class TowerTarget : MonoBehaviour
 {
@@ -15,23 +13,26 @@ public class TowerTarget : MonoBehaviour
     public float fireRate;
     public float fireCountdown;
     public int critValue;
+    public int angle;
 
-    [Header("Unity Setup Fields")]
-    public Transform partToRotate;
-    public float turnSpeed;
+    [Header("Tower Movements")]
+    public Transform partToBody;
+    public Transform partToBarrel;
+    public float bodyTurnSpeed;
+    int barrelTurnSpeed = 1;
     public GameObject bulletPrefab;
-    public Transform firePoint;
+    public Transform[] muzzlePosition;
+    [Header("Tower Bullet Points")]
+    public Transform[] firePoints;
+    public sbyte firePointIndex = 0;
+    public float recoil;
+    public float RecoilSpeed;
+    public GameObject Muzzle;
+
     AudioSource source;
 
-    private void Awake()
-    {
-
-        //source = GameManager.AudioVaribles.AudioSource;
-        //voices = GameManager.AudioVaribles.AudioClip;
-    }
     private void Start()
     {
-
         gameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
@@ -39,7 +40,6 @@ public class TowerTarget : MonoBehaviour
         source = GameManager.gameObject.GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
-
 
     private void UpdateTarget()
     {
@@ -52,9 +52,9 @@ public class TowerTarget : MonoBehaviour
 
         for (int i = 0; i < Robots.Length; i++)
         {
-            shortestDistance = Vector3.Distance(this.transform.position, Robots[i].transform.position);
+            shortestDistance = Vector3.Distance(transform.position, Robots[i].transform.position);
 
-            if(Robots[i].GetComponent<Enemy>().NextWaypointNumber >= ActiveWaypointNumber && Robots[i].GetComponent<Enemy>().NextWaypointDistance <= ActiveWaypointDistance && shortestDistance <= TowerMenu.sniperTowerRange)
+            if (Robots[i].GetComponent<Enemy>().NextWaypointNumber >= ActiveWaypointNumber && Robots[i].GetComponent<Enemy>().NextWaypointDistance <= ActiveWaypointDistance && shortestDistance <= TowerMenu.sniperTowerRange)
             {
                 TargetEnemy = Robots[i];
                 ActiveWaypointDistance = Robots[i].GetComponent<Enemy>().NextWaypointDistance;
@@ -62,9 +62,8 @@ public class TowerTarget : MonoBehaviour
             }
         }
 
-        if (TargetEnemy != null && Vector3.Distance(this.transform.position, TargetEnemy.transform.position) <= TowerMenu.sniperTowerRange)
+        if (TargetEnemy != null && Vector3.Distance(transform.position, TargetEnemy.transform.position) <= TowerMenu.sniperTowerRange)
             target = TargetEnemy.transform;
-
         else
             target = null;
     }
@@ -78,32 +77,104 @@ public class TowerTarget : MonoBehaviour
         // Target lock on
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        Vector3 rotation = Quaternion.Lerp(partToBody.rotation, lookRotation, Time.deltaTime * bodyTurnSpeed).eulerAngles;
+        partToBody.rotation = Quaternion.Euler(0, rotation.y, 0f);
+
+        // Barrel rotation towards the target
+        Vector3 barrelDir = target.position - partToBarrel.position;
+        Quaternion barrelLookRotation = Quaternion.LookRotation(barrelDir);
+        Vector3 barrelEulerAngles = barrelLookRotation.eulerAngles;
+
+
+        // Yeni rotasyonu hesapla
+        Quaternion barrelRotation = Quaternion.Euler(barrelEulerAngles.x, barrelEulerAngles.y, barrelEulerAngles.z);
+        partToBarrel.rotation = Quaternion.Lerp(partToBarrel.rotation, barrelRotation, Time.deltaTime * barrelTurnSpeed);
 
         // Crit chance
         if (fireCountdown <= 0f)
         {
             Shoot();
-            critValue = Random.Range(1, 101);
+            //critValue = Random.Range(1, 101);
             fireCountdown = fireRate;
-
-            //if (gameValue.NewFireCountDown == 0.2f)
-            //{
-            //    fireCountdown = 0.2f / fireRate;
-            //}
-
         }
-        fireCountdown -= Time.deltaTime;
 
+        fireCountdown -= Time.deltaTime;
     }
 
     private void Shoot()
     {
-        GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (TowerMenu.sniperTowerCount == 0)
+        {
+            SpawnBullet(firePoints[0]);
+            MoveFirePointBackwards();
+            StartCoroutine(MoveFirePointForwards());
+
+        }
+
+        if (TowerMenu.sniperTowerCount == 1)
+        {
+            if (firePointIndex == 0)
+            {
+                SpawnBullet(firePoints[1]);
+                MoveFirePointBackwards();
+                StartCoroutine(MoveFirePointForwards());
+                firePointIndex++;
+            }
+
+            else if (firePointIndex == 1)
+            {
+                SpawnBullet(firePoints[2]);
+                MoveFirePointBackwards();
+                StartCoroutine(MoveFirePointForwards());
+                firePointIndex = 0;
+            }
+        }
+
+        if (TowerMenu.sniperTowerCount == 2)
+        {
+
+            if (firePointIndex == 0)
+            {
+                SpawnBullet(firePoints[3]);
+                MoveFirePointBackwards();
+                StartCoroutine(MoveFirePointForwards());
+                firePointIndex++;
+                Debug.Log("Sol Ateþ Etti");
+            }
+
+            else if (firePointIndex == 1)
+            {
+                SpawnBullet(firePoints[5]);
+                MoveFirePointBackwards();
+                StartCoroutine(MoveFirePointForwards());
+                firePointIndex++;
+                Debug.Log("Orta Ateþ Etti");
+            }
+
+            else if (firePointIndex == 2)
+            {
+                SpawnBullet(firePoints[4]);
+                MoveFirePointBackwards();
+                StartCoroutine(MoveFirePointForwards());
+                firePointIndex = 0;
+                Debug.Log("Sað Ateþ Etti");
+            }
+        }
+
         source.clip = GameManager.TowerVaribles[0].TowerAttackSFX;
         source.Play();
-        Bullet bullet = bulletGo.GetComponent<Bullet>();
+
+
+
+    }
+
+    private void SpawnBullet(Transform firePoint)
+    {
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject MuzzleCopy = Instantiate(Muzzle, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        DestroyObject(MuzzleCopy, 2f);
 
         if (bullet != null)
         {
@@ -111,6 +182,52 @@ public class TowerTarget : MonoBehaviour
         }
     }
 
+    void MoveFirePointBackwards()
+    {
+        switch ((TowerMenu.sniperTowerCount, firePointIndex))
+        {
+            case (0, _):
+                muzzlePosition[0].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
+                break;
+            case (1, 0):
+                muzzlePosition[1].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
+                break;
+            case (1, 1):
+                muzzlePosition[2].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
+                break;
+            case (2, 0):
+                muzzlePosition[3].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
+                break;
+            case (2, 2):
+                muzzlePosition[4].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
+                break;
+            case (2, 1):
+                muzzlePosition[5].transform.transform.GetComponent<Recoil>().GunRecoil(recoil, RecoilSpeed);
+                break;
+        }
+    }
 
+    IEnumerator MoveFirePointForwards()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        (int sniperTowerCount, int firePointIndeX) = (TowerMenu.sniperTowerCount, firePointIndex);
+
+        muzzlePosition[sniperTowerCount switch
+        {
+            0 => 0,
+            1 when firePointIndex == 1 => 1,
+            1 when firePointIndex == 0 => 2,
+            2 when firePointIndex == 1 => 3,
+            2 when firePointIndex == 0 => 4,
+            2 when firePointIndex == 2 => 5,
+            _ => -1
+        }].transform.GetComponent<Recoil>().GunRecoil(0f, RecoilSpeed / 3);
+    }
 
 }
+
+
+
+
+

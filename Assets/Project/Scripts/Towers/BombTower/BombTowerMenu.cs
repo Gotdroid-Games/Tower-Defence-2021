@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 
 public class BombTowerMenu : MonoBehaviour
 {
     Quaity Quaity;
     GameManager GameManager;
     public GameObject towerUI;
-    public GameObject tower;
     public GameObject _upgradeButton;
     public GameObject SellButton;
     public GameObject BombTower;
     public GameObject canvas;
     GameObject bombObjList;
-    public int[] BombTowerUpgradeMoneyList;
     public int Count;
     public int bombTowerCountCheck;
     public int bombTowerDamage;
     public int bombTowerRange;
-    private bool bombTowerDamageUpgradeLevel1 = false;
-    private bool bombTowerDamageUpgradeLevel2 = false;
     public bool bombTowerClicked;
     public Image MaxlevelImage;
     public Button BombTowerUpgradeButton;
@@ -170,7 +165,7 @@ public class BombTowerMenu : MonoBehaviour
                 }
             }
 
-            if (!isClickedOnGameObject &&bombTowerClicked==true)
+            if (!isClickedOnGameObject && bombTowerClicked == true)
             {
                 Debug.Log("Başka bir yere tıklandı");
                 bombTowerClicked = false;

@@ -17,7 +17,8 @@ public class EnemyManager : MonoBehaviour
     public enum TowerType
     {
         sniperTower,
-        bombTower
+        bombTower,
+        hackerTower
     }
 
     public GameObject[] Enemies;
