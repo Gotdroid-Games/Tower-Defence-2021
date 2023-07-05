@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.mute = !sfxSource.mute;
         GameUI._Button.GameUIButtons[10].SetActive(false);
-        GameUI._sfxButtonMute.gameObject.SetActive(true);
+        GameUI._sfxButtonMuteImage.gameObject.SetActive(true);
         Debug.Log("SFX Mute");
     }
     public void MenuToggleMusic()

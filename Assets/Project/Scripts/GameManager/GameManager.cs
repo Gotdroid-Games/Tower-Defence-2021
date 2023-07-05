@@ -11,7 +11,7 @@ public class TowerVaribles
     //[HideInInspector]
     public string name;
     //Kulenin
-    
+
     public int TowerDamage;
     public int TowerDamageIncreaseValueLevel1;
     public int TowerDamageIncreaseValueLevel2;
@@ -52,14 +52,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    GameUI GameUI;
     WaveSpawner WaveSpawner;
-    Quaity Quaity;
     TowerTarget TowerTarget;
 
     [Space(5f)]
     [Header("TowerTarget Attributes")]
 
-    
+
     public int _critValue;
     public float bombTowerExplosionRadius;
     public List<TowerVaribles> TowerVaribles;
@@ -114,18 +114,18 @@ public class GameManager : MonoBehaviour
         TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
         //AudioVaribles.AudioClip = GetComponent<AudioClip>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
-        Quaity = FindObjectOfType<Quaity>();
+        GameUI = FindObjectOfType<GameUI>();
 
 
         //Kule Öz Nitelikleri
 
         //Oyun Ýçi Bilgi Alaný Öz Nitelikleri
-        Quaity._coinText = coinText;
-        Quaity._heartText = heartText;
-        Quaity._waveText = waveText;
+        GameUI._coinText = coinText;
+        GameUI._heartText = heartText;
+        GameUI._waveText = waveText;
 
         //Para Deðerleri
-        Quaity.Product = _Product;
+        GameUI.Product = _Product;
 
         //Düþman Dizileri
         WaveSpawner.basicRobot = _basicRobot;

@@ -9376,7 +9376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999130338}
-  - component: {fileID: 999130339}
   m_Layer: 0
   m_Name: ' Last Waypoint'
   m_TagString: Untagged
@@ -11878,26 +11877,6 @@ Transform:
   m_Father: {fileID: 20035803}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &999130339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615322491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5655dca67df2f14f926bbc323a5949e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heartText: {fileID: 1438694259}
-  WaveText: {fileID: 1515769404}
-  CoinText: {fileID: 2143163063}
-  _coinText: 0
-  _heartText: 0
-  _waveText: 0
-  defeatMenuControl: 0
-  Product: 0
 --- !u!1 &1010742712
 GameObject:
   m_ObjectHideFlags: 0
@@ -13004,6 +12983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e34144b73a47e4aa3e7b18ddf58e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinValues: []
   _Button:
     GameUIButtons:
     - {fileID: 1631830133}
@@ -13027,11 +13007,19 @@ MonoBehaviour:
   _sfxSlider: {fileID: 434778385}
   wavestartinfopanel: {fileID: 289236441}
   _musicButtonMuteImage: {fileID: 1182612428}
-  _sfxButtonMute: {fileID: 82121728}
+  _sfxButtonMuteImage: {fileID: 0}
   _musicText: {fileID: 1229441567}
   _sfxText: {fileID: 1189569044}
+  heartText: {fileID: 1438694259}
+  WaveText: {fileID: 1515769404}
+  CoinText: {fileID: 2143163063}
   musicVolumeValue: 
   sfxVolumeValue: 
+  _coinText: 0
+  _heartText: 0
+  _waveText: 0
+  defeatMenuControl: 0
+  Product: 0
 --- !u!4 &1147089605
 Transform:
   m_ObjectHideFlags: 0

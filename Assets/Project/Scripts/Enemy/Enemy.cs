@@ -14,12 +14,12 @@ public class Enemy : MonoBehaviour
     //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
     WaveSpawner waveSpawner;
-    Quaity Quaity;
     GameValue GameValue;
     TowerTarget TowerTarget;
     GameManager GameManager;
     BombTowerMenu BombTowerMenu;
     TowerMenu Towermenu;
+    GameUI GameUI;
     int maxHealth;
     public int currentHealth;
 
@@ -43,12 +43,12 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Quaity = FindObjectOfType<Quaity>();
         GameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
         Towermenu = FindObjectOfType<TowerMenu>();
+        GameUI = FindObjectOfType<GameUI>();
 
 
         target = WayPoints.points[0];
@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
     {
         TowerTarget = FindObjectOfType<TowerTarget>();
         Towermenu = FindObjectOfType<TowerMenu>();
-        BombTowerMenu=FindObjectOfType<BombTowerMenu>();
+        BombTowerMenu = FindObjectOfType<BombTowerMenu>();
 
         if (Towermenu != null)
         {
@@ -135,7 +135,6 @@ public class Enemy : MonoBehaviour
         transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
         transform.rotation = Quaternion.LookRotation(dir1);
 
-        Quaity = FindObjectOfType<Quaity>();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -169,7 +168,7 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
         {
-            Quaity.Instance.Damage(RobotDamage);
+            GameUI.HearthDamage(RobotDamage);
             Destroy(gameObject);
 
 
@@ -182,7 +181,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Quaity.CoinValue(EnemyKillCoinValue);
+            GameUI.CoinValue(EnemyKillCoinValue);
         }
     }
 

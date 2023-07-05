@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class HackerTowerMenu : MonoBehaviour
 {
-    Quaity quaity;
+    
     GameManager gameManager;
+    GameUI GameUI;
 
     public GameObject towerUI;
     public GameObject _upgradeButton;
@@ -31,8 +32,8 @@ public class HackerTowerMenu : MonoBehaviour
         Count = 0;
         HackerObjList[0].SetActive(true);
 
-        quaity =FindObjectOfType<Quaity>();
-        gameManager=FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
+        GameUI = FindObjectOfType<GameUI>();
     }
 
     private void OnMouseDown()
@@ -78,12 +79,12 @@ public class HackerTowerMenu : MonoBehaviour
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && hackerTowerClicked);
 
-        if (hackerTowerCountCheck == 0 && quaity._coinText >= gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1)
+        if (hackerTowerCountCheck == 0 && GameUI._coinText >= gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1)
         {
             hackerTowerUpgradeButton.interactable = true;
             hackerTowerUpgradeMoneyText.text = gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (hackerTowerCountCheck == 1 && quaity._coinText >= gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel2)
+        else if (hackerTowerCountCheck == 1 && GameUI._coinText >= gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel2)
         {
             hackerTowerUpgradeButton.interactable = true;
             hackerTowerUpgradeMoneyText.text = gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel2.ToString();
@@ -106,11 +107,11 @@ public class HackerTowerMenu : MonoBehaviour
         _upgradeButton.SetActive(false);
         SellButton.SetActive(false);
 
-        if (quaity._coinText >= gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1)
+        if (GameUI._coinText >= gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1)
         {
             if (hackerTowerCountCheck == 0)
             {
-                quaity.BombTowerUpgradeMoney(gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1);
+                GameUI.BombTowerUpgradeMoney(gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel1);
                 hackerTowerDamage += gameManager.TowerVaribles[2].TowerDamageIncreaseValueLevel1;
                 hackerTowerRange += gameManager.TowerVaribles[2].TowerRangeIncreaseValueLevel1;
                 Debug.Log("BombCountcheck = " + hackerTowerCountCheck);
@@ -118,7 +119,7 @@ public class HackerTowerMenu : MonoBehaviour
 
             if (hackerTowerCountCheck == 1)
             {
-                quaity.BombTowerUpgradeMoney(gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel2);
+                GameUI.BombTowerUpgradeMoney(gameManager.TowerVaribles[2].TowerMoneyUpgradeLevel2);
                 hackerTowerDamage += gameManager.TowerVaribles[2].TowerDamageIncreaseValueLevel2;
                 hackerTowerRange += gameManager.TowerVaribles[2].TowerRangeIncreaseValueLevel2;
                 Debug.Log("BombCountcheck = " + hackerTowerCountCheck);
@@ -130,17 +131,17 @@ public class HackerTowerMenu : MonoBehaviour
     {
         if (hackerTowerCountCheck == 0)
         {
-            quaity.SellTower(gameManager.TowerVaribles[2].TowerMoneySellLevel1);
+            GameUI.SellTower(gameManager.TowerVaribles[2].TowerMoneySellLevel1);
         }
 
         if (hackerTowerCountCheck == 1)
         {
-            quaity.SellTower(gameManager.TowerVaribles[2].TowerMoneySellLevel2);
+            GameUI.SellTower(gameManager.TowerVaribles[2].TowerMoneySellLevel2);
         }
 
         if (hackerTowerCountCheck == 2)
         {
-            quaity.SellTower(gameManager.TowerVaribles[2].TowerMoneySellLevel3);
+            GameUI.SellTower(gameManager.TowerVaribles[2].TowerMoneySellLevel3);
         }
         Destroy(gameObject);
     }

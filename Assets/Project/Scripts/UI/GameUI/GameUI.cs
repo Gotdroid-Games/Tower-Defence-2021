@@ -3,20 +3,31 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using System;
+using System.Collections.Generic;
 
 public class GameUI : MonoBehaviour
 {
+    [Header("references")]
+    //Referanslar
     AudioManager AudioManager;
-    Quaity Quaity;
-    [SerializeField] public ButtonAssignments _Button;
+    WaveSpawner WaveSpawner;
+    GameManager GameManager;
+    public List<CoinValues> coinValues;
+    public ButtonAssignments _Button;
     public Slider _musicSlider, _sfxSlider;
-    public Image wavestartinfopanel;
-    public Image _musicButtonMuteImage;
-    public Image _sfxButtonMute;
-    public TextMeshProUGUI _musicText;
-    public TextMeshProUGUI _sfxText;
+    public Image wavestartinfopanel, _musicButtonMuteImage, _sfxButtonMuteImage;
+    public TextMeshProUGUI _musicText, _sfxText, heartText, WaveText, CoinText;
     public string musicVolumeValue;
     public string sfxVolumeValue;
+
+
+
+    public int _coinText;
+    public int _heartText;
+    public int _waveText;
+    public bool defeatMenuControl;
+    public float Product;
 
     #region Button
     [System.Serializable]
@@ -55,7 +66,6 @@ public class GameUI : MonoBehaviour
     {
         //Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
 
-
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
             _Button.GameUIButtons[i].SetActive(false);
@@ -66,9 +76,12 @@ public class GameUI : MonoBehaviour
     private void Start()
     {
         AudioManager = FindObjectOfType<AudioManager>();
-        Quaity=FindObjectOfType<Quaity>();
         _musicButtonMuteImage.gameObject.SetActive(false);
-        _sfxButtonMute.gameObject.SetActive(false);
+        _sfxButtonMuteImage.gameObject.SetActive(false);
+
+        WaveSpawner = FindObjectOfType<WaveSpawner>();
+        GameManager = FindObjectOfType<GameManager>();
+        defeatMenuControl = false;
 
         if (AudioManager.musicSource.mute == false)
         {
@@ -92,14 +105,32 @@ public class GameUI : MonoBehaviour
 
     private void Update()
     {
-        if (Quaity._heartText <= 0)
+        WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
+        CoinText.text = _coinText.ToString();
+
+        if (_heartText < 0)
         {
-            Quaity._heartText = 0;
-            Quaity.defeatMenuControl = true;
+            _heartText = 0;
+            heartText.text = _heartText.ToString();
+        }
+        heartText.text = _heartText.ToString();
+
+        if (_coinText <= 0)
+        {
+            _coinText = 0;
+        }
+
+        WaveCounter();
+        Winning();
+
+        if (_heartText <= 0)
+        {
+            _heartText = 0;
+            defeatMenuControl = true;
             DefeatMenu();
         }
 
-        if (Quaity.defeatMenuControl == true)
+        if (defeatMenuControl == true)
         {
             Time.timeScale = 0;
         }
@@ -107,23 +138,8 @@ public class GameUI : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-        
+
     }
-
-    // [0] (_pauseButton)
-    // [1] (_resumeButton)
-    // [2] (_restartButton)
-    // [3] (_quitButton)
-    // [4] (_gameBG)
-    // [5] (_optionsBG)
-    // [6] (_exitButton)
-    // [7] (_musicButton)
-    // [8] (_sfxButton) 
-    // [9] (_continueButton)
-    // [10] (_firstStart)
-    // [11] (_secondStart)
-    // [12] (_thirdStar)
-
     public void PauseButton()
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
@@ -218,7 +234,7 @@ public class GameUI : MonoBehaviour
     {
         AudioManager.GameToggleSFX();
         _Button.GameUIButtons[10].SetActive(true);
-        _sfxButtonMute.gameObject.SetActive(false);
+        _sfxButtonMuteImage.gameObject.SetActive(false);
         _sfxSlider.value = AudioManager.recordedSFXValue;
 
     }
@@ -257,7 +273,7 @@ public class GameUI : MonoBehaviour
 
         bool isSFXMuted = Mathf.Approximately(_sfxSlider.value, 0f);
         _Button.GameUIButtons[10].SetActive(!isSFXMuted);
-        _sfxButtonMute.gameObject.SetActive(isSFXMuted);
+        _sfxButtonMuteImage.gameObject.SetActive(isSFXMuted);
 
         if (AudioManager.sfxSource.mute == false)
         {
@@ -270,6 +286,87 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    public void ContinueButton()
+    {
+        QuitButton();
+    }
+    #endregion
+
+
+    #region Coin Values
+
+    [System.Serializable]
+    public class CoinValues
+    {
+        [HideInInspector]
+        public string name;
+        public int coinIncrease;
+        public int coinDecrease;
+    }
+    
+
+
+    public void CoinValue(int coin)
+    {
+        _coinText += coin;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void PaidTower(int Decrease)
+    {
+        _coinText -= Decrease;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void PaidBombTower(int Decreasebomb)
+    {
+        _coinText -= Decreasebomb;
+        CoinText.text = _coinText.ToString();
+    }
+
+
+    public void SellTower(int value)
+    {
+        _coinText += value;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void TowerUpgradeMoney(int Decrease)
+    {
+        _coinText -= Decrease;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void BombTowerUpgradeMoney(int Decrease)
+    {
+        _coinText -= Decrease;
+        CoinText.text = _coinText.ToString();
+    }
+
+    public void WaveStartCoinFunction()
+    {
+        if (WaveSpawner.waveIndex == 0)
+        {
+            Product = 0;
+            return;
+        }
+
+        Product = GameManager._Product;
+        float count = WaveSpawner.waveCountdown * Product;
+        _coinText += (int)count;
+        CoinText.text = _coinText.ToString();
+    }
+    #endregion
+
+    public void Winning()
+    {
+        if (_waveText >= 12 && WaveSpawner.totalenemiescheck == 0)
+        {
+            _Button.GameUIButtons[2].SetActive(true);
+            _Button.GameUIButtons[9].SetActive(true);
+        }
+    }
+
     public void DefeatMenu()
     {
         //Can deðeri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baþlat), Quit (Çýkýþ Yapmak) butonlarýný aktif hale getirme
@@ -277,9 +374,22 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[3].SetActive(true);
     }
 
-    public void ContinueButton()
+    public void HearthDamage(int damage)
     {
-        QuitButton();
+        _heartText -= damage;
+        heartText.text = _heartText.ToString();
     }
-    #endregion
+
+    public void WaveValue(int wave)
+    {
+        _waveText += wave;
+        WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
+    }
+    void WaveCounter()
+    {
+        if (WaveSpawner.waveCountdown <= 0)
+        {
+            WaveValue(1);
+        }
+    }
 }

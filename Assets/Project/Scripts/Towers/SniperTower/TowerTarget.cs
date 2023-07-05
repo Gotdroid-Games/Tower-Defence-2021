@@ -108,7 +108,6 @@ public class TowerTarget : MonoBehaviour
             SpawnBullet(firePoints[0]);
             MoveFirePointBackwards();
             StartCoroutine(MoveFirePointForwards());
-
         }
 
         if (TowerMenu.sniperTowerCount == 1)

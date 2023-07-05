@@ -7,7 +7,6 @@ using System.Linq;
 
 public class WaveSpawner : MonoBehaviour
 {
-    Quaity Quaity;
     GameUI GameUI;
     GameManager GameManager;
 
@@ -58,7 +57,6 @@ public class WaveSpawner : MonoBehaviour
     {
         startWaveControl = false;
         waveCountdown = timeBetweenWaves[0];
-        Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
         GameManager = FindObjectOfType<GameManager>();
 
@@ -88,7 +86,7 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex <= 12 && waveCountdown <= 0f && spawnedEnemies == totalEnemies)
         {
             waveIndex++;
-            Quaity.WaveValue(1);
+            GameUI.WaveValue(1);
             StartCoroutine(SpawnWave());
             waveCountdown = timeBetweenWaves[waveIndex - 1];
 
@@ -123,7 +121,7 @@ public class WaveSpawner : MonoBehaviour
             waveIndex++;
             startWaveControl = true;
             _startWave.SetActive(false);
-            Quaity.WaveValue(1);
+            GameUI.WaveValue(1);
             waveCountdown = timeBetweenWaves[waveIndex];
             StartCoroutine(SpawnWave());
 
@@ -231,7 +229,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void StartWaveCoin()
     {
-        Quaity.WaveStartCoinFunction();
+        GameUI.WaveStartCoinFunction();
         StartWave();
     }
 }
