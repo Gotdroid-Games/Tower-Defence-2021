@@ -22,6 +22,7 @@ public class Quaity : MonoBehaviour
     public int _coinText;
     public int _heartText;
     public int _waveText;
+    public bool defeatMenuControl;
     public float Product;
 
     private void Awake()
@@ -35,7 +36,7 @@ public class Quaity : MonoBehaviour
         GameUI = FindObjectOfType<GameUI>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
-
+        defeatMenuControl = false;
 
 
     }
@@ -45,8 +46,8 @@ public class Quaity : MonoBehaviour
 
         WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
         CoinText.text = _coinText.ToString();
-        
-        if (_heartText<0)
+
+        if (_heartText < 0)
         {
             _heartText = 0;
             heartText.text = _heartText.ToString();
@@ -65,7 +66,7 @@ public class Quaity : MonoBehaviour
     private void OnDisable()
     {
         // can deðeri 0'ýn altýnda düþtüðünde oyunun defeat menu ekraný gelmiyor (OnDisable fonksiyonu çalýþmýyor).
-        DefeatMenu();
+        
     }
 
     public void Damage(int damage)
@@ -74,14 +75,7 @@ public class Quaity : MonoBehaviour
         heartText.text = _heartText.ToString();
     }
 
-    public void DefeatMenu()
-    {
-        if (_heartText <= 0)
-        {
-            _heartText = 0;
-            GameUI.DefeatMenu();
-        }
-    }
+    
     public void PauseOrResume()
     {
         if (GameUI._Button.GameUIButtons[2].activeSelf && GameUI._Button.GameUIButtons[3].activeSelf)
@@ -93,7 +87,7 @@ public class Quaity : MonoBehaviour
     public void WaveValue(int wave)
     {
         _waveText += wave;
-        WaveText.text = _waveText.ToString()+"/"+GameManager._basicRobot.Length.ToString();
+        WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
     }
     void WaveCounter()
     {
@@ -155,7 +149,7 @@ public class Quaity : MonoBehaviour
 
     public void Winning()
     {
-        if (_waveText >= 12&& WaveSpawner.totalenemiescheck==0)
+        if (_waveText >= 12 && WaveSpawner.totalenemiescheck == 0)
         {
             GameUI._Button.GameUIButtons[2].SetActive(true);
             GameUI._Button.GameUIButtons[9].SetActive(true);

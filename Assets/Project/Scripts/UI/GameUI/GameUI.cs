@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 public class GameUI : MonoBehaviour
 {
     AudioManager AudioManager;
+    Quaity Quaity;
     [SerializeField] public ButtonAssignments _Button;
     public Slider _musicSlider, _sfxSlider;
     public Image wavestartinfopanel;
@@ -65,6 +66,7 @@ public class GameUI : MonoBehaviour
     private void Start()
     {
         AudioManager = FindObjectOfType<AudioManager>();
+        Quaity=FindObjectOfType<Quaity>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMute.gameObject.SetActive(false);
 
@@ -88,6 +90,25 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Quaity._heartText <= 0)
+        {
+            Quaity._heartText = 0;
+            Quaity.defeatMenuControl = true;
+            DefeatMenu();
+        }
+
+        if (Quaity.defeatMenuControl == true)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        
+    }
 
     // [0] (_pauseButton)
     // [1] (_resumeButton)
@@ -150,18 +171,10 @@ public class GameUI : MonoBehaviour
     public void RestartButton()
     {
         //Oyunu yeniden baþlatma
+        Time.timeScale = 1;
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-        Time.timeScale = 1;
-    }
-
-    public void DefeatMenu()
-    {
-        //Can deðeri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baþlat), Quit (Çýkýþ Yapmak) butonlarýný aktif hale getirme
-        Time.timeScale = 0;
-        _Button.GameUIButtons[2].SetActive(true);
-        _Button.GameUIButtons[3].SetActive(true);
     }
 
     public void QuitButton()
@@ -212,33 +225,6 @@ public class GameUI : MonoBehaviour
 
     public void MusicVolume()
     {
-        ////Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
-        //AudioManager.MusicVolume(_musicSlider.value);
-        //musicVolumeValue = (_musicSlider.value * 100).ToString("0");
-        //_musicText.text = musicVolumeValue;
-
-        //if (_musicSlider.value == 0)
-        //{
-        //    _Button.GameUIButtons[9].SetActive(false);
-        //    _musicButtonMuteImage.gameObject.SetActive(true);
-        //}
-        //else
-        //{
-        //    _Button.GameUIButtons[9].SetActive(true);
-        //    _musicButtonMuteImage.gameObject.SetActive(false);
-        //}
-
-        //if (AudioManager.musicSource.mute == false)
-        //{
-        //    AudioManager.recordedMusicValue = _musicSlider.value;
-        //    Debug.Log(AudioManager.recordedMusicValue);
-        //}
-        //else
-        //{
-        //    AudioManager.recordedMusicValue2 = _musicSlider.value;
-        //    Debug.Log(AudioManager.recordedMusicValue2);
-        //}
-
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.MusicVolume(_musicSlider.value);
         musicVolumeValue = (_musicSlider.value * 100).ToString("0");
@@ -263,34 +249,7 @@ public class GameUI : MonoBehaviour
 
     public void SFXVolume()
     {
-        ////Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
-        //AudioManager.SFXVolume(_sfxSlider.value);
-
-        //sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
-        //_sfxText.text = sfxVolumeValue;
-
-        //if (_sfxSlider.value == 0)
-        //{
-        //    _Button.GameUIButtons[10].SetActive(false);
-        //    _sfxButtonMute.gameObject.SetActive(true);
-        //}
-
-        //else
-        //{
-        //    _Button.GameUIButtons[10].SetActive(true);
-        //    _sfxButtonMute.gameObject.SetActive(false);
-        //}
-
-        //if (AudioManager.sfxSource.mute == false)
-        //{
-        //    AudioManager.recordedSFXValue = _sfxSlider.value;
-        //}
-        //else
-        //{
-        //    AudioManager.recordedSFXValue2 = _sfxSlider.value;
-        //    Debug.Log(AudioManager.recordedSFXValue2);
-        //}
-
+        //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.SFXVolume(_sfxSlider.value);
 
         sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
@@ -309,6 +268,13 @@ public class GameUI : MonoBehaviour
             AudioManager.recordedSFXValue2 = _sfxSlider.value;
             Debug.Log(AudioManager.recordedSFXValue2);
         }
+    }
+
+    public void DefeatMenu()
+    {
+        //Can deðeri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baþlat), Quit (Çýkýþ Yapmak) butonlarýný aktif hale getirme
+        _Button.GameUIButtons[2].SetActive(true);
+        _Button.GameUIButtons[3].SetActive(true);
     }
 
     public void ContinueButton()

@@ -145,8 +145,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-
     private void Update()
     {
         TowerTarget = FindObjectOfType<TowerTarget>();
