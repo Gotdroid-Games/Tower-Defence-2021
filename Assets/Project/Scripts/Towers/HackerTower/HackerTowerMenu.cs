@@ -24,6 +24,7 @@ public class HackerTowerMenu : MonoBehaviour
     public TextMeshProUGUI hackerTowerUpgradeMoneyText;
     public Image MaxlevelImage;
     public EnemyManager.TowerType TowerType;
+    public GameObject rangeIndicator;
     private void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
@@ -37,7 +38,7 @@ public class HackerTowerMenu : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("on mouse downçalýþtýý");
+        Debug.Log("on mouse downï¿½alï¿½ï¿½tï¿½ï¿½");
         if (hackerTowerClicked == false)
         {
             towerUI.SetActive(true);
@@ -49,11 +50,13 @@ public class HackerTowerMenu : MonoBehaviour
         {
             towerUI.SetActive(false);
             hackerTowerClicked = false;
+            rangeIndicator.SetActive(false);
         }
     }
 
     void Update()
     {
+        rangeIndicator.transform.localScale = new Vector3(hackerTowerRange, 0.5f, hackerTowerRange);
         Clickdetector();
         if (Count <= 2)
         {
@@ -74,6 +77,7 @@ public class HackerTowerMenu : MonoBehaviour
         else
         {
             _upgradeButton.SetActive(hackerTowerClicked);
+            rangeIndicator.SetActive(hackerTowerClicked);
         }
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && hackerTowerClicked);
@@ -158,18 +162,27 @@ public class HackerTowerMenu : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton)
                 {
-                    Debug.Log("objeye týklandý");
+                    Debug.Log("objeye tï¿½klandï¿½");
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);
+                    rangeIndicator.SetActive(true);
+                    rangeIndicator.transform.position = transform.position;
                 }
             }
 
             if (!isClickedOnGameObject && hackerTowerClicked == true)
             {
-                Debug.Log("Baþka bir yere týklandý");
+                Debug.Log("Baï¿½ka bir yere tï¿½klandï¿½");
                 hackerTowerClicked = false;
                 towerUI.SetActive(false);
+                rangeIndicator.SetActive(false);
             }
         }
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, hackerTowerRange);
     }
 }
