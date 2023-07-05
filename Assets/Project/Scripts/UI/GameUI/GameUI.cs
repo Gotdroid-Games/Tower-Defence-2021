@@ -67,6 +67,25 @@ public class GameUI : MonoBehaviour
         AudioManager = FindObjectOfType<AudioManager>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMute.gameObject.SetActive(false);
+
+        if (AudioManager.musicSource.mute == false)
+        {
+            AudioManager.recordedMusicValue = _musicSlider.value;
+        }
+        else
+        {
+            AudioManager.recordedMusicValue2 = _musicSlider.value;
+        }
+
+        if (AudioManager.sfxSource.mute == false)
+        {
+            AudioManager.recordedSFXValue = _sfxSlider.value;
+        }
+        else
+        {
+            AudioManager.recordedSFXValue2 = _sfxSlider.value;
+            Debug.Log(AudioManager.recordedSFXValue2);
+        }
     }
 
 
@@ -84,29 +103,6 @@ public class GameUI : MonoBehaviour
     // [11] (_secondStart)
     // [12] (_thirdStar)
 
-
-    private void Update()
-    {
-        if (AudioManager.musicSource.mute==false)
-        {
-            AudioManager.recordedMusicValue = _musicSlider.value;
-        }
-        else
-        {
-            AudioManager.recordedMusicValue2 = _musicSlider.value;
-            Debug.Log(AudioManager.recordedMusicValue2);
-        }
-        
-        if (AudioManager.sfxSource.mute==false)
-        {
-            AudioManager.recordedSFXValue = _sfxSlider.value;
-        }
-        else
-        {
-            AudioManager.recordedSFXValue2 = _sfxSlider.value;
-            Debug.Log(AudioManager.recordedSFXValue2);
-        }
-    }
     public void PauseButton()
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
@@ -210,47 +206,108 @@ public class GameUI : MonoBehaviour
         AudioManager.GameToggleSFX();
         _Button.GameUIButtons[10].SetActive(true);
         _sfxButtonMute.gameObject.SetActive(false);
-        _sfxSlider.value=AudioManager.recordedSFXValue;
+        _sfxSlider.value = AudioManager.recordedSFXValue;
 
     }
 
     public void MusicVolume()
     {
+        ////Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
+        //AudioManager.MusicVolume(_musicSlider.value);
+        //musicVolumeValue = (_musicSlider.value * 100).ToString("0");
+        //_musicText.text = musicVolumeValue;
+
+        //if (_musicSlider.value == 0)
+        //{
+        //    _Button.GameUIButtons[9].SetActive(false);
+        //    _musicButtonMuteImage.gameObject.SetActive(true);
+        //}
+        //else
+        //{
+        //    _Button.GameUIButtons[9].SetActive(true);
+        //    _musicButtonMuteImage.gameObject.SetActive(false);
+        //}
+
+        //if (AudioManager.musicSource.mute == false)
+        //{
+        //    AudioManager.recordedMusicValue = _musicSlider.value;
+        //    Debug.Log(AudioManager.recordedMusicValue);
+        //}
+        //else
+        //{
+        //    AudioManager.recordedMusicValue2 = _musicSlider.value;
+        //    Debug.Log(AudioManager.recordedMusicValue2);
+        //}
+
         //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
         AudioManager.MusicVolume(_musicSlider.value);
         musicVolumeValue = (_musicSlider.value * 100).ToString("0");
         _musicText.text = musicVolumeValue;
 
-        if (_musicSlider.value == 0)
+        bool isMusicMuted = _musicSlider.value == 0;
+        _Button.GameUIButtons[9].SetActive(!isMusicMuted);
+        _musicButtonMuteImage.gameObject.SetActive(isMusicMuted);
+
+        if (AudioManager.musicSource.mute == false)
         {
-            _Button.GameUIButtons[9].SetActive(false);
-            _musicButtonMuteImage.gameObject.SetActive(true);
+            AudioManager.recordedMusicValue = _musicSlider.value;
         }
         else
         {
-            _Button.GameUIButtons[9].SetActive(true);
-            _musicButtonMuteImage.gameObject.SetActive(false);
+            AudioManager.recordedMusicValue2 = _musicSlider.value;
         }
+
+        Debug.Log(AudioManager.musicSource.mute ? AudioManager.recordedMusicValue2 : AudioManager.recordedMusicValue);
+
     }
 
     public void SFXVolume()
     {
-        //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
+        ////Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
+        //AudioManager.SFXVolume(_sfxSlider.value);
+
+        //sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
+        //_sfxText.text = sfxVolumeValue;
+
+        //if (_sfxSlider.value == 0)
+        //{
+        //    _Button.GameUIButtons[10].SetActive(false);
+        //    _sfxButtonMute.gameObject.SetActive(true);
+        //}
+
+        //else
+        //{
+        //    _Button.GameUIButtons[10].SetActive(true);
+        //    _sfxButtonMute.gameObject.SetActive(false);
+        //}
+
+        //if (AudioManager.sfxSource.mute == false)
+        //{
+        //    AudioManager.recordedSFXValue = _sfxSlider.value;
+        //}
+        //else
+        //{
+        //    AudioManager.recordedSFXValue2 = _sfxSlider.value;
+        //    Debug.Log(AudioManager.recordedSFXValue2);
+        //}
+
         AudioManager.SFXVolume(_sfxSlider.value);
 
         sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
         _sfxText.text = sfxVolumeValue;
 
-        if (_sfxSlider.value == 0)
-        {
-            _Button.GameUIButtons[10].SetActive(false);
-            _sfxButtonMute.gameObject.SetActive(true);
-        }
+        bool isSFXMuted = Mathf.Approximately(_sfxSlider.value, 0f);
+        _Button.GameUIButtons[10].SetActive(!isSFXMuted);
+        _sfxButtonMute.gameObject.SetActive(isSFXMuted);
 
+        if (AudioManager.sfxSource.mute == false)
+        {
+            AudioManager.recordedSFXValue = _sfxSlider.value;
+        }
         else
         {
-            _Button.GameUIButtons[10].SetActive(true);
-            _sfxButtonMute.gameObject.SetActive(false);
+            AudioManager.recordedSFXValue2 = _sfxSlider.value;
+            Debug.Log(AudioManager.recordedSFXValue2);
         }
     }
 
