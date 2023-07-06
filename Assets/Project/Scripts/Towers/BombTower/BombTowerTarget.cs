@@ -9,6 +9,7 @@ public class BombTowerTarget : MonoBehaviour
     private GameValue gameValue;
     GameManager GameManager;
     AudioSource source;
+    AudioManager audiomanager;
     [SerializeField] Transform target;
 
     public int bombTowerDamage;
@@ -23,8 +24,10 @@ public class BombTowerTarget : MonoBehaviour
     {
         gameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
+        audiomanager = FindObjectOfType<AudioManager>();
         InvokeRepeating("BombTowerUpdateTarget", 0f, 0.5f);
-        source = GameManager.GetComponent<AudioSource>();
+        //source = GameManager.GetComponent<AudioSource>();
+        source = audiomanager.GetComponent<AudioSource>();
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
         BombTowerMenu._upgradeButton.SetActive(false);
         BombTowerMenu.SellButton.SetActive(false);

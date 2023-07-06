@@ -16,40 +16,51 @@ public class AudioManager : MonoBehaviour
 
 
 
+
     private void Start()
     {
         GameUI = FindObjectOfType<GameUI>();
         MenuUI = FindObjectOfType<MenuUI>();
-        PlayMusic("Theme");
+        PlayMusic("backgroundmusic");
     }
 
 
     public void PlayMusic(string name)
     {
-        Sound s = Array.Find(musicSounds, x => x.name == name);
+        //Sound musicSound = Array.Find(musicSounds, x => x.name == name);
 
-        if (s == null)
+        Sound musicSound = null;
+        foreach (Sound sound in musicSounds)
+        {
+            if (sound.name == name)
+            {
+                musicSound = sound;
+                break;
+            }
+        }
+
+        if (musicSound == null)
         {
             Debug.Log("Sound Not Found");
         }
         else
         {
-            musicSource.clip = s.clip;
+            musicSource.clip = musicSound.clip;
             musicSource.Play();
         }
     }
 
     public void PlaySFX(string name)
     {
-        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        Sound sfxSound = Array.Find(sfxSounds, x => x.name == name);
 
-        if (s == null)
+        if (sfxSound == null)
         {
             Debug.Log("Sound Not Found");
         }
         else
         {
-            sfxSource.PlayOneShot(s.clip);
+            sfxSource.PlayOneShot(sfxSound.clip);
         }
     }
 
