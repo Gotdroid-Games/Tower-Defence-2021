@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004359, b: 0.57521296, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10057,8 +10057,8 @@ MonoBehaviour:
     TowerDamageIncreaseValueLevel1: 1
     TowerDamageIncreaseValueLevel2: 2
     TowerRange: 10
-    TowerRangeIncreaseValueLevel1: 1
-    TowerRangeIncreaseValueLevel2: 2
+    TowerRangeIncreaseValueLevel1: 15
+    TowerRangeIncreaseValueLevel2: 20
     FireRate: 2
     TowerMoneyBuy: 100
     TowerMoneyUpgradeLevel1: 210
@@ -10072,7 +10072,7 @@ MonoBehaviour:
   EnemyVariables:
   - name: Basic Robot
     _EnemyHealth: 100
-    _EnemySpeed: 50
+    _EnemySpeed: 5
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
@@ -10099,7 +10099,7 @@ MonoBehaviour:
   waveText: 0
   _Product: 10
   _basicRobot: 140000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _gorillaRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _gorillaRobot: 140000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _smartHomeRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _droneRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _timeBetweenWaves:
@@ -13007,7 +13007,7 @@ MonoBehaviour:
   _sfxSlider: {fileID: 434778385}
   wavestartinfopanel: {fileID: 289236441}
   _musicButtonMuteImage: {fileID: 1182612428}
-  _sfxButtonMuteImage: {fileID: 0}
+  _sfxButtonMuteImage: {fileID: 82121728}
   _musicText: {fileID: 1229441567}
   _sfxText: {fileID: 1189569044}
   heartText: {fileID: 1438694259}
