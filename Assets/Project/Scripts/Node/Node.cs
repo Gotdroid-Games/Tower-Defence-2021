@@ -49,14 +49,14 @@ public class Node : MonoBehaviour
         if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy && shop.bombSelected == false)
         {  
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            GameUI.PaidTower(GameManager.TowerVaribles[0].TowerMoneyBuy);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
         }
         //Build a turret (Tarret in�a et)
 
         if (GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy && shop.bombSelected == true)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            GameUI.PaidBombTower(GameManager.TowerVaribles[1].TowerMoneyBuy);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
         }
     }
 

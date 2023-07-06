@@ -138,14 +138,14 @@ public class TowerMenu : MonoBehaviour
         {
             if (sniperTowerCountCheck == 0)
             {
-                GameUI.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
                 sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
             }
 
             if (sniperTowerCountCheck == 1)
             {
-                GameUI.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
                 sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
             }
@@ -158,17 +158,17 @@ public class TowerMenu : MonoBehaviour
 
         if (sniperTowerCount == 0)
         {
-            GameUI.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
         }
 
         if (sniperTowerCount == 1)
         {
-            GameUI.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
         }
 
         if (sniperTowerCount == 2)
         {
-            GameUI.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
     }
 

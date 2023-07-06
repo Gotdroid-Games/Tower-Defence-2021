@@ -181,7 +181,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            GameUI.CoinValue(EnemyKillCoinValue);
+            GameUI.IncreaseCoinValue(EnemyKillCoinValue);
         }
     }
 

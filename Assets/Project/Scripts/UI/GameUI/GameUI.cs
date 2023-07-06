@@ -15,19 +15,27 @@ public class GameUI : MonoBehaviour
     GameManager GameManager;
     public List<CoinValues> coinValues;
     public ButtonAssignments _Button;
+
+    //Kaydýraçlar
     public Slider _musicSlider, _sfxSlider;
+
+    //Resimler
     public Image wavestartinfopanel, _musicButtonMuteImage, _sfxButtonMuteImage;
+
+    //Metin Deðiþkenleri
     public TextMeshProUGUI _musicText, _sfxText, heartText, WaveText, CoinText;
     public string musicVolumeValue;
     public string sfxVolumeValue;
 
-
-
+    //Sayýsal Deðerler
     public int _coinText;
     public int _heartText;
     public int _waveText;
-    public bool defeatMenuControl;
     public float Product;
+
+    //Kontrol Deðiþkenleri
+    public bool defeatMenuControl;
+    
 
     #region Button
     [System.Serializable]
@@ -318,31 +326,6 @@ public class GameUI : MonoBehaviour
         CoinText.text = _coinText.ToString();
     }
 
-    public void PaidBombTower(int Decreasebomb)
-    {
-        _coinText -= Decreasebomb;
-        CoinText.text = _coinText.ToString();
-    }
-
-
-    public void SellTower(int value)
-    {
-        _coinText += value;
-        CoinText.text = _coinText.ToString();
-    }
-
-    public void TowerUpgradeMoney(int Decrease)
-    {
-        _coinText -= Decrease;
-        CoinText.text = _coinText.ToString();
-    }
-
-    public void BombTowerUpgradeMoney(int Decrease)
-    {
-        _coinText -= Decrease;
-        CoinText.text = _coinText.ToString();
-    }
-
     public void WaveStartCoinFunction()
     {
         if (WaveSpawner.waveIndex == 0)
@@ -360,6 +343,7 @@ public class GameUI : MonoBehaviour
 
     public void Winning()
     {
+        //Eðer dalga 12 olur ve tüm düþmanlar ölürse restart (Tekrar Baþlat) ve continue (Devam Et) butonlarýný aktif hale getirme
         if (_waveText >= 12 && WaveSpawner.totalenemiescheck == 0)
         {
             _Button.GameUIButtons[2].SetActive(true);

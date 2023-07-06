@@ -111,7 +111,7 @@ public class BombTowerMenu : MonoBehaviour
         {
             if (bombTowerCountCheck == 0)
             {
-                GameUI.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
                 bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel1;
                 bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel1;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
@@ -119,7 +119,7 @@ public class BombTowerMenu : MonoBehaviour
 
             if (bombTowerCountCheck == 1)
             {
-                GameUI.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
                 bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel2;
                 bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel2;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
@@ -131,17 +131,17 @@ public class BombTowerMenu : MonoBehaviour
     {
         if (bombTowerCountCheck == 0)
         {
-            GameUI.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel1);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel1);
         }
 
         if (bombTowerCountCheck == 1)
         {
-            GameUI.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel2);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel2);
         }
 
         if (bombTowerCountCheck == 2)
         {
-            GameUI.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel3);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel3);
         }
         Destroy(gameObject);
     }
