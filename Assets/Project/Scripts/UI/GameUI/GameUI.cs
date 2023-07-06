@@ -306,13 +306,13 @@ public class GameUI : MonoBehaviour
     
 
 
-    public void CoinValue(int coin)
+    public void IncreaseCoinValue(int increase)
     {
-        _coinText += coin;
+        _coinText += increase;
         CoinText.text = _coinText.ToString();
     }
 
-    public void PaidTower(int Decrease)
+    public void DecreaseCoinValue(int Decrease)
     {
         _coinText -= Decrease;
         CoinText.text = _coinText.ToString();
