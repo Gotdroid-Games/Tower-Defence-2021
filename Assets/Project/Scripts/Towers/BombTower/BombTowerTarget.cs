@@ -88,8 +88,7 @@ public class BombTowerTarget : MonoBehaviour
 
         GameObject bulletGo = Instantiate(bombTowerBulletPrefab, bombTowerFirePoint.position, bombTowerFirePoint.rotation);
         Bombbullet bullet = bulletGo.GetComponent<Bombbullet>();
-        source.clip = GameManager.TowerVaribles[1].TowerAttackSFX;
-        source.Play();
+        audiomanager.PlaySFX("BombatmaSFX");
         bullet.Seek(target);
         bullet.transform.DOJump(new Vector3(target.position.x, 0f, target.position.z), 10f, 1, 0.5f);
     }

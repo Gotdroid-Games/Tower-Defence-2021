@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 0
@@ -587,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 0
@@ -670,6 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 0

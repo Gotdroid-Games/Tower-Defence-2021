@@ -28,10 +28,11 @@ public class TowerVaribles
     public int TowerMoneySellLevel1;
     public int TowerMoneySellLevel2;
     public int TowerMoneySellLevel3;
-    [Header("")]
-    public AudioSource AudioSource;
-    public AudioClip TowerAttackSFX;
-    public AudioClip EnemyTouchSFX;
+    //[Header("")]
+    //public AudioSource AudioSource;
+    //public AudioClip TowerAttackSFX;
+    //public AudioClip EnemyTouchSFX;
+
 }
 
 [System.Serializable]
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
+        //TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
         //AudioVaribles.AudioClip = GetComponent<AudioClip>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameUI = FindObjectOfType<GameUI>();

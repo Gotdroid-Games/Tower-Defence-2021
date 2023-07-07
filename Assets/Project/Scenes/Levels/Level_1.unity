@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004359, b: 0.57521296, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8223,8 +8223,18 @@ MonoBehaviour:
   recordedMusicValue2: 0
   recordedSFXValue: 0
   recordedSFXValue2: 0
-  musicSounds: []
-  sfxSounds: []
+  musicSounds:
+  - name: backgroundmusic
+    clip: {fileID: 8300000, guid: d2fb941b043f58d47810c6aa363e5f29, type: 3}
+  sfxSounds:
+  - name: AttackSFX
+    clip: {fileID: 8300000, guid: 107ff19defe784b4a828025992e30a45, type: 3}
+  - name: EnemytouchSFX
+    clip: {fileID: 8300000, guid: b57fc4e4e7bf5304689ada4dab553114, type: 3}
+  - name: BombatmaSFX
+    clip: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
+  - name: bombadusmeSFX
+    clip: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
   musicSource: {fileID: 1110577930}
   sfxSource: {fileID: 716473144}
 --- !u!4 &487121056
@@ -10032,9 +10042,6 @@ MonoBehaviour:
     TowerMoneySellLevel1: 50
     TowerMoneySellLevel2: 80
     TowerMoneySellLevel3: 110
-    AudioSource: {fileID: 683488746}
-    TowerAttackSFX: {fileID: 8300000, guid: 107ff19defe784b4a828025992e30a45, type: 3}
-    EnemyTouchSFX: {fileID: 8300000, guid: b57fc4e4e7bf5304689ada4dab553114, type: 3}
   - name: Bomb Tower
     TowerDamage: 20
     TowerDamageIncreaseValueLevel1: 1
@@ -10049,9 +10056,6 @@ MonoBehaviour:
     TowerMoneySellLevel1: 80
     TowerMoneySellLevel2: 150
     TowerMoneySellLevel3: 260
-    AudioSource: {fileID: 683488746}
-    TowerAttackSFX: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
-    EnemyTouchSFX: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
   - name: Hacker Tower
     TowerDamage: 20
     TowerDamageIncreaseValueLevel1: 1
@@ -10066,9 +10070,6 @@ MonoBehaviour:
     TowerMoneySellLevel1: 80
     TowerMoneySellLevel2: 150
     TowerMoneySellLevel3: 260
-    AudioSource: {fileID: 683488746}
-    TowerAttackSFX: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
-    EnemyTouchSFX: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
   EnemyVariables:
   - name: Basic Robot
     _EnemyHealth: 100
@@ -10666,7 +10667,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12701,9 +12702,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3eaa6d5073d856b4bb2afe72394a2ec3, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.117
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13018,8 +13019,8 @@ MonoBehaviour:
   _coinText: 0
   _heartText: 0
   _waveText: 0
-  defeatMenuControl: 0
   Product: 0
+  defeatMenuControl: 0
 --- !u!4 &1147089605
 Transform:
   m_ObjectHideFlags: 0

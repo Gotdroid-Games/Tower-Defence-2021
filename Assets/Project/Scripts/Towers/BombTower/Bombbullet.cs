@@ -9,7 +9,7 @@ public class Bombbullet : MonoBehaviour
     public GameObject impactEffect;
     public AudioClip EnemyTouchSFX;
     AudioSource source;
-
+    AudioManager audiomanager;
     float Sin;
 
     public void Seek(Transform _target)
@@ -20,8 +20,9 @@ public class Bombbullet : MonoBehaviour
     private void Start()
     {
         GameManager = FindObjectOfType<GameManager>();
-        EnemyTouchSFX = GameManager.TowerVaribles[0].EnemyTouchSFX;
-        source = GameManager.gameObject.GetComponent<AudioSource>();
+        audiomanager = FindObjectOfType<AudioManager>();
+        //EnemyTouchSFX = GameManager.TowerVaribles[0].EnemyTouchSFX;
+        source = audiomanager.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -50,8 +51,7 @@ public class Bombbullet : MonoBehaviour
             }
         }
 
-        source.clip = GameManager.TowerVaribles[0].EnemyTouchSFX;
-        source.Play();
+        audiomanager.PlaySFX("bombadusmeSFX");
 
         Destroy(gameObject);
     }
