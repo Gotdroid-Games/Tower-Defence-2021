@@ -23,7 +23,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             newfirecontdown = 0.2f;
-            GameValue.NewFireCountDown = 0.2f;
+            //GameValue.NewFireCountDown = 0.2f;
             StarPoint._starPoint -= 1;
         }
 
@@ -52,7 +52,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             rangedTowerDamage = 20;
-            GameValue.RangedTowerDamage = 20;
+            //GameValue.RangedTowerDamage = 20;
             StarPoint._starPoint -= 1;
         }
         
@@ -67,7 +67,7 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             towerRangeUpgrade = 20;
-            GameValue.TowerRangeUpgrade = 20;
+            //GameValue.TowerRangeUpgrade = 20;
             StarPoint._starPoint -= 1;
         }
         
@@ -81,8 +81,8 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (StarPoint._starPoint > 0)
         {
-            rangeTowerCritDamage = GameValue.RangedTowerDamage * 10 / 100;
-            GameValue.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
+            //rangeTowerCritDamage = GameValue.RangedTowerDamage * 10 / 100;
+            //GameValue.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
             StarPoint._starPoint -= 1;
         }
         
