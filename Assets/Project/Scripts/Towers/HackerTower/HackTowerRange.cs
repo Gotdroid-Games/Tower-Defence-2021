@@ -6,6 +6,7 @@ public class HackTowerRange : MonoBehaviour
 {
     HackerTowerMenu hackmenu;
     GameManager gamemanager;
+    Enemy enemy;
     private GameObject targets;
     public bool inside = false;
     void Start()
@@ -13,12 +14,12 @@ public class HackTowerRange : MonoBehaviour
         targets = GameObject.FindGameObjectWithTag("Enemy");
         hackmenu = FindObjectOfType<HackerTowerMenu>();
         gamemanager = FindObjectOfType<GameManager>();
+        enemy = FindObjectOfType<Enemy>();
     }
 
     
     void Update()
     {
-        // Tüm objeleri kontrol etmek yerine sadece belirli bir tag'e sahip objeleri kontrol edebilirsiniz.
         GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject obj in objectsToDestroy)
@@ -29,7 +30,13 @@ public class HackTowerRange : MonoBehaviour
 
                 if (distance <= hackmenu.hackerTowerRange)
                 {
-                    gamemanager.EnemyVariables[0]._EnemySpeed = 5;
+                    // Destroy(obj);
+                    obj.GetComponent<Enemy>().inside = true;
+                  //  gamemanager.EnemyVariables[0]._EnemySpeed = 5;
+                }
+                else
+                {
+                    obj.GetComponent<Enemy>().inside = false;
                 }
             }
             
