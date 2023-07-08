@@ -10057,8 +10057,8 @@ MonoBehaviour:
     TowerDamageIncreaseValueLevel1: 1
     TowerDamageIncreaseValueLevel2: 2
     TowerRange: 10
-    TowerRangeIncreaseValueLevel1: 15
-    TowerRangeIncreaseValueLevel2: 20
+    TowerRangeIncreaseValueLevel1: 6
+    TowerRangeIncreaseValueLevel2: 12
     FireRate: 2
     TowerMoneyBuy: 100
     TowerMoneyUpgradeLevel1: 210
@@ -10072,7 +10072,7 @@ MonoBehaviour:
   EnemyVariables:
   - name: Basic Robot
     _EnemyHealth: 100
-    _EnemySpeed: 5
+    _EnemySpeed: 15
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
@@ -13018,8 +13018,8 @@ MonoBehaviour:
   _coinText: 0
   _heartText: 0
   _waveText: 0
-  defeatMenuControl: 0
   Product: 0
+  defeatMenuControl: 0
 --- !u!4 &1147089605
 Transform:
   m_ObjectHideFlags: 0
