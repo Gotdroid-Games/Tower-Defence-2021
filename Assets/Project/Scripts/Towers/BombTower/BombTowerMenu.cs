@@ -13,6 +13,7 @@ public class BombTowerMenu : MonoBehaviour
     public GameObject SellButton;
     public GameObject BombTower;
     public GameObject canvas;
+    public GameObject rangeIndicatorr;
     GameObject bombObjList;
     public int Count;
     public int bombTowerCountCheck;
@@ -55,6 +56,7 @@ public class BombTowerMenu : MonoBehaviour
 
     void Update()
     {
+        rangeIndicatorr.transform.localScale = new Vector3(bombTowerRange, 0.5f, bombTowerRange);
         Clickdetector();
         if (Count <= 2)
         {
@@ -75,6 +77,7 @@ public class BombTowerMenu : MonoBehaviour
         else
         {
             _upgradeButton.SetActive(bombTowerClicked);
+            rangeIndicatorr.SetActive(bombTowerClicked);
         }
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && bombTowerClicked);
@@ -162,6 +165,8 @@ public class BombTowerMenu : MonoBehaviour
                     Debug.Log("objeye tıklandı");
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);
+                    rangeIndicatorr.SetActive(true);
+                    rangeIndicatorr.transform.position = transform.position;
                 }
             }
 
@@ -170,6 +175,7 @@ public class BombTowerMenu : MonoBehaviour
                 Debug.Log("Başka bir yere tıklandı");
                 bombTowerClicked = false;
                 towerUI.SetActive(false);
+                rangeIndicatorr.SetActive(false);
             }
         }
     }
