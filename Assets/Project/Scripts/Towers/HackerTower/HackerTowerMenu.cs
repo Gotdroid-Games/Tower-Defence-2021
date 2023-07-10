@@ -43,8 +43,6 @@ public class HackerTowerMenu : MonoBehaviour
         if (hackerTowerClicked == false)
         {
             towerUI.SetActive(true);
-            _upgradeButton.SetActive(true);
-            SellButton.SetActive(true);
             hackerTowerClicked = true;
         }
         else
@@ -67,8 +65,6 @@ public class HackerTowerMenu : MonoBehaviour
             HackerObjList[0].SetActive(Count == 0);
             HackerObjList[1].SetActive(Count == 1);
             HackerObjList[2].SetActive(Count == 2);
-
-            hackerTower = HackerObjList[Count];
         }
 
         if (Count == 2)
@@ -163,7 +159,6 @@ public class HackerTowerMenu : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton)
                 {
-                    Debug.Log("objeye t�kland�");
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);
                     rangeIndicator.SetActive(true);
@@ -173,7 +168,6 @@ public class HackerTowerMenu : MonoBehaviour
 
             if (!isClickedOnGameObject && hackerTowerClicked == true)
             {
-                Debug.Log("Ba�ka bir yere t�kland�");
                 hackerTowerClicked = false;
                 towerUI.SetActive(false);
                 rangeIndicator.SetActive(false);
