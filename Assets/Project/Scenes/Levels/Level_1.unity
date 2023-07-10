@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6577,7 +6577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871142651994122188, guid: 49b079fa496306f4f9b2173857d85b8c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7871142651994122188, guid: 49b079fa496306f4f9b2173857d85b8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7369,7 +7369,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a07cb860ad5f81342a2f8a80146d90f9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a07cb860ad5f81342a2f8a80146d90f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17202,7 +17202,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a07cb860ad5f81342a2f8a80146d90f9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a07cb860ad5f81342a2f8a80146d90f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17890,10 +17890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af341723483ff204b90efdb58202ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangedTowerDamage: 20
-  TowerRangeUpgrade: 20
-  RangedTowerCritDamage: 0
-  NewFireCountDown: 1
 --- !u!4 &2074178766
 Transform:
   m_ObjectHideFlags: 0
