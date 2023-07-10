@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4857560152149565726}
   - component: {fileID: 3153786601274452837}
   - component: {fileID: 5914155521402540315}
+  - component: {fileID: 128156961599689214}
   m_Layer: 0
   m_Name: HackerTowerController
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MonoBehaviour:
   Count: 0
   hackerTowerCountCheck: 0
   hackerTowerDamage: 0
-  hackerTowerRange: 13
+  hackerTowerRange: 6
   hackerTowerClicked: 0
   hackerTowerUpgradeButton: {fileID: 1290799266454293949}
   hackerTowerUpgradeMoneyText: {fileID: 667335854101922876}
@@ -81,6 +82,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8461928, y: 5.0648317, z: 2.5839534}
   m_Center: {x: -0.10199642, y: 2.0324163, z: -0.11726713}
+--- !u!114 &128156961599689214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467377273373061772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b37e774f0fd49beb9e4153c7f2575a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1374252735706286444
 GameObject:
   m_ObjectHideFlags: 0

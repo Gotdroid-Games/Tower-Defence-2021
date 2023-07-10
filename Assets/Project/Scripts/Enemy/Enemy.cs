@@ -22,13 +22,12 @@ public class Enemy : MonoBehaviour
     GameUI GameUI;
     int maxHealth;
     public int currentHealth;
-
     public float RobotSpeed;
     public int RobotDamage;
     private Transform target;
     private int wavepointIndex = 0;
     public int EnemyKillCoinValue;
-
+    public bool inside = false;
     [HideInInspector]
 
     public float worth = 50;
@@ -49,7 +48,6 @@ public class Enemy : MonoBehaviour
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
         Towermenu = FindObjectOfType<TowerMenu>();
         GameUI = FindObjectOfType<GameUI>();
-
 
         target = WayPoints.points[0];
 
@@ -159,7 +157,14 @@ public class Enemy : MonoBehaviour
         {
             GetNextWayPoint();
         }
-
+        if (inside == true)
+        {
+            RobotSpeed = 5f;
+        }
+        else
+        {
+            RobotSpeed = 15f;
+        }
 
         Coin();
     }
