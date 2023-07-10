@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HackTowerRange : MonoBehaviour
+public class HackTowerTarget : MonoBehaviour
 {
     HackerTowerMenu hackmenu;
     GameManager gamemanager;
