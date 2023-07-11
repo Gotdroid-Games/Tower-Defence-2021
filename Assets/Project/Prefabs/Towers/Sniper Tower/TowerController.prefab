@@ -391,6 +391,7 @@ MonoBehaviour:
   sniperTowerCountCheck: 0
   sniperTowerDamage: 0
   sniperTowerRange: 0
+  Head: {fileID: 0}
 --- !u!65 &-2641599783724214846
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -782,6 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerMenu: {fileID: 3570579970620275783}
   target: {fileID: 0}
   fireRate: 1
   fireCountdown: 0
@@ -958,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerMenu: {fileID: 3570579970620275783}
   target: {fileID: 0}
   fireRate: 1
   fireCountdown: 0
@@ -1104,6 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41188881d43e224d88bfd311cdad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerMenu: {fileID: 3570579970620275783}
   target: {fileID: 0}
   fireRate: 1
   fireCountdown: 0
