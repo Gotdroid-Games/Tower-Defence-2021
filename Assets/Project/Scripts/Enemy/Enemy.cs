@@ -1,3 +1,4 @@
+using System.Collections;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour
     private int wavepointIndex = 0;
     public int EnemyKillCoinValue;
     public bool inside = false;
+    private float timer = 0f;
+    private float interval = 1.5f;
     [HideInInspector]
 
     public float worth = 50;
@@ -128,6 +131,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        
         target = WayPoints.points[wavepointIndex];
         Vector3 dir1 = target.position - transform.position;
         transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
@@ -157,14 +161,26 @@ public class Enemy : MonoBehaviour
         {
             GetNextWayPoint();
         }
+        Debug.Log(timer);
         if (inside == true)
         {
-            RobotSpeed = 5f;
+            timer += Time.deltaTime;
+            if (timer>=interval)
+            {
+                RobotSpeed = 5f;
+                timer = 0f;
+            }
+            else
+            {
+                RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+            }
+            //  RobotSpeed = 5f;
         }
         else
         {
-            RobotSpeed = 15f;
+            RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
         }
+        
 
         Coin();
     }
