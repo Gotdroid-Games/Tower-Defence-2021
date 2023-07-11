@@ -9,7 +9,7 @@ public class SoldierTowerMenu : MonoBehaviour
 {
     [Header("References")]
     GameManager gameManager;
-    GameUI GameUI;
+    GameUI gameUI;
 
     [Header("GameObjects")]
     public GameObject TowerUI;
@@ -42,7 +42,7 @@ public class SoldierTowerMenu : MonoBehaviour
         soldierList[0].SetActive(true);
 
         gameManager = FindObjectOfType<GameManager>();
-        GameUI.FindObjectOfType<GameUI>();
+        gameUI= FindObjectOfType<GameUI>();
     }
 
     private void OnMouseDown()
@@ -84,12 +84,12 @@ public class SoldierTowerMenu : MonoBehaviour
         }
         maxLevelImage.gameObject.SetActive(Count == 2 && soldierTowerClicked);
 
-        if (soldierTowerCountCheck == 0 && GameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1)
+        if (soldierTowerCountCheck == 0 && gameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1)
         {
             soldierTowerUpgradeButton.interactable = true;
             soldierTowerUpgradeMoneyText.text = gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (soldierTowerCountCheck == 1 && GameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel2)
+        else if (soldierTowerCountCheck == 1 && gameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel2)
         {
             soldierTowerUpgradeButton.interactable = true;
             soldierTowerUpgradeMoneyText.text = gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel2.ToString();
@@ -112,18 +112,18 @@ public class SoldierTowerMenu : MonoBehaviour
         upgradeButton.SetActive(false);
         sellButton.SetActive(false);
 
-        if (GameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1)
+        if (gameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1)
         {
             if(soldierTowerCountCheck==0)
             {
-                GameUI.DecreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1);
+                gameUI.DecreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1);
                 soldierDamage += gameManager.TowerVaribles[3].TowerDamageIncreaseValueLevel1;
                 soldierTowerRange += gameManager.TowerVaribles[3].TowerRangeIncreaseValueLevel1;
             }
             
             if(soldierTowerCountCheck==1)
             {
-                GameUI.DecreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel2);
+                gameUI.DecreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel2);
                 soldierDamage += gameManager.TowerVaribles[3].TowerDamageIncreaseValueLevel2;
                 soldierTowerRange += gameManager.TowerVaribles[3].TowerRangeIncreaseValueLevel2;
             }
@@ -134,17 +134,17 @@ public class SoldierTowerMenu : MonoBehaviour
     {
         if (soldierTowerCountCheck == 0)
         {
-            GameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel1);
+            gameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel1);
         }
 
         if (soldierTowerCountCheck == 1)
         {
-            GameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel2);
+            gameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel2);
         }
 
         if (soldierTowerCountCheck == 2)
         {
-            GameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel3);
+            gameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel3);
         }
         Destroy(gameObject);
     }
