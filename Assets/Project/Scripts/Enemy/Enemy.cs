@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     public int EnemyKillCoinValue;
     public bool inside = false;
     public bool Soldierinside = false;
+    private float attackTime = 0;
 
     [HideInInspector]
 
@@ -42,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     public int NextWaypointNumber;
     public float NextWaypointDistance;
+    float _robotspeed;
+
 
     private void Start()
     {
@@ -51,6 +54,7 @@ public class Enemy : MonoBehaviour
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
         Towermenu = FindObjectOfType<TowerMenu>();
         GameUI = FindObjectOfType<GameUI>();
+        soldiers = FindObjectOfType<Soldiers>();
 
         target = WayPoints.points[0];
 
@@ -64,6 +68,7 @@ public class Enemy : MonoBehaviour
             EnemyKillCoinValue = GameManager.EnemyVariables[0].EnemyKillCoin;
             RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
             RobotDamage = GameManager.EnemyVariables[0]._EnemyDamage;
+            
         }
 
         if (RobotType == EnemyManager.EnemyType.GorillaRobot)
@@ -74,6 +79,7 @@ public class Enemy : MonoBehaviour
             EnemyKillCoinValue = GameManager.EnemyVariables[1].EnemyKillCoin;
             RobotSpeed = GameManager.EnemyVariables[1]._EnemySpeed;
             RobotDamage = GameManager.EnemyVariables[1]._EnemyDamage;
+            
         }
 
         if (RobotType == EnemyManager.EnemyType.SmartHomeRobot)
@@ -84,6 +90,7 @@ public class Enemy : MonoBehaviour
             EnemyKillCoinValue = GameManager.EnemyVariables[2].EnemyKillCoin;
             RobotSpeed = GameManager.EnemyVariables[2]._EnemySpeed;
             RobotDamage = GameManager.EnemyVariables[2]._EnemyDamage;
+            
         }
 
         if (RobotType == EnemyManager.EnemyType.DroneRobot)
@@ -94,6 +101,7 @@ public class Enemy : MonoBehaviour
             EnemyKillCoinValue = GameManager.EnemyVariables[3].EnemyKillCoin;
             RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
             RobotDamage = GameManager.EnemyVariables[3]._EnemyDamage;
+            
         }
 
     }
@@ -122,6 +130,7 @@ public class Enemy : MonoBehaviour
         }
         if (soldiers != null)
         {
+           
             currentHealth -= 10;
            
         }
@@ -138,10 +147,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        
         target = WayPoints.points[wavepointIndex];
         Vector3 dir1 = target.position - transform.position;
         transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
         transform.rotation = Quaternion.LookRotation(dir1);
+        
+        
 
         if (currentHealth <= 0)
         {
@@ -177,7 +189,35 @@ public class Enemy : MonoBehaviour
         }
         if (Soldierinside == true)
         {
+            attackTime += Time.fixedDeltaTime;
+            if (attackTime >= 10f&& soldiers.health>0)
+            {
+                soldiers.health -= 10;
+                Debug.Log(soldiers.health);
+                attackTime = 0;
+                
+            }
             RobotSpeed = 0f;
+            if (soldiers.health <= 0)
+            {
+                if (RobotType == EnemyManager.EnemyType.BasicRobot)
+                {
+                    RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+                }
+                if (RobotType == EnemyManager.EnemyType.GorillaRobot)
+                {
+                    RobotSpeed = GameManager.EnemyVariables[1]._EnemySpeed;
+                }
+                if (RobotType == EnemyManager.EnemyType.SmartHomeRobot)
+                {
+                    RobotSpeed = GameManager.EnemyVariables[2]._EnemySpeed;
+                }
+                if (RobotType == EnemyManager.EnemyType.DroneRobot)
+                {
+                    RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
+                }
+            }
+            
         }
         
 
