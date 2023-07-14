@@ -8,10 +8,10 @@ using UnityEngine;
 [System.Serializable]
 public class TowerVaribles
 {
-    //[HideInInspector]
+    [HideInInspector]
     public string name;
     //Kulenin
-    
+
     public int TowerDamage;
     public int TowerDamageIncreaseValueLevel1;
     public int TowerDamageIncreaseValueLevel2;
@@ -28,10 +28,6 @@ public class TowerVaribles
     public int TowerMoneySellLevel1;
     public int TowerMoneySellLevel2;
     public int TowerMoneySellLevel3;
-    [Header("")]
-    public AudioSource AudioSource;
-    public AudioClip TowerAttackSFX;
-    public AudioClip EnemyTouchSFX;
 }
 
 [System.Serializable]
@@ -69,14 +65,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    GameUI GameUI;
     WaveSpawner WaveSpawner;
-    Quaity Quaity;
     TowerTarget TowerTarget;
 
     [Space(5f)]
     [Header("TowerTarget Attributes")]
 
-    
+
     public int _critValue;
     public float bombTowerExplosionRadius;
     public List<TowerVaribles> TowerVaribles;
@@ -132,21 +128,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        TowerVaribles[0].AudioSource = GetComponent<AudioSource>();
-        //AudioVaribles.AudioClip = GetComponent<AudioClip>();
         WaveSpawner = FindObjectOfType<WaveSpawner>();
-        Quaity = FindObjectOfType<Quaity>();
+        GameUI = FindObjectOfType<GameUI>();
 
 
         //Kule Öz Nitelikleri
 
         //Oyun Ýçi Bilgi Alaný Öz Nitelikleri
-        Quaity._coinText = coinText;
-        Quaity._heartText = heartText;
-        Quaity._waveText = waveText;
+        GameUI._coinText = coinText;
+        GameUI._heartText = heartText;
+        GameUI._waveText = waveText;
 
         //Para Deðerleri
-        Quaity.Product = _Product;
+        GameUI.Product = _Product;
 
         //Düþman Dizileri
         WaveSpawner.basicRobot = _basicRobot;
@@ -160,8 +154,6 @@ public class GameManager : MonoBehaviour
         WaveSpawner.smarthomeRobotWaveInfo = _smarthomeRobotWaveInfo;
         WaveSpawner.droneRobotWaveInfo = _droneRobotWaveInfo;
     }
-
-
 
     private void Update()
     {

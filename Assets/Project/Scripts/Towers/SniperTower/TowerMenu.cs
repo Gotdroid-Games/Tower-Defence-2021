@@ -8,8 +8,8 @@ public class TowerMenu : MonoBehaviour
     //Referanslar
     GameManager GameManager;
     TowerTarget TowerTarget;
+    GameUI GameUI;
     Enemy Enemy;
-    Quaity Quaity;
     GameObject touchObjList;
     public EnemyManager.TowerType TowerType;
 
@@ -42,9 +42,9 @@ public class TowerMenu : MonoBehaviour
         TowerClicked = false;
         TouchObjList[0].SetActive(true);
         TowerTarget = FindObjectOfType<TowerTarget>();
-        Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
+        GameUI = FindObjectOfType<GameUI>();
 
         //Kule Hasar ve Menzil Tanýmlamalarý
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
@@ -68,7 +68,7 @@ public class TowerMenu : MonoBehaviour
             towerUI.SetActive(false);
             rangeindicator.SetActive(false);
             TowerClicked = false;
-            
+
         }
     }
     private void Update()
@@ -91,7 +91,7 @@ public class TowerMenu : MonoBehaviour
         if (sniperTowerCount == 2)
         {
             UpgradeButton1.SetActive(false);
-            
+
         }
         else
         {
@@ -102,12 +102,12 @@ public class TowerMenu : MonoBehaviour
         MaxlevelImage.gameObject.SetActive(sniperTowerCount == 2 && TowerClicked);
         rangeindicator.SetActive(TowerClicked);
 
-        if (sniperTowerCountCheck == 0 && Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
+        if (sniperTowerCountCheck == 0 && GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
         {
             SniperTowerUpgradeButton.interactable = true;
             SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (sniperTowerCountCheck == 1 && Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2)
+        else if (sniperTowerCountCheck == 1 && GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2)
         {
             SniperTowerUpgradeButton.interactable = true;
             SniperTowerUpgradeMoneyText.text = GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2.ToString();
@@ -133,19 +133,19 @@ public class TowerMenu : MonoBehaviour
         UpgradeButton1.SetActive(false);
         SellButton.SetActive(false);
         rangeindicator.SetActive(false);
-        if (Quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
+        if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1)
 
         {
             if (sniperTowerCountCheck == 0)
             {
-                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel1);
                 sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
                 sniperTowerRange += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel1;
             }
 
             if (sniperTowerCountCheck == 1)
             {
-                Quaity.TowerUpgradeMoney(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyUpgradeLevel2);
                 sniperTowerDamage += GameManager.TowerVaribles[0].TowerDamageIncreaseValueLevel2;
                 sniperTowerRange += GameManager.TowerVaribles[0].TowerRangeIncreaseValueLevel2;
             }
@@ -158,17 +158,17 @@ public class TowerMenu : MonoBehaviour
 
         if (sniperTowerCount == 0)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
         }
 
         if (sniperTowerCount == 1)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
         }
 
         if (sniperTowerCount == 2)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
     }
 
@@ -191,7 +191,7 @@ public class TowerMenu : MonoBehaviour
                     towerUI.SetActive(true);
                     rangeindicator.SetActive(true);
                     rangeindicator.transform.position = transform.position;
-                    
+
                 }
             }
 
@@ -199,7 +199,7 @@ public class TowerMenu : MonoBehaviour
             {
                 Debug.Log("Baþka bir yere týklandý");
                 TowerClicked = false;
-                towerUI.SetActive(false); 
+                towerUI.SetActive(false);
                 rangeindicator.SetActive(false);
 
             }

@@ -7,7 +7,7 @@ public class TowerTarget : MonoBehaviour
     private GameValue gameValue;
     TowerMenu TowerMenu;
     [SerializeField] Transform target;
-    GameManager GameManager;
+    //GameManager GameManager;
     Enemy Enemy;
     [Header("Attributes")]
     public float fireRate;
@@ -30,14 +30,15 @@ public class TowerTarget : MonoBehaviour
     public GameObject Muzzle;
 
     AudioSource source;
-
+    AudioManager audiomanager;
     private void Start()
     {
         gameValue = FindObjectOfType<GameValue>();
-        GameManager = FindObjectOfType<GameManager>();
+        //GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
         TowerMenu = FindObjectOfType<TowerMenu>();
-        source = GameManager.gameObject.GetComponent<AudioSource>();
+        audiomanager = FindObjectOfType<AudioManager>();
+        source = audiomanager.GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -108,7 +109,6 @@ public class TowerTarget : MonoBehaviour
             SpawnBullet(firePoints[0]);
             MoveFirePointBackwards();
             StartCoroutine(MoveFirePointForwards());
-
         }
 
         if (TowerMenu.sniperTowerCount == 1)
@@ -161,8 +161,7 @@ public class TowerTarget : MonoBehaviour
             }
         }
 
-        source.clip = GameManager.TowerVaribles[0].TowerAttackSFX;
-        source.Play();
+        audiomanager.PlaySFX("AttackSFX");
 
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarPoint : MonoBehaviour
 {
-    Quaity Quaity;
+    
     GameUI GameUI;
     WaveSpawner waveSpawner;
     public TextMeshProUGUI starPointText;
@@ -12,14 +12,13 @@ public class StarPoint : MonoBehaviour
 
     private void Start()
     {
-        Quaity = FindObjectOfType<Quaity>();
         GameUI = FindObjectOfType<GameUI>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
     }
 
     private void Update()
     {
-        if (Quaity._waveText >= 12 && waveSpawner.totalenemiescheck == 0)
+        if (GameUI._waveText >= 12 && waveSpawner.totalenemiescheck == 0)
         {
             StartCoroutine(Waitfor());
         }
@@ -40,7 +39,7 @@ public class StarPoint : MonoBehaviour
         {
             yield return new WaitForSeconds(i == 0 ? 2f : 1f);
 
-            if (Quaity._heartText >= heartLevels[i] && Quaity._heartText <= 20)
+            if (GameUI._heartText >= heartLevels[i] && GameUI._heartText <= 20)
             {
                 starButtons[i].SetActive(true);
                 if (_starPoint < i + 1)

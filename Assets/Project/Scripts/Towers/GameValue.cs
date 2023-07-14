@@ -2,29 +2,19 @@ using UnityEngine;
 
 public class GameValue : MonoBehaviour
 {
-    UpgradeMenu UpgradeMenu;
+    TowerTarget TowerTarget;
     GameManager GameManager;
-    public int RangedTowerDamage = 20;
-    public int TowerRangeUpgrade = 20;
-    public int RangedTowerCritDamage;
-    public float NewFireCountDown = 1f;
 
-
-    private void Awake()
-    {
-        
-    }
     private void Start()
     {
-        UpgradeMenu = FindObjectOfType<UpgradeMenu>();
+        TowerTarget = FindObjectOfType<TowerTarget>();
         GameManager = FindObjectOfType<GameManager>();
-        
-            //Debug.Log("not null");
-            //NewFireCountDown = UpgradeMenu.newfirecontdown;
-            //GameManager.TowerVaribles[0].TowerMoneyBuy = UpgradeMenu.towerPrice;
-            //RangedTowerDamage = UpgradeMenu.rangedTowerDamage;
-            //TowerRangeUpgrade = UpgradeMenu.towerRangeUpgrade;
-           // RangedTowerCritDamage = UpgradeMenu.rangeTowerCritDamage;
-        
+    }
+    public void Fill(int critValue, int towerRange, int towerDamage, int fireRate)
+    {
+        TowerTarget.critValue = critValue;
+        TowerTarget.fireRate = fireRate;
+        GameManager.TowerVaribles[0].TowerDamage = towerDamage;
+        GameManager.TowerVaribles[0].TowerRange = towerRange;
     }
 }

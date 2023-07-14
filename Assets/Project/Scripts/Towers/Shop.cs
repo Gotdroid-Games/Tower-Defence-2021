@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    BuildManager BuildManager; // BuildManager s�n�f�ndan bir nesne referans� tan�mlan�yor.
+    BuildManager BuildManager; // BuildManager sıfırdan bir nesne referans� tan�mlan�yor.
     public bool bombSelected;
 
     private void Start()
     {
-        BuildManager = FindObjectOfType<BuildManager>(); // Oyun ba�lad���nda BuildManager nesnesi bulunarak tan�mlan�yor.
+        BuildManager = FindObjectOfType<BuildManager>(); // Oyun başladığında BuildManager nesnesi bulunarak tan�mlan�yor.
     }
 
     public void PurchaseStandTurret()
     {
-        Debug.Log("Stand Turret Selected"); // Standart kule se�ildi�inde konsola yazd�r�l�yor.
+        Debug.Log("Stand Turret Selected"); // Standart kule seçildiğinde konsola yazdırılıyor.
         BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[0]); // BuildManager s�n�f�ndaki SetTurretToBuild metodu �a��r�l�yor ve parametre olarak standart kule prefab� g�nderiliyor.
         bombSelected = false;
         Debug.Log(bombSelected);
@@ -22,15 +22,23 @@ public class Shop : MonoBehaviour
 
     public void PurchaseAnotherTurret()
     {
-        Debug.Log("Another Turret Selected"); // Ba�ka bir kule se�ildi�inde konsola yazd�r�l�yor.
+        Debug.Log("Another Turret Selected"); // Ba�ka bir kule seçildiğinde konsola yazdırılıyor.
         BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[1]);
         bombSelected = true;
         Debug.Log(bombSelected);
     }
     public void PurchaseHackerTower()
     {
-        Debug.Log("Another Turret Selected"); // Ba�ka bir kule se�ildi�inde konsola yazd�r�l�yor.
+        Debug.Log("Another Turret Selected"); // Ba�ka bir kule seçildiğinde konsola yazdırılıyor.
         BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[2]);
+        bombSelected = false;
+        Debug.Log(bombSelected);
+    }
+
+    public void PurchaseSoldierTower()
+    {
+        Debug.Log("Another Turret Selected"); // Ba�ka bir kule seçildiğinde konsola yazdırılıyor.
+        BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[3]);
         bombSelected = false;
         Debug.Log(bombSelected);
     }

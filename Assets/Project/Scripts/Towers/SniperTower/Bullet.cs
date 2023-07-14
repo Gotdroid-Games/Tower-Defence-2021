@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     public AudioClip EnemyTouchSFX;
     AudioSource source;
+    AudioManager audiomanager;
 
 
 
@@ -23,9 +24,11 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        audiomanager = FindObjectOfType<AudioManager>();
+
         GameManager = FindObjectOfType<GameManager>();
-        EnemyTouchSFX = GameManager.TowerVaribles[0].EnemyTouchSFX;
-        source =GameManager.gameObject.GetComponent<AudioSource>();
+        //EnemyTouchSFX = GameManager.TowerVaribles[0].EnemyTouchSFX;
+        source = audiomanager.GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -43,15 +46,16 @@ public class Bullet : MonoBehaviour
         if (Vector3.Distance(this.transform.position, target.position) < 0.1f)
         {
             target.GetComponent<Enemy>().TakeDamage();
+            audiomanager.PlaySFX("EnemytouchSFX");
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Enemy"))
-        {
-            source.clip = GameManager.TowerVaribles[0].EnemyTouchSFX;
-            source.Play();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Enemy"))
+    //    {
+    //        Debug.Log("deðdi");
+            
+    //    }
+    //}
 }

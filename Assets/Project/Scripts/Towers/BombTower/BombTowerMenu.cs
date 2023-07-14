@@ -6,13 +6,14 @@ using TMPro;
 
 public class BombTowerMenu : MonoBehaviour
 {
-    Quaity Quaity;
     GameManager GameManager;
+    GameUI GameUI;
     public GameObject towerUI;
     public GameObject _upgradeButton;
     public GameObject SellButton;
     public GameObject BombTower;
     public GameObject canvas;
+    public GameObject rangeIndicatorr;
     GameObject bombObjList;
     public int Count;
     public int bombTowerCountCheck;
@@ -30,8 +31,8 @@ public class BombTowerMenu : MonoBehaviour
         bombTowerClicked = false;
         Count = 0;
         BombObjList[0].SetActive(true);
-        Quaity = FindObjectOfType<Quaity>();
         GameManager = FindObjectOfType<GameManager>();
+        GameUI = FindObjectOfType<GameUI>();
 
         bombTowerDamage = GameManager.TowerVaribles[1].TowerDamage;
         bombTowerRange = GameManager.TowerVaribles[1].TowerRange;
@@ -55,6 +56,7 @@ public class BombTowerMenu : MonoBehaviour
 
     void Update()
     {
+        rangeIndicatorr.transform.localScale = new Vector3(bombTowerRange, 0.5f, bombTowerRange);
         Clickdetector();
         if (Count <= 2)
         {
@@ -75,16 +77,17 @@ public class BombTowerMenu : MonoBehaviour
         else
         {
             _upgradeButton.SetActive(bombTowerClicked);
+            rangeIndicatorr.SetActive(bombTowerClicked);
         }
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && bombTowerClicked);
 
-        if (bombTowerCountCheck == 0 && Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
+        if (bombTowerCountCheck == 0 && GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
         {
             BombTowerUpgradeButton.interactable = true;
             BombTowerUpgradeMoneyText.text = GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1.ToString();
         }
-        else if (bombTowerCountCheck == 1 && Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2)
+        else if (bombTowerCountCheck == 1 && GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2)
         {
             BombTowerUpgradeButton.interactable = true;
             BombTowerUpgradeMoneyText.text = GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2.ToString();
@@ -107,11 +110,11 @@ public class BombTowerMenu : MonoBehaviour
         _upgradeButton.SetActive(false);
         SellButton.SetActive(false);
 
-        if (Quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
+        if (GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1)
         {
             if (bombTowerCountCheck == 0)
             {
-                Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel1);
                 bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel1;
                 bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel1;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
@@ -119,7 +122,7 @@ public class BombTowerMenu : MonoBehaviour
 
             if (bombTowerCountCheck == 1)
             {
-                Quaity.BombTowerUpgradeMoney(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
+                GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyUpgradeLevel2);
                 bombTowerDamage += GameManager.TowerVaribles[1].TowerDamageIncreaseValueLevel2;
                 bombTowerRange += GameManager.TowerVaribles[1].TowerRangeIncreaseValueLevel2;
                 Debug.Log("BombCountcheck = " + bombTowerCountCheck);
@@ -131,17 +134,17 @@ public class BombTowerMenu : MonoBehaviour
     {
         if (bombTowerCountCheck == 0)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel1);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel1);
         }
 
         if (bombTowerCountCheck == 1)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel2);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel2);
         }
 
         if (bombTowerCountCheck == 2)
         {
-            Quaity.SellTower(GameManager.TowerVaribles[1].TowerMoneySellLevel3);
+            GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel3);
         }
         Destroy(gameObject);
     }
@@ -162,6 +165,8 @@ public class BombTowerMenu : MonoBehaviour
                     Debug.Log("objeye tıklandı");
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);
+                    rangeIndicatorr.SetActive(true);
+                    rangeIndicatorr.transform.position = transform.position;
                 }
             }
 
@@ -170,6 +175,7 @@ public class BombTowerMenu : MonoBehaviour
                 Debug.Log("Başka bir yere tıklandı");
                 bombTowerClicked = false;
                 towerUI.SetActive(false);
+                rangeIndicatorr.SetActive(false);
             }
         }
     }

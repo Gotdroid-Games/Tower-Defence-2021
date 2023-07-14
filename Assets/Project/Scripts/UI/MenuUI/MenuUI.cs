@@ -119,31 +119,6 @@ public class MenuUI : MonoBehaviour
 
     public void MusicVolume()
     {
-        //AudioManager.MusicVolume(_musicSlider.value);
-        //musicVolumeValue = (_musicSlider.value * 100).ToString("0");
-        //_musicText.text = musicVolumeValue;
-
-        //if (_musicSlider.value == 0)
-        //{
-        //    _buttons[8].SetActive(false);
-        //    _musicButtonMuteImage.gameObject.SetActive(true);
-        //}
-        //else
-        //{
-        //    _buttons[8].SetActive(true);
-        //    _musicButtonMuteImage.gameObject.SetActive(false);
-        //}
-
-        //if (AudioManager.musicSource.mute == false)
-        //{
-        //    AudioManager.recordedMusicValue = _musicSlider.value;
-        //    Debug.Log(AudioManager.recordedMusicValue);
-        //}
-        //else
-        //{
-        //    AudioManager.recordedMusicValue2 = AudioManager.recordedMusicValue;
-        //    Debug.Log(AudioManager.recordedMusicValue2);
-        //}
 
         AudioManager.MusicVolume(_musicSlider.value);
         musicVolumeValue = (_musicSlider.value * 100).ToString("0");
@@ -167,32 +142,6 @@ public class MenuUI : MonoBehaviour
 
     public void SFXVolume()
     {
-        //AudioManager.SFXVolume(_sfxSlider.value);
-        //sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
-        //_sfxText.text = sfxVolumeValue;
-
-        //if (_sfxSlider.value == 0)
-        //{
-        //    _buttons[9].SetActive(false);
-        //    _sfxButtonMuteImage.gameObject.SetActive(true);
-        //}
-        //else
-        //{
-        //    _buttons[9].SetActive(true);
-        //    _sfxButtonMuteImage.gameObject.SetActive(false);
-        //}
-
-        //if (AudioManager.sfxSource.mute == false)
-        //{
-        //    AudioManager.recordedSFXValue = _sfxSlider.value;
-        //    Debug.Log(AudioManager.recordedSFXValue);
-        //}
-        //else
-        //{
-        //    AudioManager.recordedSFXValue2 = AudioManager.recordedSFXValue;
-        //    Debug.Log(AudioManager.recordedSFXValue2);
-        //}
-
         AudioManager.SFXVolume(_sfxSlider.value);
         sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
         _sfxText.text = sfxVolumeValue;

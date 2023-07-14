@@ -18,7 +18,8 @@ public class EnemyManager : MonoBehaviour
     {
         sniperTower,
         bombTower,
-        hackerTower
+        hackerTower,
+        soldierTower
     }
 
     public GameObject[] Enemies;

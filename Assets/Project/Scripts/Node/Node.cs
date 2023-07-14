@@ -13,9 +13,10 @@ public class Node : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
-    Quaity quaity;
+    
     BuildManager buildManager;
     GameManager GameManager;
+    GameUI GameUI;
     Shop shop;
    
 
@@ -24,10 +25,10 @@ public class Node : MonoBehaviour
         rend = GetComponent<Renderer>();
         shop = GetComponent<Shop>();
         startColor = rend.material.color;
-        quaity = FindObjectOfType<Quaity>();
         buildManager = FindObjectOfType<BuildManager>();
         shop = FindObjectOfType<Shop>();
         GameManager = FindObjectOfType<GameManager>();
+        GameUI = FindObjectOfType<GameUI>();
        
     }
 
@@ -45,17 +46,17 @@ public class Node : MonoBehaviour
             return;
         }
         GameObject turretToBuild = buildManager.GetTurretToBuild();
-        if (quaity._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy && shop.bombSelected == false)
+        if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy && shop.bombSelected == false)
         {  
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            quaity.PaidTower(GameManager.TowerVaribles[0].TowerMoneyBuy);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
         }
         //Build a turret (Tarret in�a et)
 
-        if (quaity._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy && shop.bombSelected == true)
+        if (GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy && shop.bombSelected == true)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-            quaity.PaidBombTower(GameManager.TowerVaribles[1].TowerMoneyBuy);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
         }
     }
 

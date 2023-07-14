@@ -6577,7 +6577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871142651994122188, guid: 49b079fa496306f4f9b2173857d85b8c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7871142651994122188, guid: 49b079fa496306f4f9b2173857d85b8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8084,7 +8084,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &478444456
 GameObject:
@@ -8223,8 +8223,18 @@ MonoBehaviour:
   recordedMusicValue2: 0
   recordedSFXValue: 0
   recordedSFXValue2: 0
-  musicSounds: []
-  sfxSounds: []
+  musicSounds:
+  - name: backgroundmusic
+    clip: {fileID: 8300000, guid: d2fb941b043f58d47810c6aa363e5f29, type: 3}
+  sfxSounds:
+  - name: AttackSFX
+    clip: {fileID: 8300000, guid: 107ff19defe784b4a828025992e30a45, type: 3}
+  - name: EnemytouchSFX
+    clip: {fileID: 8300000, guid: b57fc4e4e7bf5304689ada4dab553114, type: 3}
+  - name: BombatmaSFX
+    clip: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
+  - name: bombadusmeSFX
+    clip: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
   musicSource: {fileID: 1110577930}
   sfxSource: {fileID: 716473144}
 --- !u!4 &487121056
@@ -8242,7 +8252,7 @@ Transform:
   - {fileID: 1110577931}
   - {fileID: 716473145}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &503961584 stripped
 Transform:
@@ -8387,7 +8397,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &506668083
 GameObject:
@@ -9349,6 +9359,7 @@ MonoBehaviour:
   - {fileID: 7206315001989547515, guid: 64c18eed3c84ea04ab1383d03aa72c9a, type: 3}
   - {fileID: 2809495673073685064, guid: cb0f7d1bc5d5b4d7eb266ad929b60198, type: 3}
   - {fileID: 467377273373061772, guid: 4def757f00550bf4ba5c54293af97aeb, type: 3}
+  - {fileID: 4381559772388515145, guid: 053ab9c9ed3301d4cab588d5b9f428b4, type: 3}
 --- !u!114 &589565928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9376,7 +9387,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999130338}
-  - component: {fileID: 999130339}
   m_Layer: 0
   m_Name: ' Last Waypoint'
   m_TagString: Untagged
@@ -10033,9 +10043,6 @@ MonoBehaviour:
     TowerMoneySellLevel1: 50
     TowerMoneySellLevel2: 80
     TowerMoneySellLevel3: 110
-    AudioSource: {fileID: 683488746}
-    TowerAttackSFX: {fileID: 8300000, guid: 107ff19defe784b4a828025992e30a45, type: 3}
-    EnemyTouchSFX: {fileID: 8300000, guid: b57fc4e4e7bf5304689ada4dab553114, type: 3}
   - name: Bomb Tower
     TowerDamage: 20
     TowerDamageIncreaseValueLevel1: 1
@@ -10050,16 +10057,13 @@ MonoBehaviour:
     TowerMoneySellLevel1: 80
     TowerMoneySellLevel2: 150
     TowerMoneySellLevel3: 260
-    AudioSource: {fileID: 683488746}
-    TowerAttackSFX: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
-    EnemyTouchSFX: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
   - name: Hacker Tower
     TowerDamage: 20
     TowerDamageIncreaseValueLevel1: 1
     TowerDamageIncreaseValueLevel2: 2
     TowerRange: 10
-    TowerRangeIncreaseValueLevel1: 1
-    TowerRangeIncreaseValueLevel2: 2
+    TowerRangeIncreaseValueLevel1: 6
+    TowerRangeIncreaseValueLevel2: 12
     FireRate: 2
     TowerMoneyBuy: 100
     TowerMoneyUpgradeLevel1: 210
@@ -10067,13 +10071,24 @@ MonoBehaviour:
     TowerMoneySellLevel1: 80
     TowerMoneySellLevel2: 150
     TowerMoneySellLevel3: 260
-    AudioSource: {fileID: 683488746}
-    TowerAttackSFX: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
-    EnemyTouchSFX: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
+  - name: Soldier Tower
+    TowerDamage: 20
+    TowerDamageIncreaseValueLevel1: 1
+    TowerDamageIncreaseValueLevel2: 2
+    TowerRange: 10
+    TowerRangeIncreaseValueLevel1: 6
+    TowerRangeIncreaseValueLevel2: 12
+    FireRate: 2
+    TowerMoneyBuy: 100
+    TowerMoneyUpgradeLevel1: 210
+    TowerMoneyUpgradeLevel2: 300
+    TowerMoneySellLevel1: 80
+    TowerMoneySellLevel2: 150
+    TowerMoneySellLevel3: 260
   EnemyVariables:
   - name: Basic Robot
     _EnemyHealth: 100
-    _EnemySpeed: 5
+    _EnemySpeed: 15
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
@@ -10099,8 +10114,8 @@ MonoBehaviour:
   heartText: 20
   waveText: 0
   _Product: 10
-  _basicRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _gorillaRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _basicRobot: 140000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _gorillaRobot: 140000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _smartHomeRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _droneRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _timeBetweenWaves:
@@ -10132,7 +10147,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &683488746
 AudioSource:
@@ -10637,7 +10652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 37.008, y: -296.75, z: -226.376}
 --- !u!1 &716473143
 GameObject:
@@ -10667,7 +10682,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -11470,7 +11485,7 @@ Transform:
   m_Children:
   - {fileID: 589565926}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &885289238
 PrefabInstance:
@@ -11878,25 +11893,6 @@ Transform:
   m_Father: {fileID: 20035803}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &999130339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615322491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5655dca67df2f14f926bbc323a5949e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heartText: {fileID: 1438694259}
-  WaveText: {fileID: 1515769404}
-  CoinText: {fileID: 2143163063}
-  _coinText: 0
-  _heartText: 0
-  _waveText: 0
-  Product: 0
 --- !u!1 &1010742712
 GameObject:
   m_ObjectHideFlags: 0
@@ -12721,9 +12717,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3eaa6d5073d856b4bb2afe72394a2ec3, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.117
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12915,7 +12911,7 @@ Transform:
   - {fileID: 1179135866}
   - {fileID: 20035803}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1142566682
 PrefabInstance:
@@ -13003,6 +12999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e34144b73a47e4aa3e7b18ddf58e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinValues: []
   _Button:
     GameUIButtons:
     - {fileID: 1631830133}
@@ -13026,11 +13023,19 @@ MonoBehaviour:
   _sfxSlider: {fileID: 434778385}
   wavestartinfopanel: {fileID: 289236441}
   _musicButtonMuteImage: {fileID: 1182612428}
-  _sfxButtonMute: {fileID: 82121728}
+  _sfxButtonMuteImage: {fileID: 82121728}
   _musicText: {fileID: 1229441567}
   _sfxText: {fileID: 1189569044}
+  heartText: {fileID: 1438694259}
+  WaveText: {fileID: 1515769404}
+  CoinText: {fileID: 2143163063}
   musicVolumeValue: 
   sfxVolumeValue: 
+  _coinText: 0
+  _heartText: 0
+  _waveText: 0
+  Product: 0
+  defeatMenuControl: 0
 --- !u!4 &1147089605
 Transform:
   m_ObjectHideFlags: 0
@@ -14745,6 +14750,7 @@ RectTransform:
   - {fileID: 1186068209}
   - {fileID: 633089140}
   - {fileID: 702510538}
+  - {fileID: 1989023260}
   m_Father: {fileID: 1694466006}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14807,6 +14813,141 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a37680e3c83e3154eb2040c257a5e537, type: 3}
   m_PrefabInstance: {fileID: 1819753444}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1430503970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430503971}
+  - component: {fileID: 1430503973}
+  - component: {fileID: 1430503972}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1430503971
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430503970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1989023260}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1430503972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430503970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Soldier Tower Build
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 28
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1430503973
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430503970}
+  m_CullTransparentMesh: 1
 --- !u!4 &1433323092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e394a47897c8a9741b2df77ad58dd233, type: 3}
@@ -15640,7 +15781,7 @@ Transform:
   - {fileID: 232966318}
   - {fileID: 830263683}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1582261130 stripped
 Transform:
@@ -16131,7 +16272,7 @@ RectTransform:
   - {fileID: 1702542919}
   - {fileID: 1403117899}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17098,7 +17239,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c260241d7eb3ac748bdce3fe8b94669e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c260241d7eb3ac748bdce3fe8b94669e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17546,63 +17687,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37680e3c83e3154eb2040c257a5e537, type: 3}
---- !u!1001 &1966254862
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.205875
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.99191
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -58.153564
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
-      propertyPath: m_Name
-      value: bomba_kule_3 (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0b8974d8880489b4a8a1612a94ff4faf, type: 3}
 --- !u!1 &1969647865
 GameObject:
   m_ObjectHideFlags: 0
@@ -17742,6 +17826,140 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a37680e3c83e3154eb2040c257a5e537, type: 3}
   m_PrefabInstance: {fileID: 178715605}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1989023259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989023260}
+  - component: {fileID: 1989023263}
+  - component: {fileID: 1989023262}
+  - component: {fileID: 1989023261}
+  m_Layer: 5
+  m_Name: Soldier Tower Build
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1989023260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989023259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1430503971}
+  m_Father: {fileID: 1403117899}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 813.19, y: -350.25}
+  m_SizeDelta: {x: 272.04, y: 67.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1989023261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989023259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1989023262}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 589565928}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: PurchaseSoldierTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1989023262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989023259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1989023263
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989023259}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2008209395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17957,10 +18175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af341723483ff204b90efdb58202ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangedTowerDamage: 20
-  TowerRangeUpgrade: 20
-  RangedTowerCritDamage: 0
-  NewFireCountDown: 1
 --- !u!4 &2074178766
 Transform:
   m_ObjectHideFlags: 0
@@ -18565,7 +18779,7 @@ Transform:
   - {fileID: 2799778593639785483}
   - {fileID: 6647829427528648638}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3358837045265048294
 MeshFilter:
