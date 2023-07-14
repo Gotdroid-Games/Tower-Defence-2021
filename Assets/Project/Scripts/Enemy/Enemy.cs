@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     BombTowerMenu BombTowerMenu;
     TowerMenu Towermenu;
     GameUI GameUI;
+    Soldiers soldiers;
     int maxHealth;
     public int currentHealth;
     public float RobotSpeed;
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour
     private int wavepointIndex = 0;
     public int EnemyKillCoinValue;
     public bool inside = false;
+    public bool Soldierinside = false;
+
     [HideInInspector]
 
     public float worth = 50;
@@ -101,6 +104,7 @@ public class Enemy : MonoBehaviour
         TowerTarget = FindObjectOfType<TowerTarget>();
         Towermenu = FindObjectOfType<TowerMenu>();
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
+        soldiers = FindObjectOfType<Soldiers>();
 
         if (Towermenu != null)
         {
@@ -116,6 +120,12 @@ public class Enemy : MonoBehaviour
                 currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
             }
         }
+        if (soldiers != null)
+        {
+            currentHealth -= 10;
+           
+        }
+
         _healthbar.SetHealth(currentHealth);
 
         //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
@@ -165,6 +175,11 @@ public class Enemy : MonoBehaviour
         {
             RobotSpeed = 15f;
         }
+        if (Soldierinside == true)
+        {
+            RobotSpeed = 0f;
+        }
+        
 
         Coin();
     }
