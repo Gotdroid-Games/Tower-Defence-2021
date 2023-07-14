@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class TowerTarget : MonoBehaviour
 {
     private GameValue gameValue;
-    TowerMenu TowerMenu;
+    public TowerMenu TowerMenu;
     [SerializeField] Transform target;
     //GameManager GameManager;
     Enemy Enemy;
@@ -33,6 +33,9 @@ public class TowerTarget : MonoBehaviour
     AudioManager audiomanager;
     private void Start()
     {
+        if(TowerMenu.Head != null)
+            partToBody.rotation = TowerMenu.Head.rotation;
+
         gameValue = FindObjectOfType<GameValue>();
         //GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
@@ -172,8 +175,10 @@ public class TowerTarget : MonoBehaviour
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject MuzzleCopy = Instantiate(Muzzle, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
+        MuzzleCopy.transform.parent = firePoint.transform;
+        MuzzleCopy.transform.localScale = Vector3.one;
 
-        DestroyObject(MuzzleCopy, 2f);
+        DestroyObject(MuzzleCopy, 5f);
 
         if (bullet != null)
         {

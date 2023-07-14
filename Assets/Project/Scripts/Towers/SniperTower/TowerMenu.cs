@@ -34,6 +34,8 @@ public class TowerMenu : MonoBehaviour
     public int sniperTowerDamage;
     public int sniperTowerRange;
 
+    public Transform Head;
+
 
     private void Start()
     {
@@ -49,6 +51,7 @@ public class TowerMenu : MonoBehaviour
         //Kule Hasar ve Menzil Tanýmlamalarý
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
         sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
+        Head = TouchObjList[sniperTowerCount].GetComponent<TowerTarget>().partToBody;
     }
 
     private void OnMouseDown()
@@ -124,6 +127,7 @@ public class TowerMenu : MonoBehaviour
 
     public void Upgrade()
     {
+        Head = TouchObjList[sniperTowerCount].GetComponent<TowerTarget>().partToBody;
         sniperTowerCount++;
         Tower = gameObject;
         TowerClicked = false;
