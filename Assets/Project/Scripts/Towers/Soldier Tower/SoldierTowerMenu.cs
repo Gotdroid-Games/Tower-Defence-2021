@@ -17,6 +17,7 @@ public class SoldierTowerMenu : MonoBehaviour
     public GameObject sellButton;
     public GameObject soldilerTower;
     public GameObject rangeIndicator;
+    public GameObject soldiersPrefab;
     GameObject soldierObjList;
     public Button soldierTowerUpgradeButton;
     public TextMeshProUGUI soldierTowerUpgradeMoneyText;
@@ -32,7 +33,7 @@ public class SoldierTowerMenu : MonoBehaviour
     public bool soldierTowerClicked;
 
     public EnemyManager.TowerType TowerType;
-
+    public int soldieramountspawn;
 
     private void Start()
     {
@@ -43,8 +44,17 @@ public class SoldierTowerMenu : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
         gameUI= FindObjectOfType<GameUI>();
+
+        SpawnSoldiers();
     }
 
+    public void SpawnSoldiers()
+    {
+        for (int i = 0; i < soldieramountspawn; i++)
+        {
+            Instantiate(soldiersPrefab, transform.position, Quaternion.identity);//burada kulenin pozisyonunda duruyo bunu deðiþtir.
+        }
+    }
     private void OnMouseDown()
     {
         if (soldierTowerClicked == false)

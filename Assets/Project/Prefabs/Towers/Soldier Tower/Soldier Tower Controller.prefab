@@ -54,6 +54,7 @@ MonoBehaviour:
   sellButton: {fileID: 1468012712612932385}
   soldilerTower: {fileID: 4381559772388515145}
   rangeIndicator: {fileID: 121497331620600691, guid: 41462cae1b876f346a5e71b40956b507, type: 3}
+  soldiersPrefab: {fileID: 3095837140567875388, guid: b9e8fcaa88d2de74285dfca8f13a6e37, type: 3}
   soldierTowerUpgradeButton: {fileID: 6046192514165821243}
   soldierTowerUpgradeMoneyText: {fileID: 266574799880096706}
   maxLevelImage: {fileID: 5314849661613038693}
@@ -68,6 +69,7 @@ MonoBehaviour:
   soldierTowerRange: 0
   soldierTowerClicked: 0
   TowerType: 3
+  soldieramountspawn: 3
 --- !u!65 &50218405864243938
 BoxCollider:
   m_ObjectHideFlags: 0

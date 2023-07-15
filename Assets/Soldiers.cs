@@ -5,7 +5,6 @@ using UnityEngine;
 public class Soldiers : MonoBehaviour
 {
     public float health;
-    public float damage;
     public float speed;
     private float attackTime = 0;
     private GameObject currentEnemy; // Þu anda hedeflenen düþman

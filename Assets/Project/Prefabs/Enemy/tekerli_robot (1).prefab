@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RobotType: 0
   _healthbar: {fileID: 4750850724168142632}
-  currentHealth: 100
+  currentHealth: 16
   RobotSpeed: 0
   RobotDamage: 0
   EnemyKillCoinValue: 0

@@ -185,7 +185,22 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            RobotSpeed = 15f;
+            if (RobotType == EnemyManager.EnemyType.BasicRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.GorillaRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[1]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.SmartHomeRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[2]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.DroneRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
+            }
         }
         if (Soldierinside == true)
         {
