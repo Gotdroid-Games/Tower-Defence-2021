@@ -163,8 +163,9 @@ public class Enemy : MonoBehaviour
             GetNextWayPoint();
         }
         if (inside == true)
-        { 
-                RobotSpeed = 5f;
+        {
+            StartCoroutine(SlowDownCoroutine());
+            //  RobotSpeed = 5f;
         }
         else
         {
@@ -184,11 +185,40 @@ public class Enemy : MonoBehaviour
             {
                 RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
             }
-            // RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
         }
         
 
         Coin();
+    }
+    IEnumerator SlowDownCoroutine()
+    {
+        float initialSpeed = RobotSpeed;
+        float slowSpeed = 5f;
+        float interval = 1.5f;
+
+        while (true)
+        {
+            RobotSpeed = slowSpeed;
+            yield return new WaitForSeconds(interval);
+
+            if (RobotType == EnemyManager.EnemyType.BasicRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.GorillaRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[1]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.SmartHomeRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[2]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.DroneRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
+            }
+            yield return new WaitForSeconds(interval);
+        }
     }
 
     void GetNextWayPoint()

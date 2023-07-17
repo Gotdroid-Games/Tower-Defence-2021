@@ -62,7 +62,7 @@ MonoBehaviour:
   Count: 0
   hackerTowerCountCheck: 0
   hackerTowerDamage: 0
-  hackerTowerRange: 10
+  hackerTowerRange: 18
   hackerTowerClicked: 0
   hackerTowerUpgradeButton: {fileID: 1290799266454293949}
   hackerTowerUpgradeMoneyText: {fileID: 667335854101922876}
