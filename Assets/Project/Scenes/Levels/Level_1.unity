@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004361, b: 0.57521313, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004359, b: 0.57521296, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10079,19 +10079,19 @@ MonoBehaviour:
     enemySpawnTime: 0.6
   - name: Gorilla Robot
     _EnemyHealth: 150
-    _EnemySpeed: 5
+    _EnemySpeed: 7
     _EnemyDamage: 2
     EnemyKillCoin: 5
     enemySpawnTime: 1
   - name: Smart Home Robot
     _EnemyHealth: 70
-    _EnemySpeed: 5
+    _EnemySpeed: 13
     _EnemyDamage: 1
     EnemyKillCoin: 2
     enemySpawnTime: 0.7
   - name: Drone Robot
     _EnemyHealth: 70
-    _EnemySpeed: 5
+    _EnemySpeed: 14
     _EnemyDamage: 1
     EnemyKillCoin: 2
     enemySpawnTime: 0.7
@@ -17890,10 +17890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af341723483ff204b90efdb58202ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangedTowerDamage: 20
-  TowerRangeUpgrade: 20
-  RangedTowerCritDamage: 0
-  NewFireCountDown: 1
 --- !u!4 &2074178766
 Transform:
   m_ObjectHideFlags: 0

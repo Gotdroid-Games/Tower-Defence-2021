@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -161,24 +162,29 @@ public class Enemy : MonoBehaviour
         {
             GetNextWayPoint();
         }
-        Debug.Log(timer);
         if (inside == true)
-        {
-            timer += Time.deltaTime;
-            if (timer>=interval)
-            {
+        { 
                 RobotSpeed = 5f;
-                timer = 0f;
-            }
-            else
-            {
-                RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
-            }
-            //  RobotSpeed = 5f;
         }
         else
         {
-            RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+            if (RobotType == EnemyManager.EnemyType.BasicRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.GorillaRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[1]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.SmartHomeRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[2]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.DroneRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
+            }
+            // RobotSpeed = GameManager.EnemyVariables[0]._EnemySpeed;
         }
         
 
