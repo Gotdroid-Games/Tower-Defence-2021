@@ -200,6 +200,10 @@ public class Enemy : MonoBehaviour
         {
             RobotSpeed = slowSpeed;
             yield return new WaitForSeconds(interval);
+            if (!inside)
+            {
+                break;
+            }
 
             if (RobotType == EnemyManager.EnemyType.BasicRobot)
             {
