@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour
     public int EnemyKillCoinValue;
     public bool inside = false;
     private float timer = 0f;
-    private float interval = 1.5f;
+    public float interval = 1.5f;
+    public float slowedSpeed = 5f;
     [HideInInspector]
 
     public float worth = 50;
@@ -193,12 +194,13 @@ public class Enemy : MonoBehaviour
     IEnumerator SlowDownCoroutine()
     {
         float initialSpeed = RobotSpeed;
-        float slowSpeed = 5f;
+
+       // float slowSpeed = 5f;
         float interval = 1.5f;
 
         while (true)
         {
-            RobotSpeed = slowSpeed;
+            RobotSpeed = slowedSpeed;
             yield return new WaitForSeconds(interval);
             if (!inside)
             {
