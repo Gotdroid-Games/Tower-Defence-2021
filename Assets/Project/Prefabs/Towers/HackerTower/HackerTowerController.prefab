@@ -62,7 +62,7 @@ MonoBehaviour:
   Count: 0
   hackerTowerCountCheck: 0
   hackerTowerDamage: 0
-  hackerTowerRange: 6
+  hackerTowerRange: 18
   hackerTowerClicked: 0
   hackerTowerUpgradeButton: {fileID: 1290799266454293949}
   hackerTowerUpgradeMoneyText: {fileID: 667335854101922876}
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b37e774f0fd49beb9e4153c7f2575a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inside: 0
 --- !u!1 &1374252735706286444
 GameObject:
   m_ObjectHideFlags: 0
