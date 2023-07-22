@@ -17,6 +17,7 @@ public class SoldierTowerMenu : MonoBehaviour
     public GameObject sellButton;
     public GameObject soldilerTower;
     public GameObject rangeIndicator;
+    public GameObject soldiersPrefab;
     GameObject soldierObjList;
     public Button soldierTowerUpgradeButton;
     public TextMeshProUGUI soldierTowerUpgradeMoneyText;
@@ -32,7 +33,7 @@ public class SoldierTowerMenu : MonoBehaviour
     public bool soldierTowerClicked;
 
     public EnemyManager.TowerType TowerType;
-
+    public int soldieramountspawn;
 
     private void Start()
     {
@@ -43,7 +44,51 @@ public class SoldierTowerMenu : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
         gameUI= FindObjectOfType<GameUI>();
+
+        SpawnSoldiers();
     }
+
+    List<Vector3> spawnedPositions = new List<Vector3>();
+    float minimumXDifference = 2.0f;//spawn olan askerler arasýnda en az 2 birim fark olarak doðuyorlar
+
+    public void SpawnSoldiers()
+    {
+        for (int i = 0; i < soldieramountspawn; i++)
+        {
+            Vector3 spawnPosition = GetValidSpawnPosition();
+            Instantiate(soldiersPrefab, spawnPosition, Quaternion.identity);
+            spawnedPositions.Add(spawnPosition);
+        }
+    }
+
+    private Vector3 GetValidSpawnPosition()
+    {
+        Vector3 spawnPosition;
+        bool isValidPosition = false;
+
+        do
+        {
+            spawnPosition = transform.position + new Vector3(Random.Range(1, 10), 0, 5);
+            isValidPosition = CheckMinimumXDifference(spawnPosition);
+        }
+        while (!isValidPosition);
+
+        return spawnPosition;
+    }
+
+    private bool CheckMinimumXDifference(Vector3 spawnPosition)
+    {
+        foreach (Vector3 position in spawnedPositions)
+        {
+            if (Mathf.Abs(spawnPosition.x - position.x) < minimumXDifference)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     private void OnMouseDown()
     {

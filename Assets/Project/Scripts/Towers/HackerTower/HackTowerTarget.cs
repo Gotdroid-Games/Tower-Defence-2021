@@ -30,9 +30,7 @@ public class HackTowerTarget : MonoBehaviour
 
                 if (distance <= hackmenu.hackerTowerRange)
                 {
-                    // Destroy(obj);
                     obj.GetComponent<Enemy>().inside = true;
-                  //  gamemanager.EnemyVariables[0]._EnemySpeed = 5;
                 }
                 else
                 {
