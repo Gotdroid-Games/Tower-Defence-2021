@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004359, b: 0.57521296, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6577,7 +6577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871142651994122188, guid: 49b079fa496306f4f9b2173857d85b8c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7871142651994122188, guid: 49b079fa496306f4f9b2173857d85b8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10086,25 +10086,29 @@ MonoBehaviour:
     TowerMoneySellLevel2: 150
     TowerMoneySellLevel3: 260
   EnemyVariables:
-  - name: Basic Robot
+  - enemyType: 0
+    name: Basic Robot
     _EnemyHealth: 100
     _EnemySpeed: 15
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
-  - name: Gorilla Robot
+  - enemyType: 0
+    name: Gorilla Robot
     _EnemyHealth: 150
     _EnemySpeed: 7
     _EnemyDamage: 2
     EnemyKillCoin: 5
     enemySpawnTime: 1
-  - name: Smart Home Robot
+  - enemyType: 0
+    name: Smart Home Robot
     _EnemyHealth: 70
     _EnemySpeed: 13
     _EnemyDamage: 1
     EnemyKillCoin: 2
     enemySpawnTime: 0.7
-  - name: Drone Robot
+  - enemyType: 0
+    name: Drone Robot
     _EnemyHealth: 70
     _EnemySpeed: 14
     _EnemyDamage: 1
@@ -10134,6 +10138,7 @@ MonoBehaviour:
   - 16
   WaveStartTimeAdjustment: 4
   ActiveRobots: []
+  Waves: []
 --- !u!4 &683488745
 Transform:
   m_ObjectHideFlags: 0
@@ -10570,6 +10575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -10654,6 +10660,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 37.008, y: -296.75, z: -226.376}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &716473143
 GameObject:
   m_ObjectHideFlags: 0
