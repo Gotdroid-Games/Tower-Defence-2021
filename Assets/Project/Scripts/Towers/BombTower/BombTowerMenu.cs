@@ -13,7 +13,7 @@ public class BombTowerMenu : MonoBehaviour
     public GameObject SellButton;
     public GameObject BombTower;
     public GameObject canvas;
-    public GameObject rangeIndicatorr;
+    public GameObject rangeIndicator;
     GameObject bombObjList;
     public int Count;
     public int bombTowerCountCheck;
@@ -57,8 +57,9 @@ public class BombTowerMenu : MonoBehaviour
 
     void Update()
     {
+        rangeIndicator.SetActive(bombTowerClicked);
         bombTowerDamageIncreasePercentage = (bombTowerDamage * GameManager.TowerVaribles[1].TowerDamage*2) / 100;
-        rangeIndicatorr.transform.localScale = new Vector3(bombTowerRange, 0.5f, bombTowerRange);
+        rangeIndicator.transform.localScale = new Vector3(bombTowerRange, 0.5f, bombTowerRange);
         Clickdetector();
         if (Count <= 2)
         {
@@ -79,7 +80,6 @@ public class BombTowerMenu : MonoBehaviour
         else
         {
             _upgradeButton.SetActive(bombTowerClicked);
-            rangeIndicatorr.SetActive(bombTowerClicked);
         }
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && bombTowerClicked);
@@ -167,8 +167,8 @@ public class BombTowerMenu : MonoBehaviour
                     Debug.Log("objeye tıklandı");
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);
-                    rangeIndicatorr.SetActive(true);
-                    rangeIndicatorr.transform.position = transform.position;
+                    rangeIndicator.SetActive(true);
+                    rangeIndicator.transform.position = transform.position;
                 }
             }
 
@@ -177,7 +177,7 @@ public class BombTowerMenu : MonoBehaviour
                 Debug.Log("Başka bir yere tıklandı");
                 bombTowerClicked = false;
                 towerUI.SetActive(false);
-                rangeIndicatorr.SetActive(false);
+                rangeIndicator.SetActive(false);
             }
         }
     }
