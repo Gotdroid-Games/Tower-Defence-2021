@@ -31,7 +31,7 @@ public class Soldiers : MonoBehaviour
             // Düþmana yaklaþýldýðýnda saldýrý gerçekleþtir
             if (Vector3.Distance(transform.position, currentEnemy.transform.position) < 5f)
             {
-                currentEnemy.GetComponent<Enemy>().Soldierinside = true;
+                //currentEnemy.GetComponent<Enemy>().Soldierinside = true;
                 attackTime += Time.fixedDeltaTime;
 
                 
