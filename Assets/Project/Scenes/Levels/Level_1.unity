@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45042878, g: 0.5004359, b: 0.57521296, a: 1}
+  m_IndirectSpecularColor: {r: 0.45042932, g: 0.50043684, b: 0.575214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10045,8 +10045,8 @@ MonoBehaviour:
     TowerMoneySellLevel3: 110
   - name: Bomb Tower
     TowerDamage: 20
-    TowerDamageIncreaseValueLevel1: 1
-    TowerDamageIncreaseValueLevel2: 2
+    TowerDamageIncreaseValueLevel1: 10
+    TowerDamageIncreaseValueLevel2: 20
     TowerRange: 10
     TowerRangeIncreaseValueLevel1: 1
     TowerRangeIncreaseValueLevel2: 2
@@ -10088,7 +10088,7 @@ MonoBehaviour:
   EnemyVariables:
   - name: Basic Robot
     _EnemyHealth: 100
-    _EnemySpeed: 15
+    _EnemySpeed: 10
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6

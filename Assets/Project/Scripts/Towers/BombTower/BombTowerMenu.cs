@@ -19,6 +19,7 @@ public class BombTowerMenu : MonoBehaviour
     public int bombTowerCountCheck;
     public int bombTowerDamage;
     public int bombTowerRange;
+    public int bombTowerDamageIncreasePercentage;
     public bool bombTowerClicked;
     public Image MaxlevelImage;
     public Button BombTowerUpgradeButton;
@@ -56,6 +57,7 @@ public class BombTowerMenu : MonoBehaviour
 
     void Update()
     {
+        bombTowerDamageIncreasePercentage = (bombTowerDamage * GameManager.TowerVaribles[1].TowerDamage*2) / 100;
         rangeIndicatorr.transform.localScale = new Vector3(bombTowerRange, 0.5f, bombTowerRange);
         Clickdetector();
         if (Count <= 2)

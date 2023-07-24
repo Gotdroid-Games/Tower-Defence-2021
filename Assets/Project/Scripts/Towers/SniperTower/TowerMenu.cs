@@ -32,6 +32,7 @@ public class TowerMenu : MonoBehaviour
     public int sniperTowerCount;
     public int sniperTowerCountCheck;
     public int sniperTowerDamage;
+    public int sniperTowerDamageIncreasePercentage;
     public int sniperTowerRange;
 
 
@@ -49,6 +50,8 @@ public class TowerMenu : MonoBehaviour
         //Kule Hasar ve Menzil Tanýmlamalarý
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
         sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
+
+        
     }
 
     private void OnMouseDown()
@@ -73,6 +76,7 @@ public class TowerMenu : MonoBehaviour
     }
     private void Update()
     {
+        sniperTowerDamageIncreasePercentage = (sniperTowerDamage * GameManager.TowerVaribles[0].TowerDamage*2/* TowerDamage*2 deðeri yüzdeliðin 2 katýný alýyor */) / 100;
         rangeindicator.transform.localScale = new Vector3(sniperTowerRange, 0.5f, sniperTowerRange);
         Clickdetector();
 
