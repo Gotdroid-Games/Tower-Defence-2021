@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inside: 0
-  sniperTowerDamageIncreasePercentage: 200
 --- !u!1 &1374252735706286444
 GameObject:
   m_ObjectHideFlags: 0

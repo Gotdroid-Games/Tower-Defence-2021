@@ -375,14 +375,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RobotType: 1
-  TowerMenu: {fileID: 0}
   _healthbar: {fileID: 6698554355829652292}
   currentHealth: 0
   RobotSpeed: 0
   RobotDamage: 0
   EnemyKillCoinValue: 0
+  inside: 0
+  interval: 0.4
+  slowedSpeed: 5
   worth: 50
   healthBar: {fileID: 1293348577509276931}
+  NextWaypointNumber: 0
+  NextWaypointDistance: 0
 --- !u!1 &6141884611061712522
 GameObject:
   m_ObjectHideFlags: 0
