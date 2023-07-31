@@ -86,11 +86,12 @@ MonoBehaviour:
   SellButton: {fileID: 6380582068482208266}
   BombTower: {fileID: 2809495673073685064}
   canvas: {fileID: 7529391129393556152}
-  rangeIndicatorr: {fileID: 5890293149522449213}
+  rangeIndicator: {fileID: 5890293149522449213}
   Count: 0
   bombTowerCountCheck: 0
   bombTowerDamage: 0
   bombTowerRange: 0
+  bombTowerDamageIncreasePercentage: 0
   bombTowerClicked: 0
   MaxlevelImage: {fileID: 5543697947311835383}
   BombTowerUpgradeButton: {fileID: 2250507147100821008}
@@ -496,7 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 0
@@ -590,7 +590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 0
@@ -757,7 +756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb89eeb1d4c5a54aa9f6c9eb68b0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
   target: {fileID: 0}
   bombTowerDamage: 0
   bombTowerRange: 0

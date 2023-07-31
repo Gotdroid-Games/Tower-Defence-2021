@@ -18,10 +18,12 @@ public class Enemy : MonoBehaviour
     WaveSpawner waveSpawner;
     GameValue GameValue;
     TowerTarget TowerTarget;
+    HackTowerTarget HackTowerTarget;
     GameManager GameManager;
     BombTowerMenu BombTowerMenu;
     TowerMenu Towermenu;
     GameUI GameUI;
+    Enemy enemy;
     int maxHealth;
     public int currentHealth;
     public float RobotSpeed;
@@ -31,7 +33,8 @@ public class Enemy : MonoBehaviour
     public int EnemyKillCoinValue;
     public bool inside = false;
     private float timer = 0f;
-    private float interval = 1.5f;
+    public float interval = 1.5f;
+    public float slowedSpeed = 5f;
     [HideInInspector]
 
     public float worth = 50;
@@ -52,6 +55,8 @@ public class Enemy : MonoBehaviour
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();
         Towermenu = FindObjectOfType<TowerMenu>();
         GameUI = FindObjectOfType<GameUI>();
+        enemy = FindObjectOfType<Enemy>();
+        HackTowerTarget = FindObjectOfType<HackTowerTarget>();
 
         target = WayPoints.points[0];
 
@@ -110,14 +115,31 @@ public class Enemy : MonoBehaviour
         {
             if (Towermenu.TowerType == EnemyManager.TowerType.sniperTower)
             {
-                currentHealth -= Towermenu.sniperTowerDamage;
+                if (enemy.inside == true)
+                {
+                    currentHealth -= GameManager.TowerVaribles[0].TowerDamage + (Towermenu.sniperTowerDamageIncreasePercentage);
+                    Debug.Log("Hacker Kulesinin efekti aktif ve lazer kulesi extra hasar vuruyor");
+                }
+                else
+                {
+                    currentHealth -= GameManager.TowerVaribles[0].TowerDamage;
+                    Debug.Log("Hacker Kulesinin efekti deaktif ve lazer kulesi extra hasar vurmuyor");
+                }
+
             }
         }
         if (BombTowerMenu != null)
         {
             if (BombTowerMenu.TowerType == EnemyManager.TowerType.bombTower)
             {
-                currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
+                if (enemy.inside == true)
+                {
+                    currentHealth -= GameManager.TowerVaribles[1].TowerDamage + (BombTowerMenu.bombTowerDamageIncreasePercentage);
+                }
+                else
+                {
+                    currentHealth -= GameManager.TowerVaribles[1].TowerDamage;
+                }
             }
         }
         _healthbar.SetHealth(currentHealth);
@@ -132,7 +154,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        
+
         target = WayPoints.points[wavepointIndex];
         Vector3 dir1 = target.position - transform.position;
         transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
@@ -186,19 +208,20 @@ public class Enemy : MonoBehaviour
                 RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
             }
         }
-        
+
 
         Coin();
     }
     IEnumerator SlowDownCoroutine()
     {
         float initialSpeed = RobotSpeed;
-        float slowSpeed = 5f;
+
+        // float slowSpeed = 5f;
         float interval = 1.5f;
 
         while (true)
         {
-            RobotSpeed = slowSpeed;
+            RobotSpeed = slowedSpeed;
             yield return new WaitForSeconds(interval);
             if (!inside)
             {

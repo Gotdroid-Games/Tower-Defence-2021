@@ -10045,8 +10045,8 @@ MonoBehaviour:
     TowerMoneySellLevel3: 110
   - name: Bomb Tower
     TowerDamage: 20
-    TowerDamageIncreaseValueLevel1: 1
-    TowerDamageIncreaseValueLevel2: 2
+    TowerDamageIncreaseValueLevel1: 10
+    TowerDamageIncreaseValueLevel2: 20
     TowerRange: 10
     TowerRangeIncreaseValueLevel1: 1
     TowerRangeIncreaseValueLevel2: 2
@@ -10089,7 +10089,7 @@ MonoBehaviour:
   - enemyType: 0
     name: Basic Robot
     _EnemyHealth: 100
-    _EnemySpeed: 15
+    _EnemySpeed: 10
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
