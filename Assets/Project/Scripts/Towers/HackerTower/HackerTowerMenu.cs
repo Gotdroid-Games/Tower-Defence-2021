@@ -26,6 +26,10 @@ public class HackerTowerMenu : MonoBehaviour
     public Image MaxlevelImage;
     public EnemyManager.TowerType TowerType;
     public GameObject rangeIndicator;
+    public GameObject Antenna1;
+    public GameObject Antenna2;
+    public GameObject Antenna3;
+    public float AntennaRotateSpeed;
     private void Start()
     {
         MaxlevelImage.gameObject.SetActive(false);
@@ -35,6 +39,7 @@ public class HackerTowerMenu : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
         GameUI = FindObjectOfType<GameUI>();
+       
     }
 
     private void OnMouseDown()
@@ -55,6 +60,9 @@ public class HackerTowerMenu : MonoBehaviour
 
     void Update()
     {
+        Antenna1.transform.Rotate(0f, AntennaRotateSpeed*Time.deltaTime, 0f);
+        Antenna2.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
+        Antenna3.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
         rangeIndicator.transform.localScale = new Vector3(hackerTowerRange, 0.5f, hackerTowerRange);
         Clickdetector();
         if (Count <= 2)

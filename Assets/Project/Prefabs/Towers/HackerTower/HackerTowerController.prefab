@@ -69,6 +69,10 @@ MonoBehaviour:
   MaxlevelImage: {fileID: 1837706406850751038}
   TowerType: 2
   rangeIndicator: {fileID: 6957748384795811706}
+  Antenna1: {fileID: 7564786229694941411}
+  Antenna2: {fileID: 612867406142821119}
+  Antenna3: {fileID: 4473365147219968084}
+  AntennaRotateSpeed: 40
 --- !u!65 &5914155521402540315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inside: 0
-  sniperTowerDamageIncreasePercentage: 200
 --- !u!1 &1374252735706286444
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +413,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8621492125792246665, guid: f7fff094747f3b54484ac6c88c8184b4, type: 3}
   m_PrefabInstance: {fileID: 2950407999066565940}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7564786229694941411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4614624529831863767, guid: f7fff094747f3b54484ac6c88c8184b4, type: 3}
+  m_PrefabInstance: {fileID: 2950407999066565940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5289212072245811912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,8 +477,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8607394551927380636, guid: 5aaa8b28799b7d34981b0c2da0df2d1c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aaa8b28799b7d34981b0c2da0df2d1c, type: 3}
+--- !u!1 &4473365147219968084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8607394551927380636, guid: 5aaa8b28799b7d34981b0c2da0df2d1c, type: 3}
+  m_PrefabInstance: {fileID: 5289212072245811912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5032858687941139394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 918523305941729546, guid: 5aaa8b28799b7d34981b0c2da0df2d1c, type: 3}
@@ -542,6 +559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab6113eee80d70488951a9c84394243, type: 3}
+--- !u!1 &612867406142821119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4980070087688828201, guid: bab6113eee80d70488951a9c84394243, type: 3}
+  m_PrefabInstance: {fileID: 5592790085015922646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4744063916153067966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 886039299684712040, guid: bab6113eee80d70488951a9c84394243, type: 3}
