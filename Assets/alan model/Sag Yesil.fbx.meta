@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: grass
+    second: {fileID: 2100000, guid: f8a2b48015a8e094d9d2a021be6badb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: zemin3
     second: {fileID: 2100000, guid: ebde24dd9eace5e4890235b104649f5d, type: 2}
   materials:
@@ -45,7 +50,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 2.6
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -98,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 2.6
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

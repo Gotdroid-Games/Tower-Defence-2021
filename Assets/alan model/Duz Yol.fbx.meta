@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: light
     second: {fileID: 2100000, guid: 727d861ac99ef64439619264e50300ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scfi
+    second: {fileID: 2100000, guid: 3a9c746a5747a824382062f2d185be84, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -93,7 +98,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.024999999
+    globalScale: 2.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
