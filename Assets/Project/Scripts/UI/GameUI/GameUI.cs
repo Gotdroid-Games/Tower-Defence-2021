@@ -83,10 +83,11 @@ public class GameUI : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1;
         AudioManager = FindObjectOfType<AudioManager>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
-
+        
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
         defeatMenuControl = false;
@@ -114,6 +115,7 @@ public class GameUI : MonoBehaviour
     private void Update()
     {
         Debug.Log(Time.timeScale);
+        Debug.Log(defeatMenuControl);
         WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
         CoinText.text = _coinText.ToString();
 
@@ -135,40 +137,37 @@ public class GameUI : MonoBehaviour
         if (_heartText <= 0)
         {
             _heartText = 0;
+
             DefeatMenu();
+
         }
+
 
         if (defeatMenuControl == true)
         {
             Time.timeScale = 0;
         }
-        else
+        else if (_Button.GameUIButtons[11].activeSelf)
+        {
+            Debug.Log("girdi");
+            Time.timeScale = 0;
+        }
+
+        else if (_heartText == 0 && defeatMenuControl == false)
         {
             Time.timeScale = 1;
         }
 
-        if (_Button.GameUIButtons[2].activeSelf)
-        {
-            defeatMenuControl = false;
-        }
-        Debug.Log(defeatMenuControl);
 
 
-        if (_Button.GameUIButtons[5].activeSelf)
-        {
-            defeatMenuControl = true;
-        }
 
-        
-            
-        
 
     }
     public void PauseButton()
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
         
-
+        Time.timeScale = 0;
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
             _Button.GameUIButtons[i].SetActive(true);
