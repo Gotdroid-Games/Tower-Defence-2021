@@ -33,9 +33,6 @@ public class TowerTarget : MonoBehaviour
     AudioManager audiomanager;
     private void Start()
     {
-        if(TowerMenu.Head != null)
-            partToBody.rotation = TowerMenu.Head.rotation;
-
         gameValue = FindObjectOfType<GameValue>();
         //GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
