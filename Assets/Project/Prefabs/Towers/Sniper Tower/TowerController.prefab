@@ -424,11 +424,10 @@ MonoBehaviour:
   towerUI: {fileID: 6132156409832615402}
   canvas: {fileID: 7758284365336991432}
   rangeindicator: {fileID: 121497330779439121}
-  Head: {fileID: 0}
   TouchObjList:
-  - {fileID: 307794660191956297, guid: d8dd137d0a297454da2d99c94fe486c9, type: 3}
-  - {fileID: 1459127941435402043, guid: 57d81b2391242044d9bb83890a1c4e8b, type: 3}
-  - {fileID: 1743072741705761748, guid: fac1db8f5acda7c44a21f933561d5e3f, type: 3}
+  - {fileID: 6574795592866630118}
+  - {fileID: 5524832154911021085}
+  - {fileID: 7570681577549940405}
   SniperTowerUpgradeButton: {fileID: 2084141346023942752}
   MaxlevelImage: {fileID: 7678200046167059464}
   SniperTowerUpgradeMoneyText: {fileID: 7873258569713408904}

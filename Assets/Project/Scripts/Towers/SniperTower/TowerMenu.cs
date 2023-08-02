@@ -19,7 +19,7 @@ public class TowerMenu : MonoBehaviour
     public GameObject SellButton;
     public GameObject towerUI;
     public GameObject canvas;
-    public GameObject rangeindicator
+    public GameObject rangeindicator;
     public List<GameObject> TouchObjList = new List<GameObject>();
     public Button SniperTowerUpgradeButton;
     public Image MaxlevelImage;
