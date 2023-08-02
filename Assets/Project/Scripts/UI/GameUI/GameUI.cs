@@ -35,7 +35,7 @@ public class GameUI : MonoBehaviour
 
     //Kontrol Deðiþkenleri
     public bool defeatMenuControl;
-    
+
 
     #region Button
     [System.Serializable]
@@ -135,32 +135,40 @@ public class GameUI : MonoBehaviour
         if (_heartText <= 0)
         {
             _heartText = 0;
-            
             DefeatMenu();
-            
         }
-
 
         if (defeatMenuControl == true)
         {
             Time.timeScale = 0;
         }
-        else if(_Button.GameUIButtons[11].activeSelf)
+        else
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
         }
 
-        //else
-        //{
-        //    Time.timeScale = 1;
-        //}
+        if (_Button.GameUIButtons[2].activeSelf)
+        {
+            defeatMenuControl = false;
+        }
+        Debug.Log(defeatMenuControl);
+
+
+        if (_Button.GameUIButtons[5].activeSelf)
+        {
+            defeatMenuControl = true;
+        }
+
+        
+            
+        
 
     }
     public void PauseButton()
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
-        Time.timeScale = 0;
         
+
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
             _Button.GameUIButtons[i].SetActive(true);
@@ -172,7 +180,7 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[14].SetActive(false);
         _Button.GameUIButtons[15].SetActive(false);
         _Button.GameUIButtons[16].SetActive(false);
-        
+
 
     }
 
@@ -206,7 +214,6 @@ public class GameUI : MonoBehaviour
     {
         //Oyunu yeniden baþlatma
         Time.timeScale = 1;
-        defeatMenuControl = false;
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
@@ -322,7 +329,7 @@ public class GameUI : MonoBehaviour
         public int coinIncrease;
         public int coinDecrease;
     }
-    
+
 
 
     public void IncreaseCoinValue(int increase)
