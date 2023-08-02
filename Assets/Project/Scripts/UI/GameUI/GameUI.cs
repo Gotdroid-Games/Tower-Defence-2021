@@ -113,6 +113,7 @@ public class GameUI : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(Time.timeScale);
         WaveText.text = _waveText.ToString() + "/" + GameManager._basicRobot.Length.ToString();
         CoinText.text = _coinText.ToString();
 
@@ -134,24 +135,32 @@ public class GameUI : MonoBehaviour
         if (_heartText <= 0)
         {
             _heartText = 0;
-            defeatMenuControl = true;
+            
             DefeatMenu();
+            
         }
+
 
         if (defeatMenuControl == true)
         {
             Time.timeScale = 0;
         }
-        else
+        else if(_Button.GameUIButtons[11].activeSelf)
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0;
         }
+
+        //else
+        //{
+        //    Time.timeScale = 1;
+        //}
 
     }
     public void PauseButton()
     {
         //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
         Time.timeScale = 0;
+        
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
             _Button.GameUIButtons[i].SetActive(true);
@@ -163,6 +172,7 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[14].SetActive(false);
         _Button.GameUIButtons[15].SetActive(false);
         _Button.GameUIButtons[16].SetActive(false);
+        
 
     }
 
@@ -196,6 +206,7 @@ public class GameUI : MonoBehaviour
     {
         //Oyunu yeniden baþlatma
         Time.timeScale = 1;
+        defeatMenuControl = false;
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
@@ -356,6 +367,7 @@ public class GameUI : MonoBehaviour
         //Can deðeri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baþlat), Quit (Çýkýþ Yapmak) butonlarýný aktif hale getirme
         _Button.GameUIButtons[2].SetActive(true);
         _Button.GameUIButtons[3].SetActive(true);
+        defeatMenuControl = true;
     }
 
     public void HearthDamage(int damage)
