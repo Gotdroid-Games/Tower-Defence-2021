@@ -10,7 +10,8 @@ public class EnemyManager : MonoBehaviour
         BasicRobot,
         GorillaRobot,
         SmartHomeRobot,
-        DroneRobot
+        DroneRobot,
+        HealerRobot
 
     }
 

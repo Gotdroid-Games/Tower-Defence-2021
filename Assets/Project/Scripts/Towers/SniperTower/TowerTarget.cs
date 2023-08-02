@@ -178,7 +178,7 @@ public class TowerTarget : MonoBehaviour
         MuzzleCopy.transform.parent = firePoint.transform;
         MuzzleCopy.transform.localScale = Vector3.one;
 
-        DestroyObject(MuzzleCopy, 5f);
+        Destroy(MuzzleCopy, 5f);
 
         if (bullet != null)
         {
