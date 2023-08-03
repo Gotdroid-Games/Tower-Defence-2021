@@ -20620,7 +20620,7 @@ MonoBehaviour:
   - enemyType: 0
     name: Basic Robot
     _EnemyHealth: 100
-    _EnemySpeed: 100
+    _EnemySpeed: 7
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
