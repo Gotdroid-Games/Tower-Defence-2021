@@ -5,6 +5,8 @@ using TMPro;
 using Unity.VisualScripting;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using static GameUI;
 
 public class GameUI : MonoBehaviour
 {
@@ -16,32 +18,64 @@ public class GameUI : MonoBehaviour
     public List<CoinValues> coinValues;
     public ButtonAssignments _Button;
 
-    //Kaydýraçlar
+    //Kaydï¿½raï¿½lar
     public Slider _musicSlider, _sfxSlider;
 
     //Resimler
     public Image wavestartinfopanel, _musicButtonMuteImage, _sfxButtonMuteImage;
 
-    //Metin Deðiþkenleri
+    //Metin Deï¿½iï¿½kenleri
     public TextMeshProUGUI _musicText, _sfxText, heartText, WaveText, CoinText;
     public string musicVolumeValue;
     public string sfxVolumeValue;
 
-    //Sayýsal Deðerler
+    //Sayï¿½sal Deï¿½erler
     public int _coinText;
     public int _heartText;
     public int _waveText;
     public float Product;
 
-    //Kontrol Deðiþkenleri
+    //Kontrol Deï¿½iï¿½kenleri
     public bool defeatMenuControl;
-    
+
+    private const string musicSettingsFilePath = "music_settings.json";
+
+    [Serializable]
+    public class MusicSettingsData
+    {
+        public float musicSliderValue;
+    }
+
+    private void SaveMusicSettings()
+    {
+        MusicSettingsData musicsettingsdata = new MusicSettingsData
+        {
+            musicSliderValue = _musicSlider.value
+        };
+        string jsonData = JsonUtility.ToJson(musicsettingsdata);
+        File.WriteAllText(Application.persistentDataPath + "/" + musicSettingsFilePath, jsonData);
+
+    }
+
+    public void SaveMusicSliderValue()
+    {
+        SaveMusicSettings();
+    }
+
+    private void LoadMusicSettings()
+    {
+        if (File.Exists(Application.persistentDataPath + "/" + musicSettingsFilePath))
+        {
+            string jsonData = File.ReadAllText(Application.persistentDataPath + "/" + musicSettingsFilePath);
+            MusicSettingsData musicsettingsdata = JsonUtility.FromJson<MusicSettingsData>(jsonData);
+            _musicSlider.value = musicsettingsdata.musicSliderValue;
+        }
+    }
+
 
     #region Button
     [System.Serializable]
-
-
-    //Oyun içerisinde bulunan tüm butonlar diziye atandý
+    //Oyun iï¿½erisinde bulunan tï¿½m butonlar diziye atandï¿½
     public class ButtonAssignments
     {
         public GameObject[] GameUIButtons = new GameObject[15];
@@ -72,7 +106,7 @@ public class GameUI : MonoBehaviour
 
     private void Awake()
     {
-        //Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
+        //Pause (Durdurma) butonu dï¿½ï¿½ï¿½nda ki tï¿½m butonlar pasif halde
 
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
@@ -83,6 +117,7 @@ public class GameUI : MonoBehaviour
     }
     private void Start()
     {
+        
         AudioManager = FindObjectOfType<AudioManager>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
@@ -91,6 +126,7 @@ public class GameUI : MonoBehaviour
         GameManager = FindObjectOfType<GameManager>();
         defeatMenuControl = false;
 
+        LoadMusicSettings();
         if (AudioManager.musicSource.mute == false)
         {
             AudioManager.recordedMusicValue = _musicSlider.value;
@@ -150,7 +186,7 @@ public class GameUI : MonoBehaviour
     }
     public void PauseButton()
     {
-        //Oyunu durdurma ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar aktif halde
+        //Oyunu durdurma ve Pause (Durdurma) butonu dï¿½ï¿½ï¿½nda ki tï¿½m butonlar aktif halde
         Time.timeScale = 0;
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
@@ -183,7 +219,7 @@ public class GameUI : MonoBehaviour
     #region Button function
     public void ResumeButton()
     {
-        //Oyunu devam ettirme ve Pause (Durdurma) butonu dýþýnda ki tüm butonlar pasif halde
+        //Oyunu devam ettirme ve Pause (Durdurma) butonu dï¿½ï¿½ï¿½nda ki tï¿½m butonlar pasif halde
         Time.timeScale = 1;
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
@@ -194,7 +230,7 @@ public class GameUI : MonoBehaviour
 
     public void RestartButton()
     {
-        //Oyunu yeniden baþlatma
+        //Oyunu yeniden baï¿½latma
         Time.timeScale = 1;
         Scene scene;
         scene = SceneManager.GetActiveScene();
@@ -203,13 +239,13 @@ public class GameUI : MonoBehaviour
 
     public void QuitButton()
     {
-        //Ana menüye döndürme
+        //Ana menï¿½ye dï¿½ndï¿½rme
         SceneManager.LoadScene("Menu");
     }
 
     public void ExitButton()
     {
-        //Çarpý ikonu oyuna devam etme
+        //ï¿½arpï¿½ ikonu oyuna devam etme
         ResumeButton();
     }
 
@@ -218,7 +254,7 @@ public class GameUI : MonoBehaviour
     #region Volume function
     public void ToggleMusic()
     {
-        //Müzik sesini susturma ve aktif etme
+        //Mï¿½zik sesini susturma ve aktif etme
         AudioManager.GameToggleMusic();
         _musicSlider.value = 0;
     }
@@ -228,7 +264,7 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[9].SetActive(true);
         _musicButtonMuteImage.gameObject.SetActive(false);
         _musicSlider.value = AudioManager.recordedMusicValue;
-        Debug.Log("mute kaldýrýldý");
+        Debug.Log("mute kaldï¿½rï¿½ldï¿½");
     }
 
     public void ToggleSFX()
@@ -249,7 +285,7 @@ public class GameUI : MonoBehaviour
 
     public void MusicVolume()
     {
-        //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
+        //Kaydï¿½rï¿½cï¿½ ile ses dï¿½zeyini ayarlama (Arttï¿½rma ve kï¿½sma)
         AudioManager.MusicVolume(_musicSlider.value);
         musicVolumeValue = (_musicSlider.value * 100).ToString("0");
         _musicText.text = musicVolumeValue;
@@ -268,12 +304,12 @@ public class GameUI : MonoBehaviour
         }
 
         Debug.Log(AudioManager.musicSource.mute ? AudioManager.recordedMusicValue2 : AudioManager.recordedMusicValue);
-
+        SaveMusicSliderValue();
     }
 
     public void SFXVolume()
     {
-        //Kaydýrýcý ile ses düzeyini ayarlama (Arttýrma ve kýsma)
+        //Kaydï¿½rï¿½cï¿½ ile ses dï¿½zeyini ayarlama (Arttï¿½rma ve kï¿½sma)
         AudioManager.SFXVolume(_sfxSlider.value);
 
         sfxVolumeValue = (_sfxSlider.value * 100).ToString("0");
@@ -343,7 +379,7 @@ public class GameUI : MonoBehaviour
 
     public void Winning()
     {
-        //Eðer dalga 12 olur ve tüm düþmanlar ölürse restart (Tekrar Baþlat) ve continue (Devam Et) butonlarýný aktif hale getirme
+        //Eï¿½er dalga 12 olur ve tï¿½m dï¿½ï¿½manlar ï¿½lï¿½rse restart (Tekrar Baï¿½lat) ve continue (Devam Et) butonlarï¿½nï¿½ aktif hale getirme
         if (_waveText >= 12 && WaveSpawner.totalenemiescheck == 0)
         {
             _Button.GameUIButtons[2].SetActive(true);
@@ -353,7 +389,7 @@ public class GameUI : MonoBehaviour
 
     public void DefeatMenu()
     {
-        //Can deðeri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baþlat), Quit (Çýkýþ Yapmak) butonlarýný aktif hale getirme
+        //Can deï¿½eri 0 olduktan sonra oyunu durdurma ve restart (Tekrar Baï¿½lat), Quit (ï¿½ï¿½kï¿½ï¿½ Yapmak) butonlarï¿½nï¿½ aktif hale getirme
         _Button.GameUIButtons[2].SetActive(true);
         _Button.GameUIButtons[3].SetActive(true);
     }
