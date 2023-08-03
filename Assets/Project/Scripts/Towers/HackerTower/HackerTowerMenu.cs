@@ -28,7 +28,9 @@ public class HackerTowerMenu : MonoBehaviour
     public GameObject rangeIndicator;
     public GameObject Antenna1;
     public GameObject Antenna2;
+    public GameObject Antenna2small;
     public GameObject Antenna3;
+    public GameObject Antenna3small;
     public float AntennaRotateSpeed;
     private void Start()
     {
@@ -65,6 +67,8 @@ public class HackerTowerMenu : MonoBehaviour
         Antenna1.transform.Rotate(0f, AntennaRotateSpeed*Time.deltaTime, 0f);
         Antenna2.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna3.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
+        Antenna2small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
+        Antenna3small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
         rangeIndicator.transform.localScale = new Vector3(hackerTowerRange, 0.5f, hackerTowerRange);
         Clickdetector();
         if (Count <= 2)

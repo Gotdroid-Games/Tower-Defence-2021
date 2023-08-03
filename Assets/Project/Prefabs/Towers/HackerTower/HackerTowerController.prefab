@@ -71,7 +71,9 @@ MonoBehaviour:
   rangeIndicator: {fileID: 6957748384795811706}
   Antenna1: {fileID: 7564786229694941411}
   Antenna2: {fileID: 612867406142821119}
+  Antenna2small: {fileID: 2181486270459407151}
   Antenna3: {fileID: 4473365147219968084}
+  Antenna3small: {fileID: 5795814246831489412}
   AntennaRotateSpeed: 40
 --- !u!65 &5914155521402540315
 BoxCollider:
@@ -498,6 +500,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 573242172835584944, guid: 5aaa8b28799b7d34981b0c2da0df2d1c, type: 3}
   m_PrefabInstance: {fileID: 5289212072245811912}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5795814246831489412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1804201835521727308, guid: 5aaa8b28799b7d34981b0c2da0df2d1c, type: 3}
+  m_PrefabInstance: {fileID: 5289212072245811912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5592790085015922646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -562,6 +569,11 @@ PrefabInstance:
 --- !u!1 &612867406142821119 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4980070087688828201, guid: bab6113eee80d70488951a9c84394243, type: 3}
+  m_PrefabInstance: {fileID: 5592790085015922646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2181486270459407151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6042606699375529209, guid: bab6113eee80d70488951a9c84394243, type: 3}
   m_PrefabInstance: {fileID: 5592790085015922646}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4744063916153067966 stripped
