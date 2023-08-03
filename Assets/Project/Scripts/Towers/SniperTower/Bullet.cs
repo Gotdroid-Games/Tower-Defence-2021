@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
-        if (Vector3.Distance(this.transform.position, target.position) < 0.1f)
+        if (Vector3.Distance(this.transform.position, target.position) < 0.5f)
         {
             target.GetComponent<Enemy>().TakeDamage();
             audiomanager.PlaySFX("EnemytouchSFX");
