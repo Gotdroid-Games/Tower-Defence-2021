@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
-
+using System.IO;
 public class MenuUI : MonoBehaviour
 {
     AudioManager AudioManager;
@@ -18,15 +18,27 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI _musicText;
     public TextMeshProUGUI _sfxText;
     public List<GameObject> _buttons;
+    private string dataFilePath;
+
+
+    [System.Serializable]
+    public class VolumeData
+    {
+        public float musicVolumeValue;
+    }
+
+
 
     private void Awake()
     {
+        dataFilePath = Path.Combine(Application.persistentDataPath, "volumeData.json");
         _buttons[3].SetActive(false);
         _buttons[4].SetActive(false);
     }
 
     private void Start()
     {
+       
         AudioManager = FindObjectOfType<AudioManager>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
@@ -56,6 +68,29 @@ public class MenuUI : MonoBehaviour
             AudioManager.recordedSFXValue2 = AudioManager.recordedSFXValue;
             Debug.Log(AudioManager.recordedSFXValue2);
         }
+        LoadVolumeData();
+    }
+
+    private void LoadVolumeData()
+    {
+         if (File.Exists(dataFilePath))
+        {
+            string jsonData = File.ReadAllText(dataFilePath);
+            VolumeData volumedata = JsonUtility.FromJson<VolumeData>(jsonData);
+            musicVolumeValue = volumedata.musicVolumeValue.ToString("0.00");
+            _musicSlider.value = volumedata.musicVolumeValue;
+        }
+    }
+
+    private void SaveVolumeData()
+    {
+        VolumeData volumedata = new VolumeData
+        {
+            musicVolumeValue = _musicSlider.value
+        };
+
+        string jsonData = JsonUtility.ToJson(volumedata);
+        File.WriteAllText(dataFilePath, jsonData);
     }
 
     private void Update()
@@ -138,6 +173,7 @@ public class MenuUI : MonoBehaviour
             AudioManager.recordedMusicValue2 = AudioManager.recordedMusicValue;
             Debug.Log(AudioManager.recordedMusicValue2);
         }
+        SaveVolumeData();
     }
 
     public void SFXVolume()
