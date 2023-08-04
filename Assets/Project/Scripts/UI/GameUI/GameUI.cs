@@ -38,8 +38,8 @@ public class GameUI : MonoBehaviour
     //Kontrol De�i�kenleri
     public bool defeatMenuControl;
 
-    private const string musicSettingsFilePath = "music_settings.json";
-
+   // private const string musicSettingsFilePath = "music_settings.json"; -1-
+   /*
     [Serializable]
     public class MusicSettingsData
     {
@@ -71,7 +71,7 @@ public class GameUI : MonoBehaviour
             _musicSlider.value = musicsettingsdata.musicSliderValue;
         }
     }
-
+   */
 
     #region Button
     [System.Serializable]
@@ -126,7 +126,7 @@ public class GameUI : MonoBehaviour
         GameManager = FindObjectOfType<GameManager>();
         defeatMenuControl = false;
 
-        LoadMusicSettings();
+        //LoadMusicSettings(); -3-
         if (AudioManager.musicSource.mute == false)
         {
             AudioManager.recordedMusicValue = _musicSlider.value;
@@ -304,7 +304,7 @@ public class GameUI : MonoBehaviour
         }
 
         Debug.Log(AudioManager.musicSource.mute ? AudioManager.recordedMusicValue2 : AudioManager.recordedMusicValue);
-        SaveMusicSliderValue();
+        //SaveMusicSliderValue();-4-
     }
 
     public void SFXVolume()
