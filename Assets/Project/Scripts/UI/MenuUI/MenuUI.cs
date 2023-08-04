@@ -31,7 +31,7 @@ public class MenuUI : MonoBehaviour
 
     private void Awake()
     {
-        dataFilePath = Path.Combine(Application.persistentDataPath, "volumeData.json");
+        dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
         _buttons[3].SetActive(false);
         _buttons[4].SetActive(false);
     }
