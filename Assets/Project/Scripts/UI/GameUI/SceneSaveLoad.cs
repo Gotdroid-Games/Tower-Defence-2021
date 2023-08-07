@@ -47,7 +47,7 @@ public class SceneSaveLoad : MonoBehaviour
         else
         {
             Debug.Log("bu sahneyi oynayamazsınız");
-        }
+        } 
     }
     
     // Update is called once per frame
