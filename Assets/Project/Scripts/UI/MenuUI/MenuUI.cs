@@ -25,6 +25,7 @@ public class MenuUI : MonoBehaviour
     public class VolumeData
     {
         public float musicVolumeValue;
+        public float sfxVolumeValue;
     }
 
 
@@ -78,7 +79,9 @@ public class MenuUI : MonoBehaviour
             string jsonData = File.ReadAllText(dataFilePath);
             VolumeData volumedata = JsonUtility.FromJson<VolumeData>(jsonData);
             musicVolumeValue = volumedata.musicVolumeValue.ToString("0.00");
+            sfxVolumeValue = volumedata.sfxVolumeValue.ToString("0.00");
             _musicSlider.value = volumedata.musicVolumeValue;
+            _sfxSlider.value = volumedata.sfxVolumeValue;
         }
     }
 
@@ -86,7 +89,9 @@ public class MenuUI : MonoBehaviour
     {
         VolumeData volumedata = new VolumeData
         {
-            musicVolumeValue = _musicSlider.value
+            musicVolumeValue = _musicSlider.value,
+            sfxVolumeValue = _sfxSlider.value
+
         };
 
         string jsonData = JsonUtility.ToJson(volumedata);
@@ -196,7 +201,7 @@ public class MenuUI : MonoBehaviour
             AudioManager.recordedSFXValue2 = AudioManager.recordedSFXValue;
             Debug.Log(AudioManager.recordedSFXValue2);
         }
-
+        SaveVolumeData();
     }
 
     public void PlayButton()
