@@ -33,7 +33,7 @@ public class TowerVaribles
 [System.Serializable]
 public class EnemyVariables
 {
-    //Düþman Caný
+    //Dï¿½ï¿½man Canï¿½
     public EnemyManager.EnemyType enemyType;
     public string name;
     public int _EnemyHealth;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     [Space(5f)]
     [Header("Money Controls")]
-    //Product WaveSpawner sýnýfý içerisinde bulunan WaveCountDown deðeriyle Quality sýnýfý içerisinde bulunan Product deðiþkeninin çarpýp zamana göre extra para kazanmaya yarýyor
+    //Product WaveSpawner sï¿½nï¿½fï¿½ iï¿½erisinde bulunan WaveCountDown deï¿½eriyle Quality sï¿½nï¿½fï¿½ iï¿½erisinde bulunan Product deï¿½iï¿½keninin ï¿½arpï¿½p zamana gï¿½re extra para kazanmaya yarï¿½yor
     public int _Product;
 
 
@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
     public int[] _gorillaRobot;
     public int[] _smartHomeRobot;
     public int[] _droneRobot;
+    public int[] _healerRobot;
 
     [Space(5f)]
     [Header("Enemy Spawn Info")]
@@ -107,6 +108,8 @@ public class GameManager : MonoBehaviour
     string[] _gorillaRobotWaveInfo;
     string[] _smarthomeRobotWaveInfo;
     string[] _droneRobotWaveInfo;
+    string[] _healerRobotWaveInfo;
+   
 
     [Space(5f)]
     [Header("Time Control Variables")]
@@ -132,23 +135,24 @@ public class GameManager : MonoBehaviour
         GameUI = FindObjectOfType<GameUI>();
 
 
-        //Kule Öz Nitelikleri
+        //Kule ï¿½z Nitelikleri
 
-        //Oyun Ýçi Bilgi Alaný Öz Nitelikleri
+        //Oyun ï¿½ï¿½i Bilgi Alanï¿½ ï¿½z Nitelikleri
         GameUI._coinText = coinText;
         GameUI._heartText = heartText;
         GameUI._waveText = waveText;
 
-        //Para Deðerleri
+        //Para Deï¿½erleri
         GameUI.Product = _Product;
 
-        //Düþman Dizileri
+        //Dï¿½ï¿½man Dizileri
         WaveSpawner.basicRobot = _basicRobot;
         WaveSpawner.gorillaRobot = _gorillaRobot;
         WaveSpawner.smarthomeRobot = _smartHomeRobot;
         WaveSpawner.DroneRobot = _droneRobot;
+        
 
-        //Düþman Bilgi Dizileri
+        //Dï¿½ï¿½man Bilgi Dizileri
         WaveSpawner.basicRobotWaveInfo = _basicRobotWaveInfo;
         WaveSpawner.gorillaRobotWaveInfo = _gorillaRobotWaveInfo;
         WaveSpawner.smarthomeRobotWaveInfo = _smarthomeRobotWaveInfo;

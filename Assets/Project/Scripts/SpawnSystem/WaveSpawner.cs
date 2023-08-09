@@ -17,6 +17,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Transform gorillaRobotPrefab;
     [SerializeField] private Transform smartHomeRobotPrefab;
     [SerializeField] private Transform DronePrefab;
+    [SerializeField] private Transform HealerRobotPrefab;
 
     [SerializeField] private Transform spawnPoint;
 
@@ -44,12 +45,14 @@ public class WaveSpawner : MonoBehaviour
     public int[] gorillaRobot;
     public int[] smarthomeRobot;
     public int[] DroneRobot;
+    public int[] HealerRobot;
 
     [Header("Enemy Spawn Info")]
     public string[] basicRobotWaveInfo;
     public string[] gorillaRobotWaveInfo;
     public string[] smarthomeRobotWaveInfo;
     public string[] droneRobotWaveInfo;
+    public string[] healerRobotWaveInfo;
 
 
 
@@ -64,6 +67,7 @@ public class WaveSpawner : MonoBehaviour
         gorillaRobotWaveInfo = new string[gorillaRobot.Length];
         smarthomeRobotWaveInfo = new string[smarthomeRobot.Length];
         droneRobotWaveInfo = new string[DroneRobot.Length];
+        healerRobotWaveInfo = new string[HealerRobot.Length];
 
     }
 
@@ -131,8 +135,8 @@ public class WaveSpawner : MonoBehaviour
 
     public void WaveInfo(GameManager gameManager)
     {
-        //Dalga butonunun üzerine fare ile gelindiðinde aktif olan image içerisine hangi düþmandan kaç adet geleceðini belirten sistem
-        //138 - 141 satýrlarý arasýnda bulunan kodlar 38 - 41 satýrlarý arasýnda bulunan dizilerini string olarak dönüþtürüp basicRobotWaveInfo 138 - 141 arasýnda bulunan deðiþkenlerine atama yapýyor
+        //Dalga butonunun ï¿½zerine fare ile gelindiï¿½inde aktif olan image iï¿½erisine hangi dï¿½ï¿½mandan kaï¿½ adet geleceï¿½ini belirten sistem
+        //138 - 141 satï¿½rlarï¿½ arasï¿½nda bulunan kodlar 38 - 41 satï¿½rlarï¿½ arasï¿½nda bulunan dizilerini string olarak dï¿½nï¿½ï¿½tï¿½rï¿½p basicRobotWaveInfo 138 - 141 arasï¿½nda bulunan deï¿½iï¿½kenlerine atama yapï¿½yor
 
         if (waveIndex < 0)
         {
@@ -149,12 +153,13 @@ public class WaveSpawner : MonoBehaviour
         var gorillaRobotWaveInfo = gameManager._gorillaRobot.Select(x => x.ToString()).ToArray();
         var smarthomeRobotWaveInfo = gameManager._smartHomeRobot.Select(x => x.ToString()).ToArray();
         var droneRobotWaveInfo = gameManager._droneRobot.Select(x => x.ToString()).ToArray();
+        var healerRobotWaveInfo = gameManager._healerRobot.Select(x => x.ToString()).ToArray();
 
         var robotInfos = new (string, string[])[]
         {
-    ("Temel Düþman", basicRobotWaveInfo),
+    ("Temel Dï¿½ï¿½man", basicRobotWaveInfo),
     ("Goril Robot", gorillaRobotWaveInfo),
-    ("Akýllý Ev Süpürgesi", smarthomeRobotWaveInfo),
+    ("Akï¿½llï¿½ Ev Sï¿½pï¿½rgesi", smarthomeRobotWaveInfo),
     ("Drone Robot", droneRobotWaveInfo)
         };
 
@@ -165,7 +170,7 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1];
+        totalEnemies = basicRobot[waveIndex - 1] + gorillaRobot[waveIndex - 1] + smarthomeRobot[waveIndex - 1] + DroneRobot[waveIndex - 1] + HealerRobot[waveIndex -1];
         
 
 
@@ -197,10 +202,17 @@ public class WaveSpawner : MonoBehaviour
                 yield return new WaitForSeconds(GameManager.EnemyVariables[3].enemySpawnTime);
                 spawnedEnemies++;
             }
+
+            for (int i = 0; i < HealerRobot[waveIndex - 1]; i++)
+            {
+                SpawnEnemy(HealerRobotPrefab);
+                yield return new WaitForSeconds(GameManager.EnemyVariables[4].enemySpawnTime);
+                spawnedEnemies++;
+            }
         }
         if (spawnedEnemies == totalEnemies)
         {
-            yield return new WaitForSeconds(GameManager.WaveStartTimeAdjustment);//buradan wavespawn olduktan sonra kaçsaniye sonra buton aktif olsun ona bakýyoruz
+            yield return new WaitForSeconds(GameManager.WaveStartTimeAdjustment);//buradan wavespawn olduktan sonra kaï¿½saniye sonra buton aktif olsun ona bakï¿½yoruz
             _startWave.SetActive(true);
 
         }
@@ -218,7 +230,7 @@ public class WaveSpawner : MonoBehaviour
     public void PanelActive()
     {
         GameUI._Button.GameUIButtons[16].SetActive(true);
-        Debug.Log("Ýnfo Butonu Aktif");
+        Debug.Log("ï¿½nfo Butonu Aktif");
         
     }
 

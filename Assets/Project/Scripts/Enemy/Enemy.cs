@@ -101,6 +101,15 @@ public class Enemy : MonoBehaviour
             RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
             RobotDamage = GameManager.EnemyVariables[3]._EnemyDamage;
         }
+        if (RobotType == EnemyManager.EnemyType.HealerRobot)
+        {
+            maxHealth = GameManager.EnemyVariables[4]._EnemyHealth;
+            currentHealth = maxHealth;
+            _healthbar.SetMaxHealth(maxHealth);
+            EnemyKillCoinValue = GameManager.EnemyVariables[4].EnemyKillCoin;
+            RobotSpeed = GameManager.EnemyVariables[4]._EnemySpeed;
+            RobotDamage = GameManager.EnemyVariables[4]._EnemyDamage;
+        }
 
     }
 
