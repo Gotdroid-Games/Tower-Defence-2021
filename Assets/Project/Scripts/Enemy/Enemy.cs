@@ -216,6 +216,10 @@ public class Enemy : MonoBehaviour
             {
                 RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
             }
+            if (RobotType == EnemyManager.EnemyType.HealerRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[4]._EnemySpeed;
+            }
         }
 
 
@@ -252,6 +256,10 @@ public class Enemy : MonoBehaviour
             if (RobotType == EnemyManager.EnemyType.DroneRobot)
             {
                 RobotSpeed = GameManager.EnemyVariables[3]._EnemySpeed;
+            }
+            if (RobotType == EnemyManager.EnemyType.HealerRobot)
+            {
+                RobotSpeed = GameManager.EnemyVariables[4]._EnemySpeed;
             }
             yield return new WaitForSeconds(interval);
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44409177, g: 0.48726225, b: 0.53931224, a: 1}
+  m_IndirectSpecularColor: {r: 0.44409186, g: 0.48726273, b: 0.53931254, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18735,6 +18735,7 @@ MonoBehaviour:
   gorillaRobotPrefab: {fileID: 6075844125827047475, guid: 0e7d455835f999f4792702d789356a0c, type: 3}
   smartHomeRobotPrefab: {fileID: 5569687786552979363, guid: 5c77e1f764837cb45963cc1b3da2bec9, type: 3}
   DronePrefab: {fileID: 8181702588822039553, guid: eb3b00a5c17ed7c4492440f1942e730b, type: 3}
+  HealerRobotPrefab: {fileID: 437000675550976615, guid: 469e4da82dd14f54faf76ee6887a34d6, type: 3}
   spawnPoint: {fileID: 874705094}
   waveCountdownText: {fileID: 1079759053}
   waveStartInfoText: {fileID: 1251296305}
@@ -18760,10 +18761,12 @@ MonoBehaviour:
   gorillaRobot: 010000000000000001000000030000000700000005000000000000000100000000000000000000000100000001000000
   smarthomeRobot: 010000000200000004000000020000000100000008000000010000000100000001000000010000000100000001000000
   DroneRobot: 010000000200000003000000040000000500000006000000070000000800000005000000050000000500000005000000
+  HealerRobot: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   basicRobotWaveInfo: []
   gorillaRobotWaveInfo: []
   smarthomeRobotWaveInfo: []
   droneRobotWaveInfo: []
+  healerRobotWaveInfo: []
 --- !u!4 &589565926
 Transform:
   m_ObjectHideFlags: 0
@@ -20624,22 +20627,29 @@ MonoBehaviour:
     _EnemyDamage: 1
     EnemyKillCoin: 3
     enemySpawnTime: 0.6
-  - enemyType: 0
+  - enemyType: 1
     name: Gorilla Robot
     _EnemyHealth: 150
     _EnemySpeed: 7
     _EnemyDamage: 2
     EnemyKillCoin: 5
     enemySpawnTime: 1
-  - enemyType: 0
+  - enemyType: 2
     name: Smart Home Robot
     _EnemyHealth: 70
     _EnemySpeed: 13
     _EnemyDamage: 1
     EnemyKillCoin: 2
     enemySpawnTime: 0.7
-  - enemyType: 0
+  - enemyType: 3
     name: Drone Robot
+    _EnemyHealth: 70
+    _EnemySpeed: 14
+    _EnemyDamage: 1
+    EnemyKillCoin: 2
+    enemySpawnTime: 0.7
+  - enemyType: 4
+    name: Healer Robot
     _EnemyHealth: 70
     _EnemySpeed: 14
     _EnemyDamage: 1
@@ -20649,10 +20659,11 @@ MonoBehaviour:
   heartText: 20
   waveText: 0
   _Product: 10
-  _basicRobot: 140000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _gorillaRobot: 140000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _basicRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _gorillaRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _smartHomeRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   _droneRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  _healerRobot: 010000000100000003000000040000000500000001000000010000000100000001000000010000000100000001000000
   _timeBetweenWaves:
   - 16
   - 16

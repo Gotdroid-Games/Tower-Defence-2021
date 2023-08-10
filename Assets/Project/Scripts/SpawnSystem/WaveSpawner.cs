@@ -157,10 +157,12 @@ public class WaveSpawner : MonoBehaviour
 
         var robotInfos = new (string, string[])[]
         {
-    ("Temel D��man", basicRobotWaveInfo),
+    ("Temel Dusman", basicRobotWaveInfo),
     ("Goril Robot", gorillaRobotWaveInfo),
-    ("Ak�ll� Ev S�p�rgesi", smarthomeRobotWaveInfo),
-    ("Drone Robot", droneRobotWaveInfo)
+    ("Akilli Ev Supurgesi", smarthomeRobotWaveInfo),
+    ("Drone Robot", droneRobotWaveInfo),
+    ("Sifaci Robot", healerRobotWaveInfo)
+
         };
 
         waveStartInfo = string.Join("\n", robotInfos

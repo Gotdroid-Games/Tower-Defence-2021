@@ -150,13 +150,15 @@ public class GameManager : MonoBehaviour
         WaveSpawner.gorillaRobot = _gorillaRobot;
         WaveSpawner.smarthomeRobot = _smartHomeRobot;
         WaveSpawner.DroneRobot = _droneRobot;
-        
+        WaveSpawner.HealerRobot = _healerRobot;
+
 
         //D��man Bilgi Dizileri
         WaveSpawner.basicRobotWaveInfo = _basicRobotWaveInfo;
         WaveSpawner.gorillaRobotWaveInfo = _gorillaRobotWaveInfo;
         WaveSpawner.smarthomeRobotWaveInfo = _smarthomeRobotWaveInfo;
         WaveSpawner.droneRobotWaveInfo = _droneRobotWaveInfo;
+        WaveSpawner.healerRobotWaveInfo = _healerRobotWaveInfo;
     }
 
     private void Update()
