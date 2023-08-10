@@ -113,6 +113,7 @@ MonoBehaviour:
   healthBar: {fileID: 7250486449349400768}
   NextWaypointNumber: 0
   NextWaypointDistance: 0
+  Healthbarreach: {fileID: 4857968147999825171}
 --- !u!1001 &4522420566807026825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3971012889868124886, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
   m_PrefabInstance: {fileID: 4522420566807026825}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4857968147999825171}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2f60362af3de5b40ac10dd63c947650, type: 3}
@@ -236,6 +237,11 @@ MonoBehaviour:
 --- !u!224 &1346511287058368221 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3201242856784075348, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+  m_PrefabInstance: {fileID: 4522420566807026825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4857968147999825171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054528565156315546, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
   m_PrefabInstance: {fileID: 4522420566807026825}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7250486449349400768 stripped

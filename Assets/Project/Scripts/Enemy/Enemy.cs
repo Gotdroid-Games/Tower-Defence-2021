@@ -46,9 +46,13 @@ public class Enemy : MonoBehaviour
 
     public int NextWaypointNumber;
     public float NextWaypointDistance;
+    public GameObject Healthbarreach;
 
+    [Obsolete]
     private void Start()
     {
+        Healthbarreach.SetActive(false);
+        //Healthbarreach = transform.FindChild("HealtBar").gameObject;
         GameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
@@ -127,6 +131,7 @@ public class Enemy : MonoBehaviour
                 if (enemy.inside == true)
                 {
                     currentHealth -= GameManager.TowerVaribles[0].TowerDamage + (Towermenu.sniperTowerDamageIncreasePercentage);
+                   
                     Debug.Log("Hacker Kulesinin efekti aktif ve lazer kulesi extra hasar vuruyor");
                 }
                 else
@@ -151,7 +156,9 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+        
         _healthbar.SetHealth(currentHealth);
+        Healthbarreach.SetActive(true);
 
         //if (TowerTarget.critValue >= 1 && TowerTarget.critValue <= 10)
         //{

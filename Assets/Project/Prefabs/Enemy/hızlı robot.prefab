@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5044120801236890905}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.634598, y: -0.44539994, z: 80.30255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   healthBar: {fileID: 3581104212317122681}
   NextWaypointNumber: 0
   NextWaypointDistance: 0
+  Healthbarreach: {fileID: 1605177054635046314}
 --- !u!1001 &7777322686524699696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,6 +223,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+--- !u!1 &1605177054635046314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054528565156315546, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+  m_PrefabInstance: {fileID: 7777322686524699696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3581104212317122681 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6511143524563747913, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
@@ -243,7 +249,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3971012889868124886, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
   m_PrefabInstance: {fileID: 7777322686524699696}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1605177054635046314}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2f60362af3de5b40ac10dd63c947650, type: 3}
