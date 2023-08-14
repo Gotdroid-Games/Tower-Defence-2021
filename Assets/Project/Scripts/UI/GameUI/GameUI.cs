@@ -78,7 +78,7 @@ public class GameUI : MonoBehaviour
     //Oyun i�erisinde bulunan t�m butonlar diziye atand�
     public class ButtonAssignments
     {
-        public GameObject[] GameUIButtons = new GameObject[15];
+        public GameObject[] GameUIButtons = new GameObject[17];
 
         void GameUIButton(GameObject _pauseButton, GameObject _resumeButton, GameObject _restartButton, GameObject _quitButton, GameObject _gameBG, GameObject _optionsBG, GameObject _exitButton, GameObject _musicSlider, GameObject _sfxSlider, GameObject _musicMuteButton, GameObject _sfxMuteButton, GameObject _continueButton, GameObject _firstStar, GameObject _secondStar, GameObject _thirdStar, GameObject _continueButtonEndGame, GameObject _waveStartButtonInfoPanel)
 
@@ -383,7 +383,7 @@ public class GameUI : MonoBehaviour
         if (_waveText >= 12 && WaveSpawner.totalenemiescheck == 0)
         {
             _Button.GameUIButtons[2].SetActive(true);
-            _Button.GameUIButtons[9].SetActive(true);
+            _Button.GameUIButtons[11].SetActive(true);
         }
     }
 

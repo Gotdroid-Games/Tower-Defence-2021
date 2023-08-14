@@ -33,7 +33,7 @@ public class StarPoint : MonoBehaviour
     {
         // Yýldýzlarýn aktifleþtirilmesi ve her aktif olan yýldýz karþýlýðýnda +1 puan kazanýlmasý
         int[] heartLevels = { 1, 10, 17 };
-        GameObject[] starButtons = { GameUI._Button.GameUIButtons[10], GameUI._Button.GameUIButtons[11], GameUI._Button.GameUIButtons[12] };
+        GameObject[] starButtons = { GameUI._Button.GameUIButtons[12], GameUI._Button.GameUIButtons[13], GameUI._Button.GameUIButtons[14] };
 
         for (int i = 0; i < heartLevels.Length; i++)
         {

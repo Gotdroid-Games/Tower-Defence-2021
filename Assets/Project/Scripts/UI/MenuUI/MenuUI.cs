@@ -98,13 +98,6 @@ public class MenuUI : MonoBehaviour
         File.WriteAllText(dataFilePath, jsonData);
     }
 
-    private void Update()
-    {
-        
-        
-        
-    }
-
     public void BackButton()
     {
         _buttons[0].SetActive(true);

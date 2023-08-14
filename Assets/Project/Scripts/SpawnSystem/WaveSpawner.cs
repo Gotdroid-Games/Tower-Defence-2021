@@ -103,6 +103,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex >= 12)
         {
+            waveCountdown = 0.1f;
             _startWave.SetActive(false);
             GameUI._Button.GameUIButtons[14].SetActive(false);
         }
