@@ -68,6 +68,7 @@ public class HackerTowerMenu : MonoBehaviour
         Antenna2small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna3small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
         rangeIndicator.transform.localScale = new Vector3(hackerTowerRange, 0.5f, hackerTowerRange);
+        rangeIndicator.SetActive(hackerTowerClicked);
         Clickdetector();
         if (Count <= 2)
         {
@@ -86,7 +87,7 @@ public class HackerTowerMenu : MonoBehaviour
         else
         {
             _upgradeButton.SetActive(hackerTowerClicked);
-            rangeIndicator.SetActive(hackerTowerClicked);
+            
         }
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && hackerTowerClicked);

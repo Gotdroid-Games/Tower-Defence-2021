@@ -105,7 +105,6 @@ public class WaveSpawner : MonoBehaviour
         {
             waveCountdown = 0.1f;
             _startWave.SetActive(false);
-            GameUI._Button.GameUIButtons[14].SetActive(false);
         }
 
     }
@@ -158,11 +157,11 @@ public class WaveSpawner : MonoBehaviour
 
         var robotInfos = new (string, string[])[]
         {
-    ("Temel Dusman", basicRobotWaveInfo),
-    ("Goril Robot", gorillaRobotWaveInfo),
-    ("Akilli Ev Supurgesi", smarthomeRobotWaveInfo),
-    ("Drone Robot", droneRobotWaveInfo),
-    ("Sifaci Robot", healerRobotWaveInfo)
+    ("Temel Dusman:", basicRobotWaveInfo),
+    ("Goril Robot:", gorillaRobotWaveInfo),
+    ("Akilli Ev Supurgesi:", smarthomeRobotWaveInfo),
+    ("Drone Robot:", droneRobotWaveInfo),
+    ("Sifaci Robot:", healerRobotWaveInfo)
 
         };
 

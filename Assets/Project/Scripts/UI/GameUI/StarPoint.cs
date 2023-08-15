@@ -46,6 +46,7 @@ public class StarPoint : MonoBehaviour
                 {
                     _starPoint = i + 1;
                     Star();
+                    Debug.Log("3. Yýldýz aktif oldu");
                 }
             }
         }
