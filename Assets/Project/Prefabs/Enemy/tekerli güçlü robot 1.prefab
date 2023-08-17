@@ -1052,6 +1052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6075844125827047475}
   - component: {fileID: -7930055526353424987}
+  - component: {fileID: 1557054974439372808}
   m_Layer: 0
   m_Name: "tekerli g\xFC\xE7l\xFC robot 1"
   m_TagString: Enemy
@@ -1103,6 +1104,20 @@ MonoBehaviour:
   NextWaypointNumber: 0
   NextWaypointDistance: 0
   Healthbarreach: {fileID: 7675132396605158543}
+--- !u!136 &1557054974439372808
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852909243555707529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.204075
+  m_Height: 11.320242
+  m_Direction: 1
+  m_Center: {x: -0.0809288, y: -1.3528681, z: 0}
 --- !u!1 &7080941258058309444
 GameObject:
   m_ObjectHideFlags: 0
