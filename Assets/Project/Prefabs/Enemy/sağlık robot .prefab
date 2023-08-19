@@ -293,6 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainDistance: 9
+  HealthInterval: 1.5
+  Timer: 0
 --- !u!1 &967462903906742381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1869,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 437000675550976615}
     m_Modifications:
+    - target: {fileID: 1229673968011312830, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229673968011312830, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489657093052156094, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489657093052156094, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3201242856784075348, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1933,7 +1951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3201242856784075348, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.51000977
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3201242856784075348, guid: a136ce016fa801943bc0d135f03020fb, type: 3}
       propertyPath: m_AnchoredPosition.y
