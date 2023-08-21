@@ -4,67 +4,79 @@ using UnityEngine;
 
 public class Soldiers : MonoBehaviour
 {
-    public float health;
-    public float speed;
-    private float attackTime = 0;
-    private GameObject currentEnemy; // Þu anda hedeflenen düþman
-    public float enemyattackrange;
-    public float soldierenemydistance;
+    public Transform DefaultPoint;
+    public Transform CurrentEnemy;
+    public Transform Tower;
 
-    private void FixedUpdate()
+    [Header("Variables")]
+
+    [SerializeField] int Heath;
+    [SerializeField] int Speed;
+    [SerializeField] int Damage;
+    [SerializeField] int Range;
+
+    [Header("Levels")]
+
+    [SerializeField] int Level;
+    [SerializeField] Transform[] Levels;
+
+
+
+    private void Start()
     {
-        if(health<=0)
+        InvokeRepeating("GetEnemy", 0f, 0.5f);
+    }
+
+    private void Update()
+    {
+        if(CurrentEnemy == null)
         {
-            Destroy(gameObject);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, DefaultPoint.position, Speed * Time.deltaTime);
+            this.transform.LookAt(DefaultPoint.position);
         }
-        // Hedeflenen düþman yoksa veya hedeflenen düþmanýn saðlýðý sýfýrsa, yeni bir düþman belirle
-        if (currentEnemy == null || currentEnemy.GetComponent<Enemy>().currentHealth <= 0)
+
+        else
         {
-            currentEnemy = FindNearestEnemy();
-        }
+            this.transform.position = Vector3.MoveTowards(this.transform.position, CurrentEnemy.position, Speed * Time.deltaTime);
+            this.transform.LookAt(CurrentEnemy.position);
 
-        if (currentEnemy != null)
-        {
-            // Düþmana doðru hareket et
-            transform.position += (currentEnemy.transform.position - transform.position) * speed * Time.deltaTime;
-
-            // Düþmana yaklaþýldýðýnda saldýrý gerçekleþtir
-            if (Vector3.Distance(transform.position, currentEnemy.transform.position) < 5f)
-            {
-                //currentEnemy.GetComponent<Enemy>().Soldierinside = true;
-                attackTime += Time.fixedDeltaTime;
-
-                
-                if (Vector3.Distance(transform.position, currentEnemy.transform.position) < soldierenemydistance)
-                {
-                    transform.position = currentEnemy.transform.position + (transform.position - currentEnemy.transform.position).normalized * soldierenemydistance;
-                }
-
-                if (attackTime >= 1f)
-                {
-                    attackTime = 0;
-                    currentEnemy.GetComponent<Enemy>().TakeDamage();
-                }
-            }
+            if (Vector3.Distance(this.transform.position, Tower.position) > Range)
+                CurrentEnemy = null;
         }
     }
 
-    private GameObject FindNearestEnemy()
+    public void TakeDamage (int damage)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float minDistance = enemyattackrange;
-        GameObject nearestEnemy = null;
+        Heath -= damage;
 
-        foreach (GameObject enemy in enemies)
+        if (Heath <= 0)
+            Destroy(this.gameObject);
+    }
+
+    public void Upgrade(int level)
+    {
+        Level = level;
+
+        for (int i = 0; i < Levels.Length; i++)
         {
-            // Düþmanýn saðlýðý sýfýrdan büyük olduðunda ve askere olan uzaklýk daha önceki en yakýn düþmandan daha yakýnsa, yeni düþmaný ata
-            if (enemy.GetComponent<Enemy>().currentHealth > 0 && Vector3.Distance(transform.position, enemy.transform.position) < minDistance)
+            if (i == Level)
+                Levels[i].gameObject.SetActive(true);
+            else
+                Levels[i].gameObject.SetActive(false);
+
+        }
+    }
+
+    public void GetEnemy()
+    {
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < Enemies.Length; i++)
+        {
+            if (Vector3.Distance(this.transform.position, Enemies[i].transform.position) <= Range)
             {
-                minDistance = Vector3.Distance(transform.position, enemy.transform.position);
-                nearestEnemy = enemy;
+                CurrentEnemy = Enemies[i].transform;
             }
         }
-
-        return nearestEnemy;
     }
 }
