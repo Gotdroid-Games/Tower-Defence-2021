@@ -48,6 +48,12 @@ public class Enemy : MonoBehaviour
     public float NextWaypointDistance;
     public GameObject Healthbarreach;
 
+    [Header("Fighting")]
+
+    public bool Aim;
+    public bool Fight;
+    public Transform SoldierTransform;
+
     [Obsolete]
     private void Start()
     {
@@ -131,7 +137,7 @@ public class Enemy : MonoBehaviour
                 if (enemy.inside == true)
                 {
                     currentHealth -= GameManager.TowerVaribles[0].TowerDamage + (Towermenu.sniperTowerDamageIncreasePercentage);
-                   
+
                     Debug.Log("Hacker Kulesinin efekti aktif ve lazer kulesi extra hasar vuruyor");
                 }
                 else
@@ -156,7 +162,7 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-        
+
         _healthbar.SetHealth(currentHealth);
         Healthbarreach.SetActive(true);
 
@@ -168,13 +174,27 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void TakeDamageFromSoldier(int damage)
+    {
+        currentHealth -= damage;
+
+        _healthbar.SetHealth(currentHealth);
+        Healthbarreach.SetActive(true);
+    }
+
     private void Update()
     {
+        if (!Fight)
+        {
+            target = WayPoints.points[wavepointIndex];
+            Vector3 dir1 = target.position - transform.position;
+            transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
+            transform.rotation = Quaternion.LookRotation(dir1);
+        }
 
-        target = WayPoints.points[wavepointIndex];
-        Vector3 dir1 = target.position - transform.position;
-        transform.Translate(dir1.normalized * RobotSpeed * Time.deltaTime, Space.World);
-        transform.rotation = Quaternion.LookRotation(dir1);
+        else if(SoldierTransform != null)
+            this.transform.LookAt(SoldierTransform);
+        
 
         if (currentHealth <= 0)
         {

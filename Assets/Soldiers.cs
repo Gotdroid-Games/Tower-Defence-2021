@@ -14,6 +14,8 @@ public class Soldiers : MonoBehaviour
     [SerializeField] int Speed;
     [SerializeField] int Damage;
     [SerializeField] int Range;
+    [SerializeField] int DamageCooldown;
+    [SerializeField] bool Fight;
 
     [Header("Levels")]
 
@@ -29,7 +31,7 @@ public class Soldiers : MonoBehaviour
 
     private void Update()
     {
-        if(CurrentEnemy == null)
+        if (CurrentEnemy == null)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, DefaultPoint.position, Speed * Time.deltaTime);
             this.transform.LookAt(DefaultPoint.position);
@@ -37,20 +39,41 @@ public class Soldiers : MonoBehaviour
 
         else
         {
+
             this.transform.position = Vector3.MoveTowards(this.transform.position, CurrentEnemy.position, Speed * Time.deltaTime);
             this.transform.LookAt(CurrentEnemy.position);
+            CurrentEnemy.GetComponent<Enemy>().SoldierTransform = this.transform;
+
+            // Fight
+
+            CurrentEnemy.GetComponent<Enemy>().Aim = true;
+
+            if (Vector3.Distance(this.transform.position, CurrentEnemy.position) < 1f)
+            {
+                CurrentEnemy.GetComponent<Enemy>().Fight = true;
+            }
 
             if (Vector3.Distance(this.transform.position, Tower.position) > Range)
+            {
+                CurrentEnemy.GetComponent<Enemy>().Aim = false;
+                CurrentEnemy.GetComponent<Enemy>().Fight = false;
+                CurrentEnemy.GetComponent<Enemy>().SoldierTransform = null;
                 CurrentEnemy = null;
+            }
         }
     }
 
-    public void TakeDamage (int damage)
+    public void TakeDamage(int damage)
     {
         Heath -= damage;
 
         if (Heath <= 0)
             Destroy(this.gameObject);
+    }
+
+    public void GiveDamage(int damage)
+    {
+        CurrentEnemy.GetComponent<Enemy>().TakeDamageFromSoldier(damage);
     }
 
     public void Upgrade(int level)
@@ -76,6 +99,9 @@ public class Soldiers : MonoBehaviour
             if (Vector3.Distance(this.transform.position, Enemies[i].transform.position) <= Range)
             {
                 CurrentEnemy = Enemies[i].transform;
+
+                if (CurrentEnemy.GetComponent<Enemy>().Aim && CurrentEnemy.GetComponent<Enemy>().SoldierTransform != this.transform)
+                    CurrentEnemy = null;
             }
         }
     }
