@@ -18,8 +18,8 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI _musicText;
     public TextMeshProUGUI _sfxText;
     public List<GameObject> _buttons;
-    private string dataFilePath;
-
+    public string dataFilePath;
+    public float savemusicdata;
 
     [System.Serializable]
     public class VolumeData
@@ -35,11 +35,21 @@ public class MenuUI : MonoBehaviour
         dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
         _buttons[3].SetActive(false);
         _buttons[4].SetActive(false);
+        
+
+        
+      
+        
+            
+        
+        
+        
     }
 
     private void Start()
     {
-       
+
+        
         AudioManager = FindObjectOfType<AudioManager>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
@@ -71,8 +81,7 @@ public class MenuUI : MonoBehaviour
         }
         LoadVolumeData();
     }
-
-    private void LoadVolumeData()
+    public void LoadVolumeData()
     {
          if (File.Exists(dataFilePath))
         {
@@ -82,22 +91,22 @@ public class MenuUI : MonoBehaviour
             sfxVolumeValue = volumedata.sfxVolumeValue.ToString("0.00");
             _musicSlider.value = volumedata.musicVolumeValue;
             _sfxSlider.value = volumedata.sfxVolumeValue;
+            savemusicdata = volumedata.musicVolumeValue;
         }
     }
 
-    private void SaveVolumeData()
+    public void SaveVolumeData()
     {
         VolumeData volumedata = new VolumeData
         {
             musicVolumeValue = _musicSlider.value,
             sfxVolumeValue = _sfxSlider.value
-
+            
         };
-
+        savemusicdata = _musicSlider.value;
         string jsonData = JsonUtility.ToJson(volumedata);
         File.WriteAllText(dataFilePath, jsonData);
     }
-
     public void BackButton()
     {
         _buttons[0].SetActive(true);
@@ -108,6 +117,7 @@ public class MenuUI : MonoBehaviour
         _buttons[7].SetActive(false);
         _buttons[8].SetActive(false);
         _buttons[9].SetActive(false);
+        SaveVolumeData();
     }
 
     public void OptionsButton()

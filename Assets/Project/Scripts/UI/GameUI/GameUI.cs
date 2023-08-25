@@ -10,9 +10,11 @@ using static GameUI;
 
 public class GameUI : MonoBehaviour
 {
+    
     [Header("references")]
     //Referanslar
     AudioManager AudioManager;
+    MenuUI menuUI;
     WaveSpawner WaveSpawner;
     GameManager GameManager;
     public List<CoinValues> coinValues;
@@ -34,44 +36,45 @@ public class GameUI : MonoBehaviour
     public int _heartText;
     public int _waveText;
     public float Product;
-
+    public string dataFilePath;
     //Kontrol De�i�kenleri
     public bool defeatMenuControl;
+     
+   
+    // private const string musicSettingsFilePath = "music_settings.json"; -1-
+    /*
+     [Serializable]
+     public class MusicSettingsData
+     {
+         public float musicSliderValue;
+     }
 
-   // private const string musicSettingsFilePath = "music_settings.json"; -1-
-   /*
-    [Serializable]
-    public class MusicSettingsData
-    {
-        public float musicSliderValue;
-    }
+     private void SaveMusicSettings()
+     {
+         MusicSettingsData musicsettingsdata = new MusicSettingsData
+         {
+             musicSliderValue = _musicSlider.value
+         };
+         string jsonData = JsonUtility.ToJson(musicsettingsdata);
+         File.WriteAllText(Application.persistentDataPath + "/" + musicSettingsFilePath, jsonData);
 
-    private void SaveMusicSettings()
-    {
-        MusicSettingsData musicsettingsdata = new MusicSettingsData
-        {
-            musicSliderValue = _musicSlider.value
-        };
-        string jsonData = JsonUtility.ToJson(musicsettingsdata);
-        File.WriteAllText(Application.persistentDataPath + "/" + musicSettingsFilePath, jsonData);
+     }
 
-    }
+     public void SaveMusicSliderValue()
+     {
+         SaveMusicSettings();
+     }
 
-    public void SaveMusicSliderValue()
-    {
-        SaveMusicSettings();
-    }
-
-    private void LoadMusicSettings()
-    {
-        if (File.Exists(Application.persistentDataPath + "/" + musicSettingsFilePath))
-        {
-            string jsonData = File.ReadAllText(Application.persistentDataPath + "/" + musicSettingsFilePath);
-            MusicSettingsData musicsettingsdata = JsonUtility.FromJson<MusicSettingsData>(jsonData);
-            _musicSlider.value = musicsettingsdata.musicSliderValue;
-        }
-    }
-   */
+     private void LoadMusicSettings()
+     {
+         if (File.Exists(Application.persistentDataPath + "/" + musicSettingsFilePath))
+         {
+             string jsonData = File.ReadAllText(Application.persistentDataPath + "/" + musicSettingsFilePath);
+             MusicSettingsData musicsettingsdata = JsonUtility.FromJson<MusicSettingsData>(jsonData);
+             _musicSlider.value = musicsettingsdata.musicSliderValue;
+         }
+     }
+    */
 
     #region Button
     [System.Serializable]
@@ -106,6 +109,8 @@ public class GameUI : MonoBehaviour
 
     private void Awake()
     {
+        menuUI = FindObjectOfType<MenuUI>();
+        
         //Pause (Durdurma) butonu d���nda ki t�m butonlar pasif halde
 
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
@@ -115,21 +120,33 @@ public class GameUI : MonoBehaviour
         _Button.GameUIButtons[0].SetActive(true);
 
     }
+    [System.Serializable]
+    public class VolumeData //Bu kodda Json için tanımlamaları yaptık
+    {
+        public float musicVolumeValue;
+        public float sfxVolumeValue;
+    }
+
     private void Start()
     {
-        
         AudioManager = FindObjectOfType<AudioManager>();
+        
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
 
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
         defeatMenuControl = false;
-
         //LoadMusicSettings(); -3-
         if (AudioManager.musicSource.mute == false)
         {
-            AudioManager.recordedMusicValue = _musicSlider.value;
+            dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
+            string jsonData = File.ReadAllText(dataFilePath);
+            VolumeData loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
+            _musicSlider.value = loadeddata.musicVolumeValue;
+          Debug.Log(loadeddata.musicVolumeValue + "savedata");
+
+            
         }
         else
         {
@@ -283,8 +300,22 @@ public class GameUI : MonoBehaviour
 
     }
 
+    public void SaveVolumeData()
+    {
+        VolumeData volumedata = new VolumeData
+        {
+            musicVolumeValue = _musicSlider.value,
+            sfxVolumeValue = _sfxSlider.value
+
+        };
+        
+        string jsonData = JsonUtility.ToJson(volumedata);
+        File.WriteAllText(dataFilePath, jsonData);
+    }
+
     public void MusicVolume()
     {
+        
         //Kayd�r�c� ile ses d�zeyini ayarlama (Artt�rma ve k�sma)
         AudioManager.MusicVolume(_musicSlider.value);
         musicVolumeValue = (_musicSlider.value * 100).ToString("0");
@@ -296,15 +327,17 @@ public class GameUI : MonoBehaviour
 
         if (AudioManager.musicSource.mute == false)
         {
-            AudioManager.recordedMusicValue = _musicSlider.value;
+            AudioManager.recordedMusicValue=_musicSlider.value;
         }
-        else
+        else 
         {
             AudioManager.recordedMusicValue2 = _musicSlider.value;
         }
 
         Debug.Log(AudioManager.musicSource.mute ? AudioManager.recordedMusicValue2 : AudioManager.recordedMusicValue);
         //SaveMusicSliderValue();-4-
+
+        SaveVolumeData();
     }
 
     public void SFXVolume()
