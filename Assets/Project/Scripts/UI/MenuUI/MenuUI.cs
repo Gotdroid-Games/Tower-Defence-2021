@@ -19,7 +19,7 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI _sfxText;
     public List<GameObject> _buttons;
     public string dataFilePath;
-    public float savemusicdata;
+    
 
     [System.Serializable]
     public class VolumeData
@@ -91,7 +91,7 @@ public class MenuUI : MonoBehaviour
             sfxVolumeValue = volumedata.sfxVolumeValue.ToString("0.00");
             _musicSlider.value = volumedata.musicVolumeValue;
             _sfxSlider.value = volumedata.sfxVolumeValue;
-            savemusicdata = volumedata.musicVolumeValue;
+            
         }
     }
 
@@ -103,7 +103,7 @@ public class MenuUI : MonoBehaviour
             sfxVolumeValue = _sfxSlider.value
             
         };
-        savemusicdata = _musicSlider.value;
+       
         string jsonData = JsonUtility.ToJson(volumedata);
         File.WriteAllText(dataFilePath, jsonData);
     }

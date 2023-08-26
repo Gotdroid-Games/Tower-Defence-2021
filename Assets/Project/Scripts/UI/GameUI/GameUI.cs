@@ -14,7 +14,6 @@ public class GameUI : MonoBehaviour
     [Header("references")]
     //Referanslar
     AudioManager AudioManager;
-    MenuUI menuUI;
     WaveSpawner WaveSpawner;
     GameManager GameManager;
     public List<CoinValues> coinValues;
@@ -109,13 +108,14 @@ public class GameUI : MonoBehaviour
 
     private void Awake()
     {
-        menuUI = FindObjectOfType<MenuUI>();
+        
         
         //Pause (Durdurma) butonu d���nda ki t�m butonlar pasif halde
 
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
             _Button.GameUIButtons[i].SetActive(false);
+            
         }
         _Button.GameUIButtons[0].SetActive(true);
 
@@ -129,6 +129,9 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
+        dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
+        string jsonData = File.ReadAllText(dataFilePath);
+        VolumeData loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
         AudioManager = FindObjectOfType<AudioManager>();
         
         _musicButtonMuteImage.gameObject.SetActive(false);
@@ -140,13 +143,8 @@ public class GameUI : MonoBehaviour
         //LoadMusicSettings(); -3-
         if (AudioManager.musicSource.mute == false)
         {
-            dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
-            string jsonData = File.ReadAllText(dataFilePath);
-            VolumeData loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
-            _musicSlider.value = loadeddata.musicVolumeValue;
-          Debug.Log(loadeddata.musicVolumeValue + "savedata");
-
             
+            _musicSlider.value = loadeddata.musicVolumeValue;
         }
         else
         {
@@ -155,7 +153,9 @@ public class GameUI : MonoBehaviour
 
         if (AudioManager.sfxSource.mute == false)
         {
-            AudioManager.recordedSFXValue = _sfxSlider.value;
+            
+             _sfxSlider.value=loadeddata.sfxVolumeValue;
+            Debug.Log(loadeddata.sfxVolumeValue + "sfxvolume");
         }
         else
         {
@@ -322,7 +322,7 @@ public class GameUI : MonoBehaviour
         _musicText.text = musicVolumeValue;
 
         bool isMusicMuted = _musicSlider.value == 0;
-        _Button.GameUIButtons[9].SetActive(!isMusicMuted);
+        //_Button.GameUIButtons[9].SetActive(!isMusicMuted); Bunu açma
         _musicButtonMuteImage.gameObject.SetActive(isMusicMuted);
 
         if (AudioManager.musicSource.mute == false)
@@ -349,7 +349,7 @@ public class GameUI : MonoBehaviour
         _sfxText.text = sfxVolumeValue;
 
         bool isSFXMuted = Mathf.Approximately(_sfxSlider.value, 0f);
-        _Button.GameUIButtons[10].SetActive(!isSFXMuted);
+        //_Button.GameUIButtons[10].SetActive(!isSFXMuted); Bunu açma
         _sfxButtonMuteImage.gameObject.SetActive(isSFXMuted);
 
         if (AudioManager.sfxSource.mute == false)
@@ -361,6 +361,7 @@ public class GameUI : MonoBehaviour
             AudioManager.recordedSFXValue2 = _sfxSlider.value;
             Debug.Log(AudioManager.recordedSFXValue2);
         }
+        SaveVolumeData();
     }
 
     public void ContinueButton()
