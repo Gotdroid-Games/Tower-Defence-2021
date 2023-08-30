@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-
+    public AudioManager AudioManager;
     public Color hoverColor;
     public Vector3 positionOffset;
 
@@ -13,12 +14,12 @@ public class Node : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
-    
+
     BuildManager buildManager;
     GameManager GameManager;
     GameUI GameUI;
     Shop shop;
-   
+
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class Node : MonoBehaviour
         shop = FindObjectOfType<Shop>();
         GameManager = FindObjectOfType<GameManager>();
         GameUI = FindObjectOfType<GameUI>();
-       
+
     }
 
     private void OnMouseDown()
@@ -40,14 +41,14 @@ public class Node : MonoBehaviour
         if (buildManager.GetTurretToBuild() == null)
             return;
 
-        
-        if(turret != null)
+
+        if (turret != null)
         {
             return;
         }
         GameObject turretToBuild = buildManager.GetTurretToBuild();
         if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy && shop.bombSelected == false)
-        {  
+        {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
         }
@@ -58,23 +59,10 @@ public class Node : MonoBehaviour
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
         }
-    }
 
-    private void OnMouseEnter()
-    {
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
-
-
-
-        if (buildManager.GetTurretToBuild() == null)
-            return;
-
-        rend.material.color = hoverColor;
-    }
-
-    private void OnMouseExit()
-    {
-        rend.material.color = startColor;
+        if (buildManager.towerPrefabs[2] == true)
+        {
+            AudioManager.PlaySFX("HackerTowerBuildSFX");
+        }
     }
 }

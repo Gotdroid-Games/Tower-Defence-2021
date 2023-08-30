@@ -11820,7 +11820,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 589565924}
         m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
-        m_MethodName: StartWaveCoin
+        m_MethodName: StartWaveButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16438,16 +16438,20 @@ MonoBehaviour:
   recordedSFXValue2: 0
   musicSounds:
   - name: backgroundmusic
-    clip: {fileID: 8300000, guid: d2fb941b043f58d47810c6aa363e5f29, type: 3}
+    clip: {fileID: 0}
   sfxSounds:
   - name: AttackSFX
-    clip: {fileID: 8300000, guid: 107ff19defe784b4a828025992e30a45, type: 3}
+    clip: {fileID: 8300000, guid: 11ddbc39107206b4183fed107cf10b58, type: 3}
   - name: EnemytouchSFX
-    clip: {fileID: 8300000, guid: b57fc4e4e7bf5304689ada4dab553114, type: 3}
+    clip: {fileID: 0}
   - name: BombatmaSFX
-    clip: {fileID: 8300000, guid: 588628714c66fa6448e7522876201715, type: 3}
-  - name: bombadusmeSFX
     clip: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
+  - name: bombadusmeSFX
+    clip: {fileID: 8300000, guid: 242471b8875a4d342b5fefc4d9ffffb4, type: 3}
+  - name: WaveStartSFX
+    clip: {fileID: 8300000, guid: 16433478fb0e9a34a9f5c430f21f1497, type: 3}
+  - name: HackerTowerBuildSFX
+    clip: {fileID: 8300000, guid: 415626b30cedaa5418cc9a1809ca4922, type: 3}
   musicSource: {fileID: 1110577930}
   sfxSource: {fileID: 716473144}
 --- !u!4 &487121056
@@ -18730,6 +18734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f806ffef9610942bfa0f8e74e14b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 487121055}
   _startWave: {fileID: 313361781}
   basicRobotPrefab: {fileID: 5004128498196882208, guid: e6356746a2f209f40abc69fab7d57324, type: 3}
   gorillaRobotPrefab: {fileID: 6075844125827047475, guid: 0e7d455835f999f4792702d789356a0c, type: 3}
@@ -18799,6 +18804,8 @@ MonoBehaviour:
   - {fileID: 2809495673073685064, guid: cb0f7d1bc5d5b4d7eb266ad929b60198, type: 3}
   - {fileID: 467377273373061772, guid: 4def757f00550bf4ba5c54293af97aeb, type: 3}
   - {fileID: 4381559772388515145, guid: 053ab9c9ed3301d4cab588d5b9f428b4, type: 3}
+  AudioManager: {fileID: 487121055}
+  turretToBuild: {fileID: 0}
 --- !u!114 &589565928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18811,6 +18818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef268ab3e6e09945af96c4db60ba9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 487121055}
   bombSelected: 0
 --- !u!4 &590385596 stripped
 Transform:
@@ -19701,6 +19709,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5
@@ -22453,6 +22465,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
     - target: {fileID: 8167484517249014240, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_Name
       value: Insaa
@@ -26441,6 +26457,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5
       objectReference: {fileID: 0}
@@ -28794,6 +28814,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5
       objectReference: {fileID: 0}
@@ -29155,6 +29179,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5
       objectReference: {fileID: 0}
@@ -29455,6 +29483,7 @@ MonoBehaviour:
   _heartText: 0
   _waveText: 0
   Product: 0
+  dataFilePath: 
   defeatMenuControl: 0
 --- !u!4 &1147089605
 Transform:
@@ -32922,6 +32951,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5
       objectReference: {fileID: 0}
@@ -33640,6 +33673,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5
@@ -47770,6 +47807,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376802025}
     m_Modifications:
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 487121055}
     - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: positionOffset.y
       value: 1.5

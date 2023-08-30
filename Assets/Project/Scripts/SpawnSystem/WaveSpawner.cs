@@ -9,6 +9,7 @@ public class WaveSpawner : MonoBehaviour
 {
     GameUI GameUI;
     GameManager GameManager;
+    public AudioManager AudioManager;
 
     [SerializeField] private GameObject _startWave;
 
@@ -241,9 +242,12 @@ public class WaveSpawner : MonoBehaviour
         GameUI._Button.GameUIButtons[16].SetActive(false);
     }
 
-    public void StartWaveCoin()
+    public void StartWaveButton()
     {
-        GameUI.WaveStartCoinFunction();
         StartWave();
+        AudioManager.PlaySFX("WaveStartSFX");
+        GameUI.WaveStartCoinFunction();
+        
+        
     }
 }

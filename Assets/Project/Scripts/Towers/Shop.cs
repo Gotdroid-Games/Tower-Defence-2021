@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Shop : MonoBehaviour
 {
     BuildManager BuildManager; // BuildManager sıfırdan bir nesne referans� tan�mlan�yor.
+    public AudioManager AudioManager;
     public bool bombSelected;
 
     private void Start()
@@ -33,6 +35,7 @@ public class Shop : MonoBehaviour
         BuildManager.SetTurretToBuild(BuildManager.towerPrefabs[2]);
         bombSelected = false;
         Debug.Log(bombSelected);
+        
     }
 
     public void PurchaseSoldierTower()
