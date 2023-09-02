@@ -15,6 +15,5 @@ public class BuildManager : MonoBehaviour
     public void SetTurretToBuild (GameObject turret)
     {
         turretToBuild = turret;
-        
     }
 }

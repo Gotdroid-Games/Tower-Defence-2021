@@ -47,22 +47,29 @@ public class Node : MonoBehaviour
             return;
         }
         GameObject turretToBuild = buildManager.GetTurretToBuild();
-        if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy && shop.bombSelected == false)
+        if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
+
+            if (turretToBuild != null && turretToBuild == buildManager.towerPrefabs[2])
+            {
+                AudioManager.PlaySFX("HackerTowerBuildSFX");
+            }
+            
+            if (turretToBuild != null && turretToBuild == buildManager.towerPrefabs[0])
+            {
+                AudioManager.PlaySFX("HackerTowerBuildSFX");
+            } // Eğer diğer kuleler için kurulma ses efekti eklenecekse koşulun indis numarasını değiştirerek yeni bir koşul yazabiliriz.
         }
         //Build a turret (Tarret in�a et)
 
-        if (GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy && shop.bombSelected == true)
+        if (GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
         }
 
-        if (buildManager.towerPrefabs[2] == true)
-        {
-            AudioManager.PlaySFX("HackerTowerBuildSFX");
-        }
+        
     }
 }

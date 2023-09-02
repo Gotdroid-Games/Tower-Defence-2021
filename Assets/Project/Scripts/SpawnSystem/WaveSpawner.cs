@@ -69,7 +69,6 @@ public class WaveSpawner : MonoBehaviour
         smarthomeRobotWaveInfo = new string[smarthomeRobot.Length];
         droneRobotWaveInfo = new string[DroneRobot.Length];
         healerRobotWaveInfo = new string[HealerRobot.Length];
-
     }
 
     private void Update()
@@ -77,10 +76,9 @@ public class WaveSpawner : MonoBehaviour
         Totalenemycheck();
         WaveInfo(GameManager);
 
-
         if (startWaveControl == true && spawnedEnemies == totalEnemies)
         {
-
+            
             if (waveIndex <= 12)
             {
                 waveCountdown -= Time.deltaTime;
@@ -94,7 +92,7 @@ public class WaveSpawner : MonoBehaviour
             GameUI.WaveValue(1);
             StartCoroutine(SpawnWave());
             waveCountdown = timeBetweenWaves[waveIndex - 1];
-
+            AudioManager.PlaySFX("WaveStartSFX");
             _startWave.SetActive(false);
             if (waveIndex >= 12)
             {
@@ -107,7 +105,6 @@ public class WaveSpawner : MonoBehaviour
             waveCountdown = 0.1f;
             _startWave.SetActive(false);
         }
-
     }
     public void Totalenemycheck()
     {
@@ -115,7 +112,6 @@ public class WaveSpawner : MonoBehaviour
         {
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
             totalenemiescheck = objectsWithTag.Length;
-
         }
     }
 
@@ -125,12 +121,11 @@ public class WaveSpawner : MonoBehaviour
         {
             waveIndex++;
             startWaveControl = true;
+            AudioManager.PlaySFX("WaveStartSFX");
             _startWave.SetActive(false);
             GameUI.WaveValue(1);
             waveCountdown = timeBetweenWaves[waveIndex];
             StartCoroutine(SpawnWave());
-
-
         }
     }
 
@@ -221,7 +216,6 @@ public class WaveSpawner : MonoBehaviour
         }
         totalEnemies = 0;
         spawnedEnemies = 0;
-
     }
 
     private void SpawnEnemy(Transform enemyPrefab)
@@ -233,8 +227,6 @@ public class WaveSpawner : MonoBehaviour
     public void PanelActive()
     {
         GameUI._Button.GameUIButtons[16].SetActive(true);
-        Debug.Log("�nfo Butonu Aktif");
-        
     }
 
     public void PanelPassive()
@@ -245,9 +237,6 @@ public class WaveSpawner : MonoBehaviour
     public void StartWaveButton()
     {
         StartWave();
-        AudioManager.PlaySFX("WaveStartSFX");
         GameUI.WaveStartCoinFunction();
-        
-        
     }
 }
