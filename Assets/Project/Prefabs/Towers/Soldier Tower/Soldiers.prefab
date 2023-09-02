@@ -49,10 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultPoint: {fileID: 0}
   CurrentEnemy: {fileID: 0}
+  Tower: {fileID: 0}
   Heath: 0
   Speed: 5
   Damage: 0
   Range: 10
+  DamageCooldown: 0
+  Fight: 0
   Level: 0
   Levels:
   - {fileID: 3196401042856092938}

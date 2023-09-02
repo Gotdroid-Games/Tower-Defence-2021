@@ -924,6 +924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5004128498196882208}
   - component: {fileID: -5440670265935861452}
+  - component: {fileID: 6192395631687112462}
   m_Layer: 0
   m_Name: tekerli robot 1
   m_TagString: Enemy
@@ -975,6 +976,29 @@ MonoBehaviour:
   NextWaypointNumber: 0
   NextWaypointDistance: 0
   Healthbarreach: {fileID: 3384110180271101009}
+  Aim: 0
+  Fight: 0
+  SoldierTransform: {fileID: 0}
+--- !u!95 &6192395631687112462
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636796957249730970}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 09247a24d93a036489cfa5674d2f967d, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3c95cf378765212489c8f6432fdbbee8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5656055164270183577
 GameObject:
   m_ObjectHideFlags: 0
