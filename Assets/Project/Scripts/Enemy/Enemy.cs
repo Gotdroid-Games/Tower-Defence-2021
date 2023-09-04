@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     private float timer = 0f;
     public float interval = 1.5f;
     public float slowedSpeed = 5f;
+    public bool isHealer = false;
     [HideInInspector]
 
     public float worth = 50;
@@ -113,6 +114,7 @@ public class Enemy : MonoBehaviour
         }
         if (RobotType == EnemyManager.EnemyType.HealerRobot)
         {
+            isHealer = true;
             maxHealth = GameManager.EnemyVariables[4]._EnemyHealth;
             currentHealth = maxHealth;
             _healthbar.SetMaxHealth(maxHealth);
@@ -172,6 +174,10 @@ public class Enemy : MonoBehaviour
         //    _healthbar.SetHealth(currentHealth);
         //}
 
+    }
+    public void TakeHealth()
+    {
+        _healthbar.SetHealth(currentHealth);
     }
 
     public void TakeDamageFromSoldier(int damage)
