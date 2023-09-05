@@ -3,19 +3,16 @@ using UnityEngine;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    GameValue GameValue;
-    public float newfirecontdown=1f;
+    public float newfirecontdown = 1f;
     public int towerPrice;
     public int rangedTowerDamage;
-    public int rangeTowerCritDamage; 
+    public int rangeTowerCritDamage;
     public int towerRangeUpgrade;
-
+    GameValue GameValue;
     private void Start()
     {
-        
-        towerPrice = 120;
         GameValue = FindObjectOfType<GameValue>();
-        
+        towerPrice = 120;
     }
 
     public void TowerSpeedUp()
@@ -23,7 +20,11 @@ public class UpgradeMenu : MonoBehaviour
         if (StarPoint._starPoint > 0)
         {
             newfirecontdown = 0.2f;
-            //GameValue.NewFireCountDown = 0.2f;
+            GameValue.QuaityData LaserTowerSpeedData = new GameValue.QuaityData();
+            {
+            //    newfirecontdown = _newfirecontdown;
+            }
+            //GameValue._newfirecountdown = 0.2f;
             StarPoint._starPoint -= 1;
         }
 
@@ -31,8 +32,8 @@ public class UpgradeMenu : MonoBehaviour
         {
             StarPoint._starPoint = 0;
         }
-    }  
-   
+    }
+
     public void TowerPrice()
     {
         if (StarPoint._starPoint > 0)
@@ -40,7 +41,7 @@ public class UpgradeMenu : MonoBehaviour
             towerPrice -= 30;
             StarPoint._starPoint -= 1;
         }
-        
+
         if (StarPoint._starPoint < 0)
         {
             StarPoint._starPoint = 0;
@@ -55,7 +56,7 @@ public class UpgradeMenu : MonoBehaviour
             //GameValue.RangedTowerDamage = 20;
             StarPoint._starPoint -= 1;
         }
-        
+
         if (StarPoint._starPoint < 0)
         {
             StarPoint._starPoint = 0;
@@ -70,7 +71,7 @@ public class UpgradeMenu : MonoBehaviour
             //GameValue.TowerRangeUpgrade = 20;
             StarPoint._starPoint -= 1;
         }
-        
+
         if (StarPoint._starPoint < 0)
         {
             StarPoint._starPoint = 0;
@@ -85,7 +86,7 @@ public class UpgradeMenu : MonoBehaviour
             //GameValue.RangedTowerCritDamage = rangedTowerDamage * 10 / 100;
             StarPoint._starPoint -= 1;
         }
-        
+
         if (StarPoint._starPoint < 0)
         {
             StarPoint._starPoint = 0;

@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class TowerTarget : MonoBehaviour
 {
-    private GameValue gameValue;
+    //private GameValue gameValue;
     public TowerMenu TowerMenu;
     [SerializeField] Transform target;
     //GameManager GameManager;
@@ -33,7 +33,7 @@ public class TowerTarget : MonoBehaviour
     AudioManager audiomanager;
     private void Start()
     {
-        gameValue = FindObjectOfType<GameValue>();
+        //gameValue = FindObjectOfType<GameValue>();
         //GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
         TowerMenu = FindObjectOfType<TowerMenu>();

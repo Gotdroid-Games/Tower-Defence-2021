@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
     WaveSpawner waveSpawner;
-    GameValue GameValue;
+    //GameValue GameValue;
     TowerTarget TowerTarget;
     HackTowerTarget HackTowerTarget;
     GameManager GameManager;
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
     {
         Healthbarreach.SetActive(false);
         //Healthbarreach = transform.FindChild("HealtBar").gameObject;
-        GameValue = FindObjectOfType<GameValue>();
+        //GameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
         BombTowerMenu = FindObjectOfType<BombTowerMenu>();

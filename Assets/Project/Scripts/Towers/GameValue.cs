@@ -1,20 +1,15 @@
+using System;
 using UnityEngine;
 
 public class GameValue : MonoBehaviour
 {
-    TowerTarget TowerTarget;
-    GameManager GameManager;
-
-    private void Start()
+    [System.Serializable]
+    public class QuaityData
     {
-        TowerTarget = FindObjectOfType<TowerTarget>();
-        GameManager = FindObjectOfType<GameManager>();
-    }
-    public void Fill(int critValue, int towerRange, int towerDamage, int fireRate)
-    {
-        TowerTarget.critValue = critValue;
-        TowerTarget.fireRate = fireRate;
-        GameManager.TowerVaribles[0].TowerDamage = towerDamage;
-        GameManager.TowerVaribles[0].TowerRange = towerRange;
+        public float _newfirecontdown = 1f;
+        public int _towerPrice;
+        public int _rangedTowerDamage;
+        public int _rangeTowerCritDamage;
+        public int _towerRangeUpgrade;
     }
 }

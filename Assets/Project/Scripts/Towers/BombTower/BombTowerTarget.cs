@@ -6,7 +6,7 @@ using static Unity.VisualScripting.Member;
 
 public class BombTowerTarget : MonoBehaviour
 {
-    private GameValue gameValue;
+    //private GameValue gameValue;
     GameManager GameManager;
     AudioSource source;
     AudioManager audiomanager;
@@ -22,7 +22,7 @@ public class BombTowerTarget : MonoBehaviour
 
     private void Start()
     {
-        gameValue = FindObjectOfType<GameValue>();
+        //gameValue = FindObjectOfType<GameValue>();
         GameManager = FindObjectOfType<GameManager>();
         audiomanager = FindObjectOfType<AudioManager>();
         InvokeRepeating("BombTowerUpdateTarget", 0f, 0.5f);
