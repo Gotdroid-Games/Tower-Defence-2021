@@ -10,7 +10,7 @@ using static GameUI;
 
 public class GameUI : MonoBehaviour
 {
-    
+
     [Header("references")]
     //Referanslar
     AudioManager AudioManager;
@@ -38,8 +38,8 @@ public class GameUI : MonoBehaviour
     public string dataFilePath;
     //Kontrol De�i�kenleri
     public bool defeatMenuControl;
-     
-   
+
+
     // private const string musicSettingsFilePath = "music_settings.json"; -1-
     /*
      [Serializable]
@@ -108,14 +108,14 @@ public class GameUI : MonoBehaviour
 
     private void Awake()
     {
-        
-        
+
+
         //Pause (Durdurma) butonu d���nda ki t�m butonlar pasif halde
 
         for (int i = 0; i < _Button.GameUIButtons.Length; i++)
         {
             _Button.GameUIButtons[i].SetActive(false);
-            
+
         }
         _Button.GameUIButtons[0].SetActive(true);
 
@@ -133,9 +133,11 @@ public class GameUI : MonoBehaviour
         string jsonData = File.ReadAllText(dataFilePath);
         VolumeData loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
         AudioManager = FindObjectOfType<AudioManager>();
-        
+
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
+        _Button.GameUIButtons[9].SetActive(false);
+        _Button.GameUIButtons[10].SetActive(false);
 
         WaveSpawner = FindObjectOfType<WaveSpawner>();
         GameManager = FindObjectOfType<GameManager>();
@@ -143,7 +145,7 @@ public class GameUI : MonoBehaviour
         //LoadMusicSettings(); -3-
         if (AudioManager.musicSource.mute == false)
         {
-            
+
             _musicSlider.value = loadeddata.musicVolumeValue;
         }
         else
@@ -153,8 +155,8 @@ public class GameUI : MonoBehaviour
 
         if (AudioManager.sfxSource.mute == false)
         {
-            
-             _sfxSlider.value=loadeddata.sfxVolumeValue;
+
+            _sfxSlider.value = loadeddata.sfxVolumeValue;
             Debug.Log(loadeddata.sfxVolumeValue + "sfxvolume");
         }
         else
@@ -295,9 +297,7 @@ public class GameUI : MonoBehaviour
     {
         AudioManager.GameToggleSFX();
         _Button.GameUIButtons[10].SetActive(true);
-        _sfxButtonMuteImage.gameObject.SetActive(false);
         _sfxSlider.value = AudioManager.recordedSFXValue;
-
     }
 
     public void SaveVolumeData()
@@ -308,14 +308,14 @@ public class GameUI : MonoBehaviour
             sfxVolumeValue = _sfxSlider.value
 
         };
-        
+
         string jsonData = JsonUtility.ToJson(volumedata);
         File.WriteAllText(dataFilePath, jsonData);
     }
 
     public void MusicVolume()
     {
-        
+
         //Kayd�r�c� ile ses d�zeyini ayarlama (Artt�rma ve k�sma)
         AudioManager.MusicVolume(_musicSlider.value);
         musicVolumeValue = (_musicSlider.value * 100).ToString("0");
@@ -327,13 +327,21 @@ public class GameUI : MonoBehaviour
 
         if (AudioManager.musicSource.mute == false)
         {
-            AudioManager.recordedMusicValue=_musicSlider.value;
+            AudioManager.recordedMusicValue = _musicSlider.value;
         }
-        else 
+        else
         {
             AudioManager.recordedMusicValue2 = _musicSlider.value;
         }
 
+        //if (!_musicButtonMuteImage.gameObject.activeSelf)
+        //{
+        //    _Button.GameUIButtons[9].SetActive(true);
+        //}
+        //else
+        //{
+        //    _Button.GameUIButtons[9].SetActive(false);
+        //}
         Debug.Log(AudioManager.musicSource.mute ? AudioManager.recordedMusicValue2 : AudioManager.recordedMusicValue);
         //SaveMusicSliderValue();-4-
 
@@ -361,6 +369,15 @@ public class GameUI : MonoBehaviour
             AudioManager.recordedSFXValue2 = _sfxSlider.value;
             Debug.Log(AudioManager.recordedSFXValue2);
         }
+
+        if (!_sfxButtonMuteImage.gameObject.activeSelf && _Button.GameUIButtons[4].activeSelf)
+        {
+            _Button.GameUIButtons[10].SetActive(true);
+        }
+        else
+        {
+            _Button.GameUIButtons[10].SetActive(false);
+        }
         SaveVolumeData();
     }
 
@@ -381,7 +398,7 @@ public class GameUI : MonoBehaviour
         public int coinIncrease;
         public int coinDecrease;
     }
-    
+
 
 
     public void IncreaseCoinValue(int increase)
