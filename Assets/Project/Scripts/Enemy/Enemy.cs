@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
 
     //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
+    public ParticleSystem healingEffect;
     WaveSpawner waveSpawner;
     GameValue GameValue;
     TowerTarget TowerTarget;
@@ -177,7 +178,14 @@ public class Enemy : MonoBehaviour
     }
     public void TakeHealth()
     {
+        healingEffect.Play();
         _healthbar.SetHealth(currentHealth);
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+            healingEffect.Stop();
+            healingEffect.Clear();
+        }
     }
 
     public void TakeDamageFromSoldier(int damage)

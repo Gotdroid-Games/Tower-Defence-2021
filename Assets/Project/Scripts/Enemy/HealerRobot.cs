@@ -43,6 +43,15 @@ public class HealerRobot : MonoBehaviour
                            // healtbar.SetHealth(enemy.currentHealth);
                         }
                     }
+                    else
+                    {
+                        ParticleSystem healingEffect = enemy.GetComponentInChildren<ParticleSystem>();
+                        if (healingEffect != null)
+                        {
+                            healingEffect.Stop();
+                            healingEffect.Clear();
+                        }
+                    }
                 }
 
             }
