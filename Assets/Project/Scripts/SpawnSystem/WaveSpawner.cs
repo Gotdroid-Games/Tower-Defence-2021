@@ -108,7 +108,7 @@ public class WaveSpawner : MonoBehaviour
     }
     public void Totalenemycheck()
     {
-        if (waveIndex>=12)
+        if (waveIndex<=12)
         {
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
             totalenemiescheck = objectsWithTag.Length;
