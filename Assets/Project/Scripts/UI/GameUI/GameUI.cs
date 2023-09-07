@@ -182,7 +182,7 @@ public class GameUI : MonoBehaviour
         {
             _coinText = 0;
         }
-
+        Debug.Log(AudioManager.recordedSFXValue);
         WaveCounter();
         Winning();
 
@@ -202,6 +202,28 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 1;
         }
 
+        if (AudioManager.sfxSource.mute == false)
+        {
+            _Button.GameUIButtons[10].SetActive(true);
+        }
+
+        if (AudioManager.sfxSource.volume == 0 && !_Button.GameUIButtons[5].activeSelf)
+        {
+            _sfxButtonMuteImage.gameObject.SetActive(false);
+        }
+        else if (AudioManager.sfxSource.volume == 0 && _Button.GameUIButtons[5].activeSelf)
+        {
+            _sfxButtonMuteImage.gameObject.SetActive(true);
+        }
+
+        if (AudioManager.musicSource.volume == 0 && !_Button.GameUIButtons[5].activeSelf)
+        {
+            _musicButtonMuteImage.gameObject.SetActive(false);
+        }
+        else if (AudioManager.musicSource.volume == 0 && _Button.GameUIButtons[5].activeSelf)
+        {
+            _musicButtonMuteImage.gameObject.SetActive(true);
+        }
     }
     public void PauseButton()
     {
@@ -370,14 +392,7 @@ public class GameUI : MonoBehaviour
             Debug.Log(AudioManager.recordedSFXValue2);
         }
 
-        if (!_sfxButtonMuteImage.gameObject.activeSelf && _Button.GameUIButtons[4].activeSelf)
-        {
-            _Button.GameUIButtons[10].SetActive(true);
-        }
-        else
-        {
-            _Button.GameUIButtons[10].SetActive(false);
-        }
+        
         SaveVolumeData();
     }
 
