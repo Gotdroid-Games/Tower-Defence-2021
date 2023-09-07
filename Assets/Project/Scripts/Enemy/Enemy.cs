@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
 
     //[SerializeField] TowerMenu TowerMenu;
     [SerializeField] Healthbar _healthbar;
+    public ParticleSystem healingEffect;
     WaveSpawner waveSpawner;
     //GameValue GameValue;
     TowerTarget TowerTarget;
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
     private float timer = 0f;
     public float interval = 1.5f;
     public float slowedSpeed = 5f;
+    public bool isHealer = false;
     [HideInInspector]
 
     public float worth = 50;
@@ -113,6 +115,7 @@ public class Enemy : MonoBehaviour
         }
         if (RobotType == EnemyManager.EnemyType.HealerRobot)
         {
+            isHealer = true;
             maxHealth = GameManager.EnemyVariables[4]._EnemyHealth;
             currentHealth = maxHealth;
             _healthbar.SetMaxHealth(maxHealth);
@@ -172,6 +175,17 @@ public class Enemy : MonoBehaviour
         //    _healthbar.SetHealth(currentHealth);
         //}
 
+    }
+    public void TakeHealth()
+    {
+        healingEffect.Play();
+        _healthbar.SetHealth(currentHealth);
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+            healingEffect.Stop();
+            healingEffect.Clear();
+        }
     }
 
     public void TakeDamageFromSoldier(int damage)

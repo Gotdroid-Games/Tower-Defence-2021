@@ -32,14 +32,24 @@ public class HealerRobot : MonoBehaviour
                 if (obj != null)
                 {
                     float distance = Vector3.Distance(transform.position, obj.transform.position);
-
-                    if (distance < MainDistance)
+                    Enemy enemy = obj.GetComponent<Enemy>();
+                    if (distance < MainDistance && !enemy.isHealer)
                     {
-                        Enemy enemy = obj.GetComponent<Enemy>();
+                       
                         if (enemy != null && enemy.currentHealth < 100)
                         {
                             enemy.currentHealth += 10;
-                            healtbar.SetHealth(enemy.currentHealth);
+                            enemy.TakeHealth();
+                           // healtbar.SetHealth(enemy.currentHealth);
+                        }
+                    }
+                    else
+                    {
+                        ParticleSystem healingEffect = enemy.GetComponentInChildren<ParticleSystem>();
+                        if (healingEffect != null)
+                        {
+                            healingEffect.Stop();
+                            healingEffect.Clear();
                         }
                     }
                 }
