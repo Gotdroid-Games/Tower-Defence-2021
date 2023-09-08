@@ -23,7 +23,7 @@ public class GameUI : MonoBehaviour
     public Slider _musicSlider, _sfxSlider;
 
     //Resimler
-    public Image wavestartinfopanel, _musicButtonMuteImage, _sfxButtonMuteImage;
+    public Image wavestartinfopanel, _musicButtonMuteImage, _sfxButtonMuteImage, WaveCounterInducator;
 
     //Metin De�i�kenleri
     public TextMeshProUGUI _musicText, _sfxText, heartText, WaveText, CoinText;
@@ -224,6 +224,9 @@ public class GameUI : MonoBehaviour
         {
             _musicButtonMuteImage.gameObject.SetActive(true);
         }
+
+        WaveCounterInducator.fillAmount = (WaveSpawner.waveCountdown / 15);
+
     }
     public void PauseButton()
     {

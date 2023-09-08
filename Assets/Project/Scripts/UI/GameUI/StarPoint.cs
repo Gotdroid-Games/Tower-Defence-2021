@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarPoint : MonoBehaviour
 {
-    
+    public AudioManager AudioManager;
     GameUI GameUI;
     WaveSpawner waveSpawner;
     public TextMeshProUGUI starPointText;
@@ -46,6 +46,9 @@ public class StarPoint : MonoBehaviour
                 {
                     _starPoint = i + 1;
                     Star();
+                    AudioManager.PlaySFX("FirstStar");
+                    AudioManager.PlaySFX("SecondStar");
+                    AudioManager.PlaySFX("ThirdStar");
                     Debug.Log("3. Yýldýz aktif oldu");
                 }
             }

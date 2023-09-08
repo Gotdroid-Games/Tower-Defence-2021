@@ -11805,16 +11805,16 @@ RectTransform:
   m_GameObject: {fileID: 313361781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5900002, y: 1.5900002, z: 1.5900002}
+  m_LocalScale: {x: 1.5085387, y: 1.5085387, z: 1.5085387}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 289236443}
-  m_Father: {fileID: 1389741814}
-  m_RootOrder: 10
+  m_Father: {fileID: 1112801954}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -321.9, y: 377.69992}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.00018310547}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313361783
@@ -16495,6 +16495,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 16433478fb0e9a34a9f5c430f21f1497, type: 3}
   - name: HackerTowerBuildSFX
     clip: {fileID: 8300000, guid: 415626b30cedaa5418cc9a1809ca4922, type: 3}
+  - name: FirstStarSFX
+    clip: {fileID: 8300000, guid: d0ce50159cc12fc4788775707ba4cadb, type: 3}
+  - name: SecondStarSFX
+    clip: {fileID: 8300000, guid: 169224bb8e9e1584e96889043c0764ec, type: 3}
+  - name: ThirdStarSFX
+    clip: {fileID: 8300000, guid: b832430e25160fc448f49cbc1e0e335a, type: 3}
   musicSource: {fileID: 1110577930}
   sfxSource: {fileID: 716473144}
 --- !u!4 &487121056
@@ -23070,6 +23076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2c1f474ce01f44db8235acdd98a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 0}
   starPointText: {fileID: 1702542920}
 --- !u!4 &802401759
 Transform:
@@ -28846,6 +28853,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 036132ac6648dc74eb16935d7fe7d897, type: 3}
+--- !u!1 &1112801953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112801954}
+  - component: {fileID: 1112801956}
+  - component: {fileID: 1112801955}
+  m_Layer: 5
+  m_Name: "WaveCounterInd\u0131catorBackGround"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1112801954
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112801953}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8500001, y: 0.8500001, z: 0.8500001}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1775793757}
+  - {fileID: 313361782}
+  m_Father: {fileID: 1253736949}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -714.7, y: 267.6}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1112801955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112801953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cc0eaa2ba662f034286e229b76fbfbfc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1112801956
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112801953}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1114342744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29512,7 +29597,7 @@ MonoBehaviour:
   wavestartinfopanel: {fileID: 289236441}
   _musicButtonMuteImage: {fileID: 1182612428}
   _sfxButtonMuteImage: {fileID: 82121728}
-  waveCounter: {fileID: 1775793759}
+  WaveCounterInducator: {fileID: 1775793759}
   _musicText: {fileID: 1229441567}
   _sfxText: {fileID: 1189569044}
   heartText: {fileID: 1438694259}
@@ -31860,7 +31945,7 @@ RectTransform:
   - {fileID: 434778384}
   - {fileID: 540332116}
   - {fileID: 82121726}
-  - {fileID: 1775793757}
+  - {fileID: 1112801954}
   m_Father: {fileID: 1389741814}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34406,7 +34491,6 @@ RectTransform:
   - {fileID: 470551445}
   - {fileID: 506668084}
   - {fileID: 1253736949}
-  - {fileID: 313361782}
   m_Father: {fileID: 1694466006}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42479,15 +42563,15 @@ RectTransform:
   m_GameObject: {fileID: 1775793756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2822582, y: 1.2822582, z: 1.2822582}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.388235, y: 1.388235, z: 1.388235}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1253736949}
-  m_RootOrder: 6
+  m_Father: {fileID: 1112801954}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259.5968, y: 304.5968}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1775793758
@@ -42511,14 +42595,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.2643778, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: de6cb6c102bb17b4c8d69938b142e0bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc0eaa2ba662f034286e229b76fbfbfc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
