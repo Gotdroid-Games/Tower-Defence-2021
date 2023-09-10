@@ -77,7 +77,7 @@ public class TowerMenu : MonoBehaviour
     private void Update()
     {
         sniperTowerDamageIncreasePercentage = (sniperTowerDamage * GameManager.TowerVaribles[0].TowerDamage*2/* TowerDamage*2 deðeri yüzdeliðin 2 katýný alýyor */) / 100;
-        rangeindicator.transform.localScale = new Vector3(sniperTowerRange, 0.5f, sniperTowerRange);
+        rangeindicator.transform.localScale = new Vector3(sniperTowerRange*2, 0, sniperTowerRange*2);
         Clickdetector();
 
         if (sniperTowerCount <= 2)
@@ -188,7 +188,7 @@ public class TowerMenu : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == UpgradeButton1 || hit.collider.gameObject == SellButton)
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == UpgradeButton1 || hit.collider.gameObject == SellButton || hit.collider.gameObject == rangeindicator)
                 {
                     Debug.Log("objeye týklandý");
                     isClickedOnGameObject = true;
