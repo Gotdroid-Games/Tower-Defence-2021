@@ -59,7 +59,7 @@ public class BombTowerMenu : MonoBehaviour
     {
         rangeIndicator.SetActive(bombTowerClicked);
         bombTowerDamageIncreasePercentage = (bombTowerDamage * GameManager.TowerVaribles[1].TowerDamage*2) / 100;
-        rangeIndicator.transform.localScale = new Vector3(bombTowerRange, 0.5f, bombTowerRange);
+        rangeIndicator.transform.localScale = new Vector3(bombTowerRange*2, 0.5f, bombTowerRange*2);
         Clickdetector();
         if (Count <= 2)
         {
@@ -162,7 +162,7 @@ public class BombTowerMenu : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton)
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton || hit.collider.gameObject == rangeIndicator)
                 {
                     Debug.Log("objeye tıklandı");
                     isClickedOnGameObject = true;

@@ -182,7 +182,7 @@ public class GameUI : MonoBehaviour
         {
             _coinText = 0;
         }
-        Debug.Log(AudioManager.recordedSFXValue);
+        
         WaveCounter();
         Winning();
 
@@ -466,6 +466,7 @@ public class GameUI : MonoBehaviour
     public void HearthDamage(int damage)
     {
         _heartText -= damage;
+        AudioManager.PlaySFX("HeartDamageSound");
         heartText.text = _heartText.ToString();
     }
 

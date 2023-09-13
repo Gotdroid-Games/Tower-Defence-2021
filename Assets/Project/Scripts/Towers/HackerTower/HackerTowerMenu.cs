@@ -67,7 +67,7 @@ public class HackerTowerMenu : MonoBehaviour
         Antenna3.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna2small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna3small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
-        rangeIndicator.transform.localScale = new Vector3(hackerTowerRange, 0.5f, hackerTowerRange);
+        rangeIndicator.transform.localScale = new Vector3(hackerTowerRange*2, 0.5f, hackerTowerRange*2);
         rangeIndicator.SetActive(hackerTowerClicked);
         Clickdetector();
         if (Count <= 2)
@@ -170,7 +170,7 @@ public class HackerTowerMenu : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton)
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == _upgradeButton || hit.collider.gameObject == SellButton || hit.collider.gameObject == rangeIndicator)
                 {
                     isClickedOnGameObject = true;
                     towerUI.SetActive(true);

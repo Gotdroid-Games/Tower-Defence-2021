@@ -16491,6 +16491,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 50cc5151cd8787b4ca9430232b10f0dd, type: 3}
   - name: bombadusmeSFX
     clip: {fileID: 8300000, guid: 242471b8875a4d342b5fefc4d9ffffb4, type: 3}
+  - name: HeartDamageSound
+    clip: {fileID: 8300000, guid: 9993535e97d24f647bbf9b8540f17a20, type: 3}
   - name: WaveStartSFX
     clip: {fileID: 8300000, guid: 16433478fb0e9a34a9f5c430f21f1497, type: 3}
   - name: HackerTowerBuildSFX
@@ -23076,7 +23078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2c1f474ce01f44db8235acdd98a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioManager: {fileID: 0}
+  AudioManager: {fileID: 487121055}
   starPointText: {fileID: 1702542920}
 --- !u!4 &802401759
 Transform:

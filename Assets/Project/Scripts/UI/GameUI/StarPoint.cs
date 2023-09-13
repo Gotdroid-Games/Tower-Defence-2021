@@ -46,9 +46,19 @@ public class StarPoint : MonoBehaviour
                 {
                     _starPoint = i + 1;
                     Star();
-                    AudioManager.PlaySFX("FirstStar");
-                    AudioManager.PlaySFX("SecondStar");
-                    AudioManager.PlaySFX("ThirdStar");
+                    if(GameUI._Button.GameUIButtons[12].activeSelf)
+                    {
+                        AudioManager.PlaySFX("FirstStarSFX");
+                    }
+                    if (GameUI._Button.GameUIButtons[13].activeSelf)
+                    {
+                        AudioManager.PlaySFX("SecondStarSFX");
+                    }
+                    if (GameUI._Button.GameUIButtons[14].activeSelf)
+                    {
+                        AudioManager.PlaySFX("ThirdStarSFX");
+                    }
+                    
                     Debug.Log("3. Yýldýz aktif oldu");
                 }
             }
