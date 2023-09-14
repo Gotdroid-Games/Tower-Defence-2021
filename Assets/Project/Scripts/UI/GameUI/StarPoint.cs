@@ -33,6 +33,7 @@ public class StarPoint : MonoBehaviour
             StartCoroutine(Waitfor());
         }
         SaveStarPoints();
+        Debug.Log(_starPoint);
     }
 
     public void Star()
@@ -62,6 +63,7 @@ public class StarPoint : MonoBehaviour
         {
             string jsonData = File.ReadAllText(Application.dataPath+ "/StarPointdata.json");
             starpointdata = JsonUtility.FromJson<StarPointData>(jsonData);
+            _starPoint = starpointdata.StarPoints;
             Star(); // Yüklenen puanı ekranda göster
         }
     }
