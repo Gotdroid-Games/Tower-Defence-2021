@@ -37,13 +37,23 @@ public class StarPoint : MonoBehaviour
 
     public void Star()
     {
-        starPointText.text = _starPoint.ToString();
-    }
+        starPointText.text = starpointdata.StarPoints.ToString();
 
+    }
     private void SaveStarPoints()
     {
+        starpointdata.StarPoints = _starPoint;
         string jsondata = JsonUtility.ToJson(starpointdata);
         File.WriteAllText(Application.dataPath + "/StarPointdata.json", jsondata);
+        try
+        {
+            File.WriteAllText(Application.dataPath + "/StarPointdata.json", jsondata);
+            Debug.Log("Başarıyla kaydedildi: " + Application.dataPath + "/StarPointdata.json");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Kaydetme Hatası: " + e.Message);
+        }
     }
 
     private void LoadStarPoints()
@@ -72,6 +82,7 @@ public class StarPoint : MonoBehaviour
                 if (_starPoint < i + 1)
                 {
                     _starPoint = i + 1;
+                    starpointdata.StarPoints = _starPoint;
                     Star();
                     Debug.Log("3. Y�ld�z aktif oldu");
                 }
