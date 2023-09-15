@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.13844842, g: 0.15762591, b: 0.18657717, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.13650796, g: 0.155496, b: 0.18582717, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17893,7 +17893,7 @@ MonoBehaviour:
   waveText: 0
   _Product: 10
   _basicRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  _gorillaRobot: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  _gorillaRobot: 010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   _smartHomeRobot: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   _droneRobot: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   _healerRobot: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -18432,14 +18432,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.29037023, y: -0.70037353, z: 0.19241649, w: -0.6230072}
+  m_LocalRotation: {x: -0.5991287, y: -0.29226476, z: 0.65000045, w: -0.36486372}
   m_LocalPosition: {x: 0, y: 37.9, z: -9.1}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 39.148, y: 101.128, z: -347.566}
+  m_LocalEulerAnglesHint: {x: 125.2, y: 101.128, z: -347.566}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21163,7 +21163,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
@@ -21207,7 +21206,7 @@ Camera:
   far clip plane: 3000
   field of view: 60
   orthographic: 1
-  orthographic size: 29.7
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -21238,27 +21237,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 49, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e817848de7e5dbc498771b927835ea3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panSpeed: 30
-  panBorderThickness: 10
-  scrollSpeed: 5
-  minX: 20
-  maxX: 40
-  minY: 10
-  maxY: 80
-  minZ: -85
-  maxZ: -70
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30984,7 +30962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20/12
+  m_text: 0/12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 99f528a6103de37469b2fec3b092ab94, type: 2}
   m_sharedMaterial: {fileID: 357852377049196993, guid: 99f528a6103de37469b2fec3b092ab94, type: 2}
@@ -31011,7 +30989,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.25
+  m_fontSize: 36.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
