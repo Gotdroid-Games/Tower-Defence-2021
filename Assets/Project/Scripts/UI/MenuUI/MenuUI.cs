@@ -19,7 +19,7 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI _sfxText;
     public List<GameObject> _buttons;
     public string dataFilePath;
-    
+    bool GameStartDataSave = false;
 
     [System.Serializable]
     public class VolumeData
@@ -35,21 +35,23 @@ public class MenuUI : MonoBehaviour
         dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
         _buttons[3].SetActive(false);
         _buttons[4].SetActive(false);
-        
+        if (!PlayerPrefs.HasKey("HasSavedData"))
+        {
+            // Ýlk kaydý yapýn
+            SaveVolumeData();
 
-        
-      
-        
-            
-        
-        
-        
+            // PlayerPrefs'te "HasSavedData" anahtarýný kaydedin ve deðerini "true" olarak ayarlayýn, böylece bir daha kayýt yapýlmaz.
+            PlayerPrefs.SetInt("HasSavedData", 1);
+            PlayerPrefs.Save();
+        }
+
+
     }
 
     private void Start()
     {
 
-        
+
         AudioManager = FindObjectOfType<AudioManager>();
         _musicButtonMuteImage.gameObject.SetActive(false);
         _sfxButtonMuteImage.gameObject.SetActive(false);
@@ -83,7 +85,7 @@ public class MenuUI : MonoBehaviour
     }
     public void LoadVolumeData()
     {
-         if (File.Exists(dataFilePath))
+        if (File.Exists(dataFilePath))
         {
             string jsonData = File.ReadAllText(dataFilePath);
             VolumeData volumedata = JsonUtility.FromJson<VolumeData>(jsonData);
@@ -91,7 +93,7 @@ public class MenuUI : MonoBehaviour
             sfxVolumeValue = volumedata.sfxVolumeValue.ToString("0.00");
             _musicSlider.value = volumedata.musicVolumeValue;
             _sfxSlider.value = volumedata.sfxVolumeValue;
-            
+
         }
     }
 
@@ -101,9 +103,9 @@ public class MenuUI : MonoBehaviour
         {
             musicVolumeValue = _musicSlider.value,
             sfxVolumeValue = _sfxSlider.value
-            
+
         };
-       
+
         string jsonData = JsonUtility.ToJson(volumedata);
         File.WriteAllText(dataFilePath, jsonData);
     }

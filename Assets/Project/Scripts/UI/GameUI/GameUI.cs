@@ -39,6 +39,9 @@ public class GameUI : MonoBehaviour
     //Kontrol De�i�kenleri
     public bool defeatMenuControl;
 
+    VolumeData loadeddata;
+    string jsonData;
+
 
     // private const string musicSettingsFilePath = "music_settings.json"; -1-
     /*
@@ -108,7 +111,10 @@ public class GameUI : MonoBehaviour
 
     private void Awake()
     {
-
+        
+        dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
+        jsonData = File.ReadAllText(dataFilePath);
+        loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
 
         //Pause (Durdurma) butonu d���nda ki t�m butonlar pasif halde
 
@@ -118,7 +124,6 @@ public class GameUI : MonoBehaviour
 
         }
         _Button.GameUIButtons[0].SetActive(true);
-
     }
     [System.Serializable]
     public class VolumeData //Bu kodda Json için tanımlamaları yaptık
@@ -129,9 +134,9 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
-        dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
-        string jsonData = File.ReadAllText(dataFilePath);
-        VolumeData loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
+        //dataFilePath = Path.Combine(Application.dataPath, "volumeData.json");
+        //jsonData = File.ReadAllText(dataFilePath);
+        //loadeddata = JsonUtility.FromJson<VolumeData>(jsonData);
         AudioManager = FindObjectOfType<AudioManager>();
 
         _musicButtonMuteImage.gameObject.SetActive(false);
