@@ -70,11 +70,7 @@ public class Node : MonoBehaviour
         }
 
         if (towerIndex != -1)
-        {
-            
-             
-            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[towerIndex].TowerMoneyBuy);
-            TowerselectionImage.gameObject.SetActive(false);
+        {  
 
             if (towerIndex == 0)
             {
@@ -98,22 +94,29 @@ public class Node : MonoBehaviour
     }
     public void PurchaseStandTurret()
     {
-        
         turret = (GameObject)Instantiate(towerPrefabs[0], transform.position + positionOffset, transform.rotation);
+        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
+        TowerselectionImage.gameObject.SetActive(false);
     }
 
     public void PurchaseAnotherTurret()
     {
         turret = (GameObject)Instantiate(towerPrefabs[1], transform.position + positionOffset, transform.rotation);
+        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
+        TowerselectionImage.gameObject.SetActive(false);
     }
     public void PurchaseHackerTower()
     {
         turret = (GameObject)Instantiate(towerPrefabs[2], transform.position + positionOffset, transform.rotation);
+        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[2].TowerMoneyBuy);
+        TowerselectionImage.gameObject.SetActive(false);
     }
 
     public void PurchaseSoldierTower()
     {
         turret = (GameObject)Instantiate(towerPrefabs[3], transform.position + positionOffset, transform.rotation);
+        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[3].TowerMoneyBuy);
+        TowerselectionImage.gameObject.SetActive(false);
     }
 
 
