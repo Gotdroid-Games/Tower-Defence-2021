@@ -6,6 +6,10 @@ public class BuildManager : MonoBehaviour
     public AudioManager AudioManager;
     public GameObject turretToBuild;
 
+    private void Start()
+    {
+        
+    }
     public GameObject GetTurretToBuild()
     {
         

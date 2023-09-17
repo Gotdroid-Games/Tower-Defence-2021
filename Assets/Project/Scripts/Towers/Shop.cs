@@ -5,13 +5,13 @@ using UnityEngine.Rendering;
 
 public class Shop : MonoBehaviour
 {
-    BuildManager BuildManager; // BuildManager sıfırdan bir nesne referans� tan�mlan�yor.
+    public BuildManager BuildManager; // BuildManager sıfırdan bir nesne referans� tan�mlan�yor.
     public AudioManager AudioManager;
     public bool bombSelected;
 
     private void Start()
     {
-        BuildManager = FindObjectOfType<BuildManager>(); // Oyun başladığında BuildManager nesnesi bulunarak tan�mlan�yor.
+        //BuildManager = FindObjectOfType<BuildManager>(); // Oyun başladığında BuildManager nesnesi bulunarak tan�mlan�yor.
     }
 
     public void PurchaseStandTurret()
