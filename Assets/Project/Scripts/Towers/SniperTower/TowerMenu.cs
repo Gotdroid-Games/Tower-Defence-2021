@@ -174,6 +174,7 @@ public class TowerMenu : MonoBehaviour
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
         }
+        
     }
 
 

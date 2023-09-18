@@ -7,19 +7,19 @@ using UnityEngine.UI;
 public class Node : MonoBehaviour
 {
     public AudioManager AudioManager;
-    public Color hoverColor;
     public Vector3 positionOffset;
     public Canvas TowerselectionImage;
     private GameObject turret;
 
     private Renderer rend;
-    private Color startColor;
 
     public BuildManager buildManager;
     GameManager GameManager;
     GameUI GameUI;
     public Shop shop;
-
+    public int[] towerBuildCount;
+    
+    public bool towerBuildControl = false;
     public GameObject[] towerPrefabs;
     bool hasTurret = false;
     private void Start()
@@ -27,96 +27,90 @@ public class Node : MonoBehaviour
         Debug.Log("Node Start method called.");
         rend = GetComponent<Renderer>();
         shop = GetComponent<Shop>();
-        startColor = rend.material.color;
-        
-        //buildManager = FindObjectOfType<BuildManager>();
-        //shop = FindObjectOfType<Shop>();
         GameManager = FindObjectOfType<GameManager>();
         GameUI = FindObjectOfType<GameUI>();
     }
 
     private void OnMouseDown()
     {
-        
-        TowerselectionImage.gameObject.SetActive(true);
-        
-        if (EventSystem.current.IsPointerOverGameObject())
+        if(towerBuildControl==false)
         {
-            return;
+            TowerselectionImage.gameObject.SetActive(true);
         }
-
-        if (buildManager.GetTurretToBuild() == null)
-        {
-            return;
-        }
-
-        if (turret != null)
-        {
-            Debug.Log("Kule zaten var.");
-            return;
-        }
-
-        GameObject turretToBuild = buildManager.GetTurretToBuild();
-        buildManager.turretToBuild = null;
-        int towerIndex = -1; // Hangi kuleyi seçildiğini saklamak için bir indeks değişkeni kullanalım.
-
-        if (GameUI._coinText >= GameManager.TowerVaribles[0].TowerMoneyBuy)
-        {
-            towerIndex = 0; // İlk kule seçildi.
-        }
-        else if (GameUI._coinText >= GameManager.TowerVaribles[1].TowerMoneyBuy)
-        {
-            towerIndex = 1; // İkinci kule seçildi.
-        }
-
-        if (towerIndex != -1)
-        {  
-
-            if (towerIndex == 0)
-            {
-                PurchaseStandTurret();
-                hasTurret = true; // Kule inşa edildiği zaman kontrol değişkenini true yap
-            }
-            else if (towerIndex == 1)
-            {
-                PurchaseAnotherTurret();
-                hasTurret = true; // Kule inşa edildiği zaman kontrol değişkenini true yap
-            }
-
-            // Hangi kuleyi seçildiyse ona göre ses efekti çal.
-            if (towerIndex == 0 || towerIndex == 1)
-            {
-                AudioManager.PlaySFX("HackerTowerBuildSFX");
-            }
-            
-        }
-        
     }
-    public void PurchaseStandTurret()
+    public void PurchaseLaserTurret()
     {
-        turret = (GameObject)Instantiate(towerPrefabs[0], transform.position + positionOffset, transform.rotation);
-        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
-        TowerselectionImage.gameObject.SetActive(false);
+        towerBuildCount[1] = 0;
+        towerBuildCount[2] = 0;
+        towerBuildCount[3] = 0;
+        towerBuildCount[0]++;
+
+        if (towerBuildCount[0] == 2)
+        {
+            turret = (GameObject)Instantiate(towerPrefabs[0], transform.position + positionOffset, transform.rotation);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneyBuy);
+            TowerselectionImage.gameObject.SetActive(false);
+            //AudioManager.PlaySFX("");
+            towerBuildCount[0] = 0;
+            towerBuildControl = true;
+        }
+
     }
 
-    public void PurchaseAnotherTurret()
+    public void PurchaseBombTurret()
     {
-        turret = (GameObject)Instantiate(towerPrefabs[1], transform.position + positionOffset, transform.rotation);
-        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
-        TowerselectionImage.gameObject.SetActive(false);
+        towerBuildCount[0] = 0;
+        towerBuildCount[2] = 0;
+        towerBuildCount[3] = 0;
+
+        towerBuildCount[1]++;
+        if (towerBuildCount[1] == 2)
+        {
+            turret = (GameObject)Instantiate(towerPrefabs[1], transform.position + positionOffset, transform.rotation);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneyBuy);
+            TowerselectionImage.gameObject.SetActive(false);
+            //AudioManager.PlaySFX("");
+            towerBuildCount[1] = 0;
+            towerBuildControl = true;
+        }
+
     }
     public void PurchaseHackerTower()
     {
-        turret = (GameObject)Instantiate(towerPrefabs[2], transform.position + positionOffset, transform.rotation);
-        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[2].TowerMoneyBuy);
-        TowerselectionImage.gameObject.SetActive(false);
+        towerBuildCount[0] = 0;
+        towerBuildCount[1] = 0;
+        towerBuildCount[3] = 0;
+
+        towerBuildCount[2]++;
+        if (towerBuildCount[2] == 2)
+        {
+            turret = (GameObject)Instantiate(towerPrefabs[2], transform.position + positionOffset, transform.rotation);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[2].TowerMoneyBuy);
+            TowerselectionImage.gameObject.SetActive(false);
+            AudioManager.PlaySFX("HackerTowerBuildSFX");
+            towerBuildCount[2] = 0;
+            towerBuildControl = true;
+        }
+
     }
 
     public void PurchaseSoldierTower()
     {
-        turret = (GameObject)Instantiate(towerPrefabs[3], transform.position + positionOffset, transform.rotation);
-        GameUI.DecreaseCoinValue(GameManager.TowerVaribles[3].TowerMoneyBuy);
-        TowerselectionImage.gameObject.SetActive(false);
+        towerBuildCount[0] = 0;
+        towerBuildCount[1] = 0;
+        towerBuildCount[2] = 0;
+
+        towerBuildCount[3]++;
+        if (towerBuildCount[3] == 2)
+        {
+            turret = (GameObject)Instantiate(towerPrefabs[3], transform.position + positionOffset, transform.rotation);
+            GameUI.DecreaseCoinValue(GameManager.TowerVaribles[3].TowerMoneyBuy);
+            TowerselectionImage.gameObject.SetActive(false);
+            //AudioManager.PlaySFX("");
+            towerBuildCount[3] = 0;
+            towerBuildControl = true;
+        }
+
     }
 
 

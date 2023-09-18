@@ -20530,6 +20530,10 @@ PrefabInstance:
       propertyPath: AudioManager
       value: 
       objectReference: {fileID: 487121055}
+    - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseLaserTurret
+      objectReference: {fileID: 0}
     - target: {fileID: 8167484517249014240, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_Name
       value: Insaa
@@ -29398,6 +29402,10 @@ PrefabInstance:
       propertyPath: AudioManager
       value: 
       objectReference: {fileID: 487121055}
+    - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseLaserTurret
+      objectReference: {fileID: 0}
     - target: {fileID: 8167484517249014240, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_Name
       value: Insaa
@@ -37341,13 +37349,21 @@ PrefabInstance:
       propertyPath: AudioManager
       value: 
       objectReference: {fileID: 487121055}
+    - target: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: towerBuildCount.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1959378652}
     - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: PurchaseLaserTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978205273789777991, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseBombTurret
       objectReference: {fileID: 0}
     - target: {fileID: 8167484517249014240, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_Name
@@ -37404,6 +37420,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8796492461507674970, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
   m_PrefabInstance: {fileID: 1959378650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1959378652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+  m_PrefabInstance: {fileID: 1959378650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdcd289ca5dafb42adf9d44fd0eb186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1963565598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38550,6 +38577,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 589565928}
     - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c787a7347ed3dc64ebcd38d65aabcd5b, type: 3}
+    - target: {fileID: 2654530324720362117, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 589565928}
@@ -38557,6 +38592,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 589565928}
+    - target: {fileID: 7506553439700130221, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8167484517249014240, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
       propertyPath: m_Name
       value: Insaa
