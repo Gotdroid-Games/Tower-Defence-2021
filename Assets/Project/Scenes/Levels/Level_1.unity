@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StarMenuUI: 0
+  totalStarPoints: 0
   StarMenuText: {fileID: 1702542920}
 --- !u!4 &33666329 stripped
 Transform:
@@ -23074,6 +23075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2c1f474ce01f44db8235acdd98a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starpointdata:
+    StarPoints: 0
   starPointText: {fileID: 1702542920}
 --- !u!4 &802401759
 Transform:
