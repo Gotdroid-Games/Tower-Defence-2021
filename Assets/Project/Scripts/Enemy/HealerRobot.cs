@@ -9,9 +9,10 @@ public class HealerRobot : MonoBehaviour
     public float MainDistance = 12f;
     public float HealthInterval = 1.5f;
     public float Timer = 0;
-
+    private Enemy enemyy;
     private void Awake()
     {
+        enemyy = FindObjectOfType<Enemy>();
         healtbar = FindObjectOfType<Healthbar>();
     }
     void Start()
@@ -33,10 +34,10 @@ public class HealerRobot : MonoBehaviour
                 {
                     float distance = Vector3.Distance(transform.position, obj.transform.position);
                     Enemy enemy = obj.GetComponent<Enemy>();
-                    if (distance < MainDistance && !enemy.isHealer)
+                    if (enemy != null && distance < MainDistance && !enemy.isHealer)
                     {
                        
-                        if (enemy != null && enemy.currentHealth < 100)
+                        if (  enemy.currentHealth < 100)
                         {
                             enemy.currentHealth += 10;
                             enemy.TakeHealth();
@@ -44,22 +45,40 @@ public class HealerRobot : MonoBehaviour
                         }
                     }
                     else
-                    {
+                    { 
                         ParticleSystem healingEffect = enemy.GetComponentInChildren<ParticleSystem>();
                         if (healingEffect != null)
                         {
                             healingEffect.Stop();
                             healingEffect.Clear();
                         }
+                        
                     }
                 }
 
             }
         }
-        
 
     }
-    private void OnDrawGizmos()
+    private void OnDestroy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            // Her düşmanı kontrol edin ve içindeki ParticleSystem'leri bulun
+            ParticleSystem healingEffect = enemy.GetComponentInChildren<ParticleSystem>();
+
+            if (healingEffect != null)
+            {
+                // Eğer bir ParticleSystem bulunursa, etkisini durdurun ve temizleyin
+                healingEffect.Stop();
+                healingEffect.Clear();
+            }
+        }
+    }
+
+        private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, MainDistance);
