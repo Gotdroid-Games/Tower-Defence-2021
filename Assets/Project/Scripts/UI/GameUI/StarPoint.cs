@@ -1,37 +1,76 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System.IO;
+
+[System.Serializable]
+public class StarPointData
+{
+    public int StarPoints;
+}
 
 public class StarPoint : MonoBehaviour
 {
-    public AudioManager AudioManager;
+    public StarPointData starpointdata;
     GameUI GameUI;
     WaveSpawner waveSpawner;
     public TextMeshProUGUI starPointText;
     public static int _starPoint = 0;
 
+   
     private void Start()
     {
+        starpointdata = new StarPointData();
         GameUI = FindObjectOfType<GameUI>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
+        LoadStarPoints();
     }
 
     private void Update()
     {
-        if (GameUI._waveText >= 12 && waveSpawner.totalenemiescheck == 0)
+        if (GameUI._waveText >= 2 && waveSpawner.totalenemiescheck == 0)
         {
             StartCoroutine(Waitfor());
         }
+        SaveStarPoints();
+        Debug.Log(_starPoint);
     }
 
     public void Star()
     {
-        starPointText.text = _starPoint.ToString();
+        starPointText.text = starpointdata.StarPoints.ToString();
+
+    }
+    private void SaveStarPoints()
+    {
+        starpointdata.StarPoints = _starPoint;
+        string jsondata = JsonUtility.ToJson(starpointdata);
+        File.WriteAllText(Application.dataPath + "/StarPointdata.json", jsondata);
+        try
+        {
+            File.WriteAllText(Application.dataPath + "/StarPointdata.json", jsondata);
+            Debug.Log("BaÅŸarÄ±yla kaydedildi: " + Application.dataPath + "/StarPointdata.json");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Kaydetme HatasÄ±: " + e.Message);
+        }
+    }
+
+    private void LoadStarPoints()
+    {
+        if (File.Exists(Application.dataPath + "/StarPointdata.json"))
+        {
+            string jsonData = File.ReadAllText(Application.dataPath+ "/StarPointdata.json");
+            starpointdata = JsonUtility.FromJson<StarPointData>(jsonData);
+            _starPoint = starpointdata.StarPoints;
+            Star(); // YÃ¼klenen puanÄ± ekranda gÃ¶ster
+        }
     }
 
     IEnumerator Waitfor()
     {
-        // Yýldýzlarýn aktifleþtirilmesi ve her aktif olan yýldýz karþýlýðýnda +1 puan kazanýlmasý
+        // Yï¿½ldï¿½zlarï¿½n aktifleï¿½tirilmesi ve her aktif olan yï¿½ldï¿½z karï¿½ï¿½lï¿½ï¿½ï¿½nda +1 puan kazanï¿½lmasï¿½
         int[] heartLevels = { 1, 10, 17 };
         GameObject[] starButtons = { GameUI._Button.GameUIButtons[12], GameUI._Button.GameUIButtons[13], GameUI._Button.GameUIButtons[14] };
 
@@ -45,21 +84,9 @@ public class StarPoint : MonoBehaviour
                 if (_starPoint < i + 1)
                 {
                     _starPoint = i + 1;
+                    starpointdata.StarPoints = _starPoint;
                     Star();
-                    if(GameUI._Button.GameUIButtons[12].activeSelf)
-                    {
-                        AudioManager.PlaySFX("FirstStarSFX");
-                    }
-                    if (GameUI._Button.GameUIButtons[13].activeSelf)
-                    {
-                        AudioManager.PlaySFX("SecondStarSFX");
-                    }
-                    if (GameUI._Button.GameUIButtons[14].activeSelf)
-                    {
-                        AudioManager.PlaySFX("ThirdStarSFX");
-                    }
-                    
-                    Debug.Log("3. Yýldýz aktif oldu");
+                    Debug.Log("3. Yï¿½ldï¿½z aktif oldu");
                 }
             }
         }

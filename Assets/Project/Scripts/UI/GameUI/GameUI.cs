@@ -454,7 +454,7 @@ public class GameUI : MonoBehaviour
     public void Winning()
     {
         //E�er dalga 12 olur ve t�m d��manlar �l�rse restart (Tekrar Ba�lat) ve continue (Devam Et) butonlar�n� aktif hale getirme
-        if (_waveText >= 12 && WaveSpawner.totalenemiescheck == 0)
+        if (_waveText >= 2 && WaveSpawner.totalenemiescheck == 0)
         {
             _Button.GameUIButtons[2].SetActive(true);
             _Button.GameUIButtons[11].SetActive(true);
