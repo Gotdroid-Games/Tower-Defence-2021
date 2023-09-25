@@ -59,7 +59,7 @@ public class HealerRobot : MonoBehaviour
             }
         }
 
-    }
+    } 
     private void OnDestroy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
