@@ -608,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192058863776836444, guid: 6a64a07c81a9ce1459feff8f56a69eff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 711995524606226918, guid: 6a64a07c81a9ce1459feff8f56a69eff, type: 3}
       propertyPath: m_RootOrder
@@ -694,21 +694,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 1320612479748778285, guid: b94bd4fee9b3f3d419d45f07491c34c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2943315147697244589, guid: b94bd4fee9b3f3d419d45f07491c34c1, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2943315147697244589, guid: b94bd4fee9b3f3d419d45f07491c34c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943315147697244589, guid: b94bd4fee9b3f3d419d45f07491c34c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943315147697244589, guid: b94bd4fee9b3f3d419d45f07491c34c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -57.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943315147697244589, guid: b94bd4fee9b3f3d419d45f07491c34c1, type: 3}
       propertyPath: m_LocalRotation.w

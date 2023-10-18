@@ -18,9 +18,10 @@ public class Node : MonoBehaviour
     GameUI GameUI;
     public Shop shop;
     public int[] towerBuildCount;
-    
+
     public bool towerBuildControl = false;
     public GameObject[] towerPrefabs;
+    public GameObject[] TowerBuildUI;
     bool hasTurret = false;
     private void Start()
     {
@@ -31,12 +32,10 @@ public class Node : MonoBehaviour
         GameUI = FindObjectOfType<GameUI>();
     }
 
-    private void OnMouseDown()
+    private void Update()
     {
-        if(towerBuildControl==false)
-        {
-            TowerselectionImage.gameObject.SetActive(true);
-        }
+        NodeClick();
+        Debug.Log(towerBuildControl);
     }
     public void PurchaseLaserTurret()
     {
@@ -72,6 +71,7 @@ public class Node : MonoBehaviour
             //AudioManager.PlaySFX("");
             towerBuildCount[1] = 0;
             towerBuildControl = true;
+
         }
 
     }
@@ -113,7 +113,33 @@ public class Node : MonoBehaviour
 
     }
 
+    public void NodeClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject || hit.collider.gameObject == TowerBuildUI[0] || hit.collider.gameObject == TowerBuildUI[1] ||
+                    hit.collider.gameObject == TowerBuildUI[2] || hit.collider.gameObject == TowerBuildUI[3])
+                {
+                    if (towerBuildControl == false)
+                    {
+                        TowerselectionImage.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    TowerselectionImage.gameObject.SetActive(false);
+                    towerBuildCount[0] = 0;
+                    towerBuildCount[1] = 0;
+                    towerBuildCount[2] = 0;
+                    towerBuildCount[3] = 0;
+                }
+            }
+        }
 
-
+    }
 }

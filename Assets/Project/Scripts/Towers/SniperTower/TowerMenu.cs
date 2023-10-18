@@ -11,6 +11,7 @@ public class TowerMenu : MonoBehaviour
     GameUI GameUI;
     Enemy Enemy;
     GameObject touchObjList;
+    Node Node;
     public EnemyManager.TowerType TowerType;
 
     //UI Elemanlarý
@@ -35,6 +36,8 @@ public class TowerMenu : MonoBehaviour
     public int sniperTowerDamageIncreasePercentage;
     public int sniperTowerRange;
 
+    public bool sniperTowerSell;
+
 
     private void Start()
     {
@@ -46,12 +49,13 @@ public class TowerMenu : MonoBehaviour
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
         GameUI = FindObjectOfType<GameUI>();
+        Node = FindObjectOfType<Node>();
 
         //Kule Hasar ve Menzil Tanýmlamalarý
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
         sniperTowerRange = GameManager.TowerVaribles[0].TowerRange;
 
-        
+
     }
 
     private void OnMouseDown()
@@ -65,9 +69,6 @@ public class TowerMenu : MonoBehaviour
         }
         else
         {
-            //UpgradeButton1.SetActive(false);
-            //SellButton.SetActive(false);
-            //TowerRangeController.MaxLevelButton.gameObject.SetActive(false);
             towerUI.SetActive(false);
             rangeindicator.SetActive(false);
             TowerClicked = false;
@@ -76,8 +77,8 @@ public class TowerMenu : MonoBehaviour
     }
     private void Update()
     {
-        sniperTowerDamageIncreasePercentage = (sniperTowerDamage * GameManager.TowerVaribles[0].TowerDamage*2/* TowerDamage*2 deðeri yüzdeliðin 2 katýný alýyor */) / 100;
-        rangeindicator.transform.localScale = new Vector3(sniperTowerRange*2, 0, sniperTowerRange*2);
+        sniperTowerDamageIncreasePercentage = (sniperTowerDamage * GameManager.TowerVaribles[0].TowerDamage * 2/* TowerDamage*2 deðeri yüzdeliðin 2 katýný alýyor */) / 100;
+        rangeindicator.transform.localScale = new Vector3(sniperTowerRange * 2, 0, sniperTowerRange * 2);
         Clickdetector();
 
         if (sniperTowerCount <= 2)
@@ -163,18 +164,21 @@ public class TowerMenu : MonoBehaviour
         if (sniperTowerCount == 0)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
+            Node.towerBuildControl = false;
         }
 
         if (sniperTowerCount == 1)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
+            Node.towerBuildControl = false;
         }
 
         if (sniperTowerCount == 2)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
+            Node.towerBuildControl = false;
         }
-        
+
     }
 
 
