@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0adb8b96e6427478cfccf66f7fcf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Node: {fileID: -7605381281078602939, guid: 0554154e7cacbc84882de5dbf143a794, type: 3}
+  Node: {fileID: 0}
   TowerType: 0
   UpgradeButton1: {fileID: 5570693761724152515}
   Tower: {fileID: 7206315001989547515}
@@ -439,6 +439,7 @@ MonoBehaviour:
   sniperTowerDamage: 0
   sniperTowerDamageIncreasePercentage: 0
   sniperTowerRange: 0
+  sniperTowerSell: 0
 --- !u!65 &-2641599783724214846
 BoxCollider:
   m_ObjectHideFlags: 0

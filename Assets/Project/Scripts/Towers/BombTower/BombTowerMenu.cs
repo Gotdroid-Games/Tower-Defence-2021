@@ -8,6 +8,7 @@ public class BombTowerMenu : MonoBehaviour
 {
     GameManager GameManager;
     GameUI GameUI;
+    public Node Node;
     public GameObject towerUI;
     public GameObject _upgradeButton;
     public GameObject SellButton;
@@ -34,7 +35,6 @@ public class BombTowerMenu : MonoBehaviour
         BombObjList[0].SetActive(true);
         GameManager = FindObjectOfType<GameManager>();
         GameUI = FindObjectOfType<GameUI>();
-
         bombTowerDamage = GameManager.TowerVaribles[1].TowerDamage;
         bombTowerRange = GameManager.TowerVaribles[1].TowerRange;
     }
@@ -58,8 +58,8 @@ public class BombTowerMenu : MonoBehaviour
     void Update()
     {
         rangeIndicator.SetActive(bombTowerClicked);
-        bombTowerDamageIncreasePercentage = (bombTowerDamage * GameManager.TowerVaribles[1].TowerDamage*2) / 100;
-        rangeIndicator.transform.localScale = new Vector3(bombTowerRange*2, 0.5f, bombTowerRange*2);
+        bombTowerDamageIncreasePercentage = (bombTowerDamage * GameManager.TowerVaribles[1].TowerDamage * 2) / 100;
+        rangeIndicator.transform.localScale = new Vector3(bombTowerRange * 2, 0.5f, bombTowerRange * 2);
         Clickdetector();
         if (Count <= 2)
         {
@@ -134,6 +134,7 @@ public class BombTowerMenu : MonoBehaviour
 
     public void BombTowerSell()
     {
+        Node.towerBuildControl = false;
         if (bombTowerCountCheck == 0)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[1].TowerMoneySellLevel1);

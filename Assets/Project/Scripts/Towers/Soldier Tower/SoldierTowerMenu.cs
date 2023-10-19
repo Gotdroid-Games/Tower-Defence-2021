@@ -17,6 +17,7 @@ public class SoldierTowerMenu : MonoBehaviour
     public GameObject sellButton;
     public GameObject soldilerTower;
     public GameObject rangeIndicator;
+    public Node Node;
     GameObject soldierObjList;
     public Button soldierTowerUpgradeButton;
     public TextMeshProUGUI soldierTowerUpgradeMoneyText;
@@ -40,9 +41,8 @@ public class SoldierTowerMenu : MonoBehaviour
         soldierTowerClicked = false;
         Count = 0;
         soldierList[0].SetActive(true);
-
         gameManager = FindObjectOfType<GameManager>();
-        gameUI= FindObjectOfType<GameUI>();
+        gameUI = FindObjectOfType<GameUI>();
     }
 
     List<Vector3> spawnedPositions = new List<Vector3>();
@@ -146,14 +146,14 @@ public class SoldierTowerMenu : MonoBehaviour
 
         if (gameUI._coinText >= gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1)
         {
-            if(soldierTowerCountCheck==0)
+            if (soldierTowerCountCheck == 0)
             {
                 gameUI.DecreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel1);
                 soldierDamage += gameManager.TowerVaribles[3].TowerDamageIncreaseValueLevel1;
                 soldierTowerRange += gameManager.TowerVaribles[3].TowerRangeIncreaseValueLevel1;
             }
-            
-            if(soldierTowerCountCheck==1)
+
+            if (soldierTowerCountCheck == 1)
             {
                 gameUI.DecreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneyUpgradeLevel2);
                 soldierDamage += gameManager.TowerVaribles[3].TowerDamageIncreaseValueLevel2;
@@ -166,6 +166,7 @@ public class SoldierTowerMenu : MonoBehaviour
 
     public void SoldierTowerSell()
     {
+        Node.towerBuildControl = false;
         if (soldierTowerCountCheck == 0)
         {
             gameUI.IncreaseCoinValue(gameManager.TowerVaribles[3].TowerMoneySellLevel1);

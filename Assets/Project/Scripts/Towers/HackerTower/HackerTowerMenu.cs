@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class HackerTowerMenu : MonoBehaviour
 {
-    
+
     GameManager gameManager;
     GameUI GameUI;
+    public Node Node;
 
     public GameObject towerUI;
     public GameObject _upgradeButton;
@@ -38,10 +39,9 @@ public class HackerTowerMenu : MonoBehaviour
         hackerTowerClicked = false;
         Count = 0;
         HackerObjList[0].SetActive(true);
-
         gameManager = FindObjectOfType<GameManager>();
         GameUI = FindObjectOfType<GameUI>();
-       
+
     }
 
     private void OnMouseDown()
@@ -62,12 +62,12 @@ public class HackerTowerMenu : MonoBehaviour
 
     void Update()
     {
-        Antenna1.transform.Rotate(0f, AntennaRotateSpeed*Time.deltaTime, 0f);
+        Antenna1.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna2.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna3.transform.Rotate(0f, AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna2small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
         Antenna3small.transform.Rotate(0f, -AntennaRotateSpeed * Time.deltaTime, 0f);
-        rangeIndicator.transform.localScale = new Vector3(hackerTowerRange*2, 0.5f, hackerTowerRange*2);
+        rangeIndicator.transform.localScale = new Vector3(hackerTowerRange * 2, 0.5f, hackerTowerRange * 2);
         rangeIndicator.SetActive(hackerTowerClicked);
         Clickdetector();
         if (Count <= 2)
@@ -87,7 +87,7 @@ public class HackerTowerMenu : MonoBehaviour
         else
         {
             _upgradeButton.SetActive(hackerTowerClicked);
-            
+
         }
 
         MaxlevelImage.gameObject.SetActive(Count == 2 && hackerTowerClicked);
@@ -142,6 +142,7 @@ public class HackerTowerMenu : MonoBehaviour
 
     public void HackerTowerSell()
     {
+        Node.towerBuildControl = false;
         if (hackerTowerCountCheck == 0)
         {
             GameUI.IncreaseCoinValue(gameManager.TowerVaribles[2].TowerMoneySellLevel1);

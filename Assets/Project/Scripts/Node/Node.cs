@@ -52,6 +52,7 @@ public class Node : MonoBehaviour
             //AudioManager.PlaySFX("");
             towerBuildCount[0] = 0;
             towerBuildControl = true;
+            turret.GetComponent<TowerMenu>().Node = this;
         }
 
     }
@@ -71,7 +72,7 @@ public class Node : MonoBehaviour
             //AudioManager.PlaySFX("");
             towerBuildCount[1] = 0;
             towerBuildControl = true;
-
+            turret.GetComponent<BombTowerMenu>().Node = this;
         }
 
     }
@@ -90,6 +91,7 @@ public class Node : MonoBehaviour
             AudioManager.PlaySFX("HackerTowerBuildSFX");
             towerBuildCount[2] = 0;
             towerBuildControl = true;
+            turret.GetComponent<HackerTowerMenu>().Node = this;
         }
 
     }
@@ -109,6 +111,7 @@ public class Node : MonoBehaviour
             //AudioManager.PlaySFX("");
             towerBuildCount[3] = 0;
             towerBuildControl = true;
+            turret.GetComponent<SoldierTowerMenu>().Node = this;
         }
 
     }

@@ -11,7 +11,7 @@ public class TowerMenu : MonoBehaviour
     GameUI GameUI;
     Enemy Enemy;
     GameObject touchObjList;
-    Node Node;
+    public Node Node;
     public EnemyManager.TowerType TowerType;
 
     //UI Elemanlarý
@@ -49,7 +49,6 @@ public class TowerMenu : MonoBehaviour
         GameManager = FindObjectOfType<GameManager>();
         Enemy = FindObjectOfType<Enemy>();
         GameUI = FindObjectOfType<GameUI>();
-        Node = FindObjectOfType<Node>();
 
         //Kule Hasar ve Menzil Tanýmlamalarý
         sniperTowerDamage = GameManager.TowerVaribles[0].TowerDamage;
@@ -159,26 +158,26 @@ public class TowerMenu : MonoBehaviour
 
     public void SniperTowerSell()
     {
-        Destroy(gameObject);
+        Node.towerBuildControl = false;
 
         if (sniperTowerCount == 0)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel1);
-            Node.towerBuildControl = false;
+            
         }
 
         if (sniperTowerCount == 1)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel2);
-            Node.towerBuildControl = false;
+            
         }
 
         if (sniperTowerCount == 2)
         {
             GameUI.IncreaseCoinValue(GameManager.TowerVaribles[0].TowerMoneySellLevel3);
-            Node.towerBuildControl = false;
+            
         }
-
+        Destroy(gameObject);
     }
 
 
@@ -200,7 +199,6 @@ public class TowerMenu : MonoBehaviour
                     towerUI.SetActive(true);
                     rangeindicator.SetActive(true);
                     rangeindicator.transform.position = transform.position;
-
                 }
             }
 
@@ -210,7 +208,6 @@ public class TowerMenu : MonoBehaviour
                 TowerClicked = false;
                 towerUI.SetActive(false);
                 rangeindicator.SetActive(false);
-
             }
         }
     }
